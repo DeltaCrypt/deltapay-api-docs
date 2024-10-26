@@ -1,0 +1,7 @@
+site_name: DeltaPay API Documentation
+
+nav:
+  - Home: index.md
+  - About: about.md
+
+theme: material
