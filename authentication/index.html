@@ -827,66 +827,83 @@
 <a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="w">  </span><span class="nt">&quot;detail&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Token expired&quot;</span>
 <a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="p">}</span>
 </code></pre></div>
-<p>The following exceptions can occur:
-- Not authorized
-- Username or password incorrect
-- User not confirmed
-- Username not found
-- Could not validate credentials
-- Failed to validate token
-- Invalid API key
-- API key has expired
-- API key has been revoked
-- Provide either a token or an API key, not both
-- Either a token or an API key must be provided</p>
-<p><strong>SignUp</strong>:
-  - Failed
-  - User not found
-  - Username not found
-  - User already registered
-  - Username already in use
-  - Password does not meet the requirements
-  - Confirmation code is incorrect
-  - Confirmation code has expired
-  - Attempt limit exceeded</p>
-<p><strong>Login</strong>:
-  - Failed
-  - Another challenge is required
-  - Username not found in the database</p>
+<p>The following exceptions can occur:</p>
+<ul>
+<li>Not authorized</li>
+<li>Username or password incorrect</li>
+<li>User not confirmed</li>
+<li>Username not found</li>
+<li>Could not validate credentials</li>
+<li>Failed to validate token</li>
+<li>Invalid API key</li>
+<li>API key has expired</li>
+<li>API key has been revoked</li>
+<li>Provide either a token or an API key, not both</li>
+<li>Either a token or an API key must be provided</li>
+</ul>
+<p><strong>SignUp</strong>:</p>
+<ul>
+<li>Failed</li>
+<li>User not found</li>
+<li>Username not found</li>
+<li>User already registered</li>
+<li>Username already in use</li>
+<li>Password does not meet the requirements</li>
+<li>Confirmation code is incorrect</li>
+<li>Confirmation code has expired</li>
+<li>Attempt limit exceeded</li>
+</ul>
+<p><strong>Login</strong>:</p>
+<ul>
+<li>Failed</li>
+<li>Another challenge is required</li>
+<li>Username not found in the database</li>
+</ul>
 <p><strong>Refresh Access Token</strong>: Failed</p>
-<p><strong>Forgot Password</strong>:
-  - Failed
-  - Username not found
-  - Attempt limit exceeded
-  - Confirmation code is incorrect
-  - Confirmation code has expired
-  - Too many failed attempts
-  - Password does not meet the requirements</p>
-<p><strong>Change Password</strong>:
-  - Failed
-  - Password does not meet the requirements
-  - Attempt limit exceeded</p>
-<p><strong>Change Phone Number</strong>:
-  - Failed
-  - Code is incorrect
-  - Code has expired
-  - Attempt limit exceeded</p>
+<p><strong>Forgot Password</strong>:</p>
+<ul>
+<li>Failed</li>
+<li>Username not found</li>
+<li>Attempt limit exceeded</li>
+<li>Confirmation code is incorrect</li>
+<li>Confirmation code has expired</li>
+<li>Too many failed attempts</li>
+<li>Password does not meet the requirements</li>
+</ul>
+<p><strong>Change Password</strong>:</p>
+<ul>
+<li>Failed</li>
+<li>Password does not meet the requirements</li>
+<li>Attempt limit exceeded</li>
+</ul>
+<p><strong>Change Phone Number</strong>:</p>
+<ul>
+<li>Failed</li>
+<li>Code is incorrect</li>
+<li>Code has expired</li>
+<li>Attempt limit exceeded</li>
+</ul>
 <p>Another common cause for an endpoint to return 401 (Unauthorized) is missing permissions, <em>e.g.</em></p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="p">{</span>
 <a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="w">  </span><span class="nt">&quot;detail&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;API key does not have the required permission: view_kyc_data (target_user_id: 2)&quot;</span>
 <a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="p">}</span>
 </code></pre></div>
 <h2 id="blockchain-transaction-signatures">Blockchain Transaction Signatures</h2>
-<p>The interaction with the blockchain follows three simple steps:
-1. Obtain the raw blockchain transaction (generally using one of the GET endpoints prefixed with raw).
-2. Sign the transaction locally using the Ethereum wallet previously generated.
-3. Optionally query the state of the blockchain transaction.</p>
+<p>The interaction with the blockchain follows three simple steps:</p>
+<ol>
+<li>Obtain the raw blockchain transaction (generally using one of the GET endpoints prefixed with raw).</li>
+<li>Sign the transaction locally using the Ethereum wallet previously generated.</li>
+<li>Optionally query the state of the blockchain transaction.</li>
+</ol>
 <p>For more details on specific endpoints, please refer to the example attached to this document or contact DeltaPay directly.</p>
-<p>For the transaction to succeed, the wallet used to sign it must be whitelisted on the blockchain. This requires the caller to provide the public wallet address of the wallet they want to link to the API-key-account (or user-account) pair, which happens implicitly in one of the following ways:
-- <code>POST /account/link-api-key</code>
-- <code>POST /account/create-personal</code>
-- <code>POST /account/register-business</code></p>
+<p>For the transaction to succeed, the wallet used to sign it must be whitelisted on the blockchain. This requires the caller to provide the public wallet address of the wallet they want to link to the API-key-account (or user-account) pair, which happens implicitly in one of the following ways:</p>
+<ul>
+<li><code>POST /account/link-api-key</code></li>
+<li><code>POST /account/create-personal</code></li>
+<li><code>POST /account/register-business</code></li>
+</ul>
 <p>For the purpose of this document, we focus on the scenario where API keys are used. For more details on linking an API key to an account, refer to <strong>Linking API Key</strong> in the setup section.</p>
+<!-- TODO: Fix this note (or reformat) -->
 <blockquote>
 <p><strong>Note</strong>: Transactions signed by a wallet linked to an API key differ in some ways from those linked to a user. In particular:
 - API Keys do not have a spending allowance. Therefore, no transaction initiated by an API key will ever need to be approved.
