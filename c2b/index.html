@@ -18,6 +18,8 @@
         <link rel="prev" href="../setup/">
       
       
+        <link rel="next" href="../b2c/">
+      
       
       <link rel="icon" href="../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.5.42">
@@ -573,21 +575,6 @@
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="IPN">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#example-callback-body" class="md-nav__link">
-    <span class="md-ellipsis">
-      Example Callback Body
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
 </li>
       
         <li class="md-nav__item">
@@ -606,30 +593,6 @@
       GET /full-transaction/from-id
     </span>
   </a>
-  
-    <nav class="md-nav" aria-label="GET /full-transaction/from-id">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#request-parameters" class="md-nav__link">
-    <span class="md-ellipsis">
-      Request Parameters
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#required-permissions" class="md-nav__link">
-    <span class="md-ellipsis">
-      Required Permissions
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
         
@@ -654,7 +617,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../b2c.md" class="md-nav__link">
+      <a href="../b2c/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -708,21 +671,6 @@
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="IPN">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#example-callback-body" class="md-nav__link">
-    <span class="md-ellipsis">
-      Example Callback Body
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
 </li>
       
         <li class="md-nav__item">
@@ -741,30 +689,6 @@
       GET /full-transaction/from-id
     </span>
   </a>
-  
-    <nav class="md-nav" aria-label="GET /full-transaction/from-id">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#request-parameters" class="md-nav__link">
-    <span class="md-ellipsis">
-      Request Parameters
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#required-permissions" class="md-nav__link">
-    <span class="md-ellipsis">
-      Required Permissions
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
         
@@ -801,12 +725,12 @@
 </code></pre></div>
 <p>The notification payload includes the <code>transaction_id</code> and <code>status</code>. Based on the transaction status, the client can determine whether to retrieve more detailed information about the transaction.</p>
 <p><strong>Important:</strong> This callback is not signed, meaning it could originate from anyone. The user must call <code>GET /full-transaction/from-id</code> to confirm the transaction data.</p>
-<h4 id="example-callback-body">Example Callback Body</h4>
+<p><strong>Example Callback Body</strong>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="p">{</span>
 <a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="w">    </span><span class="nt">&quot;transaction_id&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">42</span><span class="p">,</span>
 <a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">    </span><span class="nt">&quot;status&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;succeeded&quot;</span>
 <a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="p">}</span>
-</code></pre></div>
+</code></pre></div></p>
 <p>The following transaction statuses are notified about:</p>
 <ul>
 <li>initiated</li>
@@ -814,15 +738,16 @@
 <li>succeeded</li>
 <li>failed</li>
 </ul>
+<blockquote>
 <p><strong>Note:</strong> Transactions that do not require approval or finalization will automatically move to the approved or succeeded state. For instance, a bank deposit initiated by a user with sufficient spending allowance will begin in the approved state. Similarly, a transfer that does not require approval will immediately be marked as succeeded.</p>
+</blockquote>
 <h2 id="querying-transactions">Querying Transactions</h2>
 <h3 id="get-full-transactionfrom-id"><code>GET /full-transaction/from-id</code></h3>
 <p>This endpoint returns all the details on the transaction as opposed to <code>GET accounts/transactions</code>, which returns transactions from the calling account's perspective.</p>
-<p>The caller can optionally specify the account from whose perspective the amount, fee, and commission will be viewed. To demonstrate this, consider a cash withdrawal of E10. The sender (i.e., the user withdrawing the cash) pays a fee calculated as:</p>
-<div class="arithmatex">\[
-\text{fee}(x) = 1 + 0.015x
-\]</div>
-<p>and 1% goes as commission to the recipient (i.e., the merchant offering the withdrawal). This will result in the following responses from the endpoint, depending on which account is specified in the <code>caller_account_id</code>:</p>
+<p>The caller can optionally specify the account from whose perspective the amount, fee, and commission will be viewed. To demonstrate this, consider a cash withdrawal of E10. The sender (<em>i.e.</em>, the user withdrawing the cash) pays a fee calculated as:</p>
+<div class="highlight"><pre><span></span><code>fee(x) = 1 + 0.015x
+</code></pre></div>
+<p>and 1% goes as commission to the recipient (<em>i.e.</em>, the merchant offering the withdrawal). This will result in the following responses from the endpoint, depending on which account is specified in the <code>caller_account_id</code>:</p>
 <ul>
 <li>
 <p><code>caller_account_id = sender_account_id</code>
@@ -867,14 +792,15 @@
 </code></pre></div></p>
 </li>
 </ul>
-<h4 id="request-parameters">Request Parameters</h4>
+<p><strong>Request Parameters</strong></p>
 <ul>
 <li><code>transaction_id</code>: <code>number</code></li>
 <li><code>caller_account_id</code>: <code>Optional[number]</code></li>
 </ul>
-<h4 id="required-permissions">Required Permissions</h4>
+<p><strong>Required Permissions</strong></p>
 <p>The caller must have the <code>view_transactions</code> permission, either generally or specifically for the sender or recipient account. Furthermore, the user's permissions and their potential attachment as an employee to the accounts involved in the transaction will determine whether they can see details on the initiator, approver, and finalizer.</p>
-<div class="highlight"><span class="filename">example_response.json</span><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="p">{</span>
+<p><strong>Example Response</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="p">{</span>
 <a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="w">  </span><span class="nt">&quot;transaction_id&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">42</span><span class="p">,</span>
 <a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="w">  </span><span class="nt">&quot;transaction_type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;cash_withdrawal&quot;</span><span class="p">,</span>
 <a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a><span class="w">  </span><span class="nt">&quot;transaction_status&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;succeeded&quot;</span><span class="p">,</span>
@@ -903,7 +829,7 @@
 <a id="__codelineno-4-27" name="__codelineno-4-27" href="#__codelineno-4-27"></a><span class="w">  </span><span class="nt">&quot;approver&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span>
 <a id="__codelineno-4-28" name="__codelineno-4-28" href="#__codelineno-4-28"></a><span class="w">  </span><span class="nt">&quot;finaliser&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span>
 <a id="__codelineno-4-29" name="__codelineno-4-29" href="#__codelineno-4-29"></a><span class="p">}</span>
-</code></pre></div>
+</code></pre></div></p>
 
 
 
@@ -957,6 +883,22 @@
             </div>
           </a>
         
+        
+          
+          <a href="../b2c/" class="md-footer__link md-footer__link--next" aria-label="Next: B2C">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              <div class="md-ellipsis">
+                B2C
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg>
+            </div>
+          </a>
         
       </nav>
     

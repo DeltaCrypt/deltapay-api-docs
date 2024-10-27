@@ -12,8 +12,10 @@
         <meta name="author" content="Adrian Albert Koch">
       
       
-        <link rel="canonical" href="https://deltapay.co.sz/B2c/">
+        <link rel="canonical" href="https://deltapay.co.sz/b2c/">
       
+      
+        <link rel="prev" href="../c2b/">
       
       
       
@@ -61,7 +63,7 @@
       
         <meta  property="og:description"  content="Official Documentation for the DeltaPay API." >
       
-        <meta  property="og:image"  content="https://deltapay.co.sz/assets/images/social/B2c.png" >
+        <meta  property="og:image"  content="https://deltapay.co.sz/assets/images/social/b2c.png" >
       
         <meta  property="og:image:type"  content="image/png" >
       
@@ -69,7 +71,7 @@
       
         <meta  property="og:image:height"  content="630" >
       
-        <meta  property="og:url"  content="https://deltapay.co.sz/B2c/" >
+        <meta  property="og:url"  content="https://deltapay.co.sz/b2c/" >
       
         <meta  name="twitter:card"  content="summary_large_image" >
       
@@ -77,7 +79,7 @@
       
         <meta  name="twitter:description"  content="Official Documentation for the DeltaPay API." >
       
-        <meta  name="twitter:image"  content="https://deltapay.co.sz/assets/images/social/B2c.png" >
+        <meta  name="twitter:image"  content="https://deltapay.co.sz/assets/images/social/b2c.png" >
       
     
     
@@ -271,10 +273,12 @@
         
   
   
+    
+  
   
     
     
-      <li class="md-tabs__item">
+      <li class="md-tabs__item md-tabs__item--active">
         <a href="../c2b/" class="md-tabs__link">
           
   
@@ -463,8 +467,10 @@
       
   
   
+    
   
   
+  
     
     
       
@@ -475,19 +481,22 @@
     
     
       
+        
+        
+      
       
         
       
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
         
           
-          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="">
             
   
   <span class="md-ellipsis">
@@ -498,7 +507,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_3">
             <span class="md-nav__icon md-icon"></span>
             Common Use Cases
@@ -530,10 +539,30 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../b2c.md" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    B2C
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   <span class="md-ellipsis">
@@ -542,6 +571,125 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#check-transaction-possible" class="md-nav__link">
+    <span class="md-ellipsis">
+      Check Transaction Possible
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Check Transaction Possible">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#get-transactiontransfer-possible" class="md-nav__link">
+    <span class="md-ellipsis">
+      GET /transaction/transfer-possible
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#initiate-transactions" class="md-nav__link">
+    <span class="md-ellipsis">
+      Initiate Transactions
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Initiate Transactions">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#get-transactioninitiate-transfer" class="md-nav__link">
+    <span class="md-ellipsis">
+      GET /transaction/initiate-transfer
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#sign-the-transaction" class="md-nav__link">
+    <span class="md-ellipsis">
+      Sign the Transaction
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#submit-the-signed-transaction" class="md-nav__link">
+    <span class="md-ellipsis">
+      Submit the Signed Transaction
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Submit the Signed Transaction">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#post-blockchainsigned-transaction" class="md-nav__link">
+    <span class="md-ellipsis">
+      POST /blockchain/signed-transaction
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#get-blockchaintransaction-status" class="md-nav__link">
+    <span class="md-ellipsis">
+      GET /blockchain/transaction-status
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#get-blockchaintransactionerror-message" class="md-nav__link">
+    <span class="md-ellipsis">
+      GET /blockchain/transaction/error-message
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -714,7 +862,9 @@
 <li>Account suspended or closed</li>
 <li>User not whitelisted</li>
 </ul>
+<blockquote>
 <p><strong>Note</strong>: Insufficient spending allowances do not prevent the transaction from occurring; rather, the transaction will require approval, which will, in turn, reflect in the state of the transaction.</p>
+</blockquote>
 <h3 id="get-transactiontransfer-possible"><code>GET /transaction/transfer-possible</code></h3>
 <p><strong>Request Parameters</strong></p>
 <ul>
@@ -725,7 +875,9 @@
 <li><code>recipient_account_id</code>: <em>Optional[number]</em></li>
 </ul>
 <p>The <code>sender_wallet_address</code> must be linked to an account.</p>
+<blockquote>
 <p><strong>Either</strong> the <code>recipient_username</code> <strong>or</strong> <code>recipient_account_id</code> (or both) must be provided. If only the <code>recipient_username</code> is provided, the recipient account will be assumed to be the user's personal account. If both the <code>recipient_username</code> and <code>recipient_account_id</code> are provided, the <code>recipient_username</code> will be stored on the database in addition to the account.</p>
+</blockquote>
 <p><strong>Example Response</strong>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="p">{</span>
 <a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="w">    </span><span class="nt">&quot;possible&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span>
@@ -779,54 +931,58 @@
 <h2 id="sign-the-transaction">Sign the Transaction</h2>
 <p>The next step involves signing the <code>raw_transaction</code> returned by the <code>GET /transaction/initiate-transfer</code> endpoint. The customer may use any of the available libraries that provide Ethereum functions.</p>
 <ul>
-<li><strong>JavaScript / TypeScript</strong></li>
-<li><a href="https://github.com/ethers-io/ethers.js/">ethers.js</a></li>
 <li>
-<p><a href="https://github.com/ethereum/web3.js/">web3.js</a></p>
+<p><strong>JavaScript / TypeScript</strong></p>
+<ul>
+<li><a href="https://github.com/ethers-io/ethers.js/">ethers.js</a></li>
+<li><a href="https://github.com/ethereum/web3.js/">web3.js</a></li>
+</ul>
 </li>
 <li>
 <p><strong>Python</strong></p>
-</li>
+<ul>
 <li><a href="https://github.com/ethereum/web3.py">web3.py</a></li>
-<li>
-<p><a href="https://github.com/ethereum/eth-account">eth-account</a></p>
+<li><a href="https://github.com/ethereum/eth-account">eth-account</a></li>
+</ul>
 </li>
 <li>
 <p><strong>Go</strong></p>
-</li>
+<ul>
 <li><a href="https://github.com/ethereum/go-ethereum">go-ethereum (geth)</a></li>
-<li>
-<p><a href="https://github.com/libs4go/ethers">ethers (for Go)</a></p>
+<li><a href="https://github.com/libs4go/ethers">ethers (for Go)</a></li>
+</ul>
 </li>
 <li>
 <p><strong>Java</strong></p>
-</li>
-<li>
-<p><a href="https://github.com/web3j/web3j">web3j</a></p>
+<ul>
+<li><a href="https://github.com/web3j/web3j">web3j</a></li>
+</ul>
 </li>
 <li>
 <p><strong>C#</strong></p>
-</li>
-<li>
-<p><a href="https://github.com/Nethereum/Nethereum">Nethereum</a></p>
+<ul>
+<li><a href="https://github.com/Nethereum/Nethereum">Nethereum</a></li>
+</ul>
 </li>
 <li>
 <p><strong>Ruby</strong></p>
-</li>
-<li>
-<p><a href="https://github.com/EthWorks/ethereum.rb">ethereum.rb</a></p>
+<ul>
+<li><a href="https://github.com/EthWorks/ethereum.rb">ethereum.rb</a></li>
+</ul>
 </li>
 <li>
 <p><strong>Swift (iOS)</strong></p>
-</li>
-<li>
-<p><a href="https://github.com/Boilertalk/Web3.swift">web3.swift</a></p>
+<ul>
+<li><a href="https://github.com/Boilertalk/Web3.swift">web3.swift</a></li>
+</ul>
 </li>
 <li>
 <p><strong>Rust</strong></p>
-</li>
+<ul>
 <li><a href="https://github.com/gakonst/ethers-rs">ethers-rs</a></li>
 <li><a href="https://github.com/tomusdrw/rust-web3">web3-rs</a></li>
+</ul>
+</li>
 </ul>
 <hr />
 <h2 id="submit-the-signed-transaction">Submit the Signed Transaction</h2>
@@ -909,6 +1065,28 @@
       
         <footer class="md-footer">
   
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Footer" >
+        
+          
+          <a href="../c2b/" class="md-footer__link md-footer__link--prev" aria-label="Previous: C2B">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              <div class="md-ellipsis">
+                C2B
+              </div>
+            </div>
+          </a>
+        
+        
+      </nav>
     
   
   <div class="md-footer-meta md-typeset">

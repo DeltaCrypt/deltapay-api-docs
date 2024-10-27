@@ -478,30 +478,6 @@
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="POST /user/grant-account-permissions">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#request-parameters" class="md-nav__link">
-    <span class="md-ellipsis">
-      Request Parameters
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#required-permissions" class="md-nav__link">
-    <span class="md-ellipsis">
-      Required Permissions
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
 </li>
         
           <li class="md-nav__item">
@@ -511,39 +487,6 @@
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="GET /user/permissions">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#request-parameters_1" class="md-nav__link">
-    <span class="md-ellipsis">
-      Request Parameters
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#required-permissions_1" class="md-nav__link">
-    <span class="md-ellipsis">
-      Required Permissions
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#example-response" class="md-nav__link">
-    <span class="md-ellipsis">
-      Example Response
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
 </li>
         
           <li class="md-nav__item">
@@ -552,30 +495,6 @@
       DELETE /user/revoke-account-permissions
     </span>
   </a>
-  
-    <nav class="md-nav" aria-label="DELETE /user/revoke-account-permissions">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#request-parameters_2" class="md-nav__link">
-    <span class="md-ellipsis">
-      Request Parameters
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#required-permissions_2" class="md-nav__link">
-    <span class="md-ellipsis">
-      Required Permissions
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
         
@@ -716,7 +635,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../b2c.md" class="md-nav__link">
+      <a href="../b2c/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -789,30 +708,6 @@
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="POST /user/grant-account-permissions">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#request-parameters" class="md-nav__link">
-    <span class="md-ellipsis">
-      Request Parameters
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#required-permissions" class="md-nav__link">
-    <span class="md-ellipsis">
-      Required Permissions
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
 </li>
         
           <li class="md-nav__item">
@@ -822,39 +717,6 @@
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="GET /user/permissions">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#request-parameters_1" class="md-nav__link">
-    <span class="md-ellipsis">
-      Request Parameters
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#required-permissions_1" class="md-nav__link">
-    <span class="md-ellipsis">
-      Required Permissions
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#example-response" class="md-nav__link">
-    <span class="md-ellipsis">
-      Example Response
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
 </li>
         
           <li class="md-nav__item">
@@ -863,30 +725,6 @@
       DELETE /user/revoke-account-permissions
     </span>
   </a>
-  
-    <nav class="md-nav" aria-label="DELETE /user/revoke-account-permissions">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#request-parameters_2" class="md-nav__link">
-    <span class="md-ellipsis">
-      Request Parameters
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#required-permissions_2" class="md-nav__link">
-    <span class="md-ellipsis">
-      Required Permissions
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
         
@@ -965,23 +803,19 @@
 <blockquote>
 <p><strong>Note:</strong> Granting a permission twice will not throw an error, but simply be ignored.</p>
 </blockquote>
-<h4 id="request-parameters">Request Parameters</h4>
-<ul>
-<li><code>subject_user_id</code>: <code>number</code></li>
-<li><code>permissions</code>: <code>Array[string]</code></li>
-<li><code>target_account_id</code>: <code>number</code></li>
-</ul>
-<h4 id="required-permissions">Required Permissions</h4>
-<p>The caller must have the general <code>grant_account_permission</code> permission.</p>
+<p><strong>Request Parameters</strong>
+- <code>subject_user_id</code>: <code>number</code>
+- <code>permissions</code>: <code>Array[string]</code>
+- <code>target_account_id</code>: <code>number</code></p>
+<p><strong>Required Permissions</strong>
+The caller must have the general <code>grant_account_permission</code> permission.</p>
 <h3 id="get-userpermissions"><code>GET /user/permissions</code></h3>
-<h4 id="request-parameters_1">Request Parameters</h4>
-<ul>
-<li><code>user_id</code>: <code>Optional[number]</code></li>
-</ul>
+<p><strong>Request Parameters</strong>
+- <code>user_id</code>: <code>Optional[number]</code></p>
 <p>If the <code>user_id</code> is not provided and the caller uses an OAuth token to authenticate the call, it can be determined from the token.</p>
-<h4 id="required-permissions_1">Required Permissions</h4>
-<p>The caller must have the <code>view_permissions</code> permission, either generally or specifically for the user. As described at the beginning of the Permissions chapter, users do not need any permissions to view their own data.</p>
-<h4 id="example-response">Example Response</h4>
+<p><strong>Required Permissions</strong>
+The caller must have the <code>view_permissions</code> permission, either generally or specifically for the user. As described at the beginning of the Permissions chapter, users do not need any permissions to view their own data.</p>
+<p><strong>Example Response</strong>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="p">{</span>
 <a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="w">    </span><span class="p">{</span>
 <a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">      </span><span class="nt">&quot;permission&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;view_spending_allowance&quot;</span><span class="p">,</span>
@@ -1002,18 +836,16 @@
 <a id="__codelineno-0-18" name="__codelineno-0-18" href="#__codelineno-0-18"></a><span class="w">      </span><span class="p">]</span>
 <a id="__codelineno-0-19" name="__codelineno-0-19" href="#__codelineno-0-19"></a><span class="w">    </span><span class="p">},</span>
 <a id="__codelineno-0-20" name="__codelineno-0-20" href="#__codelineno-0-20"></a><span class="w">    </span><span class="err">...</span>
-</code></pre></div>
+</code></pre></div></p>
 <h3 id="delete-userrevoke-account-permissions"><code>DELETE /user/revoke-account-permissions</code></h3>
 <p>This endpoint can be used to revoke either a specific or all permission(s) for a certain user or target account.</p>
-<h4 id="request-parameters_2">Request Parameters</h4>
-<ul>
-<li><code>subject_user_id</code>: <code>number</code></li>
-<li><code>target_account_id</code>: <code>number</code></li>
-<li><code>permissions</code>: <code>Optional[string]</code></li>
-</ul>
+<p><strong>Request Parameters</strong>
+- <code>subject_user_id</code>: <code>number</code>
+- <code>target_account_id</code>: <code>number</code>
+- <code>permissions</code>: <code>Optional[string]</code></p>
 <p>If permission is null, all permissions are revoked for the target account.</p>
-<h4 id="required-permissions_2">Required Permissions</h4>
-<p>The caller must have the general <code>revoke_account_permission</code> permission.</p>
+<p><strong>Required Permissions</strong>
+The caller must have the general <code>revoke_account_permission</code> permission.</p>
 
 
 

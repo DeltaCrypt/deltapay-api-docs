@@ -490,30 +490,6 @@
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Login Endpoint">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#request-parameters" class="md-nav__link">
-    <span class="md-ellipsis">
-      Request Parameters
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#example-response" class="md-nav__link">
-    <span class="md-ellipsis">
-      Example Response
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
 </li>
         
           <li class="md-nav__item">
@@ -668,7 +644,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../b2c.md" class="md-nav__link">
+      <a href="../b2c/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -731,30 +707,6 @@
       Login Endpoint
     </span>
   </a>
-  
-    <nav class="md-nav" aria-label="Login Endpoint">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#request-parameters" class="md-nav__link">
-    <span class="md-ellipsis">
-      Request Parameters
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#example-response" class="md-nav__link">
-    <span class="md-ellipsis">
-      Example Response
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
         
@@ -827,12 +779,10 @@
 <p>This form of authentication is designed for individual users. The generated token contains the <code>user_id</code> and can be used to determine the caller without the need to explicitly provide the <code>user_id</code>.</p>
 <h3 id="login-endpoint">Login Endpoint</h3>
 <p>The <code>POST /login</code> endpoint expects <code>x-www-form-url-encoded</code> data. This is an exception, as all other POST endpoints expect JSON-encoded data.</p>
-<h4 id="request-parameters">Request Parameters</h4>
-<ul>
-<li><code>username</code>: <code>string</code></li>
-<li><code>password</code>: <code>string</code></li>
-</ul>
-<h4 id="example-response">Example Response</h4>
+<p><strong>Request Parameters</strong>
+- <code>username</code>: <code>string</code>
+- <code>password</code>: <code>string</code></p>
+<p><strong>Example Response</strong>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="p">{</span>
 <a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="w">  </span><span class="nt">&quot;token_type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;bearer&quot;</span><span class="p">,</span>
 <a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">  </span><span class="nt">&quot;access_token&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;eyJraWQiOiI.......&quot;</span><span class="p">,</span>
@@ -844,7 +794,7 @@
 <a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a><span class="w">  </span><span class="nt">&quot;first_name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Adrian Albert&quot;</span><span class="p">,</span>
 <a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a><span class="w">  </span><span class="nt">&quot;last_name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Koch&quot;</span>
 <a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a><span class="p">}</span>
-</code></pre></div>
+</code></pre></div></p>
 <p>The login endpoint returns two distinct tokens:
 - <code>access_token</code>: Used to authenticate requests. Generally valid for 15 minutes unless revoked.
 - <code>refresh_token</code>: Used to obtain a new access token by calling the <code>POST /refresh-access-token</code> endpoint.</p>
