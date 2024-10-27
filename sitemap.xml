@@ -1,3 +1,31 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+    <url>
+         <loc>https://deltapay.co.sz/</loc>
+         <lastmod>2024-10-27</lastmod>
+    </url>
+    <url>
+         <loc>https://deltapay.co.sz/B2c/</loc>
+         <lastmod>2024-10-27</lastmod>
+    </url>
+    <url>
+         <loc>https://deltapay.co.sz/about/</loc>
+         <lastmod>2024-10-27</lastmod>
+    </url>
+    <url>
+         <loc>https://deltapay.co.sz/authentication/</loc>
+         <lastmod>2024-10-27</lastmod>
+    </url>
+    <url>
+         <loc>https://deltapay.co.sz/c2b/</loc>
+         <lastmod>2024-10-27</lastmod>
+    </url>
+    <url>
+         <loc>https://deltapay.co.sz/permissions/</loc>
+         <lastmod>2024-10-27</lastmod>
+    </url>
+    <url>
+         <loc>https://deltapay.co.sz/setup/</loc>
+         <lastmod>2024-10-27</lastmod>
+    </url>
 </urlset>

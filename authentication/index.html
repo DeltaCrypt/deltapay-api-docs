@@ -12,26 +12,28 @@
         <meta name="author" content="Adrian Albert Koch">
       
       
-        <link rel="canonical" href="https://deltapay.co.sz/">
+        <link rel="canonical" href="https://deltapay.co.sz/authentication/">
       
       
+        <link rel="prev" href="../permissions/">
       
-        <link rel="next" href="permissions/">
+      
+        <link rel="next" href="../setup/">
       
       
-      <link rel="icon" href="assets/images/favicon.png">
+      <link rel="icon" href="../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.5.42">
     
     
       
-        <title>DeltaPay API Documentation</title>
+        <title>Authentication - DeltaPay API Documentation</title>
       
     
     
-      <link rel="stylesheet" href="assets/stylesheets/main.0253249f.min.css">
+      <link rel="stylesheet" href="../assets/stylesheets/main.0253249f.min.css">
       
         
-        <link rel="stylesheet" href="assets/stylesheets/palette.06af60db.min.css">
+        <link rel="stylesheet" href="../assets/stylesheets/palette.06af60db.min.css">
       
       
 
@@ -50,7 +52,7 @@
       
     
     
-    <script>__md_scope=new URL(".",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
 
@@ -59,11 +61,11 @@
       
         <meta  property="og:type"  content="website" >
       
-        <meta  property="og:title"  content="DeltaPay API Documentation" >
+        <meta  property="og:title"  content="Authentication - DeltaPay API Documentation" >
       
         <meta  property="og:description"  content="Official Documentation for the DeltaPay API." >
       
-        <meta  property="og:image"  content="https://deltapay.co.sz/assets/images/social/index.png" >
+        <meta  property="og:image"  content="https://deltapay.co.sz/assets/images/social/authentication.png" >
       
         <meta  property="og:image:type"  content="image/png" >
       
@@ -71,15 +73,15 @@
       
         <meta  property="og:image:height"  content="630" >
       
-        <meta  property="og:url"  content="https://deltapay.co.sz/" >
+        <meta  property="og:url"  content="https://deltapay.co.sz/authentication/" >
       
         <meta  name="twitter:card"  content="summary_large_image" >
       
-        <meta  name="twitter:title"  content="DeltaPay API Documentation" >
+        <meta  name="twitter:title"  content="Authentication - DeltaPay API Documentation" >
       
         <meta  name="twitter:description"  content="Official Documentation for the DeltaPay API." >
       
-        <meta  name="twitter:image"  content="https://deltapay.co.sz/assets/images/social/index.png" >
+        <meta  name="twitter:image"  content="https://deltapay.co.sz/assets/images/social/authentication.png" >
       
     
     
@@ -102,7 +104,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#introduction" class="md-skip">
+        <a href="#authentication" class="md-skip">
           Skip to content
         </a>
       
@@ -116,7 +118,7 @@
 
 <header class="md-header" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
-    <a href="." title="DeltaPay API Documentation" class="md-header__button md-logo" aria-label="DeltaPay API Documentation" data-md-component="logo">
+    <a href=".." title="DeltaPay API Documentation" class="md-header__button md-logo" aria-label="DeltaPay API Documentation" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
@@ -136,7 +138,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Home
+              Authentication
             
           </span>
         </div>
@@ -236,11 +238,9 @@
         
   
   
-    
   
-  
-    <li class="md-tabs__item md-tabs__item--active">
-      <a href="." class="md-tabs__link">
+    <li class="md-tabs__item">
+      <a href=".." class="md-tabs__link">
         
   
     
@@ -255,11 +255,13 @@
         
   
   
+    
+  
   
     
     
-      <li class="md-tabs__item">
-        <a href="permissions/" class="md-tabs__link">
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../permissions/" class="md-tabs__link">
           
   
     
@@ -279,7 +281,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="c2b/" class="md-tabs__link">
+        <a href="../c2b/" class="md-tabs__link">
           
   
     
@@ -314,7 +316,7 @@
 
 <nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="." title="DeltaPay API Documentation" class="md-nav__button md-logo" aria-label="DeltaPay API Documentation" data-md-component="logo">
+    <a href=".." title="DeltaPay API Documentation" class="md-nav__button md-logo" aria-label="DeltaPay API Documentation" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
@@ -327,6 +329,100 @@
     
       
       
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Home
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+        
+        
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
+            
+  
+  <span class="md-ellipsis">
+    Getting Started
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            Getting Started
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../permissions/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Permissions
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
   
   
     
@@ -345,18 +441,18 @@
           
   
   <span class="md-ellipsis">
-    Home
+    Authentication
   </span>
   
 
           <span class="md-nav__icon md-icon"></span>
         </label>
       
-      <a href="." class="md-nav__link md-nav__link--active">
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   <span class="md-ellipsis">
-    Home
+    Authentication
   </span>
   
 
@@ -378,27 +474,84 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#abstract" class="md-nav__link">
+  <a href="#oauth-20-token" class="md-nav__link">
     <span class="md-ellipsis">
-      Abstract
+      OAuth 2.0 Token
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="OAuth 2.0 Token">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#login-endpoint" class="md-nav__link">
+    <span class="md-ellipsis">
+      Login Endpoint
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Login Endpoint">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#request-parameters" class="md-nav__link">
+    <span class="md-ellipsis">
+      Request Parameters
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#example-response" class="md-nav__link">
+    <span class="md-ellipsis">
+      Example Response
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#usage-example" class="md-nav__link">
+    <span class="md-ellipsis">
+      Usage Example
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#api-key" class="md-nav__link">
+    <span class="md-ellipsis">
+      API Key
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#environments" class="md-nav__link">
+  <a href="#authentication-errors" class="md-nav__link">
     <span class="md-ellipsis">
-      Environments
+      Authentication Errors
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#api-request-guidelines" class="md-nav__link">
+  <a href="#blockchain-transaction-signatures" class="md-nav__link">
     <span class="md-ellipsis">
-      API Request Guidelines
+      Blockchain Transaction Signatures
     </span>
   </a>
   
@@ -411,74 +564,6 @@
     </li>
   
 
-    
-      
-      
-  
-  
-  
-  
-    
-    
-      
-        
-      
-        
-      
-        
-      
-    
-    
-      
-      
-        
-      
-    
-    
-    <li class="md-nav__item md-nav__item--nested">
-      
-        
-        
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
-        
-          
-          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
-            
-  
-  <span class="md-ellipsis">
-    Getting Started
-  </span>
-  
-
-            <span class="md-nav__icon md-icon"></span>
-          </label>
-        
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_2">
-            <span class="md-nav__icon md-icon"></span>
-            Getting Started
-          </label>
-          <ul class="md-nav__list" data-md-scrollfix>
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="permissions/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    Permissions
-  </span>
-  
-
-      </a>
-    </li>
-  
-
               
             
               
@@ -488,28 +573,7 @@
   
   
     <li class="md-nav__item">
-      <a href="authentication/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    Authentication
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="setup/" class="md-nav__link">
+      <a href="../setup/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -583,7 +647,7 @@
   
   
     <li class="md-nav__item">
-      <a href="c2b/" class="md-nav__link">
+      <a href="../c2b/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -604,7 +668,7 @@
   
   
     <li class="md-nav__item">
-      <a href="b2c.md" class="md-nav__link">
+      <a href="../b2c.md" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -652,27 +716,84 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#abstract" class="md-nav__link">
+  <a href="#oauth-20-token" class="md-nav__link">
     <span class="md-ellipsis">
-      Abstract
+      OAuth 2.0 Token
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="OAuth 2.0 Token">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#login-endpoint" class="md-nav__link">
+    <span class="md-ellipsis">
+      Login Endpoint
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Login Endpoint">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#request-parameters" class="md-nav__link">
+    <span class="md-ellipsis">
+      Request Parameters
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#example-response" class="md-nav__link">
+    <span class="md-ellipsis">
+      Example Response
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#usage-example" class="md-nav__link">
+    <span class="md-ellipsis">
+      Usage Example
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#api-key" class="md-nav__link">
+    <span class="md-ellipsis">
+      API Key
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#environments" class="md-nav__link">
+  <a href="#authentication-errors" class="md-nav__link">
     <span class="md-ellipsis">
-      Environments
+      Authentication Errors
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#api-request-guidelines" class="md-nav__link">
+  <a href="#blockchain-transaction-signatures" class="md-nav__link">
     <span class="md-ellipsis">
-      API Request Guidelines
+      Blockchain Transaction Signatures
     </span>
   </a>
   
@@ -693,37 +814,137 @@
                   
 
 
-<h1 id="introduction">Introduction</h1>
-<h2 id="abstract">Abstract</h2>
-<p>This document acts as a guide for DeltaPay’s open API. It documents the features we expect will be most commonly used by our clients and partners.</p>
-<p>We firmly believe in open and accessible APIs that anyone can access without additional charges or fees. For this reason, we have decided to make the entire REST interface used by our mobile application accessible to the public. This also means that the API is significantly more extensive than the features highlighted in this document. For a complete list of the endpoints available, please visit:</p>
+<h1 id="authentication">Authentication</h1>
+<p>The API uses three ways of authentication:
+- OAuth 2.0 token
+- API Key
+- Blockchain transaction signatures</p>
+<p>The OAuth 2.0 token and API Key can largely be used interchangeably, whereas functions that entail state changes on the blockchain will generally have to be signed locally by the client.</p>
+<blockquote>
+<p><strong>Note</strong>: For the endpoints that allow authentication using both the token and API key, <strong>either or the other</strong> must be passed.</p>
+</blockquote>
+<h2 id="oauth-20-token">OAuth 2.0 Token</h2>
+<p>This form of authentication is designed for individual users. The generated token contains the <code>user_id</code> and can be used to determine the caller without the need to explicitly provide the <code>user_id</code>.</p>
+<h3 id="login-endpoint">Login Endpoint</h3>
+<p>The <code>POST /login</code> endpoint expects <code>x-www-form-url-encoded</code> data. This is an exception, as all other POST endpoints expect JSON-encoded data.</p>
+<h4 id="request-parameters">Request Parameters</h4>
 <ul>
-<li><a href="https://api.dev.deltacrypt.net/docs">https://api.dev.deltacrypt.net/docs</a></li>
-<li><a href="https://api.beta.deltacrypt.net/docs">https://api.beta.deltacrypt.net/docs</a></li>
+<li><code>username</code>: <code>string</code></li>
+<li><code>password</code>: <code>string</code></li>
 </ul>
-<p>to view the auto-generated documentation online for our respective development and production environments.</p>
-<h2 id="environments">Environments</h2>
-<p>DeltaPay currently offers two mutually exclusive environments: development and production.</p>
-<p>The development environment is meant for testing and incorporates any additional features or changes to the API that have not yet been published to production. It runs an identical technical setup to the production environment. Still, it does not have to abide by any regulation as the Delta on development is solely for testing and, thus, worthless.</p>
-<p>We highly recommend testing on the development environment first before connecting to the production endpoints. If API keys are used, DeltaPay reserves the right to test the proposed applications before issuing permissions to the production API keys.</p>
-<h2 id="api-request-guidelines">API Request Guidelines</h2>
-<p>Unless otherwise specified:</p>
-<ul>
-<li><strong>POST</strong> requests expect JSON-encoded data.</li>
-<li><strong>GET</strong> and <strong>DELETE</strong> requests expect URL-encoded data.</li>
-</ul>
-<p>All endpoints will return a status code 200 (OK) if no exceptions occur. Other relevant response codes include:</p>
-<ul>
-<li><strong>404 - Not Found:</strong> The requested resource (e.g., a user) does not exist.</li>
-<li><strong>401 - Unauthorized:</strong> See <a href="#authentication-errors">Authentication Errors</a>.</li>
-<li><strong>500 - Internal Server Error:</strong> Please contact DeltaPay.</li>
-</ul>
-<p>All endpoints return JSON-encoded data. If no data is returned, the response will be a generic success object:</p>
+<h4 id="example-response">Example Response</h4>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="p">{</span>
-<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="w">  </span><span class="nt">&quot;success&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span>
-<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="p">}</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="w">  </span><span class="nt">&quot;token_type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;bearer&quot;</span><span class="p">,</span>
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">  </span><span class="nt">&quot;access_token&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;eyJraWQiOiI.......&quot;</span><span class="p">,</span>
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="w">  </span><span class="nt">&quot;refresh_token&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;eyJjdHkiOiJK......&quot;</span><span class="p">,</span>
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="w">  </span><span class="nt">&quot;user_id&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span>
+<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="w">  </span><span class="nt">&quot;username&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;adrian&quot;</span><span class="p">,</span>
+<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="w">  </span><span class="nt">&quot;phone_country_dialcode&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;268&quot;</span><span class="p">,</span>
+<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="w">  </span><span class="nt">&quot;phone_number&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;24045443&quot;</span><span class="p">,</span>
+<a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a><span class="w">  </span><span class="nt">&quot;first_name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Adrian Albert&quot;</span><span class="p">,</span>
+<a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a><span class="w">  </span><span class="nt">&quot;last_name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Koch&quot;</span>
+<a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a><span class="p">}</span>
 </code></pre></div>
-<p>Unless otherwise specified, this is the default response format.</p>
+<p>The login endpoint returns two distinct tokens:
+- <code>access_token</code>: Used to authenticate requests. Generally valid for 15 minutes unless revoked.
+- <code>refresh_token</code>: Used to obtain a new access token by calling the <code>POST /refresh-access-token</code> endpoint.</p>
+<h3 id="usage-example">Usage Example</h3>
+<p>The <code>access_token</code> must be passed as a bearer token in the API request header. Below is an example call to the <code>GET /user</code> endpoint:</p>
+<div class="highlight"><pre><span></span><code>curl -X &#39;GET&#39;
+  &#39;https://api.dev.deltacrypt.net/user&#39;
+  -H &#39;accept: application/json&#39;
+  -H &#39;Authorization: Bearer eyJraWQi......&#39;
+</code></pre></div>
+<blockquote>
+<p><strong>Note</strong>: The <code>user_id</code> does not need to be explicitly passed, as it can be determined from the token. If a value is provided, it will have precedence.</p>
+</blockquote>
+<h2 id="api-key">API Key</h2>
+<p>Authentication using an API token is designed for institutions that want to connect to the API in a programmatic manner. See the <strong>API Key Creation</strong> section for more detail on how to create and link API tokens.</p>
+<p>Multiple tokens can be linked to the same legal entity with varying sets of permissions attached to them.</p>
+<p>The API key must be passed as <code>x-api-key</code> in the API request header. Below is an example call to the <code>GET /user</code> endpoint:</p>
+<div class="highlight"><pre><span></span><code>curl -X &#39;GET&#39; \
+  &#39;https://api.dev.deltacrypt.net/user?user_id=2&#39; \
+  -H &#39;accept: application/json&#39; \
+  -H &#39;x-api-key: KGD7Wf.....&#39;
+</code></pre></div>
+<blockquote>
+<p><strong>Note</strong>: In contrast to the <code>access_token</code> usage, the <code>user_id</code> must be provided in the request as it cannot be determined from the API key.</p>
+</blockquote>
+<h2 id="authentication-errors">Authentication Errors</h2>
+<p>Errors that occur in connection with authentication result in the response code <strong>401 (Unauthorized)</strong>.</p>
+<p>The error response will provide details on the type of exception, <em>e.g.</em></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="p">{</span>
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="w">  </span><span class="nt">&quot;detail&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Token expired&quot;</span>
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="p">}</span>
+</code></pre></div>
+<p>The following exceptions can occur:
+- Not authorized
+- Username or password incorrect
+- User not confirmed
+- Username not found
+- Could not validate credentials
+- Failed to validate token
+- Invalid API key
+- API key has expired
+- API key has been revoked
+- Provide either a token or an API key, not both
+- Either a token or an API key must be provided</p>
+<p><strong>SignUp</strong>:
+  - Failed
+  - User not found
+  - Username not found
+  - User already registered
+  - Username already in use
+  - Password does not meet the requirements
+  - Confirmation code is incorrect
+  - Confirmation code has expired
+  - Attempt limit exceeded</p>
+<p><strong>Login</strong>:
+  - Failed
+  - Another challenge is required
+  - Username not found in the database</p>
+<p><strong>Refresh Access Token</strong>: Failed</p>
+<p><strong>Forgot Password</strong>:
+  - Failed
+  - Username not found
+  - Attempt limit exceeded
+  - Confirmation code is incorrect
+  - Confirmation code has expired
+  - Too many failed attempts
+  - Password does not meet the requirements</p>
+<p><strong>Change Password</strong>:
+  - Failed
+  - Password does not meet the requirements
+  - Attempt limit exceeded</p>
+<p><strong>Change Phone Number</strong>:
+  - Failed
+  - Code is incorrect
+  - Code has expired
+  - Attempt limit exceeded</p>
+<p>Another common cause for an endpoint to return 401 (Unauthorized) is missing permissions, <em>e.g.</em></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="p">{</span>
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="w">  </span><span class="nt">&quot;detail&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;API key does not have the required permission: view_kyc_data (target_user_id: 2)&quot;</span>
+<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="p">}</span>
+</code></pre></div>
+<h2 id="blockchain-transaction-signatures">Blockchain Transaction Signatures</h2>
+<p>The interaction with the blockchain follows three simple steps:
+1. Obtain the raw blockchain transaction (generally using one of the GET endpoints prefixed with raw).
+2. Sign the transaction locally using the Ethereum wallet previously generated.
+3. Optionally query the state of the blockchain transaction.</p>
+<p>For more details on specific endpoints, please refer to the example attached to this document or contact DeltaPay directly.</p>
+<p>For the transaction to succeed, the wallet used to sign it must be whitelisted on the blockchain. This requires the caller to provide the public wallet address of the wallet they want to link to the API-key-account (or user-account) pair, which happens implicitly in one of the following ways:
+- <code>POST /account/link-api-key</code>
+- <code>POST /account/create-personal</code>
+- <code>POST /account/register-business</code></p>
+<p>For the purpose of this document, we focus on the scenario where API keys are used. For more details on linking an API key to an account, refer to <strong>Linking API Key</strong> in the setup section.</p>
+<blockquote>
+<p><strong>Note</strong>: Transactions signed by a wallet linked to an API key differ in some ways from those linked to a user. In particular:
+- API Keys do not have a spending allowance. Therefore, no transaction initiated by an API key will ever need to be approved.
+- API keys cannot approve other transactions.
+- API keys cannot set spending allowances.
+- API keys cannot deactivate accounts.</p>
+</blockquote>
+<p>Should you require any of the above features, please contact DeltaPay directly.</p>
 
 
 
@@ -761,15 +982,31 @@
       
       <nav class="md-footer__inner md-grid" aria-label="Footer" >
         
+          
+          <a href="../permissions/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Permissions">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              <div class="md-ellipsis">
+                Permissions
+              </div>
+            </div>
+          </a>
+        
         
           
-          <a href="permissions/" class="md-footer__link md-footer__link--next" aria-label="Next: Permissions">
+          <a href="../setup/" class="md-footer__link md-footer__link--next" aria-label="Next: Setup">
             <div class="md-footer__title">
               <span class="md-footer__direction">
                 Next
               </span>
               <div class="md-ellipsis">
-                Permissions
+                Setup
               </div>
             </div>
             <div class="md-footer__button md-icon">
@@ -845,10 +1082,10 @@
     </div>
     
     
-    <script id="__config" type="application/json">{"base": ".", "features": ["announce.dismiss", "content.action.edit", "content.action.view", "content.code.annotate", "content.code.copy", "content.tooltips", "navigation.footer", "navigation.indexes", "navigation.sections", "navigation.tabs", "navigation.top", "navigation.tracking", "search.highlight", "search.share", "search.suggest", "toc.follow"], "search": "assets/javascripts/workers/search.6ce7567c.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    <script id="__config" type="application/json">{"base": "..", "features": ["announce.dismiss", "content.action.edit", "content.action.view", "content.code.annotate", "content.code.copy", "content.tooltips", "navigation.footer", "navigation.indexes", "navigation.sections", "navigation.tabs", "navigation.top", "navigation.tracking", "search.highlight", "search.share", "search.suggest", "toc.follow"], "search": "../assets/javascripts/workers/search.6ce7567c.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
     
     
-      <script src="assets/javascripts/bundle.83f73b43.min.js"></script>
+      <script src="../assets/javascripts/bundle.83f73b43.min.js"></script>
       
     
   </body>

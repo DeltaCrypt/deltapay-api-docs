@@ -1,0 +1,102 @@
+/* styles/extra.css */
+
+:root { 
+  /* Primary Colors */
+  --blue: #034c6d;           
+  --main-grey: #aec3db;
+  --light-grey: #ffffff;
+  /* --blue: #ffffff;           
+  --main-grey: #aec3db;
+  --light-grey: #034c6d; */
+
+  /* Background Colors */
+  --md-default-bg-color: var(--blue) !important;       /* Main blue for main background */
+  --md-primary-bg-color: var(--blue) !important;       /* Main blue for headers and sections */
+  --md-sidebar-bg-color: var(--blue) !important;       /* Sidebar background in main blue */
+
+  /* Text Colors */
+  --md-primary-fg-color: var(--light-grey) !important; /* Light grey for primary text on blue background */
+  --md-sidebar-fg-color: var(--main-grey) !important;  /* Main grey for sidebar text */
+  --md-header-color: var(--main-grey) !important;      /* Main grey for header text */
+  --md-link-color: var(--main-grey) !important;        /* Main grey for links */
+  --md-link-hover-color: var(--light-grey) !important; /* Light grey on hover */
+
+  /* Border and Divider Colors */
+  --md-primary-border-color: var(--main-grey) !important;  /* Main grey for borders and dividers */
+  --md-divider-color: var(--blue) !important;              /* Main blue for dividers in sections */
+
+  /* Code Blocks */
+  --md-code-bg-color: var(--light-grey) !important;       /* Light grey for code background */
+  --md-code-fg-color: var(--blue) !important;             /* Blue for code text */
+  --md-code-hl-color: var(--main-grey) !important;        /* Main grey for highlighted code text */
+
+  /* Accent Background for Highlights and UI Elements */
+  --md-accent-bg-color: var(--blue) !important;           /* Main blue for accent background */
+  --md-primary-accent-color: var(--light-grey) !important; /* Light grey for contrast in primary sections */
+}
+
+/* Explicitly apply the primary text color to main content */
+body,
+.md-typeset,
+.md-typeset p,
+.md-typeset li,
+.md-typeset h1,
+.md-typeset h2,
+.md-typeset h3,
+.md-typeset h4,
+.md-typeset h5,
+.md-typeset h6 {
+  color: var(--md-primary-fg-color) !important;
+}
+
+/* Sidebar link styling */
+.md-nav__link {
+  color: var(--md-sidebar-fg-color) !important;
+}
+
+.md-nav__link--active,
+.md-nav__link--active > .md-nav__icon {
+  color: var(--light-grey) !important;    /* Light grey for active link */
+}
+
+/* Code block text and background */
+.md-typeset pre,
+.md-typeset code {
+  background-color: var(--md-code-bg-color) !important;
+  color: var(--md-code-fg-color) !important;
+}
+
+
+
+/* Search Overlay Background and Text */
+.md-search__overlay {
+  background-color: rgba(0, 38, 61, 0.95) !important; /* Dark translucent blue for overlay */
+}
+
+.md-search__title,
+.md-search-result__title,
+.md-search-result__content {
+  color: #e0e6ed !important; /* Light grey for all search text */
+}
+
+/* Search Result Link Colors */
+.md-search-result__title a {
+  color: #aec3db !important; /* Main grey for search result titles */
+}
+
+.md-search-result__title a:hover {
+  color: #ffffff !important; /* White for hover state */
+}
+
+/* Search Result Background Highlight */
+.md-search-result__meta {
+  background-color: #034c6d !important; /* Main blue for active search result background */
+  color: #ffffff !important; /* White for highlighted text */
+}
+
+/* Divider between search results */
+.md-search-result__content {
+  border-top: 1px solid #034c6d !important; /* Divider in main blue */
+  margin-top: 5px;
+  padding-top: 5px;
+}
