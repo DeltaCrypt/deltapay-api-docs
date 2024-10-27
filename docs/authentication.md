@@ -77,6 +77,7 @@ The error response will provide details on the type of exception, _e.g._
 ```
 
 The following exceptions can occur:
+
 - Not authorized
 - Username or password incorrect
 - User not confirmed
@@ -89,43 +90,48 @@ The following exceptions can occur:
 - Provide either a token or an API key, not both
 - Either a token or an API key must be provided
 
-  **SignUp**:
-  - Failed
-  - User not found
-  - Username not found
-  - User already registered
-  - Username already in use
-  - Password does not meet the requirements
-  - Confirmation code is incorrect
-  - Confirmation code has expired
-  - Attempt limit exceeded
+**SignUp**:
 
-  **Login**:
-  - Failed
-  - Another challenge is required
-  - Username not found in the database
+- Failed
+- User not found
+- Username not found
+- User already registered
+- Username already in use
+- Password does not meet the requirements
+- Confirmation code is incorrect
+- Confirmation code has expired
+- Attempt limit exceeded
 
-  **Refresh Access Token**: Failed
+**Login**:
 
-  **Forgot Password**:
-  - Failed
-  - Username not found
-  - Attempt limit exceeded
-  - Confirmation code is incorrect
-  - Confirmation code has expired
-  - Too many failed attempts
-  - Password does not meet the requirements
+- Failed
+- Another challenge is required
+- Username not found in the database
 
-  **Change Password**:
-  - Failed
-  - Password does not meet the requirements
-  - Attempt limit exceeded
+**Refresh Access Token**: Failed
 
-  **Change Phone Number**:
-  - Failed
-  - Code is incorrect
-  - Code has expired
-  - Attempt limit exceeded
+**Forgot Password**:
+
+- Failed
+- Username not found
+- Attempt limit exceeded
+- Confirmation code is incorrect
+- Confirmation code has expired
+- Too many failed attempts
+- Password does not meet the requirements
+
+**Change Password**:
+
+- Failed
+- Password does not meet the requirements
+- Attempt limit exceeded
+
+**Change Phone Number**:
+
+- Failed
+- Code is incorrect
+- Code has expired
+- Attempt limit exceeded
 
 Another common cause for an endpoint to return 401 (Unauthorized) is missing permissions, _e.g._
 
@@ -138,6 +144,7 @@ Another common cause for an endpoint to return 401 (Unauthorized) is missing per
 ## Blockchain Transaction Signatures
 
 The interaction with the blockchain follows three simple steps:
+
 1. Obtain the raw blockchain transaction (generally using one of the GET endpoints prefixed with raw).
 2. Sign the transaction locally using the Ethereum wallet previously generated.
 3. Optionally query the state of the blockchain transaction.
@@ -145,12 +152,14 @@ The interaction with the blockchain follows three simple steps:
 For more details on specific endpoints, please refer to the example attached to this document or contact DeltaPay directly.
 
 For the transaction to succeed, the wallet used to sign it must be whitelisted on the blockchain. This requires the caller to provide the public wallet address of the wallet they want to link to the API-key-account (or user-account) pair, which happens implicitly in one of the following ways:
+
 - `POST /account/link-api-key`
 - `POST /account/create-personal`
 - `POST /account/register-business`
 
 For the purpose of this document, we focus on the scenario where API keys are used. For more details on linking an API key to an account, refer to **Linking API Key** in the setup section.
 
+<!-- TODO: Fix this note (or reformat) -->
 > **Note**: Transactions signed by a wallet linked to an API key differ in some ways from those linked to a user. In particular:
 - API Keys do not have a spending allowance. Therefore, no transaction initiated by an API key will ever need to be approved.
 - API keys cannot approve other transactions.
