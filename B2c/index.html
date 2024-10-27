@@ -22,7 +22,7 @@
     
     
       
-        <title>B2c - DeltaPay API Documentation</title>
+        <title>B2C - DeltaPay API Documentation</title>
       
     
     
@@ -57,7 +57,7 @@
       
         <meta  property="og:type"  content="website" >
       
-        <meta  property="og:title"  content="B2c - DeltaPay API Documentation" >
+        <meta  property="og:title"  content="B2C - DeltaPay API Documentation" >
       
         <meta  property="og:description"  content="Official Documentation for the DeltaPay API." >
       
@@ -73,7 +73,7 @@
       
         <meta  name="twitter:card"  content="summary_large_image" >
       
-        <meta  name="twitter:title"  content="B2c - DeltaPay API Documentation" >
+        <meta  name="twitter:title"  content="B2C - DeltaPay API Documentation" >
       
         <meta  name="twitter:description"  content="Official Documentation for the DeltaPay API." >
       
@@ -98,6 +98,11 @@
     <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
+      
+        
+        <a href="#b2c" class="md-skip">
+          Skip to content
+        </a>
       
     </div>
     <div data-md-component="announce">
@@ -129,7 +134,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              B2c
+              B2C
             
           </span>
         </div>
@@ -566,6 +571,115 @@
   
   
   
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#check-transaction-possible" class="md-nav__link">
+    <span class="md-ellipsis">
+      Check Transaction Possible
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Check Transaction Possible">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#get-transactiontransfer-possible" class="md-nav__link">
+    <span class="md-ellipsis">
+      GET /transaction/transfer-possible
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#initiate-transactions" class="md-nav__link">
+    <span class="md-ellipsis">
+      Initiate Transactions
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Initiate Transactions">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#get-transactioninitiate-transfer" class="md-nav__link">
+    <span class="md-ellipsis">
+      GET /transaction/initiate-transfer
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#sign-the-transaction" class="md-nav__link">
+    <span class="md-ellipsis">
+      Sign the Transaction
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#submit-the-signed-transaction" class="md-nav__link">
+    <span class="md-ellipsis">
+      Submit the Signed Transaction
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Submit the Signed Transaction">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#post-blockchainsigned-transaction" class="md-nav__link">
+    <span class="md-ellipsis">
+      POST /blockchain/signed-transaction
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#get-blockchaintransaction-status" class="md-nav__link">
+    <span class="md-ellipsis">
+      GET /blockchain/transaction-status
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#get-blockchaintransactionerror-message" class="md-nav__link">
+    <span class="md-ellipsis">
+      GET /blockchain/transaction/error-message
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
   
 </nav>
                   </div>
@@ -580,9 +694,188 @@
                   
 
 
-  <h1>B2c</h1>
-
-
+<h1 id="b2c">B2C</h1>
+<p>The process of sending money to a customer (or another business) encompasses the following:</p>
+<ul>
+<li>Check whether the transaction is possible (optional)</li>
+<li>Initiate the transaction</li>
+<li>Sign the raw blockchain transaction</li>
+<li>Submit the signed blockchain transaction</li>
+<li>Query the blockchain transaction (optional)</li>
+<li>Receive a callback when the transaction status changes (IPN)</li>
+<li>Query the transaction</li>
+</ul>
+<h2 id="check-transaction-possible">Check Transaction Possible</h2>
+<p>Before initiating a transaction, it is advisable to check whether the transaction will be possible to avoid more complex polling or callback logic. There are a number of reasons a transaction might fail:</p>
+<ul>
+<li>Insufficient account balance</li>
+<li>Limits exceeded</li>
+<li>Transaction amount too low</li>
+<li>Account suspended or closed</li>
+<li>User not whitelisted</li>
+</ul>
+<p><strong>Note</strong>: Insufficient spending allowances do not prevent the transaction from occurring; rather, the transaction will require approval, which will, in turn, reflect in the state of the transaction.</p>
+<h3 id="get-transactiontransfer-possible"><code>GET /transaction/transfer-possible</code></h3>
+<p><strong>Request Parameters</strong></p>
+<ul>
+<li><code>sender_wallet_address</code>: <em>string</em></li>
+<li><code>amount</code>: <em>number</em></li>
+<li><code>transaction_type</code>: <em>string</em></li>
+<li><code>recipient_username</code>: <em>Optional[string]</em></li>
+<li><code>recipient_account_id</code>: <em>Optional[number]</em></li>
+</ul>
+<p>The <code>sender_wallet_address</code> must be linked to an account.</p>
+<p><strong>Either</strong> the <code>recipient_username</code> <strong>or</strong> <code>recipient_account_id</code> (or both) must be provided. If only the <code>recipient_username</code> is provided, the recipient account will be assumed to be the user's personal account. If both the <code>recipient_username</code> and <code>recipient_account_id</code> are provided, the <code>recipient_username</code> will be stored on the database in addition to the account.</p>
+<p><strong>Example Response</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="p">{</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="w">    </span><span class="nt">&quot;possible&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span>
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">    </span><span class="nt">&quot;sender_account_id&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1004</span><span class="p">,</span>
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="w">    </span><span class="nt">&quot;fee&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span>
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="p">}</span>
+</code></pre></div></p>
+<p>or, alternatively, when the transfer is not possible</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="p">{</span>
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="w">    </span><span class="nt">&quot;possible&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span>
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="w">    </span><span class="nt">&quot;error_name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;ERR_NOT_ENOUGH_BALANCE&quot;</span><span class="p">,</span>
+<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="w">    </span><span class="nt">&quot;error_arguments&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="w">        </span><span class="s2">&quot;1004&quot;</span><span class="p">,</span>
+<a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a><span class="w">        </span><span class="s2">&quot;446370000000000000000&quot;</span><span class="p">,</span>
+<a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a><span class="w">        </span><span class="s2">&quot;5000000000000000000000&quot;</span>
+<a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a><span class="w">    </span><span class="p">]</span>
+<a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a><span class="p">}</span>
+</code></pre></div>
+<hr />
+<h2 id="initiate-transactions">Initiate Transactions</h2>
+<h3 id="get-transactioninitiate-transfer"><code>GET /transaction/initiate-transfer</code></h3>
+<p><strong>Request Parameters</strong></p>
+<ul>
+<li><code>sender_wallet_address</code>: <em>string</em></li>
+<li><code>amount</code>: <em>number</em></li>
+<li><code>note</code>: <em>Optional[string]</em></li>
+<li><code>sender_till_id</code>: <em>Optional[number]</em></li>
+<li><code>recipient_username</code>: <em>Optional[string]</em></li>
+<li><code>recipient_account_id</code>: <em>Optional[number]</em></li>
+<li><code>recipient_till_id</code>: <em>Optional[number]</em></li>
+<li><code>transaction_type</code>: <em>string</em></li>
+<li><code>source_of_funds</code>: <em>Optional[string]</em></li>
+</ul>
+<p><strong>Example Response</strong></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="p">{</span>
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="w">    </span><span class="nt">&quot;raw_transaction&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="w">        </span><span class="nt">&quot;from&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;0x7E5F4552091A69125d5DfCb7b8C2659029395Bdf&quot;</span><span class="p">,</span>
+<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="w">        </span><span class="nt">&quot;to&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;0x52A816dB82157a5f4b2c4Fb5Be745AC4103Db674&quot;</span><span class="p">,</span>
+<a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a><span class="w">        </span><span class="nt">&quot;nonce&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span>
+<a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a><span class="w">        </span><span class="nt">&quot;chainId&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;1337&quot;</span><span class="p">,</span>
+<a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a><span class="w">        </span><span class="nt">&quot;data&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;0x21d43aaf000000000.....&quot;</span><span class="p">,</span>
+<a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a><span class="w">        </span><span class="nt">&quot;gasLimit&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;0x1ffffffffffffe&quot;</span><span class="p">,</span>
+<a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a><span class="w">        </span><span class="nt">&quot;gasPrice&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span>
+<a id="__codelineno-2-10" name="__codelineno-2-10" href="#__codelineno-2-10"></a><span class="w">        </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span>
+<a id="__codelineno-2-11" name="__codelineno-2-11" href="#__codelineno-2-11"></a><span class="w">    </span><span class="p">},</span>
+<a id="__codelineno-2-12" name="__codelineno-2-12" href="#__codelineno-2-12"></a><span class="w">    </span><span class="nt">&quot;topic&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;initiateTransfer&quot;</span><span class="p">,</span>
+<a id="__codelineno-2-13" name="__codelineno-2-13" href="#__codelineno-2-13"></a><span class="w">    </span><span class="nt">&quot;transaction_id&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">166</span>
+<a id="__codelineno-2-14" name="__codelineno-2-14" href="#__codelineno-2-14"></a><span class="p">}</span>
+</code></pre></div>
+<hr />
+<h2 id="sign-the-transaction">Sign the Transaction</h2>
+<p>The next step involves signing the <code>raw_transaction</code> returned by the <code>GET /transaction/initiate-transfer</code> endpoint. The customer may use any of the available libraries that provide Ethereum functions.</p>
+<ul>
+<li><strong>JavaScript / TypeScript</strong></li>
+<li><a href="https://github.com/ethers-io/ethers.js/">ethers.js</a></li>
+<li>
+<p><a href="https://github.com/ethereum/web3.js/">web3.js</a></p>
+</li>
+<li>
+<p><strong>Python</strong></p>
+</li>
+<li><a href="https://github.com/ethereum/web3.py">web3.py</a></li>
+<li>
+<p><a href="https://github.com/ethereum/eth-account">eth-account</a></p>
+</li>
+<li>
+<p><strong>Go</strong></p>
+</li>
+<li><a href="https://github.com/ethereum/go-ethereum">go-ethereum (geth)</a></li>
+<li>
+<p><a href="https://github.com/libs4go/ethers">ethers (for Go)</a></p>
+</li>
+<li>
+<p><strong>Java</strong></p>
+</li>
+<li>
+<p><a href="https://github.com/web3j/web3j">web3j</a></p>
+</li>
+<li>
+<p><strong>C#</strong></p>
+</li>
+<li>
+<p><a href="https://github.com/Nethereum/Nethereum">Nethereum</a></p>
+</li>
+<li>
+<p><strong>Ruby</strong></p>
+</li>
+<li>
+<p><a href="https://github.com/EthWorks/ethereum.rb">ethereum.rb</a></p>
+</li>
+<li>
+<p><strong>Swift (iOS)</strong></p>
+</li>
+<li>
+<p><a href="https://github.com/Boilertalk/Web3.swift">web3.swift</a></p>
+</li>
+<li>
+<p><strong>Rust</strong></p>
+</li>
+<li><a href="https://github.com/gakonst/ethers-rs">ethers-rs</a></li>
+<li><a href="https://github.com/tomusdrw/rust-web3">web3-rs</a></li>
+</ul>
+<hr />
+<h2 id="submit-the-signed-transaction">Submit the Signed Transaction</h2>
+<p>Once the transaction is signed, it needs to be submitted to the blockchain. Transactions are processed asynchronously but the order of transactions is preserved.</p>
+<h3 id="post-blockchainsigned-transaction"><code>POST /blockchain/signed-transaction</code></h3>
+<p><strong>Request Parameters</strong></p>
+<ul>
+<li><code>transaction_bytes</code>: <em>string</em></li>
+<li><code>topic</code>: <em>string</em></li>
+</ul>
+<p>Use the <code>topic</code> that was returned from the <code>GET /transaction/initiate-transfer</code> endpoint.</p>
+<p><strong>Example Response</strong></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="p">{</span>
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="w">    </span><span class="nt">&quot;success&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span>
+<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="w">    </span><span class="nt">&quot;tracking_id&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">214</span>
+<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="p">}</span>
+</code></pre></div>
+<hr />
+<h3 id="get-blockchaintransaction-status"><code>GET /blockchain/transaction-status</code></h3>
+<p>Optionally, the client can poll the status of the blockchain transaction. A blockchain transaction can either be <code>pending</code>, <code>failed</code>, or <code>succeeded</code>.</p>
+<p><strong>Request Parameters</strong></p>
+<ul>
+<li><code>transaction_id</code>: <em>string</em></li>
+</ul>
+<p><strong>Example Response</strong></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="p">{</span>
+<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="w">    </span><span class="nt">&quot;blockchain_transaction_status&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;failed&quot;</span>
+<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="p">}</span>
+</code></pre></div>
+<hr />
+<h3 id="get-blockchaintransactionerror-message"><code>GET /blockchain/transaction/error-message</code></h3>
+<p>If the blockchain transaction failed, the customer can retrieve more information on the failure reason.</p>
+<p><strong>Request Parameters</strong></p>
+<ul>
+<li><code>transaction_id</code>: <em>string</em></li>
+</ul>
+<p><strong>Example Response</strong></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="p">{</span>
+<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="w">    </span><span class="nt">&quot;error_message&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;{\n  \&quot;fragment\&quot;: {\n    \&quot;type\&quot;: \&quot;error\&quot;,\n    \&quot;inputs\&quot;: [\n      {\n </span>
+<a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a><span class="s2">    \&quot;name\&quot;: \&quot;user\&quot;,\n        \&quot;type\&quot;: \&quot;address\&quot;,\n        \&quot;baseType\&quot;: \&quot;address\&quot;,\n    </span>
+<a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a><span class="s2">    \&quot;components\&quot;: null,\n        \&quot;arrayLength\&quot;: null,\n        \&quot;arrayChildren\&quot;: null\n  </span>
+<a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a><span class="s2">    }\n    ],\n    \&quot;name\&quot;: \&quot;ERR_USER_NOT_WHITELISTED\&quot;\n  },\n  \&quot;name\&quot;:</span>
+<a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a><span class="s2">    \&quot;ERR_USER_NOT_WHITELISTED\&quot;,\n \&quot;args\&quot;: [\n    </span>
+<a id="__codelineno-5-7" name="__codelineno-5-7" href="#__codelineno-5-7"></a><span class="s2">    \&quot;0x2B5AD5c4795c026514f8317c7a215E218DcCD6cF\&quot;\n  ],\n  \&quot;signature\&quot;: </span>
+<a id="__codelineno-5-8" name="__codelineno-5-8" href="#__codelineno-5-8"></a><span class="s2">    \&quot;ERR_USER_NOT_WHITELISTED(address)\&quot;,\n  \&quot;selector\&quot;: \&quot;0x675037d5\&quot;\n}&quot;</span>
+<a id="__codelineno-5-9" name="__codelineno-5-9" href="#__codelineno-5-9"></a><span class="p">}</span>
+</code></pre></div>
+<hr />
+<p>Finally, you can wait for the IPN and query the transaction as described in the IPN and transaction querying sections.</p>
 
 
 
