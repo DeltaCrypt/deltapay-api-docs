@@ -752,10 +752,12 @@
 <p>The permissions for accessing non-blockchain functions are organized as follows:</p>
 <ul>
 <li><strong>General Permissions:</strong> These apply broadly across the system.</li>
-<li><strong>Targeted Permissions:</strong> These apply to specific targets, in particular:</li>
+<li><strong>Targeted Permissions:</strong> These apply to specific targets, in particular:<ul>
 <li>User</li>
 <li>Account</li>
 <li>Legal Entity</li>
+</ul>
+</li>
 </ul>
 <blockquote>
 <p><strong>Note:</strong> No permissions are needed when a <code>UserTargetPermission</code> is required and the caller is the target user. This allows users to request their own data without requiring specific permissions. Any exceptions to this rule will be clearly stated.</p>
@@ -803,15 +805,19 @@
 <blockquote>
 <p><strong>Note:</strong> Granting a permission twice will not throw an error, but simply be ignored.</p>
 </blockquote>
-<p><strong>Request Parameters</strong>
-- <code>subject_user_id</code>: <code>number</code>
-- <code>permissions</code>: <code>Array[string]</code>
-- <code>target_account_id</code>: <code>number</code></p>
+<p><strong>Request Parameters</strong></p>
+<ul>
+<li><code>subject_user_id: number</code></li>
+<li><code>permissions: Array[string]</code></li>
+<li><code>target_account_id: number</code></li>
+</ul>
 <p><strong>Required Permissions</strong>
 The caller must have the general <code>grant_account_permission</code> permission.</p>
 <h3 id="get-userpermissions"><code>GET /user/permissions</code></h3>
-<p><strong>Request Parameters</strong>
-- <code>user_id</code>: <code>Optional[number]</code></p>
+<p><strong>Request Parameters</strong></p>
+<ul>
+<li><code>user_id: Optional[number]</code></li>
+</ul>
 <p>If the <code>user_id</code> is not provided and the caller uses an OAuth token to authenticate the call, it can be determined from the token.</p>
 <p><strong>Required Permissions</strong>
 The caller must have the <code>view_permissions</code> permission, either generally or specifically for the user. As described at the beginning of the Permissions chapter, users do not need any permissions to view their own data.</p>
@@ -839,10 +845,12 @@ The caller must have the <code>view_permissions</code> permission, either genera
 </code></pre></div></p>
 <h3 id="delete-userrevoke-account-permissions"><code>DELETE /user/revoke-account-permissions</code></h3>
 <p>This endpoint can be used to revoke either a specific or all permission(s) for a certain user or target account.</p>
-<p><strong>Request Parameters</strong>
-- <code>subject_user_id</code>: <code>number</code>
-- <code>target_account_id</code>: <code>number</code>
-- <code>permissions</code>: <code>Optional[string]</code></p>
+<p><strong>Request Parameters</strong></p>
+<ul>
+<li><code>subject_user_id: number</code></li>
+<li><code>target_account_id: number</code></li>
+<li><code>permissions: Optional[string]</code></li>
+</ul>
 <p>If permission is null, all permissions are revoked for the target account.</p>
 <p><strong>Required Permissions</strong>
 The caller must have the general <code>revoke_account_permission</code> permission.</p>
