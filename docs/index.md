@@ -25,7 +25,7 @@ Unless otherwise specified:
 
 All endpoints will return a status code 200 (OK) if no exceptions occur. Other relevant response codes include:
 
-- **404 - Not Found:** The requested resource (e.g., a user) does not exist.
+- **404 - Not Found:** The requested resource (_e.g._, a user) does not exist.
 - **401 - Unauthorized:** See [Authentication Errors](#authentication-errors).
 - **500 - Internal Server Error:** Please contact DeltaPay.
 

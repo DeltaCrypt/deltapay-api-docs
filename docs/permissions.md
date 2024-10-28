@@ -4,9 +4,9 @@ The permissions for accessing non-blockchain functions are organized as follows:
 
 - **General Permissions:** These apply broadly across the system.
 - **Targeted Permissions:** These apply to specific targets, in particular:
-  - User
-  - Account
-  - Legal Entity
+    - User
+    - Account
+    - Legal Entity
 
 > **Note:** No permissions are needed when a `UserTargetPermission` is required and the caller is the target user. This allows users to request their own data without requiring specific permissions. Any exceptions to this rule will be clearly stated.
 
@@ -58,9 +58,10 @@ Multiple permissions can be granted for the same user and target account. This i
 > **Note:** Granting a permission twice will not throw an error, but simply be ignored.
 
 **Request Parameters**
-- `subject_user_id`: `number`
-- `permissions`: `Array[string]`
-- `target_account_id`: `number`
+
+- `subject_user_id: number`
+- `permissions: Array[string]`
+- `target_account_id: number`
 
 **Required Permissions**
 The caller must have the general `grant_account_permission` permission.
@@ -68,7 +69,8 @@ The caller must have the general `grant_account_permission` permission.
 ### `GET /user/permissions`
 
 **Request Parameters**
-- `user_id`: `Optional[number]`
+
+- `user_id: Optional[number]`
 
 If the `user_id` is not provided and the caller uses an OAuth token to authenticate the call, it can be determined from the token.
 
@@ -104,11 +106,30 @@ The caller must have the `view_permissions` permission, either generally or spec
 This endpoint can be used to revoke either a specific or all permission(s) for a certain user or target account.
 
 **Request Parameters**
-- `subject_user_id`: `number`
-- `target_account_id`: `number`
-- `permissions`: `Optional[string]`
+
+- `subject_user_id: number`
+- `target_account_id: number`
+- `permissions: Optional[string]`
 
 If permission is null, all permissions are revoked for the target account.
 
 **Required Permissions**
 The caller must have the general `revoke_account_permission` permission.
+
+
+
+=== "JavaScript"
+    ```javascript
+    console.log("Hello, World!");
+    ```
+
+=== "Python"
+    ```python
+    print("Hello, World!")
+    ```
+
+=== "Ruby"
+    ```ruby
+    puts "Hello, World!"
+    ```
+

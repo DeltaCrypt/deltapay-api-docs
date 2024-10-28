@@ -161,9 +161,10 @@ For the purpose of this document, we focus on the scenario where API keys are us
 
 <!-- TODO: Fix this note (or reformat) -->
 > **Note**: Transactions signed by a wallet linked to an API key differ in some ways from those linked to a user. In particular:
-- API Keys do not have a spending allowance. Therefore, no transaction initiated by an API key will ever need to be approved.
-- API keys cannot approve other transactions.
-- API keys cannot set spending allowances.
-- API keys cannot deactivate accounts.
+
+> - API Keys do not have a spending allowance. Therefore, no transaction initiated by an API key will ever need to be approved.
+> - API keys cannot approve other transactions.
+> - API keys cannot set spending allowances.
+> - API keys cannot deactivate accounts.
 
 Should you require any of the above features, please contact DeltaPay directly.
