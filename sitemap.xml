@@ -2,26 +2,30 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
          <loc>https://deltapay.co.sz/</loc>
-         <lastmod>2024-10-28</lastmod>
+         <lastmod>2024-10-29</lastmod>
     </url>
     <url>
          <loc>https://deltapay.co.sz/authentication/</loc>
-         <lastmod>2024-10-28</lastmod>
+         <lastmod>2024-10-29</lastmod>
     </url>
     <url>
          <loc>https://deltapay.co.sz/b2c/</loc>
-         <lastmod>2024-10-28</lastmod>
+         <lastmod>2024-10-29</lastmod>
+    </url>
+    <url>
+         <loc>https://deltapay.co.sz/c2b%20copy/</loc>
+         <lastmod>2024-10-29</lastmod>
     </url>
     <url>
          <loc>https://deltapay.co.sz/c2b/</loc>
-         <lastmod>2024-10-28</lastmod>
+         <lastmod>2024-10-29</lastmod>
     </url>
     <url>
          <loc>https://deltapay.co.sz/permissions/</loc>
-         <lastmod>2024-10-28</lastmod>
+         <lastmod>2024-10-29</lastmod>
     </url>
     <url>
          <loc>https://deltapay.co.sz/setup/</loc>
-         <lastmod>2024-10-28</lastmod>
+         <lastmod>2024-10-29</lastmod>
     </url>
 </urlset>

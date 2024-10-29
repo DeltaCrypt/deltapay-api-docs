@@ -589,27 +589,27 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#post-accountcallback-urlset" class="md-nav__link">
+  <a href="#register-callback" class="md-nav__link">
     <span class="md-ellipsis">
-      POST /account/callback-url/set
+      Register callback
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#get-accountcallback-url" class="md-nav__link">
+  <a href="#getting-callbacks-registered-for-an-account" class="md-nav__link">
     <span class="md-ellipsis">
-      GET /account/callback-url
+      Getting callbacks registered for an account
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#delete-accountcallback-urldeactivate" class="md-nav__link">
+  <a href="#deactivate-callback" class="md-nav__link">
     <span class="md-ellipsis">
-      DELETE /account/callback-url/deactivate
+      Deactivate callback
     </span>
   </a>
   
@@ -852,27 +852,27 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#post-accountcallback-urlset" class="md-nav__link">
+  <a href="#register-callback" class="md-nav__link">
     <span class="md-ellipsis">
-      POST /account/callback-url/set
+      Register callback
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#get-accountcallback-url" class="md-nav__link">
+  <a href="#getting-callbacks-registered-for-an-account" class="md-nav__link">
     <span class="md-ellipsis">
-      GET /account/callback-url
+      Getting callbacks registered for an account
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#delete-accountcallback-urldeactivate" class="md-nav__link">
+  <a href="#deactivate-callback" class="md-nav__link">
     <span class="md-ellipsis">
-      DELETE /account/callback-url/deactivate
+      Deactivate callback
     </span>
   </a>
   
@@ -996,29 +996,74 @@ The caller must have the <code>link_api_key_to_account</code> permission, either
 The caller must have the <code>unlink_api_key_to_account</code> permission, either generally or specifically for the account that the key is being unlinked from.</p>
 <h2 id="callback-registration">Callback Registration</h2>
 <p>The user can register callbacks for a number of events that occur on the DeltaPay system. To ensure easy extensibility, the user only registers the base URL to which he wants the callback requests sent to.</p>
-<p>For example, if the callback endpoint is <code>api.client.co.sz</code>, the IPN callback will call <code>POST api.client.co.sz/transaction/status</code>.</p>
+<p>For example, if the callback endpoint is <code>api.client.co.sz</code>, the IPN callback will call <code>POST api.client.co.sz/transaction/ipn</code>.</p>
 <p>The following endpoints are for setting, viewing, and deactivating the callback URL for a specific account.</p>
-<h3 id="post-accountcallback-urlset"><code>POST /account/callback-url/set</code></h3>
+<h3 id="register-callback">Register callback</h3>
+<p><a href="https://api.dev.deltacrypt.net/docs#/accounts/register_callback_url_account_callback_url_register_post"><code>POST /account/callback-url/register</code></a></p>
+<ol>
+<li>Registers the callback for the account.</li>
+<li>Generates a new signing key pair. The public key is returned required to verify the signatures.</li>
+</ol>
+<!-- Explain what the purpose of the manager legal entity is -->
+
 <p><strong>Request Parameters</strong>
-- <code>account_id</code>: <code>number</code></p>
-<p>**Required Permissions
-The caller must have the <code>set_callback_url</code> permission, either generally or specifically for the account that the callback URL is set for.</p>
-<h3 id="get-accountcallback-url"><code>GET /account/callback-url</code></h3>
-<p><strong>Request Parameters</strong>
-- <code>account_id</code>: <code>number</code></p>
+- <code>callback_url: string</code>
+- <code>account_id: int</code>
+- <code>manager_entity_id: int</code> - The legal entity that is in charge of managing this callback</p>
+<!-- Check if optional -->
+
 <p><strong>Required Permissions</strong>
-The caller must have the <code>view_callback_url</code> permission, either generally or specifically for the account.</p>
-<p><strong>Example Response</strong></p>
+The caller must have the <code>set_callback_url</code> permission, either generally or specifically for the account <strong>and</strong> manager legal entity that the callback URL is set for.</p>
+<p><strong>Example Response</strong>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="p">{</span>
-<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="w">  </span><span class="nt">&quot;callback_url&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;https://api.client.co.sz&quot;</span>
-<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="p">}</span>
-</code></pre></div>
-<h3 id="delete-accountcallback-urldeactivate"><code>DELETE /account/callback-url/deactivate</code></h3>
-<p>Sets the callback URL to null so that no more callbacks will be called for events related to this account.</p>
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="w">    </span><span class="nt">&quot;callback_id&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span>
+<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="w">    </span><span class="nt">&quot;callback_url&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;https://api.dev.deltacrypt.net&quot;</span><span class="p">,</span>
+<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="w">    </span><span class="nt">&quot;account_id&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1004</span><span class="p">,</span>
+<a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a><span class="w">    </span><span class="nt">&quot;manager_entity_id&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span>
+<a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a><span class="w">    </span><span class="nt">&quot;signing_key&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;-----BEGIN PUBLIC KEY-----\nMIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEA57xXfRBtvwwotZBjW+zW\n7GzPchUlgzqJL5epFKL15E0gqgIu7O1fvnohpBdHe2uEAlGhJWw/LUsAKrYQECau\nm6gBEC6TWMzG8ne8yU5QH2lLq4J4BL4slHTSN//t7vejZu02N33STZP5CoS0bJ5f\nImk4s69jp5vjesUussFqBmVUHbEYn3D+Ihz/Hbrwx61EC0hRwBcTTYHCXgDEey3P\n0dztvs+WKP00qiUg8Eb16kaooA1/fI3ZaW94QnYYfH9UKspiJWtUfapdNExv1utD\ndOHZhdkbbtX8/JG3LZIyjUGrnxfDu0wC5RKWltBzKjzHn/b0Ai7xrElWfgjmRPtZ\nwQIDAQAB\n-----END PUBLIC KEY-----\n&quot;</span><span class="p">,</span>
+<a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a><span class="w">    </span><span class="nt">&quot;active&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span>
+<a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a><span class="w">    </span><span class="nt">&quot;deactivation_time&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span>
+<a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a><span class="w">    </span><span class="p">}</span>
+</code></pre></div></p>
+<h3 id="getting-callbacks-registered-for-an-account">Getting callbacks registered for an account</h3>
+<p><a href="https://api.dev.deltacrypt.net/docs#/accounts/get_callback_urls_account_callback_urls_get"><code>GET /account/callback-urls</code></a></p>
 <p><strong>Request Parameters</strong>
-- <code>account_id</code>: <code>number</code></p>
+- <code>account_id: int</code>
+- <code>manager_entity_id: Optional[int]</code></p>
 <p><strong>Required Permissions</strong>
-The caller must have the <code>set_callback_url</code> permission, either generally or specifically for the account for which the callback URL is being deactivated.</p>
+The caller must have the <code>view_callback_url</code> permission, either generally or specifically for the account <strong>and</strong> manager legal entity.</p>
+<p><strong>Example Response</strong></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="p">{</span>
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="w">    </span><span class="nt">&quot;callback_urls&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="w">        </span><span class="p">{</span>
+<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="w">            </span><span class="nt">&quot;callback_id&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span>
+<a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a><span class="w">            </span><span class="nt">&quot;callback_url&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;https://api.dev.deltacrypt.net&quot;</span><span class="p">,</span>
+<a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a><span class="w">            </span><span class="nt">&quot;account_id&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1004</span><span class="p">,</span>
+<a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a><span class="w">            </span><span class="nt">&quot;manager_entity_id&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span>
+<a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a><span class="w">            </span><span class="nt">&quot;signing_key&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;-----BEGIN PUBLIC KEY-----\nMIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEA57xXfRBtvwwotZBjW+zW\n7GzPchUlgzqJL5epFKL15E0gqgIu7O1fvnohpBdHe2uEAlGhJWw/LUsAKrYQECau\nm6gBEC6TWMzG8ne8yU5QH2lLq4J4BL4slHTSN//t7vejZu02N33STZP5CoS0bJ5f\nImk4s69jp5vjesUussFqBmVUHbEYn3D+Ihz/Hbrwx61EC0hRwBcTTYHCXgDEey3P\n0dztvs+WKP00qiUg8Eb16kaooA1/fI3ZaW94QnYYfH9UKspiJWtUfapdNExv1utD\ndOHZhdkbbtX8/JG3LZIyjUGrnxfDu0wC5RKWltBzKjzHn/b0Ai7xrElWfgjmRPtZ\nwQIDAQAB\n-----END PUBLIC KEY-----\n&quot;</span><span class="p">,</span>
+<a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a><span class="w">            </span><span class="nt">&quot;active&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span>
+<a id="__codelineno-3-10" name="__codelineno-3-10" href="#__codelineno-3-10"></a><span class="w">            </span><span class="nt">&quot;deactivation_time&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span>
+<a id="__codelineno-3-11" name="__codelineno-3-11" href="#__codelineno-3-11"></a><span class="w">        </span><span class="p">},</span>
+<a id="__codelineno-3-12" name="__codelineno-3-12" href="#__codelineno-3-12"></a><span class="w">        </span><span class="p">{</span>
+<a id="__codelineno-3-13" name="__codelineno-3-13" href="#__codelineno-3-13"></a><span class="w">            </span><span class="nt">&quot;callback_id&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span>
+<a id="__codelineno-3-14" name="__codelineno-3-14" href="#__codelineno-3-14"></a><span class="w">            </span><span class="nt">&quot;callback_url&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;test&quot;</span><span class="p">,</span>
+<a id="__codelineno-3-15" name="__codelineno-3-15" href="#__codelineno-3-15"></a><span class="w">            </span><span class="nt">&quot;account_id&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1004</span><span class="p">,</span>
+<a id="__codelineno-3-16" name="__codelineno-3-16" href="#__codelineno-3-16"></a><span class="w">            </span><span class="nt">&quot;manager_entity_id&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span>
+<a id="__codelineno-3-17" name="__codelineno-3-17" href="#__codelineno-3-17"></a><span class="w">            </span><span class="nt">&quot;signing_key&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;-----BEGIN PUBLIC KEY-----\nMIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAvDRW7vlW0w2uEwpZe5F0\nNtDsWFtf28GWFbRgkEjx2LHV2KmkuzuJgtATcfVoSZPZBTwVfRGfhh6k4j8Fn8iY\nLUhac+rSoUvEpdyq35l/K9rwp84n8DIk9GBA55ragqiu+opA94Jn9MA2koRhyO0H\n/wn6fvZME0hpR63emBq0t+Q7X3mjiISZZwHP60YX98SfYGMOpD2yhdTp08DX28pC\nMNH4kdBbbXCKu1UGHn2MZmTJykeFFf69aJx4QF7QnQDgZ+wXIZ4as6jH8YmKrEKe\n2nTP0JONxWJjgqon7nyKFSaSMovbdfwkIwMxEHozKLfaqbxHPkq/Djc8BTuD6k2l\nOwIDAQAB\n-----END PUBLIC KEY-----\n&quot;</span><span class="p">,</span>
+<a id="__codelineno-3-18" name="__codelineno-3-18" href="#__codelineno-3-18"></a><span class="w">            </span><span class="nt">&quot;active&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span>
+<a id="__codelineno-3-19" name="__codelineno-3-19" href="#__codelineno-3-19"></a><span class="w">            </span><span class="nt">&quot;deactivation_time&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;2024-10-26T14:54:21.178337&quot;</span>
+<a id="__codelineno-3-20" name="__codelineno-3-20" href="#__codelineno-3-20"></a><span class="w">        </span><span class="p">}</span>
+<a id="__codelineno-3-21" name="__codelineno-3-21" href="#__codelineno-3-21"></a><span class="w">    </span><span class="p">]</span>
+<a id="__codelineno-3-22" name="__codelineno-3-22" href="#__codelineno-3-22"></a><span class="p">}</span>
+</code></pre></div>
+<h3 id="deactivate-callback">Deactivate callback</h3>
+<p><a href="https://api.dev.deltacrypt.net/docs#/accounts/deactivate_callback_url_account_callback_url_deactivate_delete"><code>DELETE /account/callback-url/deactivate</code></a></p>
+<!-- Sets the callback URL to null so that no more callbacks will be called for events related to this account. -->
+
+<p><strong>Request Parameters</strong>
+- <code>callback_id</code>: int`</p>
+<p><strong>Required Permissions</strong>
+The caller must have the <code>set_callback_url</code> permission, either generally or specifically for the account <strong>and</strong> manager legal entity. </p>
 
 
 
