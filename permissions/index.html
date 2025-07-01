@@ -22,7 +22,7 @@
       
       
       <link rel="icon" href="../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.5.42">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.14">
     
     
       
@@ -30,7 +30,7 @@
       
     
     
-      <link rel="stylesheet" href="../assets/stylesheets/main.0253249f.min.css">
+      <link rel="stylesheet" href="../assets/stylesheets/main.342714a4.min.css">
       
         
         <link rel="stylesheet" href="../assets/stylesheets/palette.06af60db.min.css">
@@ -104,7 +104,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#overview" class="md-skip">
+        <a href="#permissions" class="md-skip">
           Skip to content
         </a>
       
@@ -176,11 +176,13 @@
     
     
     
-      <label class="md-header__button md-icon" for="__search">
-        
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
-      </label>
-      <div class="md-search" data-md-component="search" role="dialog">
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
   <label class="md-search__overlay" for="__search"></label>
   <div class="md-search__inner" role="search">
     <form class="md-search__form" name="search">
@@ -219,6 +221,7 @@
     </div>
   </div>
 </div>
+      
     
     
   </nav>
@@ -239,9 +242,11 @@
   
   
   
+  
     <li class="md-tabs__item">
       <a href=".." class="md-tabs__link">
         
+  
   
     
   
@@ -255,6 +260,7 @@
         
   
   
+  
     
   
   
@@ -263,6 +269,7 @@
       <li class="md-tabs__item md-tabs__item--active">
         <a href="./" class="md-tabs__link">
           
+  
   
     
   
@@ -278,11 +285,13 @@
   
   
   
+  
     
     
       <li class="md-tabs__item">
         <a href="../c2b/" class="md-tabs__link">
           
+  
   
     
   
@@ -337,8 +346,10 @@
       <a href=".." class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
     Home
+    
   </span>
   
 
@@ -366,6 +377,7 @@
       
     
     
+    
       
         
         
@@ -385,8 +397,10 @@
           <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
             
   
+  
   <span class="md-ellipsis">
     Getting Started
+    
   </span>
   
 
@@ -416,15 +430,100 @@
         
       
       
-      <a href="./" class="md-nav__link md-nav__link--active">
-        
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
   
   <span class="md-ellipsis">
     Permissions
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    Permissions
+    
   </span>
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#roles" class="md-nav__link">
+    <span class="md-ellipsis">
+      Roles
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#user-and-api-key-permissions" class="md-nav__link">
+    <span class="md-ellipsis">
+      User and API Key Permissions
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="User and API Key Permissions">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#post-usergrant-account-permissions" class="md-nav__link">
+    <span class="md-ellipsis">
+      POST /user/grant-account-permissions
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#get-userpermissions" class="md-nav__link">
+    <span class="md-ellipsis">
+      GET /user/permissions
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#delete-userrevoke-account-permissions" class="md-nav__link">
+    <span class="md-ellipsis">
+      DELETE /user/revoke-account-permissions
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -441,8 +540,10 @@
       <a href="../authentication/" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
     Authentication
+    
   </span>
   
 
@@ -462,8 +563,10 @@
       <a href="../setup/" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
     Setup
+    
   </span>
   
 
@@ -493,6 +596,9 @@
       
         
       
+        
+      
+    
     
     
       
@@ -511,8 +617,10 @@
           <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
             
   
+  
   <span class="md-ellipsis">
     Common Use Cases
+    
   </span>
   
 
@@ -536,8 +644,10 @@
       <a href="../c2b/" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
     C2B
+    
   </span>
   
 
@@ -557,8 +667,33 @@
       <a href="../b2c/" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
     B2C
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../qr_code/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    QR Code Spec
+    
   </span>
   
 
@@ -595,6 +730,65 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#roles" class="md-nav__link">
+    <span class="md-ellipsis">
+      Roles
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#user-and-api-key-permissions" class="md-nav__link">
+    <span class="md-ellipsis">
+      User and API Key Permissions
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="User and API Key Permissions">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#post-usergrant-account-permissions" class="md-nav__link">
+    <span class="md-ellipsis">
+      POST /user/grant-account-permissions
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#get-userpermissions" class="md-nav__link">
+    <span class="md-ellipsis">
+      GET /user/permissions
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#delete-userrevoke-account-permissions" class="md-nav__link">
+    <span class="md-ellipsis">
+      DELETE /user/revoke-account-permissions
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -608,7 +802,8 @@
                   
 
 
-<h1 id="overview">Overview</h1>
+
+<h1 id="permissions">Permissions</h1>
 <p>The permissions for accessing non-blockchain functions are organized as follows:</p>
 <ul>
 <li><strong>General Permissions:</strong> These apply broadly across the system.</li>
@@ -622,12 +817,12 @@
 <blockquote>
 <p><strong>Note:</strong> No permissions are needed when a <code>UserTargetPermission</code> is required and the caller is the target user. This allows users to request their own data without requiring specific permissions. Any exceptions to this rule will be clearly stated.</p>
 </blockquote>
-<h1 id="roles">Roles</h1>
+<h2 id="roles">Roles</h2>
 <p>General permissions can be attached to a role, which may then be assigned to a user or API key. This allows for logical grouping of permissions and avoids having to assign them individually.</p>
 <blockquote>
 <p><strong>Note:</strong> Permissions assigned to a role are always general (they do not apply to a specific target).</p>
 </blockquote>
-<h1 id="user-and-api-key-permissions">User and API Key Permissions</h1>
+<h2 id="user-and-api-key-permissions">User and API Key Permissions</h2>
 <p>There are two types of callers:</p>
 <ul>
 <li><strong>Users:</strong> Who will typically authenticate using an OAuth token.</li>
@@ -660,22 +855,20 @@
 <li><code>DELETE /api-key/revoke-legal-entity-permissions</code></li>
 </ul>
 <p>For more detailed documentation on the endpoints above, please refer to the online documentation. For demonstration purposes, we will highlight the following:</p>
-<h2 id="grant-account-permissions">Grant Account Permissions</h2>
-<p><a href="https://api.dev.deltacrypt.net/docs#/user_permissions/grant_account_permissions_user_grant_account_permissions_post"><code>POST /user/grant-account-permissions</code></a></p>
+<h3 id="post-usergrant-account-permissions"><code>POST /user/grant-account-permissions</code></h3>
 <p>Multiple permissions can be granted for the same user and target account. This is common because, for instance, an account admin gains many permissions simultaneously when assigned the admin role. Different account targets will require separate calls.</p>
 <blockquote>
 <p><strong>Note:</strong> Granting a permission twice will not throw an error, but simply be ignored.</p>
 </blockquote>
 <p><strong>Request Parameters</strong></p>
 <ul>
-<li><code>subject_user_id</code>: <em>int</em></li>
-<li><code>permissions</code>: <em>Array[string]</em></li>
-<li><code>target_account_id</code>: <em>int</em></li>
+<li><code>subject_user_id: number</code></li>
+<li><code>permissions: Array[string]</code></li>
+<li><code>target_account_id: number</code></li>
 </ul>
 <p><strong>Required Permissions</strong>
 The caller must have the general <code>grant_account_permission</code> permission.</p>
-<h2 id="get-users-permissions">Get User's Permissions</h2>
-<p><a href="https://api.dev.deltacrypt.net/docs#/user_permissions/get_user_permissions_user_permissions_get"><code>GET /user/permissions</code></a></p>
+<h3 id="get-userpermissions"><code>GET /user/permissions</code></h3>
 <p><strong>Request Parameters</strong></p>
 <ul>
 <li><code>user_id: Optional[number]</code></li>
@@ -705,8 +898,7 @@ The caller must have the <code>view_permissions</code> permission, either genera
 <a id="__codelineno-0-19" name="__codelineno-0-19" href="#__codelineno-0-19"></a><span class="w">    </span><span class="p">},</span>
 <a id="__codelineno-0-20" name="__codelineno-0-20" href="#__codelineno-0-20"></a><span class="w">    </span><span class="err">...</span>
 </code></pre></div></p>
-<h2 id="revoke-account-permissions">Revoke Account Permissions</h2>
-<p><a href="https://api.dev.deltacrypt.net/docs#/user_permissions/revoke_account_permissions_user_revoke_account_permissions_delete"><code>DELETE /user/revoke-account-permissions</code></a></p>
+<h3 id="delete-userrevoke-account-permissions"><code>DELETE /user/revoke-account-permissions</code></h3>
 <p>This endpoint can be used to revoke either a specific or all permission(s) for a certain user or target account.</p>
 <p><strong>Request Parameters</strong></p>
 <ul>
@@ -717,6 +909,15 @@ The caller must have the <code>view_permissions</code> permission, either genera
 <p>If permission is null, all permissions are revoked for the target account.</p>
 <p><strong>Required Permissions</strong>
 The caller must have the general <code>revoke_account_permission</code> permission.</p>
+<p>=== "JavaScript"
+    <div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;Hello, World!&quot;</span><span class="p">);</span>
+</code></pre></div></p>
+<p>=== "Python"
+    <div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Hello, World!&quot;</span><span class="p">)</span>
+</code></pre></div></p>
+<p>=== "Ruby"
+    <div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="nb">puts</span><span class="w"> </span><span class="s2">&quot;Hello, World!&quot;</span>
+</code></pre></div></p>
 
 
 
@@ -817,7 +1018,7 @@ The caller must have the general <code>revoke_account_permission</code> permissi
       
     
     <a href="https://www.facebook.com/DeltaPayEswatini" target="_blank" rel="noopener" title="www.facebook.com" class="md-social__link">
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M512 256C512 114.6 397.4 0 256 0S0 114.6 0 256c0 120 82.7 220.8 194.2 248.5V334.2h-52.8V256h52.8v-33.7c0-87.1 39.4-127.5 125-127.5 16.2 0 44.2 3.2 55.7 6.4V172c-6-.6-16.5-1-29.6-1-42 0-58.2 15.9-58.2 57.2V256h83.6l-14.4 78.2H287v175.9C413.8 494.8 512 386.9 512 256"/></svg>
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M512 256C512 114.6 397.4 0 256 0S0 114.6 0 256c0 120 82.7 220.8 194.2 248.5V334.2h-52.8V256h52.8v-33.7c0-87.1 39.4-127.5 125-127.5 16.2 0 44.2 3.2 55.7 6.4V172c-6-.6-16.5-1-29.6-1-42 0-58.2 15.9-58.2 57.2V256h83.6l-14.4 78.2H287v175.9C413.8 494.8 512 386.9 512 256"/></svg>
     </a>
   
     
@@ -828,7 +1029,7 @@ The caller must have the general <code>revoke_account_permission</code> permissi
       
     
     <a href="https://www.instagram.com/deltapayeswatini" target="_blank" rel="noopener" title="www.instagram.com" class="md-social__link">
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M224.1 141c-63.6 0-114.9 51.3-114.9 114.9s51.3 114.9 114.9 114.9S339 319.5 339 255.9 287.7 141 224.1 141m0 189.6c-41.1 0-74.7-33.5-74.7-74.7s33.5-74.7 74.7-74.7 74.7 33.5 74.7 74.7-33.6 74.7-74.7 74.7m146.4-194.3c0 14.9-12 26.8-26.8 26.8-14.9 0-26.8-12-26.8-26.8s12-26.8 26.8-26.8 26.8 12 26.8 26.8m76.1 27.2c-1.7-35.9-9.9-67.7-36.2-93.9-26.2-26.2-58-34.4-93.9-36.2-37-2.1-147.9-2.1-184.9 0-35.8 1.7-67.6 9.9-93.9 36.1s-34.4 58-36.2 93.9c-2.1 37-2.1 147.9 0 184.9 1.7 35.9 9.9 67.7 36.2 93.9s58 34.4 93.9 36.2c37 2.1 147.9 2.1 184.9 0 35.9-1.7 67.7-9.9 93.9-36.2 26.2-26.2 34.4-58 36.2-93.9 2.1-37 2.1-147.8 0-184.8M398.8 388c-7.8 19.6-22.9 34.7-42.6 42.6-29.5 11.7-99.5 9-132.1 9s-102.7 2.6-132.1-9c-19.6-7.8-34.7-22.9-42.6-42.6-11.7-29.5-9-99.5-9-132.1s-2.6-102.7 9-132.1c7.8-19.6 22.9-34.7 42.6-42.6 29.5-11.7 99.5-9 132.1-9s102.7-2.6 132.1 9c19.6 7.8 34.7 22.9 42.6 42.6 11.7 29.5 9 99.5 9 132.1s2.7 102.7-9 132.1"/></svg>
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M224.1 141c-63.6 0-114.9 51.3-114.9 114.9s51.3 114.9 114.9 114.9S339 319.5 339 255.9 287.7 141 224.1 141m0 189.6c-41.1 0-74.7-33.5-74.7-74.7s33.5-74.7 74.7-74.7 74.7 33.5 74.7 74.7-33.6 74.7-74.7 74.7m146.4-194.3c0 14.9-12 26.8-26.8 26.8-14.9 0-26.8-12-26.8-26.8s12-26.8 26.8-26.8 26.8 12 26.8 26.8m76.1 27.2c-1.7-35.9-9.9-67.7-36.2-93.9-26.2-26.2-58-34.4-93.9-36.2-37-2.1-147.9-2.1-184.9 0-35.8 1.7-67.6 9.9-93.9 36.1s-34.4 58-36.2 93.9c-2.1 37-2.1 147.9 0 184.9 1.7 35.9 9.9 67.7 36.2 93.9s58 34.4 93.9 36.2c37 2.1 147.9 2.1 184.9 0 35.9-1.7 67.7-9.9 93.9-36.2 26.2-26.2 34.4-58 36.2-93.9 2.1-37 2.1-147.8 0-184.8M398.8 388c-7.8 19.6-22.9 34.7-42.6 42.6-29.5 11.7-99.5 9-132.1 9s-102.7 2.6-132.1-9c-19.6-7.8-34.7-22.9-42.6-42.6-11.7-29.5-9-99.5-9-132.1s-2.6-102.7 9-132.1c7.8-19.6 22.9-34.7 42.6-42.6 29.5-11.7 99.5-9 132.1-9s102.7-2.6 132.1 9c19.6 7.8 34.7 22.9 42.6 42.6 11.7 29.5 9 99.5 9 132.1s2.7 102.7-9 132.1"/></svg>
     </a>
   
     
@@ -839,7 +1040,7 @@ The caller must have the general <code>revoke_account_permission</code> permissi
       
     
     <a href="https://www.linkedin.com/company/deltapay_eswatini" target="_blank" rel="noopener" title="www.linkedin.com" class="md-social__link">
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M416 32H31.9C14.3 32 0 46.5 0 64.3v383.4C0 465.5 14.3 480 31.9 480H416c17.6 0 32-14.5 32-32.3V64.3c0-17.8-14.4-32.3-32-32.3M135.4 416H69V202.2h66.5V416zm-33.2-243c-21.3 0-38.5-17.3-38.5-38.5S80.9 96 102.2 96c21.2 0 38.5 17.3 38.5 38.5 0 21.3-17.2 38.5-38.5 38.5m282.1 243h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9z"/></svg>
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M416 32H31.9C14.3 32 0 46.5 0 64.3v383.4C0 465.5 14.3 480 31.9 480H416c17.6 0 32-14.5 32-32.3V64.3c0-17.8-14.4-32.3-32-32.3M135.4 416H69V202.2h66.5V416zm-33.2-243c-21.3 0-38.5-17.3-38.5-38.5S80.9 96 102.2 96c21.2 0 38.5 17.3 38.5 38.5 0 21.3-17.2 38.5-38.5 38.5m282.1 243h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9z"/></svg>
     </a>
   
 </div>
@@ -854,10 +1055,12 @@ The caller must have the general <code>revoke_account_permission</code> permissi
     </div>
     
     
-    <script id="__config" type="application/json">{"base": "..", "features": ["announce.dismiss", "content.action.edit", "content.action.view", "content.code.annotate", "content.code.copy", "content.tooltips", "navigation.footer", "navigation.indexes", "navigation.sections", "navigation.tabs", "navigation.top", "navigation.tracking", "search.highlight", "search.share", "search.suggest", "toc.follow"], "search": "../assets/javascripts/workers/search.6ce7567c.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+      
+      <script id="__config" type="application/json">{"base": "..", "features": ["announce.dismiss", "content.action.edit", "content.action.view", "content.code.annotate", "content.code.copy", "content.tooltips", "navigation.footer", "navigation.indexes", "navigation.sections", "navigation.tabs", "navigation.top", "navigation.tracking", "search.highlight", "search.share", "search.suggest", "toc.follow"], "search": "../assets/javascripts/workers/search.d50fe291.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
     
     
-      <script src="../assets/javascripts/bundle.83f73b43.min.js"></script>
+      <script src="../assets/javascripts/bundle.13a4f30d.min.js"></script>
       
     
   </body>
