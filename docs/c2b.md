@@ -4,7 +4,8 @@ The customer pays for a service using DeltaPay. The service provider is notified
 
 For example, the process of paying for an item online might look something like this:
 
-1. The website generates a payment QR code encoding the amount, recipient, and reference (see [QR Code Standard](#qr_codes))  <!-- Add section on QR codes -->
+<!-- TODO: Add section on payment requests -->
+1. The website generates a payment QR code encoding the amount, recipient, and reference (see [QR Code Specification](qr_code.md))
 2. The user scans the QR code and the information is prefilled on the DeltaPay app
 3. The user approves and sends the transaction
 4. The IPN is sent to the registered callback(s) notifying the seller of an update regarding the payment.
