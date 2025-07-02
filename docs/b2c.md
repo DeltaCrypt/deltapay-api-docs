@@ -1,16 +1,16 @@
-# B2C
+# Scenario
 
 The process of sending money to a customer (or another business) encompasses the following:
 
-- Check whether the transaction is possible (optional)
-- Initiate the transaction
-- Sign the raw blockchain transaction
-- Submit the signed blockchain transaction
-- Query the blockchain transaction (optional)
-- Receive a callback when the transaction status changes (IPN)
-- Query the transaction
+1. Check whether the transaction is possible (optional)
+2. Initiate the transaction
+3. Sign the raw blockchain transaction
+4. Submit the signed blockchain transaction
+5. Query the blockchain transaction (optional)
+6. Receive a callback when the transaction status changes (IPN)
+7. Query the transaction
 
-## Check Transaction Possible
+# Check Transaction Possible
 
 Before initiating a transaction, it is advisable to check whether the transaction will be possible to avoid more complex polling or callback logic. There are a number of reasons a transaction might fail:
 
@@ -22,7 +22,8 @@ Before initiating a transaction, it is advisable to check whether the transactio
 
 > **Note**: Insufficient spending allowances do not prevent the transaction from occurring; rather, the transaction will require approval, which will, in turn, reflect in the state of the transaction.
 
-### `GET /transaction/transfer-possible`
+## Check Transafer Possible
+[`GET /transaction/transfer-possible`](https://api.dev.deltacrypt.net/docs#/transactions/is_transfer_possible_transaction_transfer_possible_get)
 
 **Request Parameters**
 
@@ -30,7 +31,7 @@ Before initiating a transaction, it is advisable to check whether the transactio
 - `amount`: *number*
 - `transaction_type`: *string*
 - `recipient_username`: *Optional[string]*
-- `recipient_account_id`: *Optional[number]*
+- `recipient_account_id`: *Optional[int]*
 
 The `sender_wallet_address` must be linked to an account.
 
@@ -61,19 +62,20 @@ or, alternatively, when the transfer is not possible
 
 ---
 
-## Initiate Transactions
+# Initiate Transactions
 
-### `GET /transaction/initiate-transfer`
+## Initiate Transfer
+[`GET /transaction/initiate-transfer`](https://api.dev.deltacrypt.net/docs#/transactions/initiate_transfer_transaction_initiate_transfer_post)
 
 **Request Parameters**
 
 - `sender_wallet_address`: *string*
 - `amount`: *number*
 - `note`: *Optional[string]*
-- `sender_till_id`: *Optional[number]*
+- `sender_till_id`: *Optional[int]*
 - `recipient_username`: *Optional[string]*
-- `recipient_account_id`: *Optional[number]*
-- `recipient_till_id`: *Optional[number]*
+- `recipient_account_id`: *Optional[int]*
+- `recipient_till_id`: *Optional[int]*
 - `transaction_type`: *string*
 - `source_of_funds`: *Optional[string]*
 
@@ -98,7 +100,7 @@ or, alternatively, when the transfer is not possible
 
 ---
 
-## Sign the Transaction
+# Sign the Transaction
 
 The next step involves signing the `raw_transaction` returned by the `GET /transaction/initiate-transfer` endpoint. The customer may use any of the available libraries that provide Ethereum functions.
 
@@ -133,11 +135,12 @@ The next step involves signing the `raw_transaction` returned by the `GET /trans
 
 ---
 
-## Submit the Signed Transaction
+# Submit the Signed Transaction
 
 Once the transaction is signed, it needs to be submitted to the blockchain. Transactions are processed asynchronously but the order of transactions is preserved.
 
-### `POST /blockchain/signed-transaction`
+## Send Signed Transaction
+[`POST /blockchain/signed-transaction`](https://api.dev.deltacrypt.net/docs#/blockchain/send_signed_transaction_blockchain_signed_transaction_post)
 
 **Request Parameters**
 
@@ -157,7 +160,8 @@ Use the `topic` that was returned from the `GET /transaction/initiate-transfer` 
 
 ---
 
-### `GET /blockchain/transaction-status`
+## Get Blockchain Transaction Status
+[`GET /blockchain/transaction-status`](https://api.dev.deltacrypt.net/docs#/blockchain/get_transaction_status_blockchain_transaction_status_get)
 
 Optionally, the client can poll the status of the blockchain transaction. A blockchain transaction can either be `pending`, `failed`, or `succeeded`.
 
@@ -175,7 +179,8 @@ Optionally, the client can poll the status of the blockchain transaction. A bloc
 
 ---
 
-### `GET /blockchain/transaction/error-message`
+## Get Blockchain Transaction Error Message
+[`GET /blockchain/transaction/error-message`](https://api.dev.deltacrypt.net/docs#/blockchain/get_transaction_error_message_blockchain_transaction_error_message_get)
 
 If the blockchain transaction failed, the customer can retrieve more information on the failure reason.
 

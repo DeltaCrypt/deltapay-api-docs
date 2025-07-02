@@ -102,6 +102,7 @@ nav:
   - Common Use Cases:
     - C2B: c2b.md
     - B2C: b2c.md
+    - QR Code Spec: qr_code.md
 
 copyright: |
   &copy; 2024 DeltaCrypt GmbH. All rights reserved.
