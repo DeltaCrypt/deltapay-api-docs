@@ -169,3 +169,121 @@ function verifySignature(publicKeyPem, data) {
 }
 
 ```
+
+### PHP
+
+#### Requirements:
+
+* **phpseclib v3** installed via Composer (`composer require phpseclib/phpseclib:^3.0`)
+* **ext-json** enabled (for `json_encode`/`json_decode`)
+* **GMP** or **BCMath** PHP extension (php-gmp or php-bcmath)
+* **ext-openssl** enabled (optional but recommended for performance)
+* **PHP 7.2+** (phpseclib3 works on 5.6+, but PSS+SHA-256 is most reliable on 7.2+)
+* A valid **RSA public key** in PEM format matching the signer’s key
+
+
+```php title="verify.php" linenums="1"
+
+<?php
+// php_test.php
+
+require __DIR__ . '/vendor/autoload.php';
+
+use phpseclib3\Crypt\PublicKeyLoader;
+use phpseclib3\Crypt\RSA;
+
+// 1) Your full callback data, including the signature
+$callbackData = [
+    'transaction_id'                   => 397,
+    'transaction_type'                 => 'education',
+    'transaction_status'               => 'succeeded',
+    'initialisation_time'              => '2024-10-26T19:07:12.872556',
+    'settled_time'                     => '2024-10-26T19:07:18.856786',
+    'note'                             => 'bro',
+    'metadata'                         => null,
+    'source_of_funds'                  => '',
+    'bank_account'                     => null,
+    'sender_account_id'                => 1014,
+    'sender_account_name'              => 'New 3',
+    'sender_name'                      => 'DeltaPay',
+    'sender_till_name'                 => null,
+    'sender_phone_country_dialcode'    => null,
+    'sender_phone_number'              => null,
+    'recipient_account_id'             => 1001,
+    'recipient_account_name'           => 'Personal',
+    'recipient_name'                   => 'adrian',
+    'recipient_till_name'              => null,
+    'recipient_phone_country_dialcode' => null,
+    'recipient_phone_number'           => null,
+    'amount'                           => 7,
+    'cashback_received'                => 0,
+    'cashback_spent'                   => 0,
+    'fee'                              => 0,
+    'commission_amount'                => 0,
+    'signature'                        => 'aY59ZtcOebh8tPrHACHrAhE7k0IoLvXha5I7jPdNj1niSSktaXScmI6mOUztFEk5LEYSUiYyDYvAK/qqt4c4hLYX5KjSZR1IuA7y9mlLn4O/WFyqTQ7vweKqFuQrpptpMhxupf7Jb9JI/dr02+txGF0BgA8q/4C9cqJIGiN8wncMuMUm0rg7DGRxwEWbc5Odn9IRyGQA3j3cU0uPDQZ0z12ucFs5AtspfsrBFdbKsV66eb1PSHSGUe0AF2cIZEqk7r5JwU4EAQCLYoShrg6J2NZdzlVXCFZk2+l20LXSCdH9pR6ZDvBSOLUhpwavHfDs27IEvtasMxvXx7B1OEHBoA=='
+];
+
+// 2) Your RSA public key
+$publicKeyPem = <<<'KEY'
+-----BEGIN PUBLIC KEY-----
+MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAw4iXQZfRMpjTOOgLEaBl
+xmYvbE8RbbfUq6ROQUrzTE1+QkAwZCL8VDdBenaNXrndjBK+2hh9sA5hQGzqlCgY
+MRvkaDtLUuHyo5YFSfJ8z4WHMoS6/B/t9rc+56I05tDabcMgPYAU4V9M1jYZ7Aie
+LfLQfKwA96EewBPoGMJaespF4NVMh/UmOkzIj3uidueiZjG9ef7vYJrha7Y7f6x4
+JjA7Dt5eh9SzF8ck9fsIjca/e/KwJhKlRZ+tMnkFSU/b4Sds90pGl1Inneqp1oHs
+a/PpV9BYM8rvEQdvs6ifObLIOCPw+zQdcFKW/FbPWq016ZVMy0iT+Lmh7sB5bORk
+2wIDAQAB
+-----END PUBLIC KEY-----
+KEY;
+
+// --- extract & decode the signature ---
+if (!isset($callbackData['signature'])) {
+    echo "? signature field missing\n";
+    exit(1);
+}
+$sigB64    = $callbackData['signature'];
+unset($callbackData['signature']);
+$signature = base64_decode($sigB64);
+
+// --- sort keys like Python sort_keys=True ---
+ksort($callbackData);
+
+// --- build the JSON payload with “, ” and “: ” separators ---
+$parts = [];
+foreach ($callbackData as $k => $v) {
+    $jsonKey   = json_encode($k, JSON_UNESCAPED_UNICODE);
+    $jsonValue = $v === null
+        ? 'null'
+        : json_encode($v, JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES);
+    $parts[] = "{$jsonKey}: {$jsonValue}";
+}
+$payload = '{' . implode(', ', $parts) . '}';
+
+// Show it
+echo "Serialized data for verification:\n{$payload}\n\n";
+
+// --- load key & configure PSS+SHA256 ---
+$key = PublicKeyLoader::load($publicKeyPem)
+    ->withHash('sha256')
+    ->withMGFHash('sha256')
+    ->withPadding(RSA::SIGNATURE_PSS);
+
+// compute Python’s MAX_LENGTH salt (keyBytes - hashLen - 2)
+$keyBits  = $key->getLength();                   // e.g. 2048
+$keyBytes = intdiv($keyBits, 8);                 // e.g. 256
+$hashLen  = strlen(hash('sha256', '', true));    // 32
+$saltLen  = $keyBytes - $hashLen - 2;            // 256-32-2 = 222
+
+// apply it
+$rsa = $key->withSaltLength($saltLen);
+
+// verify
+if ($rsa->verify($payload, $signature)) {
+    echo "? Signature verification successful.\n";
+    exit(0);
+} else {
+    echo "? Signature verification failed.\n";
+    exit(1);
+}
+
+```
