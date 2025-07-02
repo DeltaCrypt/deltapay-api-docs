@@ -1,133 +1,170 @@
-# C2B
+# Scenario
 
-The process of receiving money from a customer encompasses the following:
+The customer pays for a service using DeltaPay. The service provider is notified of updates regarding the transaction such as the success or failure of the payment.
 
-1. Receive a callback when the transaction status changes (IPN).
-2. View the transaction.
+For example, the process of paying for an item online might look something like this:
 
-We are working on a feature that will allow for prompting the customer to initiate via a notification sent to their device that, when clicked, will pre-fill the send money dialog. Until then, the user must enter the information manually.
+1. The website generates a payment QR code encoding the amount, recipient, and reference (see [QR Code Standard](#qr_codes))  <!-- Add section on QR codes -->
+2. The user scans the QR code and the information is prefilled on the DeltaPay app
+3. The user approves and sends the transaction
+4. The IPN is sent to the registered callback(s) notifying the seller of an update regarding the payment.
 
-## IPN
+<!-- > **Note**: We are working on a feature that will allow for prompting the customer to initiate via a notification sent to their device that, when clicked, will pre-fill the send money dialog. Until then, the user must enter the information manually. -->
+> **Note**: We are working on supporting deep-links and payment request notifications as an alternative to QR code or manual input.
 
-To receive IPNs, the user must first register the base callback URL as described in the Setup section. The callback is triggered for both the **sender and recipient accounts** using the registered callbacks for the respective accounts, if available. The callback URL format is as follows:
+## Payment reference
 
-    base URL + /transaction/status
+There are two options for encoding a payment reference:
+
+- **notes**: can be entered and edited by the user (max 200 characters)
+- **metadata**: is not shown to the user
+
+The are both arbitrary strings that can be included in the QR code and will be picked up by the DeltaPay app.
+
+# Instant Payment Notification (IPN)
+
+## Callback registration
+
+To receive IPNs, the user must first register the base callback URL as described in the [Setup section](./setup.md#callback-registration).
+
+<!-- - the signature that is returned
+- viewing it
+- shall we add a feature to re-generate (or simply delete and create new callback?) 
+The keys are in PEM format
+-->
+
+The callback is triggered for all updates of the transaction status of transactions involving either the **sender or recipient account**.
+
+ The callback URL format is as follows:
+
+    base URL + /transaction/ipn
 
 
-The notification payload includes the `transaction_id` and `status`. Based on the transaction status, the client can determine whether to retrieve more detailed information about the transaction.
+## Format
 
-**Important:** This callback is not signed, meaning it could originate from anyone. The user must call `GET /full-transaction/from-id` to confirm the transaction data.
+Below is an example of what the IPN looks like
 
-**Example Callback Body**
 ```json
 {
-    "transaction_id": 42,
-    "status": "succeeded"
+    "transaction_id": 398,
+    "transaction_type": "rent",
+    "transaction_status": "succeeded",
+    "initialisation_time": "2024-10-26T20:43:15.515122",
+    "settled_time": "2024-10-26T20:43:21.639949",
+    "note": "hello",
+    "metadata": null,
+    "source_of_funds": "",
+    "bank_account": null,
+    "sender_account_id": 1014,
+    "sender_account_name": "New 3",
+    "sender_name": "DeltaPay",
+    "sender_till_name": null,
+    "sender_phone_country_dialcode": null,
+    "sender_phone_number": null,
+    "recipient_account_id": 1001,
+    "recipient_account_name": "Personal",
+    "recipient_name": "adrian",
+    "recipient_till_name": null,
+    "recipient_phone_country_dialcode": null,
+    "recipient_phone_number": null,
+    "amount": 6,
+    "cashback_received": 0,
+    "cashback_spent": 0,
+    "fee": 0,
+    "commission_amount": 0,
+    "signature": "VMDnRnvRJVvTHu9HNgjsIWhlXOd1bYkPPsp23y3cVl3Tn7Zzlg7AJAy5654fld5U7XrhQbDd3Mj684WcFnpbRgeiRIQDBtEL2eLKO7ZHjC/jg0n0zVjE2TRfPACuiXsmR/pJG+8hPmABBqThGj2hE5SEBFD4WSlzgAcLA0ZxZWvtDu2FAUpN1B+FtMfCmxa4DmH/GPtVs+80c8hHX3KGt35iaBrwD66vhdEUrSaYEgFooRmS3K9dm+neOPHgIfXG60sv03Ru5EZDMKNQvalUlCdLUerjr3eoZPs4DkYZj2FhwBZOJPBh6SDmCgSUsKclvepd0hExXNsRwOsKsxDcuQ=="
 }
 ```
 
-The following transaction statuses are notified about:
+## Signature verification
 
-- initiated
-- approved
-- succeeded
-- failed
+In order to verify that your callback has indeed been called by DeltaPay you must verify the signature that is included in the request. 
 
-> **Note:** Transactions that do not require approval or finalization will automatically move to the approved or succeeded state. For instance, a bank deposit initiated by a user with sufficient spending allowance will begin in the approved state. Similarly, a transfer that does not require approval will immediately be marked as succeeded.
+> **Note**: In the future, we will provide libraries for the most common languages to simplify this process. For now, please don't hesitate to contact us for a code snipped in your prefered language.
 
-## Querying Transactions
+### Python
+```py title="verify.py" linenums="1"
+from cryptography.hazmat.primitives import hashes
+from cryptography.hazmat.primitives.asymmetric import padding, rsa
+from cryptography.hazmat.primitives import serialization
+from cryptography.hazmat.backends import default_backend
+import json
+import base64
 
-### `GET /full-transaction/from-id`
+# param: public_key_pem: The signing_key linked to the callback
+# param: data: The json data sent as the IPN
+def verify_signature(public_key_pem: str, data: dict):
+    public_key_pem_bytes = public_key_pem.encode('utf-8')
+    public_key = serialization.load_pem_public_key(public_key_pem_bytes, backend=default_backend())
+    
+    # Ensure the public key is of RSA type
+    if not isinstance(public_key, rsa.RSAPublicKey):
+        raise TypeError("The provided public key is not an RSA key. Please ensure you are loading an RSA public key.")
+    
+    
+    encoded_signature = data.pop("signature")
+    signature = base64.b64decode(encoded_signature)
+    data_to_verify = json.dumps(data, sort_keys=True).encode('utf-8')
+    
+    try:
+        public_key.verify(
+            signature,
+            data_to_verify,
+            padding.PSS(
+                mgf=padding.MGF1(hashes.SHA256()),
+                salt_length=padding.PSS.MAX_LENGTH
+            ),
+            hashes.SHA256()
+        )
+        print("Signature verification successful.")
+        return True
+    except Exception as e:
+        print("Signature verification failed:", e)
+        return False
+```
 
-This endpoint returns all the details on the transaction as opposed to `GET accounts/transactions`, which returns transactions from the calling account's perspective.
+### JavaScript
 
-The caller can optionally specify the account from whose perspective the amount, fee, and commission will be viewed. To demonstrate this, consider a cash withdrawal of E10. The sender (_i.e._, the user withdrawing the cash) pays a fee calculated as:
+```js title="verify.js" linenums="1"
+const crypto = require('crypto');
 
-    fee(x) = 1 + 0.015x
+// param: public_key_pem: The signing_key linked to the callback
+// param: data: The json data sent as the IPN
+function verifySignature(publicKeyPem, data) {
+    // Extract and decode the signature
+    const signature = Buffer.from(data.signature, 'base64');
+    delete data.signature;
 
-and 1% goes as commission to the recipient (_i.e._, the merchant offering the withdrawal). This will result in the following responses from the endpoint, depending on which account is specified in the `caller_account_id`:
+    // Sort and construct JSON string matching Python's exact whitespace output
+    const sortedData = Object.keys(data)
+        .sort()
+        .reduce((obj, key) => {
+            obj[key] = data[key];
+            return obj;
+        }, {});
 
-- `caller_account_id = sender_account_id`
-    ```json
-    {
-        "transaction_id": 42,
-        ...
-        "amount": 10,
-        "cashback_received": 0,
-        "cashback_spent": 0,
-        "fee": 1.15,
-        "commission_amount": 0,
-        ...
-    }
-    ```
+    const formattedData = '{' + Object.entries(sortedData)
+        .map(([key, value]) => {
+            const jsonKey = JSON.stringify(key);
+            const jsonValue = value === null ? 'null' : JSON.stringify(value);
+            return `${jsonKey}: ${jsonValue}`;
+        })
+        .join(', ') + '}';
 
-- `caller_account_id = recipient_account_id`
-    ```json
-    {
-        "transaction_id": 42,
-        ...
-        "amount": 10,
-        "cashback_received": 0,
-        "cashback_spent": 0,
-        "fee": -0.1,
-        "commission_amount": 0.1,
-        ...
-    }
-    ```
+    console.log("Serialized data for verification (formatted):", formattedData);
 
-- `caller_account_id = null`
-    ```json
-    {
-        "transaction_id": 42,
-        ...
-        "amount": 10,
-        "cashback_received": 0,
-        "cashback_spent": 0,
-        "fee": 1.05,
-        "commission_amount": 0.1,
-        ...
-    }
-    ```
+    // Create verification instance and feed in formatted data
+    const verify = crypto.createVerify('sha256');
+    verify.update(Buffer.from(formattedData, 'utf-8'));
+    verify.end();
 
-**Request Parameters**
+    const isVerified = verify.verify(
+        { key: publicKeyPem, padding: crypto.constants.RSA_PKCS1_PSS_PADDING },
+        signature
+    );
 
-- `transaction_id`: `number`
-- `caller_account_id`: `Optional[number]`
-
-**Required Permissions**
-
-The caller must have the `view_transactions` permission, either generally or specifically for the sender or recipient account. Furthermore, the user's permissions and their potential attachment as an employee to the accounts involved in the transaction will determine whether they can see details on the initiator, approver, and finalizer.
-
-
-**Example Response**
-```json
-{
-  "transaction_id": 42,
-  "transaction_type": "cash_withdrawal",
-  "transaction_status": "succeeded",
-  "initialisation_time": "2024-07-15T19:11:07.247411",
-  "settled_time": "2024-07-15T19:11:11.890845",
-  "note": "hello world + metadata",
-  "source_of_funds": "",
-  "bank_account": null,
-  "sender_account_id": 123,
-  "sender_account_name": "Personal",
-  "sender_name": "adrian",
-  "sender_till_name": null,
-  "recipient_account_id": 60,
-  "recipient_account_name": "Mbabane Office",
-  "recipient_name": "DeltaPay",
-  "recipient_till_name": "Desk 1",
-  "amount": 10,
-  "cashback_received": 0,
-  "cashback_spent": 0,
-  "fee": 1.05,
-  "commission_amount": 0.1,
-  "initiator": {
-    "username": "adrian",
-    "legal_name": "Adrian Albert Koch"
-  },
-  "approver": null,
-  "finaliser": null
+    console.log(isVerified ? "Signature verification successful." : "Signature verification failed.");
+    return isVerified;
 }
+
 ```

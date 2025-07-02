@@ -10,6 +10,9 @@ We firmly believe in open and accessible APIs that anyone can access without add
 
 to view the auto-generated documentation online for our respective development and production environments.
 
+## Contributing to the Documentation
+The source code from which this documentation is generated is hosted on [GitHub](https://github.com/DeltaCrypt/deltapay-api-docs). Please don't hesitate to raise issues or pull requests. We are dedicated to imporoving the documentation and any feedback / input is always appreciated! 
+
 ## Environments
 DeltaPay currently offers two mutually exclusive environments: development and production.
 
@@ -26,7 +29,7 @@ Unless otherwise specified:
 All endpoints will return a status code 200 (OK) if no exceptions occur. Other relevant response codes include:
 
 - **404 - Not Found:** The requested resource (_e.g._, a user) does not exist.
-- **401 - Unauthorized:** See [Authentication Errors](#authentication-errors).
+- **401 - Unauthorized:** See [Authentication Errors](#authentication).
 - **500 - Internal Server Error:** Please contact DeltaPay.
 
 All endpoints return JSON-encoded data. If no data is returned, the response will be a generic success object:
