@@ -1,15 +1,18 @@
 # Client Onboarding
 
 The client must be fully onboarded before any API integration can take place. This involves the collection and review of the client's documents as well as the account creation process. Please refer to the DeltaPay terms and conditions for more information. In particular, this process involves the following:
+
 - DeltaPay creates the legal entity in the system
 - Client submits a resolution to create the business account(s) and define the AAAs
 - DeltaPay creates and sets up the account(s) as specified in the resolution
+
 
 # API Key Creation
 
 Once the client onboarding and account setup are complete, the API keys can be generated. This process can either be completed by the client himself or by DeltaPay on his behalf. The following points are worth considering:
 
 - If the client chooses to generate the keys himself, at least one user who is registered with DeltaPay and employed or trusted by the client should be granted the following permissions:
+
   - `create_api_key`
   - `view_api_keys`
   - `revoke_api_key`
@@ -20,7 +23,9 @@ Once the client onboarding and account setup are complete, the API keys can be g
 
 If the client decides to generate the key(s) himself, he must call the following endpoint:
 
+
 ## Create API Key
+
 [`POST /legal-entity/api-key/create`](https://api.dev.deltacrypt.net/docs#/legal_entities/create_api_key_legal_entity_api_key_create_post)
 
 API keys are valid for five years and can be named to differentiate between them easily. They are attached to the legal entity that was specified when generating them.
@@ -28,10 +33,12 @@ API keys are valid for five years and can be named to differentiate between them
 The generated key is only visible once upon creation; it is the client's responsibility to store and manage it securely.
 
 **Request Parameters**
+
 - `legal_entity_id`: *int*
 - `name`: *string*
 
 **Required Permissions**
+
 The caller must have the `create_api_key` permission, either generally or specifically for the targeted legal entity ID.
 
 ```json
@@ -49,15 +56,19 @@ The caller must have the `create_api_key` permission, either generally or specif
 
 After the API key has been created, DeltaPay will grant it permissions based on the client's requirements. Please refer to the **Permissions** chapter for more information.
 
+
 ## Get API Keys
+
 [`GET /legal-entity/api-keys`](https://api.dev.deltacrypt.net/docs#/legal_entities/get_api_keys_from_legal_entity_id_legal_entity_api_keys_get)
 
 Returns the API keys attached to a legal entity.
 
 **Request Parameters**
+
 - `legal_entity_id`: *int*
 
 **Required Permissions**
+
 The caller must have the `view_api_keys` permission, either generally or specifically for the targeted legal entity.
 
 ```json
@@ -88,16 +99,20 @@ The caller must have the `view_api_keys` permission, either generally or specifi
 
 Note how the API key with `id` 4 we previously created only returns the prefix and name but not the full key.
 
+
 ## Revoke API Key
 [`DELETE legal-entity/api-key/revoke`](https://api.dev.deltacrypt.net/docs#/legal_entities/deactivate_api_key_legal_entity_api_key_revoke_delete)
 
 API keys can be revoked prior to their expiry date. It is crucial to revoke keys immediately that are suspected to have been leaked. Revoked keys cannot be reactivated.
 
 **Request Parameters**
+
 - `api_key_id`: *int*
 
 **Required Permissions**
+
 The caller must have the `revoke_api_key` permission, either generally or specifically for the legal entity that the key is linked to.
+
 
 ## Linking API Key
 
@@ -107,18 +122,22 @@ Please refer to the code example for more details on this process.
 
 In the case of API keys, this is achieved by calling the following endpoint:
 
+
 ## Link API Key
+
 [`POST /account/link-api-key`](https://api.dev.deltacrypt.net/docs#/accounts/register_wallet_address_to_api_key_account_link_api_key_post)
 
 If the API key is already linked to the account, calling this endpoint will update the wallet address. This has the same effect as unlinking and relinking with while providing a different wallet address.
 
 **Request Parameters**
+
 - `api_key_id`: *int*
 - `account_id`: *int*
 - `wallet_address`: *string*
 
 **Required Permissions**
 The caller must have the `link_api_key_to_account` permission, either generally or specifically for the account that the key is being linked to.
+
 
 ### `POST /account/unlink-api-key`
 
@@ -142,6 +161,7 @@ The user can register callbacks for a number of events that occur on the DeltaPa
 For example, if the callback endpoint is `api.client.co.sz`, the IPN callback will call `POST api.client.co.sz/transaction/ipn`.
 
 The following endpoints are for setting, viewing, and deactivating the callback URL for a specific account.
+
 
 ### Register callback
 [`POST /account/callback-url/register`](https://api.dev.deltacrypt.net/docs#/accounts/register_callback_url_account_callback_url_register_post)
@@ -173,14 +193,18 @@ The caller must have the `set_callback_url` permission, either generally or spec
     }
 ```
 
+
 ### Getting callbacks registered for an account
+
 [`GET /account/callback-urls`](https://api.dev.deltacrypt.net/docs#/accounts/get_callback_urls_account_callback_urls_get)
 
 **Request Parameters**
+
 - `account_id`: *int*
 - `manager_entity_id`: *Optional[int]*
 
 **Required Permissions**
+
 The caller must have the `view_callback_url` permission, either generally or specifically for the account **and** manager legal entity.
 
 **Example Response**
@@ -210,14 +234,18 @@ The caller must have the `view_callback_url` permission, either generally or spe
 }
 ```
 
+
 ### Deactivate callback
+
 [`DELETE /account/callback-url/deactivate`](https://api.dev.deltacrypt.net/docs#/accounts/deactivate_callback_url_account_callback_url_deactivate_delete)
 
 <!-- Sets the callback URL to null so that no more callbacks will be called for events related to this account. -->
 
 **Request Parameters**
+
 - `callback_id`: *int*
 
 **Required Permissions**
+
 The caller must have the `set_callback_url` permission, either generally or specifically for the account **and** manager legal entity. 
 

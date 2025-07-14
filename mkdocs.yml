@@ -96,13 +96,13 @@ markdown_extensions:
 nav:
   - Home: index.md
   - Getting Started:
-    - Permissions: permissions.md
-    - Authentication: authentication.md
-    - Setup: setup.md
+    - Permissions: getting_started/permissions.md
+    - Authentication: getting_started/authentication.md
+    - Setup: getting_started/setup.md
   - Common Use Cases:
-    - C2B: c2b.md
-    - B2C: b2c.md
-    - QR Code Spec: qr_code.md
+    - C2B: common_usecases/c2b.md
+    - B2C: common_usecases/b2c.md
+    - QR Code Spec: common_usecases/qr_code.md
 
 copyright: |
   &copy; 2024 DeltaCrypt GmbH. All rights reserved.

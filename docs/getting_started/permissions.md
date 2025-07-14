@@ -10,11 +10,13 @@ The permissions for accessing non-blockchain functions are organized as follows:
 
 > **Note:** No permissions are needed when a `UserTargetPermission` is required and the caller is the target user. This allows users to request their own data without requiring specific permissions. Any exceptions to this rule will be clearly stated.
 
+
 # Roles
 
 General permissions can be attached to a role, which may then be assigned to a user or API key. This allows for logical grouping of permissions and avoids having to assign them individually.
 
 > **Note:** Permissions assigned to a role are always general (they do not apply to a specific target).
+
 
 # User and API Key Permissions
 
@@ -51,7 +53,9 @@ For API keys there is:
 
 For more detailed documentation on the endpoints above, please refer to the online documentation. For demonstration purposes, we will highlight the following:
 
+
 ## Grant Account Permissions
+
 [`POST /user/grant-account-permissions`](https://api.dev.deltacrypt.net/docs#/user_permissions/grant_account_permissions_user_grant_account_permissions_post)
 
 Multiple permissions can be granted for the same user and target account. This is common because, for instance, an account admin gains many permissions simultaneously when assigned the admin role. Different account targets will require separate calls.
@@ -65,7 +69,9 @@ Multiple permissions can be granted for the same user and target account. This i
 - `target_account_id`: *int*
 
 **Required Permissions**
+
 The caller must have the general `grant_account_permission` permission.
+
 
 ## Get User's Permissions
 [`GET /user/permissions`](https://api.dev.deltacrypt.net/docs#/user_permissions/get_user_permissions_user_permissions_get)
@@ -77,6 +83,7 @@ The caller must have the general `grant_account_permission` permission.
 If the `user_id` is not provided and the caller uses an OAuth token to authenticate the call, it can be determined from the token.
 
 **Required Permissions**
+
 The caller must have the `view_permissions` permission, either generally or specifically for the user. As described at the beginning of the Permissions chapter, users do not need any permissions to view their own data.
 
 **Example Response**
@@ -103,7 +110,9 @@ The caller must have the `view_permissions` permission, either generally or spec
     ...
 ```
 
+
 ## Revoke Account Permissions
+
 [`DELETE /user/revoke-account-permissions`](https://api.dev.deltacrypt.net/docs#/user_permissions/revoke_account_permissions_user_revoke_account_permissions_delete)
 
 This endpoint can be used to revoke either a specific or all permission(s) for a certain user or target account.
@@ -117,4 +126,5 @@ This endpoint can be used to revoke either a specific or all permission(s) for a
 If permission is null, all permissions are revoked for the target account.
 
 **Required Permissions**
+
 The caller must have the general `revoke_account_permission` permission.

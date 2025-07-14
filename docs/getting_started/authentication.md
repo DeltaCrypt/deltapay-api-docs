@@ -9,14 +9,17 @@ The OAuth 2.0 token and API Key can largely be used interchangeably, whereas fun
 
 > **Note**: For the endpoints that allow authentication using both the token and API key, **either or the other** must be passed.
 
+
 ## OAuth 2.0 Token
 
 This form of authentication is designed for individual users. The generated token contains the `user_id` and can be used to determine the caller without the need to explicitly provide the `user_id`.
+
 
 ### Login Endpoint
 The `POST /login` endpoint expects `x-www-form-url-encoded` data. This is an exception, as all other POST endpoints expect JSON-encoded data.
 
 **Request Parameters**
+
 - `username`: `string`
 - `password`: `string`
 
@@ -36,8 +39,10 @@ The `POST /login` endpoint expects `x-www-form-url-encoded` data. This is an exc
 ```
 
 The login endpoint returns two distinct tokens:
+
 - `access_token`: Used to authenticate requests. Generally valid for 15 minutes unless revoked.
 - `refresh_token`: Used to obtain a new access token by calling the `POST /refresh-access-token` endpoint.
+
 
 ### Usage Example
 The `access_token` must be passed as a bearer token in the API request header. Below is an example call to the `GET /user` endpoint:
@@ -48,6 +53,7 @@ The `access_token` must be passed as a bearer token in the API request header. B
       -H 'Authorization: Bearer eyJraWQi......'
 
 > **Note**: The `user_id` does not need to be explicitly passed, as it can be determined from the token. If a value is provided, it will have precedence.
+
 
 ## API Key
 
@@ -63,6 +69,7 @@ The API key must be passed as `x-api-key` in the API request header. Below is an
       -H 'x-api-key: KGD7Wf.....'
 
 > **Note**: In contrast to the `access_token` usage, the `user_id` must be provided in the request as it cannot be determined from the API key.
+
 
 ## Authentication Errors
 
@@ -140,6 +147,7 @@ Another common cause for an endpoint to return 401 (Unauthorized) is missing per
   "detail": "API key does not have the required permission: view_kyc_data (target_user_id: 2)"
 }
 ```
+
 
 ## Blockchain Transaction Signatures
 
