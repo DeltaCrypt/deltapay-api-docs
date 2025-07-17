@@ -12,26 +12,26 @@
         <meta name="author" content="Adrian Albert Koch">
       
       
-        <link rel="canonical" href="https://deltapay.co.sz/">
+        <link rel="canonical" href="https://deltapay.co.sz/common_usecases/payment_requests/">
+      
+      
+        <link rel="prev" href="../qr_code/">
       
       
       
-        <link rel="next" href="getting_started/permissions/">
-      
-      
-      <link rel="icon" href="assets/images/favicon.png">
+      <link rel="icon" href="../../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.15">
     
     
       
-        <title>DeltaPay API Documentation</title>
+        <title>Payment Requests - DeltaPay API Documentation</title>
       
     
     
-      <link rel="stylesheet" href="assets/stylesheets/main.342714a4.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.342714a4.min.css">
       
         
-        <link rel="stylesheet" href="assets/stylesheets/palette.06af60db.min.css">
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.06af60db.min.css">
       
       
 
@@ -50,7 +50,7 @@
       
     
     
-    <script>__md_scope=new URL(".",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
 
@@ -59,11 +59,11 @@
       
         <meta  property="og:type"  content="website" >
       
-        <meta  property="og:title"  content="DeltaPay API Documentation" >
+        <meta  property="og:title"  content="Payment Requests - DeltaPay API Documentation" >
       
         <meta  property="og:description"  content="Official Documentation for the DeltaPay API." >
       
-        <meta  property="og:image"  content="https://deltapay.co.sz/assets/images/social/index.png" >
+        <meta  property="og:image"  content="https://deltapay.co.sz/assets/images/social/common_usecases/payment_requests.png" >
       
         <meta  property="og:image:type"  content="image/png" >
       
@@ -71,15 +71,15 @@
       
         <meta  property="og:image:height"  content="630" >
       
-        <meta  property="og:url"  content="https://deltapay.co.sz/" >
+        <meta  property="og:url"  content="https://deltapay.co.sz/common_usecases/payment_requests/" >
       
         <meta  name="twitter:card"  content="summary_large_image" >
       
-        <meta  name="twitter:title"  content="DeltaPay API Documentation" >
+        <meta  name="twitter:title"  content="Payment Requests - DeltaPay API Documentation" >
       
         <meta  name="twitter:description"  content="Official Documentation for the DeltaPay API." >
       
-        <meta  name="twitter:image"  content="https://deltapay.co.sz/assets/images/social/index.png" >
+        <meta  name="twitter:image"  content="https://deltapay.co.sz/assets/images/social/common_usecases/payment_requests.png" >
       
     
     
@@ -102,7 +102,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#introduction" class="md-skip">
+        <a href="#payment-request-api" class="md-skip">
           Skip to content
         </a>
       
@@ -116,7 +116,7 @@
 
 <header class="md-header" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
-    <a href="." title="DeltaPay API Documentation" class="md-header__button md-logo" aria-label="DeltaPay API Documentation" data-md-component="logo">
+    <a href="../.." title="DeltaPay API Documentation" class="md-header__button md-logo" aria-label="DeltaPay API Documentation" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
@@ -136,7 +136,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Home
+              Payment Requests
             
           </span>
         </div>
@@ -240,11 +240,9 @@
   
   
   
-    
   
-  
-    <li class="md-tabs__item md-tabs__item--active">
-      <a href="." class="md-tabs__link">
+    <li class="md-tabs__item">
+      <a href="../.." class="md-tabs__link">
         
   
   
@@ -265,7 +263,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="getting_started/permissions/" class="md-tabs__link">
+        <a href="../../getting_started/permissions/" class="md-tabs__link">
           
   
   
@@ -283,11 +281,13 @@
   
   
   
+    
+  
   
     
     
-      <li class="md-tabs__item">
-        <a href="common_usecases/c2b/" class="md-tabs__link">
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../c2b/" class="md-tabs__link">
           
   
   
@@ -323,7 +323,7 @@
 
 <nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="." title="DeltaPay API Documentation" class="md-nav__button md-logo" aria-label="DeltaPay API Documentation" data-md-component="logo">
+    <a href="../.." title="DeltaPay API Documentation" class="md-nav__button md-logo" aria-label="DeltaPay API Documentation" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
@@ -338,32 +338,10 @@
       
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  
-  <span class="md-ellipsis">
-    Home
-    
-  </span>
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="." class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
         
   
   
@@ -374,62 +352,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#abstract" class="md-nav__link">
-    <span class="md-ellipsis">
-      Abstract
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#contributing-to-the-documentation" class="md-nav__link">
-    <span class="md-ellipsis">
-      Contributing to the Documentation
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#environments" class="md-nav__link">
-    <span class="md-ellipsis">
-      Environments
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#api-request-guidelines" class="md-nav__link">
-    <span class="md-ellipsis">
-      API Request Guidelines
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -492,7 +414,7 @@
   
   
     <li class="md-nav__item">
-      <a href="getting_started/permissions/" class="md-nav__link">
+      <a href="../../getting_started/permissions/" class="md-nav__link">
         
   
   
@@ -515,7 +437,7 @@
   
   
     <li class="md-nav__item">
-      <a href="getting_started/authentication/" class="md-nav__link">
+      <a href="../../getting_started/authentication/" class="md-nav__link">
         
   
   
@@ -538,7 +460,7 @@
   
   
     <li class="md-nav__item">
-      <a href="getting_started/setup/" class="md-nav__link">
+      <a href="../../getting_started/setup/" class="md-nav__link">
         
   
   
@@ -565,8 +487,10 @@
       
   
   
+    
   
   
+  
     
     
       
@@ -582,19 +506,22 @@
     
     
       
+        
+        
+      
       
         
       
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
         
           
-          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="">
             
   
   
@@ -607,7 +534,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_3">
             <span class="md-nav__icon md-icon"></span>
             Common Use Cases
@@ -621,7 +548,7 @@
   
   
     <li class="md-nav__item">
-      <a href="common_usecases/c2b/" class="md-nav__link">
+      <a href="../c2b/" class="md-nav__link">
         
   
   
@@ -644,7 +571,7 @@
   
   
     <li class="md-nav__item">
-      <a href="common_usecases/b2c/" class="md-nav__link">
+      <a href="../b2c/" class="md-nav__link">
         
   
   
@@ -667,7 +594,7 @@
   
   
     <li class="md-nav__item">
-      <a href="common_usecases/qr_code/" class="md-nav__link">
+      <a href="../qr_code/" class="md-nav__link">
         
   
   
@@ -687,10 +614,32 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="common_usecases/payment_requests/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    Payment Requests
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   
@@ -701,6 +650,62 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#creating-a-payment-request" class="md-nav__link">
+    <span class="md-ellipsis">
+      Creating a payment request
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#viewing-incoming-payment-requests" class="md-nav__link">
+    <span class="md-ellipsis">
+      Viewing Incoming Payment Requests
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#viewing-outgoing-payment-requests" class="md-nav__link">
+    <span class="md-ellipsis">
+      Viewing Outgoing Payment Requests
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#payment-request-state" class="md-nav__link">
+    <span class="md-ellipsis">
+      Payment Request state
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -740,36 +745,36 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#abstract" class="md-nav__link">
+  <a href="#creating-a-payment-request" class="md-nav__link">
     <span class="md-ellipsis">
-      Abstract
+      Creating a payment request
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#contributing-to-the-documentation" class="md-nav__link">
+  <a href="#viewing-incoming-payment-requests" class="md-nav__link">
     <span class="md-ellipsis">
-      Contributing to the Documentation
+      Viewing Incoming Payment Requests
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#environments" class="md-nav__link">
+  <a href="#viewing-outgoing-payment-requests" class="md-nav__link">
     <span class="md-ellipsis">
-      Environments
+      Viewing Outgoing Payment Requests
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#api-request-guidelines" class="md-nav__link">
+  <a href="#payment-request-state" class="md-nav__link">
     <span class="md-ellipsis">
-      API Request Guidelines
+      Payment Request state
     </span>
   </a>
   
@@ -791,51 +796,112 @@
 
 
 
-<h1 id="introduction">Introduction</h1>
-<h2 id="abstract">Abstract</h2>
-<p>This document acts as a guide for DeltaPay’s open API. It documents the features we expect will be most commonly used by our clients and partners.</p>
-<p>We firmly believe in open and accessible APIs that anyone can access without additional charges or fees. For this reason, we have decided to make the entire REST interface used by our mobile application accessible to the public. This also means that the API is significantly more extensive than the features highlighted in this document. For a complete list of the endpoints available, please visit:</p>
+<h1 id="payment-request-api">Payment Request API</h1>
+<p>The Payment Request API allows for the creation and management of requests for payments.</p>
+<p>The recipient of the payment request (PR) receives a push notification and the PR is displayed on their home screen until either accepted or rejected. </p>
+<p>PRs can only be sent to individual users. When accepting the PR, the user can chose the account from which to pay.</p>
+<h2 id="creating-a-payment-request">Creating a payment request</h2>
+<p><a href="https://api.dev.deltacrypt.net/docs#/payment_request/create_payment_request_payment_request_create_post"><code>POST /payment-request/create</code></a></p>
+<p><strong>Description:</strong>
+Requesting a payment from a user. The user is specified either by their username or the phone number they used to sign up with DeltaPay.</p>
+<p><strong>Request Parameters</strong></p>
 <ul>
-<li><a href="https://api.dev.deltacrypt.net/docs">https://api.dev.deltacrypt.net/docs</a></li>
-<li><a href="https://api.prod.deltacrypt.net/docs">https://api.prod.deltacrypt.net/docs</a></li>
+<li><code>account_id</code>: <em>int</em></li>
+<li><code>amount</code>: <em>number</em></li>
+<li><code>transaction_type</code>: <em>string</em>  (A list of valid transaction types can be retrieved <a href="https://api.dev.deltacrypt.net/transaction-types">here</a>)</li>
+<li><code>till_id</code>: <em>Optional[int]</em></li>
+<li><code>note</code>: <em>Optional[string]</em></li>
+<li><code>metadata</code>: <em>Optional[string]</em></li>
+<li><code>phone_country_dialcode</code>: <em>Optional[string]</em> (do not inlcude a '+')</li>
+<li><code>phone_number</code>: <em>Optional[string]</em></li>
+<li><code>username</code>: <em>Optional[string]</em></li>
 </ul>
-<!-- - [https://api.beta.deltacrypt.net/docs](https://api.beta.deltacrypt.net/docs) -->
+<p>The <code>account_id</code> specifies the the recipient account that the payment is being requested into.</p>
+<p>Either <code>username</code> <strong>or</strong> both <code>phone_country_dialcode</code> and <code>phone_number</code> must be provided.</p>
+<p>The <code>metadata</code> is an optional free-form string (e.g., JSON-encoded string with order info).</p>
+<p><strong>Required Permissions</strong></p>
+<p>The caller must have the <code>create_payment_request</code> permission, either generally or specifically for the account.</p>
+<!-- Add docs on the till id  -->
 
-<p>to view the auto-generated swagger documentation online for our respective development, staging, and production environments.</p>
-<h2 id="contributing-to-the-documentation">Contributing to the Documentation</h2>
-<p>The source code from which this documentation is generated is hosted on <a href="https://github.com/DeltaCrypt/deltapay-api-docs">GitHub</a>. Please don't hesitate to raise issues or pull requests. We are dedicated to imporoving the documentation and any feedback / input is always appreciated! </p>
-<h2 id="environments">Environments</h2>
-<!-- DeltaPay currently offers three mutually exclusive environments: development, staging, and production.
-
-The development environment is meant for testing and incorporates any additional features or changes to the API that have not yet been published to production. It runs an identical technical setup to the production environment. Still, it does not have to abide by any regulation as the Delta on development is solely for testing and, thus, worthless.
-
-We highly recommend testing on the development environment first before connecting to the production endpoints. If API keys are used, DeltaPay reserves the right to test the proposed applications before issuing permissions to the production API keys. -->
-
-<p>DeltaPay currently offers two mutually exclusive environments: development and production.</p>
-<p>The <strong>development</strong> environment is designed for testing new features and changes that have not yet been published to production. It mirrors the production setup but does not need to meet regulatory requirements, as it is solely for testing purposes.</p>
-<!--The **staging** environment acts as the final testing phase before production. It closely mirrors the production environment, allowing developers to validate integrations under realistic conditions without affecting live data or transactions. We recommend using staging to perform final checks on business logic, performance, and compliance before going live.-->
-
-<p>The <strong>production</strong> environment is where real transactions take place. API keys for production access are issued after testing in development and staging environments, ensuring that integrations meet all necessary security and compliance standards.</p>
-<!-- We highly recommend testing in development first, followed by staging, before connecting to the production endpoints. -->
-<p>We highly recommend testing in development first before connecting to the production endpoints.</p>
-<h2 id="api-request-guidelines">API Request Guidelines</h2>
-<p>Unless otherwise specified:</p>
+<h2 id="viewing-incoming-payment-requests">Viewing Incoming Payment Requests</h2>
+<p><a href="https://api.dev.deltacrypt.net/docs#/payment_request/get_incoming_payment_requests_from_user_id_user_payment_requests_incoming_get"><code>GET /user/payment-requests/incoming</code></a></p>
+<p>This endpoint returns a list of PRs that have been sent to the specified user.
+The sender of the PR is returned as a</p>
 <ul>
-<li><strong>POST</strong> requests expect JSON-encoded data.</li>
-<li><strong>GET</strong> and <strong>DELETE</strong> requests expect URL-encoded data.</li>
+<li>user, if the account is a personal account</li>
+<li>legal entity, if the account is a business account</li>
 </ul>
-<p>All endpoints will return a status code <strong>200 (OK)</strong> if no exceptions occur. Other relevant response codes include:</p>
+<p><strong>Request Parameters</strong></p>
 <ul>
-<li><strong>404 - Not Found:</strong> The requested resource (<em>e.g.</em>, a user) does not exist.</li>
-<li><strong>401 - Unauthorized:</strong> See <a href="#authentication">Authentication Errors</a>.</li>
-<li><strong>500 - Internal Server Error:</strong> Please contact DeltaPay.</li>
+<li><code>user_id</code>: <em>int</em></li>
+<li><code>status</code>: <em>string</em></li>
 </ul>
-<p>All endpoints return JSON-encoded data. If no data is returned, the response will be a generic success object:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="p">{</span>
-<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="w">  </span><span class="nt">&quot;success&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span>
-<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="p">}</span>
-</code></pre></div>
-<p>Unless otherwise specified, this is the default response format.</p>
+<p><strong>Required Permissions</strong></p>
+<p>The caller must have the <code>view_payment_requests</code> permission, either generally or specifically for the user.</p>
+<h2 id="viewing-outgoing-payment-requests">Viewing Outgoing Payment Requests</h2>
+<p>There are two endpoints for getting RPs outgoing from a user and a legal entity, respectively.</p>
+<p><a href="https://api.dev.deltacrypt.net/docs#/payment_request/get_outgoing_payment_requests_from_user_id_user_payment_requests_outgoing_get"><code>GET /user/payment-requests/outgoing</code></a></p>
+<p>This endpoint returns all PRs that request funds to be sent to an account the user is linked to.</p>
+<p><strong>Request Parameters</strong></p>
+<ul>
+<li><code>user_id</code>: <em>int</em></li>
+<li><code>status</code>: <em>string</em></li>
+</ul>
+<p><strong>Required Permissions</strong></p>
+<p>The caller must have the <code>view_payment_requests</code> permission, either generally or specifically for the user.</p>
+<p><a href="https://api.dev.deltacrypt.net/docs#/payment_request/get_outgoing_payment_requests_from_legal_entity_id_legal_entity_payment_requests_outgoing_get"><code>GET /legal-entity/payment-requests/outgoing</code></a></p>
+<p>This endpoint returns all PRs that request funds to be sent to an account the legal entity is linked to.</p>
+<p><strong>Request Parameters</strong></p>
+<ul>
+<li><code>legal_entity_id</code>: <em>int</em></li>
+<li><code>status</code>: <em>string</em></li>
+</ul>
+<p><strong>Required Permissions</strong></p>
+<p>The caller must have the <code>view_payment_requests</code> permission, either generally or specifically for the legal entity. </p>
+<h2 id="payment-request-state">Payment Request state</h2>
+<p>A PR can be in one of the following states:</p>
+<ul>
+<li>pending</li>
+<li>cancelled</li>
+<li>rejected</li>
+<li>approved</li>
+<li>succeeded</li>
+<li>failed</li>
+</ul>
+<p>When a PR is created, it will be in the pending state, from there on the following actions trigger the respective state changes:</p>
+<table>
+<thead>
+<tr>
+<th>Action</th>
+<th>State Change</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>sender cancels</td>
+<td>pending &rarr; cancelled</td>
+</tr>
+<tr>
+<td>recipinet rejects</td>
+<td>pending &rarr; rejected</td>
+</tr>
+<tr>
+<td>recipient approves</td>
+<td>pending &rarr; approved</td>
+</tr>
+<tr>
+<td>transaction succeeds</td>
+<td>approved &rarr; succeeded</td>
+</tr>
+<tr>
+<td>transaction fails</td>
+<td>approved &rarr; failed</td>
+</tr>
+</tbody>
+</table>
+<!-- Can we always go suceeded / failed?? -->
+
+<p>No other state changes are possible; <em>e.g.</em> pending &rarr; succeeded can never occur, as it </p>
 
 
 
@@ -873,22 +939,22 @@ We highly recommend testing on the development environment first before connecti
       
       <nav class="md-footer__inner md-grid" aria-label="Footer" >
         
-        
           
-          <a href="getting_started/permissions/" class="md-footer__link md-footer__link--next" aria-label="Next: Permissions">
-            <div class="md-footer__title">
-              <span class="md-footer__direction">
-                Next
-              </span>
-              <div class="md-ellipsis">
-                Permissions
-              </div>
-            </div>
+          <a href="../qr_code/" class="md-footer__link md-footer__link--prev" aria-label="Previous: QR Code Spec">
             <div class="md-footer__button md-icon">
               
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              <div class="md-ellipsis">
+                QR Code Spec
+              </div>
             </div>
           </a>
+        
         
       </nav>
     
@@ -959,10 +1025,10 @@ We highly recommend testing on the development environment first before connecti
     
     
       
-      <script id="__config" type="application/json">{"base": ".", "features": ["announce.dismiss", "content.action.edit", "content.action.view", "content.code.annotate", "content.code.copy", "content.tooltips", "navigation.footer", "navigation.indexes", "navigation.sections", "navigation.tabs", "navigation.top", "navigation.tracking", "search.highlight", "search.share", "search.suggest", "toc.follow"], "search": "assets/javascripts/workers/search.d50fe291.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+      <script id="__config" type="application/json">{"base": "../..", "features": ["announce.dismiss", "content.action.edit", "content.action.view", "content.code.annotate", "content.code.copy", "content.tooltips", "navigation.footer", "navigation.indexes", "navigation.sections", "navigation.tabs", "navigation.top", "navigation.tracking", "search.highlight", "search.share", "search.suggest", "toc.follow"], "search": "../../assets/javascripts/workers/search.d50fe291.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
     
     
-      <script src="assets/javascripts/bundle.56ea9cef.min.js"></script>
+      <script src="../../assets/javascripts/bundle.56ea9cef.min.js"></script>
       
     
   </body>
