@@ -287,3 +287,133 @@ if ($rsa->verify($payload, $signature)) {
 }
 
 ```
+
+### C#
+
+#### Requirements:
+
+* **.NET 6.0 SDK** (or later)
+* **BouncyCastle.NetCore** installed via NuGet
+* **System.Text.Json** (Included in .NET Core 3.0+; used for key/value serialization.)
+
+``` c#
+
+using System.Text;
+using System.Text.Json;
+using Org.BouncyCastle.Crypto;
+using Org.BouncyCastle.Crypto.Digests;
+using Org.BouncyCastle.Crypto.Engines;
+using Org.BouncyCastle.Crypto.Parameters;
+using Org.BouncyCastle.Crypto.Signers;
+using Org.BouncyCastle.OpenSsl;
+
+class Program
+{
+    static int Main()
+    {
+        // 1) Build your callback data dictionary, signature last
+        var callbackData = new Dictionary<string, object>
+        {
+            ["transaction_id"] = 397,
+            ["transaction_type"] = "education",
+            ["transaction_status"] = "succeeded",
+            ["initialisation_time"] = "2024-10-26T19:07:12.872556",
+            ["settled_time"] = "2024-10-26T19:07:18.856786",
+            ["note"] = "bro",
+            ["metadata"] = null,
+            ["source_of_funds"] = "",
+            ["bank_account"] = null,
+            ["sender_account_id"] = 1014,
+            ["sender_account_name"] = "New 3",
+            ["sender_name"] = "DeltaPay",
+            ["sender_till_name"] = null,
+            ["sender_phone_country_dialcode"] = null,
+            ["sender_phone_number"] = null,
+            ["recipient_account_id"] = 1001,
+            ["recipient_account_name"] = "Personal",
+            ["recipient_name"] = "adrian",
+            ["recipient_till_name"] = null,
+            ["recipient_phone_country_dialcode"] = null,
+            ["recipient_phone_number"] = null,
+            ["amount"] = 7,
+            ["cashback_received"] = 0,
+            ["cashback_spent"] = 0,
+            ["fee"] = 0,
+            ["commission_amount"] = 0,
+            // signature must be the *last* key here so we can remove it cleanly
+            ["signature"] = "aY59ZtcOebh8tPrHACHrAhE7k0IoLvXha5I7jPdNj1niSSktaXScmI6mOUztFEk5LEYSUiYyDYvAK/qqt4c4hLYX5KjSZR1IuA7y9mlLn4O/WFyqTQ7vweKqFuQrpptpMhxupf7Jb9JI/dr02+txGF0BgA8q/4C9cqJIGiN8wncMuMUm0rg7DGRxwEWbc5Odn9IRyGQA3j3cU0uPDQZ0z12ucFs5AtspfsrBFdbKsV66eb1PSHSGUe0AF2cIZEqk7r5JwU4EAQCLYoShrg6J2NZdzlVXCFZk2+l20LXSCdH9pR6ZDvBSOLUhpwavHfDs27IEvtasMxvXx7B1OEHBoA=="
+        };
+
+        // 2) Extract & decode the signature:
+        if (!callbackData.TryGetValue("signature", out var sigObj) || sigObj is not string sigB64)
+        {
+            Console.WriteLine("? signature field missing");
+            return 1;
+        }
+        callbackData.Remove("signature");
+        byte[] signature = Convert.FromBase64String(sigB64);
+
+        // 3) Sort keys lexicographically:
+        var sorted = callbackData.OrderBy(kvp => kvp.Key, StringComparer.Ordinal);
+
+        // 4) Reassemble JSON with exactly ": " and ", ":
+        var parts = sorted.Select(kvp =>
+        {
+            string jsonKey = JsonSerializer.Serialize(kvp.Key);
+            string jsonValue = kvp.Value is null
+                ? "null"
+                : JsonSerializer.Serialize(kvp.Value);
+            return $"{jsonKey}: {jsonValue}";
+        });
+        string payload = "{" + string.Join(", ", parts) + "}";
+
+        Console.WriteLine("Serialized data for verification:");
+        Console.WriteLine(payload);
+        Console.WriteLine();
+
+        // 5) Load the RSA public key via BouncyCastle
+        string publicKeyPem = @"
+-----BEGIN PUBLIC KEY-----
+MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAw4iXQZfRMpjTOOgLEaBl
+xmYvbE8RbbfUq6ROQUrzTE1+QkAwZCL8VDdBenaNXrndjBK+2hh9sA5hQGzqlCgY
+MRvkaDtLUuHyo5YFSfJ8z4WHMoS6/B/t9rc+56I05tDabcMgPYAU4V9M1jYZ7Aie
+LfLQfKwA96EewBPoGMJaespF4NVMh/UmOkzIj3uidueiZjG9ef7vYJrha7Y7f6x4
+JjA7Dt5eh9SzF8ck9fsIjca/e/KwJhKlRZ+tMnkFSU/b4Sds90pGl1Inneqp1oHs
+a/PpV9BYM8rvEQdvs6ifObLIOCPw+zQdcFKW/FbPWq016ZVMy0iT+Lmh7sB5bORk
+2wIDAQAB
+-----END PUBLIC KEY-----";
+
+        AsymmetricKeyParameter bcPub;
+        using (var reader = new System.IO.StringReader(publicKeyPem))
+        {
+            var pem = new PemReader(reader);
+            bcPub = (AsymmetricKeyParameter)pem.ReadObject();
+        }
+
+        // 6) Calculate max salt length = keyBytes - hashLen - 2
+        int keyBits = ((RsaKeyParameters)bcPub).Modulus.BitLength;
+        int keyBytes = keyBits / 8;
+        int hashLen = 32;               // SHA-256 output is 32 bytes
+        int saltLen = keyBytes - hashLen - 2;
+
+        // 7) Configure PSS verifier with max salt
+        var verifier = new PssSigner(
+            new RsaEngine(),
+            new Sha256Digest(),
+            saltLen
+        );
+        verifier.Init(false, bcPub);
+
+        byte[] dataBytes = Encoding.UTF8.GetBytes(payload);
+        verifier.BlockUpdate(dataBytes, 0, dataBytes.Length);
+
+        bool ok = verifier.VerifySignature(signature);
+        Console.WriteLine(ok
+            ? "Signature verification successful."
+            : "Signature verification failed.");
+
+        return ok ? 0 : 1;
+    }
+}
+
+```

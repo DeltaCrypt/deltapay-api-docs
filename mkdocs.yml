@@ -103,6 +103,7 @@ nav:
     - C2B: common_usecases/c2b.md
     - B2C: common_usecases/b2c.md
     - QR Code Spec: common_usecases/qr_code.md
+    - Payment Requests: common_usecases/payment_requests.md
 
 copyright: |
   &copy; 2024 DeltaCrypt GmbH. All rights reserved.
