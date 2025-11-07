@@ -1,5 +1,7 @@
 # Scenario
 
+<!-- TODO: There is a lot of work here related to describing the two ways (discus whether the long way is still needed) -> make use of the code examples. The new way is to use the private key directly and the POST /transaction/send-transfer endpoint. Still this only retuns a tracking id. Explain the difference between transactions and blockchain transactions - potentially also how to see the errors stemming from the blockchain transactions.  -->
+
 The process of sending money to a customer (or another business) encompasses the following:
 
 1. Check whether the transaction is possible (optional)

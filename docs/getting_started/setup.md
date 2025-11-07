@@ -153,14 +153,25 @@ API keys can be unlinked again. The wallet address that was provided when linkin
 The caller must have the `unlink_api_key_to_account` permission, either generally or specifically for the account that the key is being unlinked from.
 
 
-
+<!-- 
 ## Callback Registration
 
+<!-- TODO: Potentially merge this with the callback section in C2B and move to a separate file -
+
 The user can register callbacks for a number of events that occur on the DeltaPay system. To ensure easy extensibility, the user only registers the base URL to which he wants the callback requests sent to.
+
+<!-- TODO: Explain how this links the account id and what the role of the manager legal entity id is -->
+<!-- callbacks are registered for a certain account. Activities pertaining this account, such as updates to transactions or payment requests are then communicated via the callbacks.
+Since a 3rd party might want to receive payment requests for accounts that they don't directly own or manage (e.g. an e-commerce site facilitating
+payments directly into the selling merchant's account) the manager_entity_id can be specified separately -> explain its significance -> 
+when getting the endpoints that belong to a certain account id, the view_callback_url permission for the manager legal entity is enough (if provided) essentially 
+we keep track of who is in charge of managing these callbacks to allow for proper permissions-
 
 For example, if the callback endpoint is `api.client.co.sz`, the IPN callback will call `POST api.client.co.sz/transaction/ipn`.
 
 The following endpoints are for setting, viewing, and deactivating the callback URL for a specific account.
+
+TODO: Add a section on the drawbacks of callbacks and suggested mitigations -> essentially fallback to polling, in the case of the IPN, this would be full/transaction/from-id or metadata, in the case of the payment requests
 
 
 ### Register callback
@@ -169,13 +180,10 @@ The following endpoints are for setting, viewing, and deactivating the callback 
 1. Registers the callback for the account.
 2. Generates a new signing key pair. The public key is returned required to verify the signatures.
 
-<!-- Explain what the purpose of the manager legal entity is -->
-
 **Request Parameters**
 - `callback_url`: *string*
 - `account_id`: *int*
 - `manager_entity_id`: *int* - The legal entity that is in charge of managing this callback
-<!-- Check if optional -->
 
 **Required Permissions**
 The caller must have the `set_callback_url` permission, either generally or specifically for the account **and** manager legal entity that the callback URL is set for.
@@ -239,7 +247,7 @@ The caller must have the `view_callback_url` permission, either generally or spe
 
 [`DELETE /account/callback-url/deactivate`](https://api.dev.deltacrypt.net/docs#/accounts/deactivate_callback_url_account_callback_url_deactivate_delete)
 
-<!-- Sets the callback URL to null so that no more callbacks will be called for events related to this account. -->
+<!-- Sets the callback URL to null so that no more callbacks will be called for events related to this account. -
 
 **Request Parameters**
 
@@ -248,4 +256,4 @@ The caller must have the `view_callback_url` permission, either generally or spe
 **Required Permissions**
 
 The caller must have the `set_callback_url` permission, either generally or specifically for the account **and** manager legal entity. 
-
+ -->
