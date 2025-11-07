@@ -2,34 +2,42 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
          <loc>https://deltapay.co.sz/</loc>
-         <lastmod>2025-07-17</lastmod>
+         <lastmod>2025-11-07</lastmod>
     </url>
     <url>
          <loc>https://deltapay.co.sz/common_usecases/b2c/</loc>
-         <lastmod>2025-07-17</lastmod>
+         <lastmod>2025-11-07</lastmod>
     </url>
     <url>
          <loc>https://deltapay.co.sz/common_usecases/c2b/</loc>
-         <lastmod>2025-07-17</lastmod>
+         <lastmod>2025-11-07</lastmod>
     </url>
     <url>
          <loc>https://deltapay.co.sz/common_usecases/payment_requests/</loc>
-         <lastmod>2025-07-17</lastmod>
+         <lastmod>2025-11-07</lastmod>
     </url>
     <url>
          <loc>https://deltapay.co.sz/common_usecases/qr_code/</loc>
-         <lastmod>2025-07-17</lastmod>
+         <lastmod>2025-11-07</lastmod>
+    </url>
+    <url>
+         <loc>https://deltapay.co.sz/common_usecases/signature_verification/</loc>
+         <lastmod>2025-11-07</lastmod>
     </url>
     <url>
          <loc>https://deltapay.co.sz/getting_started/authentication/</loc>
-         <lastmod>2025-07-17</lastmod>
+         <lastmod>2025-11-07</lastmod>
+    </url>
+    <url>
+         <loc>https://deltapay.co.sz/getting_started/callbacks/</loc>
+         <lastmod>2025-11-07</lastmod>
     </url>
     <url>
          <loc>https://deltapay.co.sz/getting_started/permissions/</loc>
-         <lastmod>2025-07-17</lastmod>
+         <lastmod>2025-11-07</lastmod>
     </url>
     <url>
          <loc>https://deltapay.co.sz/getting_started/setup/</loc>
-         <lastmod>2025-07-17</lastmod>
+         <lastmod>2025-11-07</lastmod>
     </url>
 </urlset>

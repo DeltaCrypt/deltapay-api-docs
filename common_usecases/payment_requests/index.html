@@ -20,7 +20,7 @@
       
       
       <link rel="icon" href="../../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.15">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.14">
     
     
       
@@ -371,6 +371,8 @@
       
         
       
+        
+      
     
     
     
@@ -476,6 +478,29 @@
 
               
             
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../getting_started/callbacks/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Callbacks
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
           </ul>
         </nav>
       
@@ -493,6 +518,8 @@
   
     
     
+      
+        
       
         
       
@@ -676,6 +703,15 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#viewing-payment-requests" class="md-nav__link">
+    <span class="md-ellipsis">
+      Viewing Payment Requests
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#viewing-incoming-payment-requests" class="md-nav__link">
     <span class="md-ellipsis">
       Viewing Incoming Payment Requests
@@ -706,6 +742,29 @@
   
 </nav>
       
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../signature_verification.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Signature Verification
+    
+  </span>
+  
+
+      </a>
     </li>
   
 
@@ -748,6 +807,15 @@
   <a href="#creating-a-payment-request" class="md-nav__link">
     <span class="md-ellipsis">
       Creating a payment request
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#viewing-payment-requests" class="md-nav__link">
+    <span class="md-ellipsis">
+      Viewing Payment Requests
     </span>
   </a>
   
@@ -800,6 +868,9 @@
 <p>The Payment Request API allows for the creation and management of requests for payments.</p>
 <p>The recipient of the payment request (PR) receives a push notification and the PR is displayed on their home screen until either accepted or rejected. </p>
 <p>PRs can only be sent to individual users. When accepting the PR, the user can chose the account from which to pay.</p>
+<!-- TODO: Explain that creating a payment request does not create a transaction, full-transaction/from-metadata will return 404 (double check) when the 
+payment request has not yet been accepted -- This can maybe be moved to the payment request status section-->
+
 <h2 id="creating-a-payment-request">Creating a payment request</h2>
 <p><a href="https://api.dev.deltacrypt.net/docs#/payment_request/create_payment_request_payment_request_create_post"><code>POST /payment-request/create</code></a></p>
 <p><strong>Description:</strong>
@@ -821,8 +892,39 @@ Requesting a payment from a user. The user is specified either by their username
 <p>The <code>metadata</code> is an optional free-form string (e.g., JSON-encoded string with order info).</p>
 <p><strong>Required Permissions</strong></p>
 <p>The caller must have the <code>create_payment_request</code> permission, either generally or specifically for the account.</p>
-<!-- Add docs on the till id  -->
+<!-- TODO: Add docs on the till id  -->
 
+<h2 id="viewing-payment-requests">Viewing Payment Requests</h2>
+<p>There are two ways to view a payment request:
+either by using the <code>payment_request_id</code> returned from the <a href="https://api.dev.deltacrypt.net/docs#/payment_request/create_payment_request_payment_request_create_post"><code>POST /payment-request/create</code></a> endpoint, or by using the <code>metadata</code> specified when the request was created.</p>
+<p>When using <code>metadata</code>, please ensure that it can reasonably be assumed to be <strong>unique</strong>.
+If multiple payment requests share the same metadata, the <strong>most recent</strong> one will be returned.</p>
+<ul>
+<li>
+<p><a href="https://api.dev.deltacrypt.net/docs#/payment_request/get_payment_request_from_id_payment_request_from_id_get"><code>GET /payment-requests/from-id</code></a></p>
+</li>
+<li>
+<p><a href="https://api.dev.deltacrypt.net/docs#/payment_request/get_payment_request_from_metadata_payment_request_from_metadata_get"><code>GET /payment-requests/from-metadata</code></a></p>
+</li>
+</ul>
+<p>This endpoint returns either 404 or the paymnent request.
+The sender of the PR is returned as a</p>
+<ul>
+<li>user, if the account is a personal account</li>
+<li>legal entity, if the account is a business account</li>
+</ul>
+<p><strong>Request Parameters</strong></p>
+<p>either</p>
+<ul>
+<li><code>payment_request_id</code>: <em>int</em></li>
+</ul>
+<p>or</p>
+<ul>
+<li><code>metadata</code>: <em>string</em></li>
+</ul>
+<p>respectively</p>
+<p><strong>Required Permissions</strong></p>
+<p>The caller must have the <code>view_payment_requests</code> permission, either generally or specifically for the user or legal entity of either the sender or recipient of the payment request.</p>
 <h2 id="viewing-incoming-payment-requests">Viewing Incoming Payment Requests</h2>
 <p><a href="https://api.dev.deltacrypt.net/docs#/payment_request/get_incoming_payment_requests_from_user_id_user_payment_requests_incoming_get"><code>GET /user/payment-requests/incoming</code></a></p>
 <p>This endpoint returns a list of PRs that have been sent to the specified user.
@@ -859,6 +961,10 @@ The sender of the PR is returned as a</p>
 <p><strong>Required Permissions</strong></p>
 <p>The caller must have the <code>view_payment_requests</code> permission, either generally or specifically for the legal entity. </p>
 <h2 id="payment-request-state">Payment Request state</h2>
+<!-- TODO: Add the reversed state -->
+
+<!-- TODO: Contrast these states with the one that the associated transaction goes through and explain that there is only a transaction once the payment request has been accepted. -->
+
 <p>A PR can be in one of the following states:</p>
 <ul>
 <li>pending</li>
@@ -1028,7 +1134,7 @@ The sender of the PR is returned as a</p>
       <script id="__config" type="application/json">{"base": "../..", "features": ["announce.dismiss", "content.action.edit", "content.action.view", "content.code.annotate", "content.code.copy", "content.tooltips", "navigation.footer", "navigation.indexes", "navigation.sections", "navigation.tabs", "navigation.top", "navigation.tracking", "search.highlight", "search.share", "search.suggest", "toc.follow"], "search": "../../assets/javascripts/workers/search.d50fe291.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
     
     
-      <script src="../../assets/javascripts/bundle.56ea9cef.min.js"></script>
+      <script src="../../assets/javascripts/bundle.13a4f30d.min.js"></script>
       
     
   </body>

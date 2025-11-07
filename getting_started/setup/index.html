@@ -18,11 +18,11 @@
         <link rel="prev" href="../authentication/">
       
       
-        <link rel="next" href="../../common_usecases/c2b/">
+        <link rel="next" href="../callbacks/">
       
       
       <link rel="icon" href="../../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.15">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.14">
     
     
       
@@ -375,6 +375,8 @@
       
         
       
+        
+      
     
     
     
@@ -493,6 +495,29 @@
 
               
             
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../callbacks/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Callbacks
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
           </ul>
         </nav>
       
@@ -508,6 +533,8 @@
   
     
     
+      
+        
       
         
       
@@ -635,6 +662,29 @@
   
   <span class="md-ellipsis">
     Payment Requests
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../signature_verification.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Signature Verification
     
   </span>
   
@@ -799,27 +849,42 @@ The caller must have the <code>link_api_key_to_account</code> permission, either
 - <code>account_id</code>: <em>int</em></p>
 <p><strong>Required Permissions</strong>
 The caller must have the <code>unlink_api_key_to_account</code> permission, either generally or specifically for the account that the key is being unlinked from.</p>
-<h2 id="callback-registration">Callback Registration</h2>
-<p>The user can register callbacks for a number of events that occur on the DeltaPay system. To ensure easy extensibility, the user only registers the base URL to which he wants the callback requests sent to.</p>
-<p>For example, if the callback endpoint is <code>api.client.co.sz</code>, the IPN callback will call <code>POST api.client.co.sz/transaction/ipn</code>.</p>
-<p>The following endpoints are for setting, viewing, and deactivating the callback URL for a specific account.</p>
-<h3 id="register-callback">Register callback</h3>
-<p><a href="https://api.dev.deltacrypt.net/docs#/accounts/register_callback_url_account_callback_url_register_post"><code>POST /account/callback-url/register</code></a></p>
-<ol>
-<li>Registers the callback for the account.</li>
-<li>Generates a new signing key pair. The public key is returned required to verify the signatures.</li>
-</ol>
-<!-- Explain what the purpose of the manager legal entity is -->
+<!-- 
+## Callback Registration
 
-<p><strong>Request Parameters</strong>
-- <code>callback_url</code>: <em>string</em>
-- <code>account_id</code>: <em>int</em>
-- <code>manager_entity_id</code>: <em>int</em> - The legal entity that is in charge of managing this callback</p>
-<!-- Check if optional -->
+<!-- TODO: Potentially merge this with the callback section in C2B and move to a separate file -
 
-<p><strong>Required Permissions</strong>
-The caller must have the <code>set_callback_url</code> permission, either generally or specifically for the account <strong>and</strong> manager legal entity that the callback URL is set for.</p>
-<p><strong>Example Response</strong>
+The user can register callbacks for a number of events that occur on the DeltaPay system. To ensure easy extensibility, the user only registers the base URL to which he wants the callback requests sent to.
+
+<!-- TODO: Explain how this links the account id and what the role of the manager legal entity id is -->
+<!-- callbacks are registered for a certain account. Activities pertaining this account, such as updates to transactions or payment requests are then communicated via the callbacks.
+Since a 3rd party might want to receive payment requests for accounts that they don't directly own or manage (e.g. an e-commerce site facilitating
+payments directly into the selling merchant's account) the manager_entity_id can be specified separately -> explain its significance -> 
+when getting the endpoints that belong to a certain account id, the view_callback_url permission for the manager legal entity is enough (if provided) essentially 
+we keep track of who is in charge of managing these callbacks to allow for proper permissions-
+
+For example, if the callback endpoint is `api.client.co.sz`, the IPN callback will call `POST api.client.co.sz/transaction/ipn`.
+
+The following endpoints are for setting, viewing, and deactivating the callback URL for a specific account.
+
+TODO: Add a section on the drawbacks of callbacks and suggested mitigations -> essentially fallback to polling, in the case of the IPN, this would be full/transaction/from-id or metadata, in the case of the payment requests
+
+
+### Register callback
+[`POST /account/callback-url/register`](https://api.dev.deltacrypt.net/docs#/accounts/register_callback_url_account_callback_url_register_post)
+
+1. Registers the callback for the account.
+2. Generates a new signing key pair. The public key is returned required to verify the signatures.
+
+**Request Parameters**
+- `callback_url`: *string*
+- `account_id`: *int*
+- `manager_entity_id`: *int* - The legal entity that is in charge of managing this callback
+
+**Required Permissions**
+The caller must have the `set_callback_url` permission, either generally or specifically for the account **and** manager legal entity that the callback URL is set for.
+
+**Example Response**
 <div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="p">{</span>
 <a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="w">    </span><span class="nt">&quot;callback_id&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span>
 <a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="w">    </span><span class="nt">&quot;callback_url&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;https://api.dev.deltacrypt.net&quot;</span><span class="p">,</span>
@@ -829,17 +894,24 @@ The caller must have the <code>set_callback_url</code> permission, either genera
 <a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a><span class="w">    </span><span class="nt">&quot;active&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span>
 <a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a><span class="w">    </span><span class="nt">&quot;deactivation_time&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span>
 <a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a><span class="w">    </span><span class="p">}</span>
-</code></pre></div></p>
-<h3 id="getting-callbacks-registered-for-an-account">Getting callbacks registered for an account</h3>
-<p><a href="https://api.dev.deltacrypt.net/docs#/accounts/get_callback_urls_account_callback_urls_get"><code>GET /account/callback-urls</code></a></p>
-<p><strong>Request Parameters</strong></p>
-<ul>
-<li><code>account_id</code>: <em>int</em></li>
-<li><code>manager_entity_id</code>: <em>Optional[int]</em></li>
-</ul>
-<p><strong>Required Permissions</strong></p>
-<p>The caller must have the <code>view_callback_url</code> permission, either generally or specifically for the account <strong>and</strong> manager legal entity.</p>
-<p><strong>Example Response</strong></p>
+</code></pre></div>
+
+
+### Getting callbacks registered for an account
+
+[`GET /account/callback-urls`](https://api.dev.deltacrypt.net/docs#/accounts/get_callback_urls_account_callback_urls_get)
+
+**Request Parameters**
+
+- `account_id`: *int*
+- `manager_entity_id`: *Optional[int]*
+
+**Required Permissions**
+
+The caller must have the `view_callback_url` permission, either generally or specifically for the account **and** manager legal entity.
+
+**Example Response**
+
 <div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="p">{</span>
 <a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="w">    </span><span class="nt">&quot;callback_urls&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
 <a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="w">        </span><span class="p">{</span>
@@ -863,16 +935,22 @@ The caller must have the <code>set_callback_url</code> permission, either genera
 <a id="__codelineno-3-21" name="__codelineno-3-21" href="#__codelineno-3-21"></a><span class="w">    </span><span class="p">]</span>
 <a id="__codelineno-3-22" name="__codelineno-3-22" href="#__codelineno-3-22"></a><span class="p">}</span>
 </code></pre></div>
-<h3 id="deactivate-callback">Deactivate callback</h3>
-<p><a href="https://api.dev.deltacrypt.net/docs#/accounts/deactivate_callback_url_account_callback_url_deactivate_delete"><code>DELETE /account/callback-url/deactivate</code></a></p>
-<!-- Sets the callback URL to null so that no more callbacks will be called for events related to this account. -->
 
-<p><strong>Request Parameters</strong></p>
-<ul>
-<li><code>callback_id</code>: <em>int</em></li>
-</ul>
-<p><strong>Required Permissions</strong></p>
-<p>The caller must have the <code>set_callback_url</code> permission, either generally or specifically for the account <strong>and</strong> manager legal entity. </p>
+
+### Deactivate callback
+
+[`DELETE /account/callback-url/deactivate`](https://api.dev.deltacrypt.net/docs#/accounts/deactivate_callback_url_account_callback_url_deactivate_delete)
+
+<!-- Sets the callback URL to null so that no more callbacks will be called for events related to this account. -
+
+**Request Parameters**
+
+- `callback_id`: *int*
+
+**Required Permissions**
+
+The caller must have the `set_callback_url` permission, either generally or specifically for the account **and** manager legal entity. 
+ -->
 
 
 
@@ -928,13 +1006,13 @@ The caller must have the <code>set_callback_url</code> permission, either genera
         
         
           
-          <a href="../../common_usecases/c2b/" class="md-footer__link md-footer__link--next" aria-label="Next: C2B">
+          <a href="../callbacks/" class="md-footer__link md-footer__link--next" aria-label="Next: Callbacks">
             <div class="md-footer__title">
               <span class="md-footer__direction">
                 Next
               </span>
               <div class="md-ellipsis">
-                C2B
+                Callbacks
               </div>
             </div>
             <div class="md-footer__button md-icon">
@@ -1015,7 +1093,7 @@ The caller must have the <code>set_callback_url</code> permission, either genera
       <script id="__config" type="application/json">{"base": "../..", "features": ["announce.dismiss", "content.action.edit", "content.action.view", "content.code.annotate", "content.code.copy", "content.tooltips", "navigation.footer", "navigation.indexes", "navigation.sections", "navigation.tabs", "navigation.top", "navigation.tracking", "search.highlight", "search.share", "search.suggest", "toc.follow"], "search": "../../assets/javascripts/workers/search.d50fe291.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
     
     
-      <script src="../../assets/javascripts/bundle.56ea9cef.min.js"></script>
+      <script src="../../assets/javascripts/bundle.13a4f30d.min.js"></script>
       
     
   </body>
