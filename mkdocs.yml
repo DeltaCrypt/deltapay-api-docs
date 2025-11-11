@@ -106,6 +106,10 @@ nav:
     - QR Code Spec: common_usecases/qr_code.md
     - Payment Requests: common_usecases/payment_requests.md
     - Signature Verification: common_usecases/signature_verification.md
+    - Blockchain Interactions: common_usecases/blockchain.md
+  - Examples:
+    - TypeScript: examples/snippets.ts
+    - Python: examples/snippets.py
 
 copyright: |
   &copy; 2024 DeltaCrypt GmbH. All rights reserved.
