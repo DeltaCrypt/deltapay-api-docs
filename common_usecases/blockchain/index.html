@@ -12,13 +12,13 @@
         <meta name="author" content="Adrian Albert Koch">
       
       
-        <link rel="canonical" href="https://deltapay.co.sz/common_usecases/qr_code/">
+        <link rel="canonical" href="https://deltapay.co.sz/common_usecases/blockchain/">
       
       
-        <link rel="prev" href="../b2c/">
+        <link rel="prev" href="../signature_verification/">
       
       
-        <link rel="next" href="../payment_requests/">
+        <link rel="next" href="../../examples/snippets.ts">
       
       
       <link rel="icon" href="../../assets/images/favicon.png">
@@ -26,7 +26,7 @@
     
     
       
-        <title>QR Code Spec - DeltaPay API Documentation</title>
+        <title>Blockchain Interactions - DeltaPay API Documentation</title>
       
     
     
@@ -61,11 +61,11 @@
       
         <meta  property="og:type"  content="website" >
       
-        <meta  property="og:title"  content="QR Code Spec - DeltaPay API Documentation" >
+        <meta  property="og:title"  content="Blockchain Interactions - DeltaPay API Documentation" >
       
         <meta  property="og:description"  content="Official Documentation for the DeltaPay API." >
       
-        <meta  property="og:image"  content="https://deltapay.co.sz/assets/images/social/common_usecases/qr_code.png" >
+        <meta  property="og:image"  content="https://deltapay.co.sz/assets/images/social/common_usecases/blockchain.png" >
       
         <meta  property="og:image:type"  content="image/png" >
       
@@ -73,15 +73,15 @@
       
         <meta  property="og:image:height"  content="630" >
       
-        <meta  property="og:url"  content="https://deltapay.co.sz/common_usecases/qr_code/" >
+        <meta  property="og:url"  content="https://deltapay.co.sz/common_usecases/blockchain/" >
       
         <meta  name="twitter:card"  content="summary_large_image" >
       
-        <meta  name="twitter:title"  content="QR Code Spec - DeltaPay API Documentation" >
+        <meta  name="twitter:title"  content="Blockchain Interactions - DeltaPay API Documentation" >
       
         <meta  name="twitter:description"  content="Official Documentation for the DeltaPay API." >
       
-        <meta  name="twitter:image"  content="https://deltapay.co.sz/assets/images/social/common_usecases/qr_code.png" >
+        <meta  name="twitter:image"  content="https://deltapay.co.sz/assets/images/social/common_usecases/blockchain.png" >
       
     
     
@@ -104,7 +104,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#deltapay-qr-code-json-specification" class="md-skip">
+        <a href="#interacting-with-the-blockchain" class="md-skip">
           Skip to content
         </a>
       
@@ -138,7 +138,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              QR Code Spec
+              Blockchain Interactions
             
           </span>
         </div>
@@ -644,32 +644,10 @@
                 
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  
-  <span class="md-ellipsis">
-    QR Code Spec
-    
-  </span>
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../qr_code/" class="md-nav__link">
         
   
   
@@ -680,62 +658,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#1-overview" class="md-nav__link">
-    <span class="md-ellipsis">
-      1. Overview
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#2-json-structure" class="md-nav__link">
-    <span class="md-ellipsis">
-      2. JSON Structure
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#3-example-payload" class="md-nav__link">
-    <span class="md-ellipsis">
-      3. Example Payload
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#4-qr-code-generation" class="md-nav__link">
-    <span class="md-ellipsis">
-      4. QR Code Generation
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -791,10 +713,32 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../blockchain/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    Blockchain Interactions
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   
@@ -805,6 +749,128 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#difference-between-transaction-and-blockchain-transaction" class="md-nav__link">
+    <span class="md-ellipsis">
+      Difference Between Transaction and Blockchain Transaction
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#1-getting-the-raw-transaction" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. Getting the Raw Transaction
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-signing-the-raw-transaction" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. Signing the Raw Transaction
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2. Signing the Raw Transaction">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#recommended-libraries" class="md-nav__link">
+    <span class="md-ellipsis">
+      Recommended Libraries
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#python-example-using-web3py" class="md-nav__link">
+    <span class="md-ellipsis">
+      Python Example (using web3.py)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#javascript-typescript-example-using-ethersjs" class="md-nav__link">
+    <span class="md-ellipsis">
+      JavaScript / TypeScript Example (using ethers.js)
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-submitting-the-signed-transaction" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. Submitting the Signed Transaction
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-querying-blockchain-transaction-status" class="md-nav__link">
+    <span class="md-ellipsis">
+      4. Querying Blockchain Transaction Status
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4. Querying Blockchain Transaction Status">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#get-blockchain-transaction-status" class="md-nav__link">
+    <span class="md-ellipsis">
+      Get Blockchain Transaction Status
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#get-blockchain-transaction-error-message" class="md-nav__link">
+    <span class="md-ellipsis">
+      Get Blockchain Transaction Error Message
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -946,38 +1012,104 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#1-overview" class="md-nav__link">
+  <a href="#difference-between-transaction-and-blockchain-transaction" class="md-nav__link">
     <span class="md-ellipsis">
-      1. Overview
+      Difference Between Transaction and Blockchain Transaction
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#2-json-structure" class="md-nav__link">
+  <a href="#1-getting-the-raw-transaction" class="md-nav__link">
     <span class="md-ellipsis">
-      2. JSON Structure
+      1. Getting the Raw Transaction
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#3-example-payload" class="md-nav__link">
+  <a href="#2-signing-the-raw-transaction" class="md-nav__link">
     <span class="md-ellipsis">
-      3. Example Payload
+      2. Signing the Raw Transaction
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2. Signing the Raw Transaction">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#recommended-libraries" class="md-nav__link">
+    <span class="md-ellipsis">
+      Recommended Libraries
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#python-example-using-web3py" class="md-nav__link">
+    <span class="md-ellipsis">
+      Python Example (using web3.py)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#javascript-typescript-example-using-ethersjs" class="md-nav__link">
+    <span class="md-ellipsis">
+      JavaScript / TypeScript Example (using ethers.js)
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-submitting-the-signed-transaction" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. Submitting the Signed Transaction
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#4-qr-code-generation" class="md-nav__link">
+  <a href="#4-querying-blockchain-transaction-status" class="md-nav__link">
     <span class="md-ellipsis">
-      4. QR Code Generation
+      4. Querying Blockchain Transaction Status
     </span>
   </a>
+  
+    <nav class="md-nav" aria-label="4. Querying Blockchain Transaction Status">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#get-blockchain-transaction-status" class="md-nav__link">
+    <span class="md-ellipsis">
+      Get Blockchain Transaction Status
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#get-blockchain-transaction-error-message" class="md-nav__link">
+    <span class="md-ellipsis">
+      Get Blockchain Transaction Error Message
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -997,84 +1129,142 @@
 
 
 
-<h1 id="deltapay-qr-code-json-specification">DeltaPay QR Code JSON Specification</h1>
-<p>This document describes the JSON payload encoded in DeltaPay QR codes. Any QR code library that accepts a string input can generate a DeltaPay QR code.</p>
-<h2 id="1-overview">1. Overview</h2>
-<ul>
-<li>Payload is a plain JSON object.</li>
-<li>Null values should be omitted before encoding.</li>
-<li>Supports any QR library (<em>e.g.</em>, <code>qr_flutter</code>, <code>flutter_qr_reader</code>, <code>qrcode</code> in JavaScript, etc.).</li>
-</ul>
-<h2 id="2-json-structure">2. JSON Structure</h2>
-<table>
-<thead>
-<tr>
-<th>Field</th>
-<th>Type</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>username</code></td>
-<td>String</td>
-<td>Recipient's username.</td>
-</tr>
-<tr>
-<td><code>account_id</code></td>
-<td>Integer</td>
-<td>Recipient's numeric account ID.</td>
-</tr>
-<tr>
-<td><code>amount</code></td>
-<td>Number</td>
-<td>Transaction amount (SZL).</td>
-</tr>
-<tr>
-<td><code>transaction_type</code></td>
-<td>String</td>
-<td>A list of valid transaction types can be retrieved <a href="https://api.dev.deltacrypt.net/transaction-types">here</a>.</td>
-</tr>
-<tr>
-<td><code>till_id</code></td>
-<td>Integer</td>
-<td>Merchant's till terminal ID.</td>
-</tr>
-<tr>
-<td><code>note</code></td>
-<td>String</td>
-<td>Optional note that is visible to the customer.</td>
-</tr>
-<tr>
-<td><code>metadata</code></td>
-<td>String</td>
-<td>Optional free-form metadata (can be JSON-encoded string if needed). <strong>Not</strong> visible to the customer.</td>
-</tr>
-</tbody>
-</table>
-<!-- | `pay_with_cashback` | Boolean | `true` to apply cashback balance; `false` or omit otherwise. | -->
-
-<p><strong>Note</strong>: Either the <code>username</code> or <code>account_id</code> is required. If both are provided, the <code>account_id</code> takes precedence but the payment will marked as being received "through" this user. <em>E.g.</em>, if the <code>account_id</code> references a business account and the user generating the QR code (and accepting the payment) is linked to the business account as an employee, he will only be able to see the incoming payment in his payment history if the transaction has been marked to be accepted by him. </p>
-<h2 id="3-example-payload">3. Example Payload</h2>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="p">{</span>
-<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="w">  </span><span class="nt">&quot;username&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;sifiso&quot;</span><span class="p">,</span>
-<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">  </span><span class="nt">&quot;account_id&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">42</span><span class="p">,</span>
-<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="w">  </span><span class="nt">&quot;amount&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">50.0</span><span class="p">,</span>
-<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="w">  </span><span class="nt">&quot;transaction_type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;taxes&quot;</span><span class="p">,</span>
-<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="w">  </span><span class="nt">&quot;till_id&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">678</span><span class="p">,</span>
-<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="w">  </span><span class="nt">&quot;note&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;VAT&quot;</span><span class="p">,</span>
-<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="w">  </span><span class="nt">&quot;metadata&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;{\&quot;tax_ref\&quot;: \&quot;too_much\&quot;}&quot;</span><span class="p">,</span>
-<a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a><span class="p">}</span>
-</code></pre></div>
-<!-- "source_of_funds": "cash", -->
-<!-- "pay_with_cashback": false -->
-
-<h2 id="4-qr-code-generation">4. QR Code Generation</h2>
+<h1 id="interacting-with-the-blockchain">Interacting with the Blockchain</h1>
+<p>The process for interacting with the blockchain is consistent across all transaction types:</p>
 <ol>
-<li>Convert the JSON object to a compact string (e.g., using <code>json.encode</code>).</li>
-<li>Pass the resulting string to any QR code generator.</li>
-<li>Display or print the generated QR code as needed.</li>
+<li><strong>Get</strong> the raw Ethereum transaction object.</li>
+<li><strong>Sign</strong> the raw blockchain transaction.</li>
+<li><strong>Submit</strong> the signed blockchain transaction.</li>
+<li><strong>Query</strong> the blockchain transaction (optional).</li>
 </ol>
+<p>In some cases, the endpoint returning the raw transaction also performs additional setup (for example, <a href="https://api.dev.deltacrypt.net/docs#/transactions/initiate_deposit_transaction_initiate_deposit_post"><code>/transaction/initiate-deposit</code></a> both creates the database entry and prepares the blockchain transaction).</p>
+<p>For frequently used operations, shortcut endpoints are provided.
+These endpoints handle signing internally if the private key is supplied, reducing the process to a <strong>single HTTP request</strong> (e.g. <a href="https://api.dev.deltacrypt.net/docs#/transactions/send_transfer_transaction_send_transfer_post"><code>POST /transaction/send-transfer</code></a>).</p>
+<blockquote>
+<p><strong>Note:</strong> When using endpoints that accept a private key directly, security relies on standard <strong>TLS encryption</strong>. The private keys sent in this way are <strong>never stored</strong> on DeltaPay servers.</p>
+</blockquote>
+<h3 id="difference-between-transaction-and-blockchain-transaction">Difference Between Transaction and Blockchain Transaction</h3>
+<p>A <strong>transaction</strong> in DeltaPay refers to the high-level payment record tracked in the DeltaPay database (for example, a deposit or transfer).
+A <strong>blockchain transaction</strong> is the corresponding on-chain event that executes the transfer of tokens or smart-contract function.</p>
+<p>One DeltaPay transaction may involve multiple blockchain transactions — for example,
+a deposit could include both an <em>initialisation</em> and a <em>finalisation</em> transaction.
+Blockchain-level errors are reflected separately via the blockchain transaction status and error-message endpoints.</p>
+<h2 id="1-getting-the-raw-transaction">1. Getting the Raw Transaction</h2>
+<p>The raw transaction describes what will be executed on the blockchain.
+It includes fields such as <code>to</code>, <code>data</code>, <code>chainId</code>, <code>gasLimit</code>, and <code>nonce</code>.</p>
+<p><strong>Example response structure:</strong></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="p">{</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="w">  </span><span class="nt">&quot;raw_transaction&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">    </span><span class="nt">&quot;from&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;0x7E5F4552091A69125d5DfCb7b8C2659029395Bdf&quot;</span><span class="p">,</span>
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="w">    </span><span class="nt">&quot;to&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;0x52A816dB82157a5f4b2c4Fb5Be745AC4103Db674&quot;</span><span class="p">,</span>
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="w">    </span><span class="nt">&quot;nonce&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span>
+<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="w">    </span><span class="nt">&quot;chainId&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;1337&quot;</span><span class="p">,</span>
+<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="w">    </span><span class="nt">&quot;data&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;0x21d43aaf000000000.....&quot;</span><span class="p">,</span>
+<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="w">    </span><span class="nt">&quot;gasLimit&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;0x1ffffffffffffe&quot;</span><span class="p">,</span>
+<a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a><span class="w">    </span><span class="nt">&quot;gasPrice&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span>
+<a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a><span class="w">    </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span>
+<a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a><span class="w">  </span><span class="p">},</span>
+<a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a><span class="w">  </span><span class="nt">&quot;topic&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;finaliseTransfer&quot;</span>
+<a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a><span class="p">}</span>
+</code></pre></div>
+<p>You can now sign the <code>raw_transaction</code> using any Ethereum-compatible library. Once signed, it should be submitted to the blockchain using the returned <code>topic</code>.</p>
+<h2 id="2-signing-the-raw-transaction">2. Signing the Raw Transaction</h2>
+<p>Signing transforms the unsigned JSON transaction into a signed, broadcastable payload.
+The <code>raw_transaction</code> must be signed using the private key corresponding to the <code>sender_wallet_address</code>. Any Ethereum-compatible signing library can be used.</p>
+<h3 id="recommended-libraries">Recommended Libraries</h3>
+<p><strong>JavaScript / TypeScript</strong></p>
+<ul>
+<li><a href="https://github.com/ethers-io/ethers.js">ethers.js</a></li>
+<li><a href="https://github.com/ethereum/web3.js">web3.js</a></li>
+</ul>
+<p><strong>Python</strong></p>
+<ul>
+<li><a href="https://github.com/ethereum/web3.py">web3.py</a></li>
+<li><a href="https://github.com/ethereum/eth-account">eth-account</a></li>
+</ul>
+<p><strong>Other Supported Languages</strong></p>
+<ul>
+<li>Go → <a href="https://github.com/ethereum/go-ethereum">go-ethereum</a></li>
+<li>Java → <a href="https://github.com/web3j/web3j">web3j</a></li>
+<li>C# → <a href="https://github.com/Nethereum/Nethereum">Nethereum</a></li>
+<li>Swift → <a href="https://github.com/Boilertalk/Web3.swift">web3.swift</a></li>
+<li>Rust → <a href="https://github.com/gakonst/ethers-rs">ethers-rs</a></li>
+</ul>
+<p>Below are short code examples for the most common environments.
+The full runnable examples (including API setup, error handling, and polling) are available in the <a href="../../examples/snippets.py">Python Example</a> and <a href="../../examples/snippets.ts">TypeScript Example</a> sections.</p>
+<h3 id="python-example-using-web3py">Python Example (using <code>web3.py</code>)</h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">web3</span><span class="w"> </span><span class="kn">import</span> <span class="n">Web3</span>
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="c1"># raw_transaction is what you received from the initiate endpoint</span>
+<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="k">def</span><span class="w"> </span><span class="nf">translate_transaction</span><span class="p">(</span><span class="n">raw_transaction</span><span class="p">):</span>
+<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>    <span class="n">raw_transaction</span><span class="p">[</span><span class="s1">&#39;chainId&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">raw_transaction</span><span class="p">[</span><span class="s1">&#39;chainId&#39;</span><span class="p">])</span>
+<a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a>    <span class="n">raw_transaction</span><span class="p">[</span><span class="s1">&#39;gas&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">raw_transaction</span><span class="p">[</span><span class="s1">&#39;gasLimit&#39;</span><span class="p">],</span> <span class="mi">16</span><span class="p">)</span>
+<a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a>    <span class="k">del</span> <span class="n">raw_transaction</span><span class="p">[</span><span class="s1">&#39;gasLimit&#39;</span><span class="p">]</span>
+<a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a>    <span class="n">raw_transaction</span><span class="p">[</span><span class="s1">&#39;gasPrice&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">raw_transaction</span><span class="p">[</span><span class="s1">&#39;gasPrice&#39;</span><span class="p">])</span>
+<a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a>    <span class="k">if</span> <span class="n">raw_transaction</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;type&#39;</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+<a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a>        <span class="k">del</span> <span class="n">raw_transaction</span><span class="p">[</span><span class="s1">&#39;type&#39;</span><span class="p">]</span>
+<a id="__codelineno-1-11" name="__codelineno-1-11" href="#__codelineno-1-11"></a>    <span class="k">return</span> <span class="n">raw_transaction</span>
+<a id="__codelineno-1-12" name="__codelineno-1-12" href="#__codelineno-1-12"></a>
+<a id="__codelineno-1-13" name="__codelineno-1-13" href="#__codelineno-1-13"></a><span class="n">w3</span> <span class="o">=</span> <span class="n">Web3</span><span class="p">()</span>
+<a id="__codelineno-1-14" name="__codelineno-1-14" href="#__codelineno-1-14"></a><span class="n">wallet</span> <span class="o">=</span> <span class="n">w3</span><span class="o">.</span><span class="n">eth</span><span class="o">.</span><span class="n">account</span><span class="o">.</span><span class="n">from_key</span><span class="p">(</span><span class="s2">&quot;YOUR_PRIVATE_KEY_HERE&quot;</span><span class="p">)</span>
+<a id="__codelineno-1-15" name="__codelineno-1-15" href="#__codelineno-1-15"></a>
+<a id="__codelineno-1-16" name="__codelineno-1-16" href="#__codelineno-1-16"></a><span class="n">signed</span> <span class="o">=</span> <span class="n">wallet</span><span class="o">.</span><span class="n">sign_transaction</span><span class="p">(</span><span class="n">translate_transaction</span><span class="p">(</span><span class="n">raw_transaction</span><span class="p">))</span>
+<a id="__codelineno-1-17" name="__codelineno-1-17" href="#__codelineno-1-17"></a><span class="n">signed_transaction</span> <span class="o">=</span> <span class="s2">&quot;0x&quot;</span> <span class="o">+</span> <span class="n">signed</span><span class="o">.</span><span class="n">raw_transaction</span><span class="o">.</span><span class="n">hex</span><span class="p">()</span>
+<a id="__codelineno-1-18" name="__codelineno-1-18" href="#__codelineno-1-18"></a>
+<a id="__codelineno-1-19" name="__codelineno-1-19" href="#__codelineno-1-19"></a><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Signed Transaction:&quot;</span><span class="p">,</span> <span class="n">signed_transaction</span><span class="p">)</span>
+</code></pre></div>
+<p>This produces a hex-encoded signed transaction string that you can now submit to the blockchain.</p>
+<h3 id="javascript-typescript-example-using-ethersjs">JavaScript / TypeScript Example (using <code>ethers.js</code>)</h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="k">import</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">ethers</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s2">&quot;ethers&quot;</span><span class="p">;</span>
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>
+<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="c1">// raw_transaction is what you received from the initiate endpoint</span>
+<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="kd">const</span><span class="w"> </span><span class="nx">wallet</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nx">ethers</span><span class="p">.</span><span class="nx">Wallet</span><span class="p">(</span><span class="s2">&quot;YOUR_PRIVATE_KEY_HERE&quot;</span><span class="p">);</span>
+<a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a><span class="kd">const</span><span class="w"> </span><span class="nx">signedTransaction</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="nx">wallet</span><span class="p">.</span><span class="nx">signTransaction</span><span class="p">(</span><span class="nx">raw_transaction</span><span class="p">);</span>
+<a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a>
+<a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;Signed Transaction:&quot;</span><span class="p">,</span><span class="w"> </span><span class="nx">signedTransaction</span><span class="p">);</span>
+</code></pre></div>
+<p>Both examples generate a <code>signedTransaction</code> string which should be sent to the <code>/blockchain/signed-transaction</code> endpoint, together with the <code>topic</code> value returned earlier.</p>
+<h2 id="3-submitting-the-signed-transaction">3. Submitting the Signed Transaction</h2>
+<p><a href="https://api.dev.deltacrypt.net/docs#/blockchain/send_signed_transaction_blockchain_signed_transaction_post"><code>POST /blockchain/signed-transaction</code></a></p>
+<p><strong>Request Parameters</strong></p>
+<ul>
+<li><code>transaction_bytes</code>: <em>string</em> — the signed transaction hex string</li>
+<li><code>topic</code>: <em>string</em> — the topic returned by the raw transaction endpoint</li>
+</ul>
+<p><strong>Example Request</strong></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="p">{</span>
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="w">  </span><span class="nt">&quot;transaction_bytes&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;0xf86b80843b9aca0082520894...&quot;</span><span class="p">,</span>
+<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="w">  </span><span class="nt">&quot;topic&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;finaliseTransfer&quot;</span>
+<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="p">}</span>
+</code></pre></div>
+<p><strong>Example Response</strong></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="p">{</span>
+<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="w">  </span><span class="nt">&quot;success&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span>
+<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="w">  </span><span class="nt">&quot;tracking_id&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">214</span>
+<a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a><span class="p">}</span>
+</code></pre></div>
+<p>Use the <code>tracking_id</code> to query blockchain transaction status or correlate with internal transaction logs.</p>
+<h2 id="4-querying-blockchain-transaction-status">4. Querying Blockchain Transaction Status</h2>
+<p>You can query the blockchain transaction status directly, or rely on the IPN callback to notify your system of updates.</p>
+<h3 id="get-blockchain-transaction-status">Get Blockchain Transaction Status</h3>
+<p><a href="https://api.dev.deltacrypt.net/docs#/blockchain/get_transaction_status_blockchain_transaction_status_get"><code>GET /blockchain/transaction-status</code></a></p>
+<p><strong>Request Parameters</strong></p>
+<ul>
+<li><code>transaction_id</code>: <em>string</em> — The blockchain transaction id</li>
+</ul>
+<p><strong>Example Response</strong></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="p">{</span>
+<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="w">  </span><span class="nt">&quot;blockchain_transaction_status&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;succeeded&quot;</span>
+<a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a><span class="p">}</span>
+</code></pre></div>
+<h3 id="get-blockchain-transaction-error-message">Get Blockchain Transaction Error Message</h3>
+<p><a href="https://api.dev.deltacrypt.net/docs#/blockchain/get_transaction_error_message_blockchain_transaction_error_message_get"><code>GET /blockchain/transaction/error-message</code></a></p>
+<p>If the transaction failed, this endpoint provides the decoded smart-contract error for debugging.</p>
+<p><strong>Example Response</strong></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="p">{</span>
+<a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a><span class="w">  </span><span class="nt">&quot;error_message&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;{\n  \&quot;name\&quot;: \&quot;ERR_USER_NOT_WHITELISTED\&quot;,\n  \&quot;args\&quot;: [\&quot;0x2B5AD5c4795c026514f8317c7a215E218DcCD6cF\&quot;]\n}&quot;</span>
+<a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a><span class="p">}</span>
+</code></pre></div>
 
 
 
@@ -1113,7 +1303,7 @@
       <nav class="md-footer__inner md-grid" aria-label="Footer" >
         
           
-          <a href="../b2c/" class="md-footer__link md-footer__link--prev" aria-label="Previous: B2C">
+          <a href="../signature_verification/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Signature Verification">
             <div class="md-footer__button md-icon">
               
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
@@ -1123,20 +1313,20 @@
                 Previous
               </span>
               <div class="md-ellipsis">
-                B2C
+                Signature Verification
               </div>
             </div>
           </a>
         
         
           
-          <a href="../payment_requests/" class="md-footer__link md-footer__link--next" aria-label="Next: Payment Requests">
+          <a href="../../examples/snippets.ts" class="md-footer__link md-footer__link--next" aria-label="Next: TypeScript">
             <div class="md-footer__title">
               <span class="md-footer__direction">
                 Next
               </span>
               <div class="md-ellipsis">
-                Payment Requests
+                TypeScript
               </div>
             </div>
             <div class="md-footer__button md-icon">
