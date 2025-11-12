@@ -87,7 +87,8 @@ Content-Type: application/json
 
 # Instant Payment Notification (IPN)
 
-The IPN callback is triggered for **all updates to transaction statuses** involving either the **sender** or **recipient account**.
+The IPN callback is triggered for **all updates to transaction statuses** involving either the **sender** or **recipient account**. For more detailed information about callbacks, refer to 
+[this section](../getting_started/callbacks.md).
 
 **Callback URL format:**
 
@@ -131,7 +132,8 @@ base URL + /transaction/ipn
 
 # Payment Request Status Updates
 
-This callback is triggered whenever a **payment request status changes** for any request where the **recipient account** is the one associated with the registered callback.
+This callback is triggered whenever a **payment request status changes** for any request where the **recipient account** is the one associated with the registered callback. For more detailed information about callbacks, refer to 
+[this section](../getting_started/callbacks.md).
 
 **Callback URL format:**
 
