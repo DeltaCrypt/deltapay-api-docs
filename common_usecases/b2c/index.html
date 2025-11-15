@@ -960,14 +960,14 @@
 <h1 id="scenario">Scenario</h1>
 <p>Disbursing funds to a customer’s (or another business’) DeltaPay account follows this process:</p>
 <ol>
-<li>(Optional) Check whether the transaction is possible using a <a href="#1-check--preview-transaction">preview endpoint</a></li>
+<li>(Optional) Check whether the transaction is possible using a <a href="#check--preview-transaction">preview endpoint</a></li>
 <li>Send and sign the transfer in a single call (recommended)</li>
 <li>(Optional) Check the blockchain transaction status</li>
 <li>Receive a callback when the transaction status changes (IPN)</li>
 <li>Query the transaction on the DeltaPay side</li>
 </ol>
 <h3 id="recommended-flow">Recommended flow</h3>
-<p>Use <code>POST /transaction/send-transfer</code>.
+<p>Use <a href="https://api.dev.deltacrypt.net/docs#/transactions/send_transfer_transaction_send_transfer_post"><code>POST /transaction/send-transfer</code></a>.
 This endpoint:</p>
 <ul>
 <li>creates the DeltaPay transaction</li>
@@ -979,9 +979,9 @@ This endpoint:</p>
 <h3 id="manual-raw-transaction-flow-advanced">Manual / raw-transaction flow (advanced)</h3>
 <p>If you cannot send the private key, you can use the raw-transaction flow:</p>
 <ol>
-<li>Call <code>POST /transaction/initiate-transfer</code> to obtain a <code>raw_transaction</code></li>
+<li>Call <a href="https://api.dev.deltacrypt.net/docs#/transactions/initiate_transfer_transaction_initiate_transfer_post"><code>POST /transaction/initiate-transfer</code></a> to obtain a <code>raw_transaction</code></li>
 <li>Sign it on your side</li>
-<li>Submit the signed bytes using <code>POST /blockchain/signed-transaction</code></li>
+<li>Submit the signed bytes using <a href="https://api.dev.deltacrypt.net/docs#/blockchain/send_signed_transaction_blockchain_signed_transaction_post"><code>POST /blockchain/signed-transaction</code></a></li>
 </ol>
 <p>This is only needed when your key-management requirements prevent you from using the recommended flow.
 Details of signing and submitting raw transactions are described in the <a href="../blockchain/">blockchain section</a>.</p>
@@ -1013,9 +1013,8 @@ Details of signing and submitting raw transactions are described in the <a href=
 <li><a href="https://api.dev.deltacrypt.net/docs#/blockchain/get_transaction_status_blockchain_transaction_status_get"><code>GET /blockchain/transaction-status</code></a></li>
 <li><a href="https://api.dev.deltacrypt.net/docs#/blockchain/get_transaction_error_message_blockchain_transaction_error_message_get"><code>GET /blockchain/transaction/error-message</code></a></li>
 </ul>
-<p>This information is primarily useful for debugging or for communicating more detailed error context to the end user. In normal operation, the <a href="#1-check--preview-transaction"><strong>preview endpoints</strong></a> should prevent the vast majority of attempts that would result in an on-chain failure.
+<p>This information is primarily useful for debugging or for communicating more detailed error context to the end user. In normal operation, the <a href="#check--preview-transaction"><strong>preview endpoints</strong></a> should prevent the vast majority of attempts that would result in an on-chain failure.
 The blockchain error endpoints are therefore mostly relevant for edge cases, such as race conditions (e.g. limits or balances changing after the preview call). For more information on how to interact with the blockchain, please refer to <a href="../blockchain/">this section</a>.</p>
-<p>Here’s a version updated to use <code>transfer-preview</code>, with your new examples and a short explanation of the response shape.</p>
 <h1 id="check-preview-transaction">Check / Preview Transaction</h1>
 <p>Before sending money, it is advisable to preview whether the transaction is likely to succeed. This avoids unnecessary polling and simplifies error handling.</p>
 <p>A transaction may fail for several reasons:</p>
@@ -1027,10 +1026,10 @@ The blockchain error endpoints are therefore mostly relevant for edge cases, suc
 <li>User not whitelisted</li>
 </ul>
 <blockquote>
-<p><strong>Note</strong>: Insufficient spending allowances (daily spending limits) do not prevent the transaction from being created. In such cases the transaction will be created but <strong>require approval</strong>, which is reflected in its status when you query it or receive callbacks.</p>
+<p><strong>Note</strong>: Insufficient spending allowances (daily spending limits) <strong>do not</strong> prevent the transaction from being created. In such cases the transaction will be created but <strong>require approval</strong>, which is reflected in its status when you query it or receive callbacks.</p>
 </blockquote>
 <h2 id="transfer-preview">Transfer preview</h2>
-<p><a href="https://api.dev.deltacrypt.net/docs#/transactions/get_transfer_preview_transaction_transfer_preview_get"><code>GET /transaction/transfer-preview</code></a></p>
+<p><a href="https://api.dev.deltacrypt.net/docs#/transactions/get_preview_transaction_transaction_transfer_preview_get"><code>GET /transaction/transfer-preview</code></a></p>
 <p>This endpoint returns all information needed to decide whether a transfer should be initiated, without actually creating a transaction.</p>
 <p><strong>Request Parameters</strong></p>
 <ul>
@@ -1191,7 +1190,7 @@ The blockchain error endpoints are therefore mostly relevant for edge cases, suc
 <p>If you cannot send the private key to DeltaPay, or you maintain your own signing infrastructure, you can use the more general <strong>raw-transaction</strong> flow documented here and in the dedicated <a href="../blockchain/">Blockchain Interactions</a> section.</p>
 <p><a href="https://api.dev.deltacrypt.net/docs#/transactions/initiate_transfer_transaction_initiate_transfer_post"><code>POST /transaction/initiate-transfer</code></a></p>
 <p><strong>Request Parameters</strong></p>
-<p>The body closely mirrors <code>POST /transaction/send-transfer</code>, replacing the <code>private_key</code> with the <code>sender_wallet_address</code> field. For a detailled explanation of the fields, refer to the <a href="#2-send-and-sign-transaction">above section</a>.</p>
+<p>The body closely mirrors <a href="https://api.dev.deltacrypt.net/docs#/transactions/send_transfer_transaction_send_transfer_post"><code>POST /transaction/send-transfer</code></a>, replacing the <code>private_key</code> with the <code>sender_wallet_address</code> field. For a detailled explanation of the fields, refer to the <a href="#send-and-sign-transaction">above section</a>.</p>
 <ul>
 <li><code>sender_wallet_address</code>: <em>string</em></li>
 <li><code>amount</code>: <em>number</em></li>
@@ -1222,13 +1221,13 @@ The blockchain error endpoints are therefore mostly relevant for edge cases, suc
 <p>From this point onwards, you have a <code>raw_transaction</code> object that must be</p>
 <ol>
 <li>Signed with the private key corresponding to <code>sender_wallet_address</code>.</li>
-<li>Submitted using <code>POST /blockchain/signed-transaction</code>.</li>
+<li>Submitted using <a href="https://api.dev.deltacrypt.net/docs#/blockchain/send_signed_transaction_blockchain_signed_transaction_post"><code>POST /blockchain/signed-transaction</code></a>.</li>
 </ol>
 <p>Please refer to the <a href="../blockchain/">Blockchain Interaction</a> section for language-specific signing examples as well as more details regarding the submission and tracking of blockchain transactions.</p>
 <p>Here is a clean, consistent section you can append at the end.
 No fluff, no ChatGPT tone — same documentation voice as the rest.</p>
 <h2 id="tracking-the-transaction">Tracking the Transaction</h2>
-<p>Once the transfer request has been submitted (either via the recommended flow or the raw-transaction flow), the transaction must be tracked asynchronously. A successful response from <code>POST transaction/send-transfer</code> or <code>POST blockchain/signed-transaction</code> only confirms that the blockchain transaction has been accepted into the transaction pool. It does <strong>not</strong> guarantee that the transaction will succeed. It may still fail on-chain, or the resulting DeltaPay transaction may require approval.</p>
+<p>Once the transfer request has been submitted (either via the recommended flow or the raw-transaction flow), the transaction must be tracked asynchronously. A successful response from <a href="https://api.dev.deltacrypt.net/docs#/transactions/send_transfer_transaction_send_transfer_post"><code>POST /transaction/send-transfer</code></a> or <a href="https://api.dev.deltacrypt.net/docs#/blockchain/send_signed_transaction_blockchain_signed_transaction_post"><code>POST /blockchain/signed-transaction</code></a> only confirms that the blockchain transaction has been accepted into the transaction pool. It does <strong>not</strong> guarantee that the transaction will succeed. It may still fail on-chain, or the resulting DeltaPay transaction may require approval.</p>
 <p>Tracking can be done using either:</p>
 <ul>
 <li>(recommended) A unique value placed in the <code>metadata</code> field that you can use to correlate events on your side</li>
