@@ -101,8 +101,8 @@ nav:
     - Setup: getting_started/setup.md
     - Callbacks: getting_started/callbacks.md
   - Common Use Cases:
-    - C2B: common_usecases/c2b.md
-    - B2C: common_usecases/b2c.md
+    - C2B (Collection): common_usecases/c2b.md
+    - B2C (Disbursement): common_usecases/b2c.md
     - QR Code Spec: common_usecases/qr_code.md
     - Payment Requests: common_usecases/payment_requests.md
     - Signature Verification: common_usecases/signature_verification.md
