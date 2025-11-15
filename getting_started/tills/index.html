@@ -12,13 +12,9 @@
         <meta name="author" content="Adrian Albert Koch">
       
       
-        <link rel="canonical" href="https://deltapay.co.sz/getting_started/authentication/">
+        <link rel="canonical" href="https://deltapay.co.sz/getting_started/tills/">
       
       
-        <link rel="prev" href="../permissions/">
-      
-      
-        <link rel="next" href="../setup/">
       
       
         
@@ -29,7 +25,7 @@
     
     
       
-        <title>Authentication - DeltaPay API Documentation</title>
+        <title>Tills - DeltaPay API Documentation</title>
       
     
     
@@ -63,17 +59,17 @@
     
   
 <meta property="og:type" content="website" />
-<meta property="og:title" content="Authentication - DeltaPay API Documentation" />
+<meta property="og:title" content="Tills - DeltaPay API Documentation" />
 <meta property="og:description" content="Official Documentation for the DeltaPay API." />
-<meta property="og:image" content="https://deltapay.co.sz/assets/images/social/getting_started/authentication.png" />
+<meta property="og:image" content="https://deltapay.co.sz/assets/images/social/getting_started/tills.png" />
 <meta property="og:image:type" content="image/png" />
 <meta property="og:image:width" content="1200" />
 <meta property="og:image:height" content="630" />
-<meta property="og:url" content="https://deltapay.co.sz/getting_started/authentication/" />
+<meta property="og:url" content="https://deltapay.co.sz/getting_started/tills/" />
 <meta property="twitter:card" content="summary_large_image" />
-<meta property="twitter:title" content="Authentication - DeltaPay API Documentation" />
+<meta property="twitter:title" content="Tills - DeltaPay API Documentation" />
 <meta property="twitter:description" content="Official Documentation for the DeltaPay API." />
-<meta property="twitter:image" content="https://deltapay.co.sz/assets/images/social/getting_started/authentication.png" />
+<meta property="twitter:image" content="https://deltapay.co.sz/assets/images/social/getting_started/tills.png" />
 </head>
   
   
@@ -93,7 +89,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#authentication" class="md-skip">
+        <a href="#tills" class="md-skip">
           Skip to content
         </a>
       
@@ -127,7 +123,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Authentication
+              Tills
             
           </span>
         </div>
@@ -250,12 +246,10 @@
   
   
   
-    
-  
   
     
     
-      <li class="md-tabs__item md-tabs__item--active">
+      <li class="md-tabs__item">
         <a href="../permissions/" class="md-tabs__link">
           
   
@@ -356,10 +350,8 @@
       
   
   
-    
   
   
-  
     
     
       
@@ -375,22 +367,19 @@
     
     
       
-        
-        
-      
       
         
       
     
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
         
           
-          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
             
   
   
@@ -408,7 +397,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_2">
             <span class="md-nav__icon md-icon"></span>
             
@@ -451,37 +440,10 @@
                 
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Authentication
-  
-
-    
-  </span>
-  
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../authentication/" class="md-nav__link">
         
   
   
@@ -497,98 +459,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#oauth-20-token" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        OAuth 2.0 Token
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="OAuth 2.0 Token">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#login-endpoint" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Login Endpoint
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#usage-example" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Usage Example
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#api-key" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        API Key
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#authentication-errors" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Authentication Errors
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#blockchain-transaction-signatures" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Blockchain Transaction Signatures
-      
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -918,86 +788,6 @@
     
   
   
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#oauth-20-token" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        OAuth 2.0 Token
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="OAuth 2.0 Token">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#login-endpoint" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Login Endpoint
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#usage-example" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Usage Example
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#api-key" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        API Key
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#authentication-errors" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Authentication Errors
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#blockchain-transaction-signatures" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Blockchain Transaction Signatures
-      
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
 </nav>
                   </div>
                 </div>
@@ -1013,158 +803,8 @@
 
 
 
-<h1 id="authentication">Authentication</h1>
-<p>The API uses three ways of authentication:
-- OAuth 2.0 token
-- API Key
-- Blockchain transaction signatures</p>
-<p>The OAuth 2.0 token and API Key can largely be used interchangeably, whereas functions that entail state changes on the blockchain will generally have to be signed locally by the client.</p>
-<blockquote>
-<p><strong>Note</strong>: For the endpoints that allow authentication using both the token and API key, <strong>either or the other</strong> must be passed.</p>
-</blockquote>
-<h2 id="oauth-20-token">OAuth 2.0 Token</h2>
-<p>This form of authentication is designed for individual users. The generated token contains the <code>user_id</code> and can be used to determine the caller without the need to explicitly provide the <code>user_id</code>.</p>
-<h3 id="login-endpoint">Login Endpoint</h3>
-<p>The <code>POST /login</code> endpoint expects <code>x-www-form-url-encoded</code> data. This is an exception, as all other POST endpoints expect JSON-encoded data.</p>
-<p><strong>Request Parameters</strong></p>
-<ul>
-<li><code>username</code>: <code>string</code></li>
-<li><code>password</code>: <code>string</code></li>
-</ul>
-<p><strong>Example Response</strong>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="p">{</span>
-<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="w">  </span><span class="nt">&quot;token_type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;bearer&quot;</span><span class="p">,</span>
-<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">  </span><span class="nt">&quot;access_token&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;eyJraWQiOiI.......&quot;</span><span class="p">,</span>
-<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="w">  </span><span class="nt">&quot;refresh_token&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;eyJjdHkiOiJK......&quot;</span><span class="p">,</span>
-<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="w">  </span><span class="nt">&quot;user_id&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span>
-<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="w">  </span><span class="nt">&quot;username&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;adrian&quot;</span><span class="p">,</span>
-<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="w">  </span><span class="nt">&quot;phone_country_dialcode&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;268&quot;</span><span class="p">,</span>
-<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="w">  </span><span class="nt">&quot;phone_number&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;24045443&quot;</span><span class="p">,</span>
-<a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a><span class="w">  </span><span class="nt">&quot;first_name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Adrian Albert&quot;</span><span class="p">,</span>
-<a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a><span class="w">  </span><span class="nt">&quot;last_name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Koch&quot;</span>
-<a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a><span class="p">}</span>
-</code></pre></div></p>
-<p>The login endpoint returns two distinct tokens:</p>
-<ul>
-<li><code>access_token</code>: Used to authenticate requests. Generally valid for 15 minutes unless revoked.</li>
-<li><code>refresh_token</code>: Used to obtain a new access token by calling the <code>POST /refresh-access-token</code> endpoint.</li>
-</ul>
-<h3 id="usage-example">Usage Example</h3>
-<p>The <code>access_token</code> must be passed as a bearer token in the API request header. Below is an example call to the <code>GET /user</code> endpoint:</p>
-<div class="highlight"><pre><span></span><code>curl -X &#39;GET&#39;
-  &#39;https://api.dev.deltacrypt.net/user&#39;
-  -H &#39;accept: application/json&#39;
-  -H &#39;Authorization: Bearer eyJraWQi......&#39;
-</code></pre></div>
-<blockquote>
-<p><strong>Note</strong>: The <code>user_id</code> does not need to be explicitly passed, as it can be determined from the token. If a value is provided, it will have precedence.</p>
-</blockquote>
-<h2 id="api-key">API Key</h2>
-<p>Authentication using an API token is designed for institutions that want to connect to the API in a programmatic manner. See the <strong>API Key Creation</strong> section for more detail on how to create and link API tokens.</p>
-<p>Multiple tokens can be linked to the same legal entity with varying sets of permissions attached to them.</p>
-<p>The API key must be passed as <code>x-api-key</code> in the API request header. Below is an example call to the <code>GET /user</code> endpoint:</p>
-<div class="highlight"><pre><span></span><code>curl -X &#39;GET&#39; \
-  &#39;https://api.dev.deltacrypt.net/user?user_id=2&#39; \
-  -H &#39;accept: application/json&#39; \
-  -H &#39;x-api-key: KGD7Wf.....&#39;
-</code></pre></div>
-<blockquote>
-<p><strong>Note</strong>: In contrast to the <code>access_token</code> usage, the <code>user_id</code> must be provided in the request as it cannot be determined from the API key.</p>
-</blockquote>
-<h2 id="authentication-errors">Authentication Errors</h2>
-<p>Errors that occur in connection with authentication result in the response code <strong>401 (Unauthorized)</strong>.</p>
-<p>The error response will provide details on the type of exception, <em>e.g.</em></p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="p">{</span>
-<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="w">  </span><span class="nt">&quot;detail&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Token expired&quot;</span>
-<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="p">}</span>
-</code></pre></div>
-<p>The following exceptions can occur:</p>
-<ul>
-<li>Not authorized</li>
-<li>Username or password incorrect</li>
-<li>User not confirmed</li>
-<li>Username not found</li>
-<li>Could not validate credentials</li>
-<li>Failed to validate token</li>
-<li>Invalid API key</li>
-<li>API key has expired</li>
-<li>API key has been revoked</li>
-<li>Provide either a token or an API key, not both</li>
-<li>Either a token or an API key must be provided</li>
-</ul>
-<p><strong>SignUp</strong>:</p>
-<ul>
-<li>Failed</li>
-<li>User not found</li>
-<li>Username not found</li>
-<li>User already registered</li>
-<li>Username already in use</li>
-<li>Password does not meet the requirements</li>
-<li>Confirmation code is incorrect</li>
-<li>Confirmation code has expired</li>
-<li>Attempt limit exceeded</li>
-</ul>
-<p><strong>Login</strong>:</p>
-<ul>
-<li>Failed</li>
-<li>Another challenge is required</li>
-<li>Username not found in the database</li>
-</ul>
-<p><strong>Refresh Access Token</strong>: Failed</p>
-<p><strong>Forgot Password</strong>:</p>
-<ul>
-<li>Failed</li>
-<li>Username not found</li>
-<li>Attempt limit exceeded</li>
-<li>Confirmation code is incorrect</li>
-<li>Confirmation code has expired</li>
-<li>Too many failed attempts</li>
-<li>Password does not meet the requirements</li>
-</ul>
-<p><strong>Change Password</strong>:</p>
-<ul>
-<li>Failed</li>
-<li>Password does not meet the requirements</li>
-<li>Attempt limit exceeded</li>
-</ul>
-<p><strong>Change Phone Number</strong>:</p>
-<ul>
-<li>Failed</li>
-<li>Code is incorrect</li>
-<li>Code has expired</li>
-<li>Attempt limit exceeded</li>
-</ul>
-<p>Another common cause for an endpoint to return 401 (Unauthorized) is missing permissions, <em>e.g.</em></p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="p">{</span>
-<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="w">  </span><span class="nt">&quot;detail&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;API key does not have the required permission: view_kyc_data (target_user_id: 2)&quot;</span>
-<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="p">}</span>
-</code></pre></div>
-<h2 id="blockchain-transaction-signatures">Blockchain Transaction Signatures</h2>
-<p>The interaction with the blockchain follows three simple steps:</p>
-<ol>
-<li>Obtain the raw blockchain transaction (generally using one of the GET endpoints prefixed with raw).</li>
-<li>Sign the transaction locally using the Ethereum wallet previously generated.</li>
-<li>Optionally query the state of the blockchain transaction.</li>
-</ol>
-<p>For more details on specific endpoints, please refer to the example attached to this document or contact DeltaPay directly.</p>
-<p>For the transaction to succeed, the wallet used to sign it must be whitelisted on the blockchain. This requires the caller to provide the public wallet address of the wallet they want to link to the API-key-account (or user-account) pair, which happens implicitly in one of the following ways:</p>
-<ul>
-<li><code>POST /account/link-api-key</code></li>
-<li><code>POST /account/create-personal</code></li>
-<li><code>POST /account/register-business</code></li>
-</ul>
-<p>For the purpose of this document, we focus on the scenario where API keys are used. For more details on linking an API key to an account, refer to <strong>Linking API Key</strong> in the setup section.</p>
-<!-- TODO: Fix this note (or reformat) -->
-<blockquote>
-<p><strong>Note</strong>: Transactions signed by a wallet linked to an API key differ in some ways from those linked to a user. In particular:</p>
-<ul>
-<li>API Keys do not have a spending allowance. Therefore, no transaction initiated by an API key will ever need to be approved.</li>
-<li>API keys cannot approve other transactions.</li>
-<li>API keys cannot set spending allowances.</li>
-<li>API keys cannot deactivate accounts.</li>
-</ul>
-</blockquote>
-<p>Should you require any of the above features, please contact DeltaPay directly.</p>
+<h1 id="tills">Tills</h1>
+<!-- TODO: Explain the point of tills and whent o ommit them. How they can be useful -->
 
 
 
@@ -1195,44 +835,6 @@
       
         <footer class="md-footer">
   
-    
-      
-      <nav class="md-footer__inner md-grid" aria-label="Footer" >
-        
-          
-          <a href="../permissions/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Permissions">
-            <div class="md-footer__button md-icon">
-              
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
-            </div>
-            <div class="md-footer__title">
-              <span class="md-footer__direction">
-                Previous
-              </span>
-              <div class="md-ellipsis">
-                Permissions
-              </div>
-            </div>
-          </a>
-        
-        
-          
-          <a href="../setup/" class="md-footer__link md-footer__link--next" aria-label="Next: Setup">
-            <div class="md-footer__title">
-              <span class="md-footer__direction">
-                Next
-              </span>
-              <div class="md-ellipsis">
-                Setup
-              </div>
-            </div>
-            <div class="md-footer__button md-icon">
-              
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg>
-            </div>
-          </a>
-        
-      </nav>
     
   
   <div class="md-footer-meta md-typeset">
