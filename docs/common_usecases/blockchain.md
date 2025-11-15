@@ -43,7 +43,7 @@ It includes fields such as `to`, `data`, `chainId`, `gasLimit`, and `nonce`.
     "gasPrice": 0,
     "type": 0
   },
-  "topic": "finaliseTransfer"
+  "topic": "finalise-transfer"
 }
 ```
 
@@ -134,7 +134,7 @@ Both examples generate a `signedTransaction` string which should be sent to the 
 ```json
 {
   "transaction_bytes": "0xf86b80843b9aca0082520894...",
-  "topic": "finaliseTransfer"
+  "topic": "finalise-transfer"
 }
 ```
 
