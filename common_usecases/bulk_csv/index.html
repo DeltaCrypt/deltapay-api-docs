@@ -1430,30 +1430,34 @@
 </tbody>
 </table>
 <p>The <code>transaction_type</code> field is optional but <strong>strongly recommended</strong> for DELTA payments.
-The following values are allowed for bulk upload:
-* <code>income</code>
-* <code>groceries</code>
-* <code>transportation</code>
-* <code>rent</code>
-* <code>utilities</code>
-* <code>healthcare</code>
-* <code>education</code>
-* <code>airtime</code>
-* <code>clothing</code>
-* <code>household</code>
-* <code>entertainment</code>
-* <code>business</code>
-* <code>taxes</code>
-* <code>savings</code>
-* <code>eating_out</code>
-* <code>deceased</code>
-* <code>other</code></p>
+The following values are allowed for bulk upload:</p>
+<ul>
+<li><code>income</code></li>
+<li><code>groceries</code></li>
+<li><code>transportation</code></li>
+<li><code>rent</code></li>
+<li><code>utilities</code></li>
+<li><code>healthcare</code></li>
+<li><code>education</code></li>
+<li><code>airtime</code></li>
+<li><code>clothing</code></li>
+<li><code>household</code></li>
+<li><code>entertainment</code></li>
+<li><code>business</code></li>
+<li><code>taxes</code></li>
+<li><code>savings</code></li>
+<li><code>eating_out</code></li>
+<li><code>deceased</code></li>
+<li><code>other</code></li>
+</ul>
 <p>If not provided, it will deafult to <code>income</code>.</p>
 <h3 id="43-eps-recipient-columns">4.3 EPS recipient columns</h3>
 <p>These columns are used only when <code>payment_method = EPS</code>.</p>
-<p>Exactly <strong>one</strong> of the following must be provided:
-  * <code>eps_recipient_account_number</code>
-  * <code>eps_recipient_phone_number</code></p>
+<p>Exactly <strong>one</strong> of the following must be provided:</p>
+<ul>
+<li><code>eps_recipient_account_number</code></li>
+<li><code>eps_recipient_phone_number</code></li>
+</ul>
 <table>
 <thead>
 <tr>
