@@ -12,13 +12,13 @@
         <meta name="author" content="Adrian Albert Koch">
       
       
-        <link rel="canonical" href="https://deltapay.co.sz/common_usecases/payment_requests/">
+        <link rel="canonical" href="https://deltapay.co.sz/common_usecases/bulk_csv/">
       
       
-        <link rel="prev" href="../qr_code/">
+        <link rel="prev" href="../payment_requests/">
       
       
-        <link rel="next" href="../bulk_csv/">
+        <link rel="next" href="../signature_verification/">
       
       
       <link rel="icon" href="../../assets/images/favicon.png">
@@ -26,7 +26,7 @@
     
     
       
-        <title>Payment Requests - DeltaPay API Documentation</title>
+        <title>Bulk CSV Upload - DeltaPay API Documentation</title>
       
     
     
@@ -61,11 +61,11 @@
       
         <meta  property="og:type"  content="website" >
       
-        <meta  property="og:title"  content="Payment Requests - DeltaPay API Documentation" >
+        <meta  property="og:title"  content="Bulk CSV Upload - DeltaPay API Documentation" >
       
         <meta  property="og:description"  content="Official Documentation for the DeltaPay API." >
       
-        <meta  property="og:image"  content="https://deltapay.co.sz/assets/images/social/common_usecases/payment_requests.png" >
+        <meta  property="og:image"  content="https://deltapay.co.sz/assets/images/social/common_usecases/bulk_csv.png" >
       
         <meta  property="og:image:type"  content="image/png" >
       
@@ -73,15 +73,15 @@
       
         <meta  property="og:image:height"  content="630" >
       
-        <meta  property="og:url"  content="https://deltapay.co.sz/common_usecases/payment_requests/" >
+        <meta  property="og:url"  content="https://deltapay.co.sz/common_usecases/bulk_csv/" >
       
         <meta  name="twitter:card"  content="summary_large_image" >
       
-        <meta  name="twitter:title"  content="Payment Requests - DeltaPay API Documentation" >
+        <meta  name="twitter:title"  content="Bulk CSV Upload - DeltaPay API Documentation" >
       
         <meta  name="twitter:description"  content="Official Documentation for the DeltaPay API." >
       
-        <meta  name="twitter:image"  content="https://deltapay.co.sz/assets/images/social/common_usecases/payment_requests.png" >
+        <meta  name="twitter:image"  content="https://deltapay.co.sz/assets/images/social/common_usecases/bulk_csv.png" >
       
     
     
@@ -104,7 +104,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#payment-request-api" class="md-skip">
+        <a href="#deltapay-bulk-payment-import-csv-specification" class="md-skip">
           Skip to content
         </a>
       
@@ -138,7 +138,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Payment Requests
+              Bulk CSV Upload
             
           </span>
         </div>
@@ -647,6 +647,29 @@
                 
   
   
+  
+  
+    <li class="md-nav__item">
+      <a href="../payment_requests/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Payment Requests
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
     
   
   
@@ -664,7 +687,7 @@
   
   
   <span class="md-ellipsis">
-    Payment Requests
+    Bulk CSV Upload
     
   </span>
   
@@ -677,7 +700,7 @@
   
   
   <span class="md-ellipsis">
-    Payment Requests
+    Bulk CSV Upload
     
   </span>
   
@@ -700,47 +723,221 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#creating-a-payment-request" class="md-nav__link">
+  <a href="#1-purpose" class="md-nav__link">
     <span class="md-ellipsis">
-      Creating a payment request
+      1. Purpose
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#viewing-payment-requests" class="md-nav__link">
+  <a href="#2-file-format" class="md-nav__link">
     <span class="md-ellipsis">
-      Viewing Payment Requests
+      2. File format
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2. File format">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#general-rules" class="md-nav__link">
+    <span class="md-ellipsis">
+      General rules
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#phone-number-format" class="md-nav__link">
+    <span class="md-ellipsis">
+      Phone number format
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#validation-behaviour" class="md-nav__link">
+    <span class="md-ellipsis">
+      Validation behaviour
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Validation behaviour">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#file-level-validation" class="md-nav__link">
+    <span class="md-ellipsis">
+      File-level validation
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#row-level-validation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Row-level validation
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#whitespace" class="md-nav__link">
+    <span class="md-ellipsis">
+      Whitespace
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-high-level-design" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. High-level design
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#viewing-incoming-payment-requests" class="md-nav__link">
+  <a href="#4-column-specification" class="md-nav__link">
     <span class="md-ellipsis">
-      Viewing Incoming Payment Requests
+      4. Column specification
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4. Column specification">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#41-common-columns" class="md-nav__link">
+    <span class="md-ellipsis">
+      4.1 Common columns
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4.1 Common columns">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#amount-validation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Amount validation
     </span>
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
-  <a href="#viewing-outgoing-payment-requests" class="md-nav__link">
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#42-delta-recipient-columns" class="md-nav__link">
     <span class="md-ellipsis">
-      Viewing Outgoing Payment Requests
+      4.2 DELTA recipient columns
     </span>
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
-  <a href="#payment-request-state" class="md-nav__link">
+        
+          <li class="md-nav__item">
+  <a href="#43-eps-recipient-columns" class="md-nav__link">
     <span class="md-ellipsis">
-      Payment Request state
+      4.3 EPS recipient columns
     </span>
   </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#banks" class="md-nav__link">
+    <span class="md-ellipsis">
+      Banks
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mobile-wallet-providers" class="md-nav__link">
+    <span class="md-ellipsis">
+      Mobile Wallet Providers
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#44-bank-recipient-columns" class="md-nav__link">
+    <span class="md-ellipsis">
+      4.4 BANK recipient columns
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-header-definition" class="md-nav__link">
+    <span class="md-ellipsis">
+      5. Header definition
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="5. Header definition">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#51-delta-row" class="md-nav__link">
+    <span class="md-ellipsis">
+      5.1 DELTA row
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#52-eps-row" class="md-nav__link">
+    <span class="md-ellipsis">
+      5.2 EPS row
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#53-bank-row" class="md-nav__link">
+    <span class="md-ellipsis">
+      5.3 BANK row
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -748,29 +945,6 @@
   
 </nav>
       
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../bulk_csv/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    Bulk CSV Upload
-    
-  </span>
-  
-
-      </a>
     </li>
   
 
@@ -856,47 +1030,221 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#creating-a-payment-request" class="md-nav__link">
+  <a href="#1-purpose" class="md-nav__link">
     <span class="md-ellipsis">
-      Creating a payment request
+      1. Purpose
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#viewing-payment-requests" class="md-nav__link">
+  <a href="#2-file-format" class="md-nav__link">
     <span class="md-ellipsis">
-      Viewing Payment Requests
+      2. File format
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2. File format">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#general-rules" class="md-nav__link">
+    <span class="md-ellipsis">
+      General rules
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#phone-number-format" class="md-nav__link">
+    <span class="md-ellipsis">
+      Phone number format
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#validation-behaviour" class="md-nav__link">
+    <span class="md-ellipsis">
+      Validation behaviour
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Validation behaviour">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#file-level-validation" class="md-nav__link">
+    <span class="md-ellipsis">
+      File-level validation
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#row-level-validation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Row-level validation
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#whitespace" class="md-nav__link">
+    <span class="md-ellipsis">
+      Whitespace
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-high-level-design" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. High-level design
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#viewing-incoming-payment-requests" class="md-nav__link">
+  <a href="#4-column-specification" class="md-nav__link">
     <span class="md-ellipsis">
-      Viewing Incoming Payment Requests
+      4. Column specification
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4. Column specification">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#41-common-columns" class="md-nav__link">
+    <span class="md-ellipsis">
+      4.1 Common columns
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4.1 Common columns">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#amount-validation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Amount validation
     </span>
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
-  <a href="#viewing-outgoing-payment-requests" class="md-nav__link">
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#42-delta-recipient-columns" class="md-nav__link">
     <span class="md-ellipsis">
-      Viewing Outgoing Payment Requests
+      4.2 DELTA recipient columns
     </span>
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
-  <a href="#payment-request-state" class="md-nav__link">
+        
+          <li class="md-nav__item">
+  <a href="#43-eps-recipient-columns" class="md-nav__link">
     <span class="md-ellipsis">
-      Payment Request state
+      4.3 EPS recipient columns
     </span>
   </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#banks" class="md-nav__link">
+    <span class="md-ellipsis">
+      Banks
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mobile-wallet-providers" class="md-nav__link">
+    <span class="md-ellipsis">
+      Mobile Wallet Providers
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#44-bank-recipient-columns" class="md-nav__link">
+    <span class="md-ellipsis">
+      4.4 BANK recipient columns
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-header-definition" class="md-nav__link">
+    <span class="md-ellipsis">
+      5. Header definition
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="5. Header definition">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#51-delta-row" class="md-nav__link">
+    <span class="md-ellipsis">
+      5.1 DELTA row
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#52-eps-row" class="md-nav__link">
+    <span class="md-ellipsis">
+      5.2 EPS row
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#53-bank-row" class="md-nav__link">
+    <span class="md-ellipsis">
+      5.3 BANK row
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -916,150 +1264,336 @@
 
 
 
-<h1 id="payment-request-api">Payment Request API</h1>
-<p>The Payment Request API allows for the creation and management of requests for payments.</p>
-<p>The recipient of the payment request (PR) receives a push notification and the PR is displayed on their home screen until either accepted or rejected. </p>
-<p>PRs can only be sent to individual users. When accepting the PR, the user can chose the account from which to pay.</p>
-<!-- TODO: Explain that creating a payment request does not create a transaction, full-transaction/from-metadata will return 404 (double check) when the 
-payment request has not yet been accepted -- This can maybe be moved to the payment request status section-->
-
-<h2 id="creating-a-payment-request">Creating a payment request</h2>
-<p><a href="https://api.dev.deltacrypt.net/docs#/payment_request/create_payment_request_payment_request_create_post"><code>POST /payment-request/create</code></a></p>
-<p><strong>Description:</strong>
-Requesting a payment from a user. The user is specified either by their username or the phone number they used to sign up with DeltaPay.</p>
-<p><strong>Request Parameters</strong></p>
+<h1 id="deltapay-bulk-payment-import-csv-specification">DeltaPay Bulk Payment Import CSV Specification</h1>
+<h2 id="1-purpose">1. Purpose</h2>
+<p>This CSV format is used to submit bulk payment instructions into DeltaPay.</p>
+<p>It supports the following payment routes:</p>
 <ul>
-<li><code>account_id</code>: <em>int</em></li>
-<li><code>amount</code>: <em>number</em></li>
-<li><code>transaction_type</code>: <em>string</em>  (A list of valid transaction types can be retrieved <a href="https://api.dev.deltacrypt.net/transaction-types">here</a>)</li>
-<li><code>till_id</code>: <em>Optional[int]</em></li>
-<li><code>note</code>: <em>Optional[string]</em></li>
-<li><code>metadata</code>: <em>Optional[string]</em></li>
-<li><code>phone_country_dialcode</code>: <em>Optional[string]</em> (do not inlcude a '+')</li>
-<li><code>phone_number</code>: <em>Optional[string]</em></li>
-<li><code>username</code>: <em>Optional[string]</em></li>
+<li><strong>DELTA</strong>: DeltaPay to DeltaPay payments</li>
+<li><strong>EPS</strong>: EPS fast payments (below <strong>E50,000</strong>)</li>
+<li><strong>BANK</strong>: bank transfer payments, typically for payments above <strong>E50,000</strong></li>
 </ul>
-<p>The <code>account_id</code> specifies the the recipient account that the payment is being requested into.</p>
-<p>Either <code>username</code> <strong>or</strong> both <code>phone_country_dialcode</code> and <code>phone_number</code> must be provided.</p>
-<p>The <code>metadata</code> is an optional free-form string (e.g., JSON-encoded string with order info).</p>
-<p><strong>Required Permissions</strong></p>
-<p>The caller must have the <code>create_payment_request</code> permission, either generally or specifically for the account.</p>
-<!-- TODO: Add docs on the till id  -->
-
-<h2 id="viewing-payment-requests">Viewing Payment Requests</h2>
-<p>There are two ways to view a payment request:
-either by using the <code>payment_request_id</code> returned from the <a href="https://api.dev.deltacrypt.net/docs#/payment_request/create_payment_request_payment_request_create_post"><code>POST /payment-request/create</code></a> endpoint, or by using the <code>metadata</code> specified when the request was created.</p>
-<p>When using <code>metadata</code>, please ensure that it can reasonably be assumed to be <strong>unique</strong>.
-If multiple payment requests share the same metadata, the <strong>most recent</strong> one will be returned.</p>
+<p>Each CSV row represents exactly one payment instruction.</p>
+<h2 id="2-file-format">2. File format</h2>
 <ul>
-<li>
-<p><a href="https://api.dev.deltacrypt.net/docs#/payment_request/get_payment_request_from_id_payment_request_from_id_get"><code>GET /payment-requests/from-id</code></a></p>
-</li>
-<li>
-<p><a href="https://api.dev.deltacrypt.net/docs#/payment_request/get_payment_request_from_metadata_payment_request_from_metadata_get"><code>GET /payment-requests/from-metadata</code></a></p>
-</li>
+<li>File type: <strong>CSV</strong></li>
+<li>Encoding: <strong>UTF-8</strong></li>
+<li>Delimiter: <strong>comma (, )</strong></li>
+<li>First row: <strong>header row required</strong></li>
+<li>One payment instruction per row</li>
+<li>Empty values should be left blank</li>
+<li>Do not include formulas or multiple values in one cell</li>
 </ul>
-<p>This endpoint returns either 404 or the paymnent request.
-The sender of the PR is returned as a</p>
+<h3 id="general-rules">General rules</h3>
 <ul>
-<li>user, if the account is a personal account</li>
-<li>legal entity, if the account is a business account</li>
+<li>Column names must match the specification exactly</li>
+<li>Amounts must use a decimal point, for example <code>1500.00</code> (Maximum of two decimal points)</li>
+<li>No currency column is included; all amounts are assumed to be <strong>SZL / E</strong></li>
+<li>Values are <strong>case-sensitive</strong> and must match exactly</li>
+<li>No abbreviations or alternative spellings are allowed</li>
+<li>Any value outside this list will result in validation failure</li>
 </ul>
-<p><strong>Request Parameters</strong></p>
-<p>either</p>
+<h3 id="phone-number-format">Phone number format</h3>
+<p>All phone numbers in the CSV must</p>
 <ul>
-<li><code>payment_request_id</code>: <em>int</em></li>
+<li>be in <strong>international format without the "+" symbol</strong></li>
+<li>contain <strong>country code + number</strong></li>
+<li>contain <strong>digits only (no spaces, dashes, or brackets)</strong></li>
 </ul>
-<p>or</p>
+<p><strong>Example</strong></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>26878725616
+</code></pre></div>
+<h3 id="validation-behaviour">Validation behaviour</h3>
+<h4 id="file-level-validation">File-level validation</h4>
 <ul>
-<li><code>metadata</code>: <em>string</em></li>
+<li>Invalid CSV format → entire file rejected</li>
+<li>Missing required headers → entire file rejected</li>
 </ul>
-<p>respectively</p>
-<p><strong>Required Permissions</strong></p>
-<p>The caller must have the <code>view_payment_requests</code> permission, either generally or specifically for the user or legal entity of either the sender or recipient of the payment request.</p>
-<h2 id="viewing-incoming-payment-requests">Viewing Incoming Payment Requests</h2>
-<p><a href="https://api.dev.deltacrypt.net/docs#/payment_request/get_incoming_payment_requests_from_user_id_user_payment_requests_incoming_get"><code>GET /user/payment-requests/incoming</code></a></p>
-<p>This endpoint returns a list of PRs that have been sent to the specified user.
-The sender of the PR is returned as a</p>
+<h4 id="row-level-validation">Row-level validation</h4>
 <ul>
-<li>user, if the account is a personal account</li>
-<li>legal entity, if the account is a business account</li>
+<li>Invalid rows are rejected individually</li>
+<li>Valid rows are still processed (partial success allowed)</li>
+<li>Only fields relevant to the selected <code>payment_method</code> may be populated</li>
+<li>Any unrelated field being non-empty must result in validation failure</li>
 </ul>
-<p><strong>Request Parameters</strong></p>
+<h3 id="whitespace">Whitespace</h3>
 <ul>
-<li><code>user_id</code>: <em>int</em></li>
-<li><code>status</code>: <em>string</em></li>
+<li>No leading or trailing whitespace allowed</li>
+<li>Empty strings and whitespace-only values are treated as empty</li>
 </ul>
-<p><strong>Required Permissions</strong></p>
-<p>The caller must have the <code>view_payment_requests</code> permission, either generally or specifically for the user.</p>
-<h2 id="viewing-outgoing-payment-requests">Viewing Outgoing Payment Requests</h2>
-<p>There are two endpoints for getting RPs outgoing from a user and a legal entity, respectively.</p>
-<p><a href="https://api.dev.deltacrypt.net/docs#/payment_request/get_outgoing_payment_requests_from_user_id_user_payment_requests_outgoing_get"><code>GET /user/payment-requests/outgoing</code></a></p>
-<p>This endpoint returns all PRs that request funds to be sent to an account the user is linked to.</p>
-<p><strong>Request Parameters</strong></p>
+<h2 id="3-high-level-design">3. High-level design</h2>
+<p>The file uses one required routing field:</p>
 <ul>
-<li><code>user_id</code>: <em>int</em></li>
-<li><code>status</code>: <em>string</em></li>
+<li><code>payment_method</code></li>
 </ul>
-<p><strong>Required Permissions</strong></p>
-<p>The caller must have the <code>view_payment_requests</code> permission, either generally or specifically for the user.</p>
-<p><a href="https://api.dev.deltacrypt.net/docs#/payment_request/get_outgoing_payment_requests_from_legal_entity_id_legal_entity_payment_requests_outgoing_get"><code>GET /legal-entity/payment-requests/outgoing</code></a></p>
-<p>This endpoint returns all PRs that request funds to be sent to an account the legal entity is linked to.</p>
-<p><strong>Request Parameters</strong></p>
+<p>Allowed values:</p>
 <ul>
-<li><code>legal_entity_id</code>: <em>int</em></li>
-<li><code>status</code>: <em>string</em></li>
+<li><code>DELTA</code></li>
+<li><code>EPS</code></li>
+<li><code>BANK</code></li>
 </ul>
-<p><strong>Required Permissions</strong></p>
-<p>The caller must have the <code>view_payment_requests</code> permission, either generally or specifically for the legal entity. </p>
-<h2 id="payment-request-state">Payment Request state</h2>
-<!-- TODO: Add the reversed state -->
-
-<!-- TODO: Contrast these states with the one that the associated transaction goes through and explain that there is only a transaction once the payment request has been accepted. -->
-
-<p>A PR can be in one of the following states:</p>
-<ul>
-<li>pending</li>
-<li>cancelled</li>
-<li>rejected</li>
-<li>approved</li>
-<li>succeeded</li>
-<li>failed</li>
-</ul>
-<p>When a PR is created, it will be in the pending state, from there on the following actions trigger the respective state changes:</p>
+<p>This determines which recipient fields are required for that row.</p>
+<h2 id="4-column-specification">4. Column specification</h2>
+<h3 id="41-common-columns">4.1 Common columns</h3>
+<p>These columns apply to all rows.</p>
 <table>
 <thead>
 <tr>
-<th>Action</th>
-<th>State Change</th>
+<th>Column</th>
+<th style="text-align: right;">Required</th>
+<th>Type</th>
+<th>Description</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>sender cancels</td>
-<td>pending &rarr; cancelled</td>
+<td><code>payment_method</code></td>
+<td style="text-align: right;">Yes</td>
+<td>enum</td>
+<td>One of <code>DELTA</code>, <code>EPS</code>, <code>BANK</code></td>
 </tr>
 <tr>
-<td>recipinet rejects</td>
-<td>pending &rarr; rejected</td>
+<td><code>amount</code></td>
+<td style="text-align: right;">Yes</td>
+<td>decimal</td>
+<td>Payment amount in SZL</td>
 </tr>
 <tr>
-<td>recipient approves</td>
-<td>pending &rarr; approved</td>
+<td><code>note</code></td>
+<td style="text-align: right;">No</td>
+<td>string</td>
+<td>Human-readable payment note</td>
 </tr>
 <tr>
-<td>transaction succeeds</td>
-<td>approved &rarr; succeeded</td>
-</tr>
-<tr>
-<td>transaction fails</td>
-<td>approved &rarr; failed</td>
+<td><code>client_reference</code></td>
+<td style="text-align: right;">No but strongly recommended</td>
+<td>string</td>
+<td>Free-form external reference or JSON system for reconciliation and idempotency</td>
 </tr>
 </tbody>
 </table>
-<!-- Can we always go suceeded / failed?? -->
-
-<p>No other state changes are possible; <em>e.g.</em> pending &rarr; succeeded can never occur, as it </p>
+<blockquote>
+<p><strong>Note: ** The <code>client_reference</code> should be globally </strong>unique<em><em> accross all transactions past, current, and future (</em>e.g.</em> 64 character uuid)</p>
+</blockquote>
+<h4 id="amount-validation">Amount validation</h4>
+<ul>
+<li>Must be greater than <code>0</code></li>
+<li>Maximum of 2 decimal places</li>
+<li>Must not exceed system or regulatory limits<ul>
+<li>For <code>EPS</code>, must be <code>&lt;= 50,000</code></li>
+<li>For <code>BANK</code>, must be <code>&gt; 50,000</code> (if you want strict routing separation)</li>
+</ul>
+</li>
+</ul>
+<h3 id="42-delta-recipient-columns">4.2 DELTA recipient columns</h3>
+<p>These columns are used only when <code>payment_method = DELTA</code>.</p>
+<p>Exactly <strong>one</strong> of the following must be provided:</p>
+<ul>
+<li><code>delta_recipient_account_id</code></li>
+<li><code>delta_recipient_username</code></li>
+<li><code>delta_recipient_phone_number</code></li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>Column</th>
+<th style="text-align: right;">Required for DELTA</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>delta_recipient_account_id</code></td>
+<td style="text-align: right;">Conditionally</td>
+<td>string</td>
+<td>DeltaPay account ID</td>
+</tr>
+<tr>
+<td><code>delta_recipient_username</code></td>
+<td style="text-align: right;">Conditionally</td>
+<td>string</td>
+<td>DeltaPay username</td>
+</tr>
+<tr>
+<td><code>delta_recipient_phone_number</code></td>
+<td style="text-align: right;">Conditionally</td>
+<td>string</td>
+<td>DeltaPay phone number</td>
+</tr>
+<tr>
+<td><code>transaction_type</code></td>
+<td style="text-align: right;">No but recommended</td>
+<td>string</td>
+<td>Source-defined transaction type, preferably populated for DeltaPay processing</td>
+</tr>
+</tbody>
+</table>
+<p>The <code>transaction_type</code> field is optional but <strong>strongly recommended</strong> for DELTA payments.
+The following values are allowed for bulk upload:
+* <code>income</code>
+* <code>groceries</code>
+* <code>transportation</code>
+* <code>rent</code>
+* <code>utilities</code>
+* <code>healthcare</code>
+* <code>education</code>
+* <code>airtime</code>
+* <code>clothing</code>
+* <code>household</code>
+* <code>entertainment</code>
+* <code>business</code>
+* <code>taxes</code>
+* <code>savings</code>
+* <code>eating_out</code>
+* <code>deceased</code>
+* <code>other</code></p>
+<p>If not provided, it will deafult to <code>income</code>.</p>
+<h3 id="43-eps-recipient-columns">4.3 EPS recipient columns</h3>
+<p>These columns are used only when <code>payment_method = EPS</code>.</p>
+<p>Exactly <strong>one</strong> of the following must be provided:
+  * <code>eps_recipient_account_number</code>
+  * <code>eps_recipient_phone_number</code></p>
+<table>
+<thead>
+<tr>
+<th>Column</th>
+<th style="text-align: right;">Required for EPS</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>eps_recipient_agent_id</code></td>
+<td style="text-align: right;">Yes</td>
+<td>string</td>
+<td>EPS agent / institution identifier</td>
+</tr>
+<tr>
+<td><code>eps_recipient_account_number</code></td>
+<td style="text-align: right;">Conditionally</td>
+<td>string</td>
+<td>Recipient bank account or wallet account number</td>
+</tr>
+<tr>
+<td><code>eps_recipient_phone_number</code></td>
+<td style="text-align: right;">Conditionally</td>
+<td>string</td>
+<td>Recipient mobile number</td>
+</tr>
+</tbody>
+</table>
+<p><strong>For EPS rows:</strong></p>
+<blockquote>
+<p><strong>Note:</strong> The amount must be <strong>less than or equal to E50,000</strong>, subject to DeltaPay and EPS validation rules</p>
+</blockquote>
+<p>The <code>eps_recipient_agent_id</code> must be a valid <strong>National Payment Switch participant identifier</strong> as defined by the Central Bank of Eswatini.</p>
+<p>According to the <em>National Payment Switch Participant Identification document (v1.5)</em> , the following identifiers are supported:</p>
+<h3 id="banks">Banks</h3>
+<ul>
+<li><code>103001</code> — Eswatini Bank</li>
+<li><code>103002</code> — First National Bank</li>
+<li><code>103003</code> — Nedbank</li>
+<li><code>103004</code> — Standard Bank</li>
+<li><code>103005</code> — Swaziland Building Society</li>
+<li><code>103006</code> — Central Bank of Eswatini</li>
+</ul>
+<h3 id="mobile-wallet-providers">Mobile Wallet Providers</h3>
+<ul>
+<li><code>203001</code> — Eswatini Mobile</li>
+<li><code>203002</code> — InstaCash</li>
+<li><code>203003</code> — MTN</li>
+<li><code>203004</code> — Standard Bank (Unayo)</li>
+<li><code>203005</code> — Swaziland Building Society</li>
+<li><code>203006</code> — DeltaPay</li>
+</ul>
+<h3 id="44-bank-recipient-columns">4.4 BANK recipient columns</h3>
+<p>These columns are used only when <code>payment_method = BANK</code>.</p>
+<table>
+<thead>
+<tr>
+<th>Column</th>
+<th style="text-align: right;">Required for BANK</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>bank_recipient_account_holder</code></td>
+<td style="text-align: right;">Yes</td>
+<td>string</td>
+<td>Name of the bank account holder</td>
+</tr>
+<tr>
+<td><code>bank_recipient_account_number</code></td>
+<td style="text-align: right;">Yes</td>
+<td>string</td>
+<td>Bank account number</td>
+</tr>
+<tr>
+<td><code>bank_recipient_bank_code</code></td>
+<td style="text-align: right;">Yes</td>
+<td>string</td>
+<td>Bank identifier from a DeltaPay-supported enum / reference list</td>
+</tr>
+<tr>
+<td><code>bank_recipient_branch_code</code></td>
+<td style="text-align: right;">Yes</td>
+<td>string</td>
+<td>Branch code</td>
+</tr>
+</tbody>
+</table>
+<p>The <code>bank_recipient_bank_code</code> field must use one of the following exact values:</p>
+<ul>
+<li><code>FNB_SZ</code> — First National Bank</li>
+<li><code>STB_SZ</code> — Standard Bank</li>
+<li><code>NED_SZ</code> — Nedbank</li>
+<li><code>ESW_SZ</code> — Eswatini Bank</li>
+</ul>
+<h2 id="5-header-definition">5. Header definition</h2>
+<p>The recommended full CSV header is:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>payment_method,amount,note,client_reference,transaction_type,delta_recipient_account_id,delta_recipient_username,delta_recipient_phone_number,eps_recipient_agent_id,eps_recipient_account_number,eps_recipient_phone_number,bank_recipient_account_holder,bank_recipient_account_number,bank_recipient_bank_code,bank_recipient_branch_code
+</code></pre></div>
+<h3 id="51-delta-row">5.1 DELTA row</h3>
+<p>Must populate:</p>
+<ul>
+<li><code>payment_method = DELTA</code></li>
+<li><code>amount</code></li>
+<li>exactly one DELTA recipient field</li>
+</ul>
+<p>Must leave blank:</p>
+<ul>
+<li>all EPS fields</li>
+<li>all BANK fields</li>
+</ul>
+<h3 id="52-eps-row">5.2 EPS row</h3>
+<p>Must populate:</p>
+<ul>
+<li><code>payment_method = EPS</code></li>
+<li><code>amount</code></li>
+<li><code>eps_recipient_agent_id</code></li>
+<li>exactly one of <code>eps_recipient_account_number</code> or <code>eps_recipient_phone_number</code></li>
+</ul>
+<p>Must leave blank:</p>
+<ul>
+<li>all DELTA fields</li>
+<li>all BANK fields</li>
+</ul>
+<h3 id="53-bank-row">5.3 BANK row</h3>
+<p>Must populate:</p>
+<ul>
+<li><code>payment_method = BANK</code></li>
+<li><code>amount</code></li>
+<li>all BANK recipient fields</li>
+</ul>
+<p>Must leave blank:</p>
+<ul>
+<li>all DELTA fields</li>
+<li>all EPS fields</li>
+</ul>
 
 
 
@@ -1098,7 +1632,7 @@ The sender of the PR is returned as a</p>
       <nav class="md-footer__inner md-grid" aria-label="Footer" >
         
           
-          <a href="../qr_code/" class="md-footer__link md-footer__link--prev" aria-label="Previous: QR Code Spec">
+          <a href="../payment_requests/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Payment Requests">
             <div class="md-footer__button md-icon">
               
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
@@ -1108,20 +1642,20 @@ The sender of the PR is returned as a</p>
                 Previous
               </span>
               <div class="md-ellipsis">
-                QR Code Spec
+                Payment Requests
               </div>
             </div>
           </a>
         
         
           
-          <a href="../bulk_csv/" class="md-footer__link md-footer__link--next" aria-label="Next: Bulk CSV Upload">
+          <a href="../signature_verification/" class="md-footer__link md-footer__link--next" aria-label="Next: Signature Verification">
             <div class="md-footer__title">
               <span class="md-footer__direction">
                 Next
               </span>
               <div class="md-ellipsis">
-                Bulk CSV Upload
+                Signature Verification
               </div>
             </div>
             <div class="md-footer__button md-icon">
