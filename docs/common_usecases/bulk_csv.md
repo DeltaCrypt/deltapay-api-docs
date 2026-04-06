@@ -124,6 +124,7 @@ Exactly **one** of the following must be provided:
 
 The `transaction_type` field is optional but **strongly recommended** for DELTA payments.
 The following values are allowed for bulk upload:
+
 * `income`
 * `groceries`
 * `transportation`
@@ -150,6 +151,7 @@ If not provided, it will deafult to `income`.
 These columns are used only when `payment_method = EPS`.
 
 Exactly **one** of the following must be provided:
+
   * `eps_recipient_account_number`
   * `eps_recipient_phone_number`
 
