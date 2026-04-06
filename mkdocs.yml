@@ -105,6 +105,7 @@ nav:
     - B2C (Disbursement): common_usecases/b2c.md
     - QR Code Spec: common_usecases/qr_code.md
     - Payment Requests: common_usecases/payment_requests.md
+    - Bulk CSV Upload: common_usecases/bulk_csv.md
     - Signature Verification: common_usecases/signature_verification.md
     - Blockchain Interactions: common_usecases/blockchain.md
 
