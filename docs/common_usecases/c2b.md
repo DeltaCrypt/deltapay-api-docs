@@ -110,7 +110,7 @@ base URL + /transaction/ipn
   "source_of_funds": "",
   "bank_account": null,
   "sender_account_id": 1014,
-  "sender_account_name": "New 3",
+  "sender_account_name": "Test",
   "sender_name": "DeltaPay",
   "sender_till_name": null,
   "sender_phone_country_dialcode": null,
@@ -126,7 +126,26 @@ base URL + /transaction/ipn
   "cashback_spent": 0,
   "fee": 0,
   "commission_amount": 0,
-  "signature": "VMDnRnvRJVvTHu9HNgjsIWhlXOd1bYkPPsp23y3cVl3Tn7Zzlg7AJAy5654fld5U7XrhQbDd3Mj684WcFnpbRgeiRIQDBtEL2eLKO7ZHjC/jg0n0zVjE2TRfPACuiXsmR/pJG+8hPmABBqThGj2hE5SEBFD4WSlzgAcLA0ZxZWvtDu2FAUpN1B+FtMfCmxa4DmH/GPtVs+80c8hHX3KGt35iaBrwD66vhdEUrSaYEgFooRmS3K9dm+neOPHgIfXG60sv03Ru5EZDMKNQvalUlCdLUerjr3eoZPs4DkYZj2FhwBZOJPBh6SDmCgSUsKclvepd0hExXNsRwOsKsxDcuQ=="
+  "direction": "in",
+  "payment_request_id": null,
+  "eps_debtor_account_id": null,
+  "eps_debtor_name": null,
+  "eps_debtor_account_scheme": null,
+  "eps_instructing_agent_id": null,
+  "eps_instructing_agent_name": null,
+  "eps_creditor_account_id": null,
+  "eps_creditor_name": null,
+  "eps_creditor_account_scheme": null,
+  "eps_instructed_agent_id": null,
+  "eps_instructed_agent_name": null,
+  "promotion_data": {
+    "promotion_timeout": 60,
+    "promotion_success_rate": 0.5,
+    "promotion_outcome": null,
+    "promotion_max_reimbursement_amount": 100
+  },
+  "cashback_distribution_transaction_id": null,
+  "signature": "VMDnRnvRJVvTH..............."
 }
 ```
 
