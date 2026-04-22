@@ -5,7 +5,7 @@ The **EPS (Eswatini Payment Switch)** is the national payment infrastructure ope
 
 ### Why it matters
 
-- **Interoperability:** Enables transfers across different institutions (banks ↔ mobile wallets ↔ fintechs) instead of siloed systems.  
+- **Interoperability:** Enables transfers across different institutions (banks, mobile wallets, and fintechs) instead of siloed systems.  
 - **Real-time payments:** Supports near-instant transactions between participants.  
 - **Standardisation:** Provides a common scheme, message formats, and rules for all integrations.  
 - **Financial inclusion:** Expands reach by allowing users on different platforms to transact seamlessly.  
