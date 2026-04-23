@@ -804,6 +804,23 @@
     </span>
   </a>
   
+    <nav class="md-nav" aria-label="EWLT vs ACCT:">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#exception-deltapay" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Exception – DeltaPay:
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
         <li class="md-nav__item">
@@ -974,6 +991,23 @@
     </span>
   </a>
   
+    <nav class="md-nav" aria-label="EWLT vs ACCT:">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#exception-deltapay" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Exception – DeltaPay:
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
         <li class="md-nav__item">
@@ -1005,10 +1039,12 @@
 
 
 <h1 id="eswatini-payment-switch-eps">Eswatini Payment Switch (EPS)</h1>
+<!-- TODO: Add section on switch specific limits, once we know them -->
+
 <p>The <strong>EPS (Eswatini Payment Switch)</strong> is the national payment infrastructure operated under the oversight of the Central Bank of Eswatini. It connects banks, mobile money providers, and other financial institutions into a single interoperable network.</p>
 <h3 id="why-it-matters">Why it matters</h3>
 <ul>
-<li><strong>Interoperability:</strong> Enables transfers across different institutions (banks ↔ mobile wallets ↔ fintechs) instead of siloed systems.  </li>
+<li><strong>Interoperability:</strong> Enables transfers across different institutions (banks, mobile wallets, and fintechs) instead of siloed systems.  </li>
 <li><strong>Real-time payments:</strong> Supports near-instant transactions between participants.  </li>
 <li><strong>Standardisation:</strong> Provides a common scheme, message formats, and rules for all integrations.  </li>
 <li><strong>Financial inclusion:</strong> Expands reach by allowing users on different platforms to transact seamlessly.  </li>
@@ -1016,16 +1052,16 @@
 </ul>
 <h3 id="access-via-deltapay-apis">Access via DeltaPay APIs</h3>
 <p>The EPS is accessible directly through the existing DeltaPay APIs, meaning no separate integration, licensing, or onboarding onto the switch is required.</p>
-<p>By integrating once with DeltaPay, you gain <strong>all-in-one access</strong> to the national payment network, allowing you to use your DeltaPay account to <strong>collect from and disburse to any domestic institution</strong> (banks, mobile money providers, and other participants).</p>
+<p>By integrating once with DeltaPay, you gain <strong>all-in-one access</strong> to the national payment network, allowing you to use your DeltaPay account to <strong>collect from and disburse to any domestic institution</strong> (banks, mobile money providers, and other licensed participants on the switch).</p>
 <p>DeltaPay abstracts the complexity of the switch, handling connectivity, settlement, and collateral requirements, so you can focus purely on your product and user experience.</p>
 <!-- # EPS Overview -->
 
 <h2 id="ewlt-vs-acct">EWLT vs ACCT:</h2>
-<p>EPS distinguishes between two account schemes. <strong>EWLT</strong> (eWallet) refers to mobile money accounts, typically identified by phone-number-based formats. <strong>ACCT</strong> (Account) refers to traditional bank accounts, which follow institution-specific account numbering structures.  </p>
-<p><strong>Exception – DeltaPay:</strong><br />
-While DeltaPay supports both account-based and wallet-based user models internally, all DeltaPay accounts are represented as <strong>EWLT</strong> on the switch.</p>
+<p>The EPS distinguishes between two account schemes. <strong>EWLT</strong> (eWallet) refers to mobile money accounts, typically identified by phone-number-based formats. <strong>ACCT</strong> (Account) refers to traditional bank accounts, which follow institution-specific account numbering structures.  </p>
+<h4 id="exception-deltapay">Exception – DeltaPay:</h4>
+<p>While DeltaPay supports both account-based and wallet-based user models internally, all DeltaPay accounts are represented as <strong>EWLT</strong> on the switch.</p>
 <h2 id="current-eps-participants">Current EPS Participants</h2>
-<p>The following section is based on the Wallet and Account Guidelines published by the Central Bank of Eswatini.</p>
+<p>The following table is based on the <em>Wallet and Account Guidelines</em> published by the Central Bank of Eswatini.</p>
 <p>Within the context of the switch, participating institutions are referred to as <strong>agents</strong>. These agents include banks, mobile money providers, and other licensed financial institutions connected to the EPS.</p>
 <table>
 <thead>
@@ -1130,8 +1166,51 @@ While DeltaPay supports both account-based and wallet-based user models internal
 <h1 id="receiving-from-switch-participants">Receiving from Switch Participants</h1>
 <h2 id="user-flow">User Flow</h2>
 <p>A user initiates an EPS transfer (often referred to as a <em>fast transfer</em>) from their bank or mobile money platform to a DeltaPay account.</p>
-<p>On the DeltaPay side, the transaction is processed like any other incoming transaction. Subscribers will receive updates via the standard <a href="../c2b/#instant-payment-notification-ipn">IPNs</a> (Instant Payment Notifications), with status changes for any transactions linked to the registered account ID.</p>
-<p>The <strong>payment reference</strong> provided by the sender is mapped to the <code>note</code> field in DeltaPay.</p>
+<p>As with DeltaPay-to-DeltaPay transactions, incoming transactions and their status changes are delivered via the standard <a href="../c2b/#instant-payment-notification-ipn">IPNs</a>, provided a callback is registered for the recipient account ID.</p>
+<h2 id="example-ipn-payload-incoming">Example IPN Payload (Incoming)</h2>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="p">{</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="w">    </span><span class="nt">&quot;transaction_id&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">4200</span><span class="p">,</span>
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">    </span><span class="nt">&quot;transaction_type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;eps_mint&quot;</span><span class="p">,</span>
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="w">    </span><span class="nt">&quot;transaction_status&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;succeeded&quot;</span><span class="p">,</span>
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="w">    </span><span class="nt">&quot;initialisation_time&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;2026-04-23T18:00:50.148951&quot;</span><span class="p">,</span>
+<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="w">    </span><span class="nt">&quot;settled_time&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;2026-04-23T18:05:51.786546&quot;</span><span class="p">,</span>
+<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="w">    </span><span class="nt">&quot;note&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Order 69&quot;</span><span class="p">,</span>
+<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="w">    </span><span class="nt">&quot;metadata&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span>
+<a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a><span class="w">    </span><span class="nt">&quot;source_of_funds&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span>
+<a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a><span class="w">    </span><span class="nt">&quot;bank_account&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span>
+<a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a><span class="w">    </span><span class="nt">&quot;sender_account_id&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span>
+<a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a><span class="w">    </span><span class="nt">&quot;sender_account_name&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span>
+<a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a><span class="w">    </span><span class="nt">&quot;sender_name&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span>
+<a id="__codelineno-0-14" name="__codelineno-0-14" href="#__codelineno-0-14"></a><span class="w">    </span><span class="nt">&quot;sender_till_name&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span>
+<a id="__codelineno-0-15" name="__codelineno-0-15" href="#__codelineno-0-15"></a><span class="w">    </span><span class="nt">&quot;sender_phone_country_dialcode&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span>
+<a id="__codelineno-0-16" name="__codelineno-0-16" href="#__codelineno-0-16"></a><span class="w">    </span><span class="nt">&quot;sender_phone_number&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span>
+<a id="__codelineno-0-17" name="__codelineno-0-17" href="#__codelineno-0-17"></a><span class="w">    </span><span class="nt">&quot;recipient_account_id&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">58</span><span class="p">,</span>
+<a id="__codelineno-0-18" name="__codelineno-0-18" href="#__codelineno-0-18"></a><span class="w">    </span><span class="nt">&quot;recipient_account_name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Test&quot;</span><span class="p">,</span>
+<a id="__codelineno-0-19" name="__codelineno-0-19" href="#__codelineno-0-19"></a><span class="w">    </span><span class="nt">&quot;recipient_name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;DeltaPay&quot;</span><span class="p">,</span>
+<a id="__codelineno-0-20" name="__codelineno-0-20" href="#__codelineno-0-20"></a><span class="w">    </span><span class="nt">&quot;recipient_till_name&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span>
+<a id="__codelineno-0-21" name="__codelineno-0-21" href="#__codelineno-0-21"></a><span class="w">    </span><span class="nt">&quot;recipient_phone_country_dialcode&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span>
+<a id="__codelineno-0-22" name="__codelineno-0-22" href="#__codelineno-0-22"></a><span class="w">    </span><span class="nt">&quot;recipient_phone_number&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span>
+<a id="__codelineno-0-23" name="__codelineno-0-23" href="#__codelineno-0-23"></a><span class="w">    </span><span class="nt">&quot;amount&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">42</span><span class="p">,</span>
+<a id="__codelineno-0-24" name="__codelineno-0-24" href="#__codelineno-0-24"></a><span class="w">    </span><span class="nt">&quot;cashback_received&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span>
+<a id="__codelineno-0-25" name="__codelineno-0-25" href="#__codelineno-0-25"></a><span class="w">    </span><span class="nt">&quot;cashback_spent&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span>
+<a id="__codelineno-0-26" name="__codelineno-0-26" href="#__codelineno-0-26"></a><span class="w">    </span><span class="nt">&quot;fee&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span>
+<a id="__codelineno-0-27" name="__codelineno-0-27" href="#__codelineno-0-27"></a><span class="w">    </span><span class="nt">&quot;commission_amount&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span>
+<a id="__codelineno-0-28" name="__codelineno-0-28" href="#__codelineno-0-28"></a><span class="w">    </span><span class="nt">&quot;direction&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;in&quot;</span><span class="p">,</span>
+<a id="__codelineno-0-29" name="__codelineno-0-29" href="#__codelineno-0-29"></a><span class="w">    </span><span class="nt">&quot;payment_request_id&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span>
+<a id="__codelineno-0-30" name="__codelineno-0-30" href="#__codelineno-0-30"></a><span class="w">    </span><span class="nt">&quot;eps_debtor_account_id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;77012345678&quot;</span><span class="p">,</span>
+<a id="__codelineno-0-31" name="__codelineno-0-31" href="#__codelineno-0-31"></a><span class="w">    </span><span class="nt">&quot;eps_debtor_name&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span>
+<a id="__codelineno-0-32" name="__codelineno-0-32" href="#__codelineno-0-32"></a><span class="w">    </span><span class="nt">&quot;eps_debtor_account_scheme&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;ACCT&quot;</span><span class="p">,</span>
+<a id="__codelineno-0-33" name="__codelineno-0-33" href="#__codelineno-0-33"></a><span class="w">    </span><span class="nt">&quot;eps_instructing_agent_id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;103002&quot;</span><span class="p">,</span>
+<a id="__codelineno-0-34" name="__codelineno-0-34" href="#__codelineno-0-34"></a><span class="w">    </span><span class="nt">&quot;eps_instructing_agent_name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Eswatini Bank&quot;</span><span class="p">,</span>
+<a id="__codelineno-0-35" name="__codelineno-0-35" href="#__codelineno-0-35"></a><span class="w">    </span><span class="nt">&quot;eps_creditor_account_id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;58&quot;</span><span class="p">,</span>
+<a id="__codelineno-0-36" name="__codelineno-0-36" href="#__codelineno-0-36"></a><span class="w">    </span><span class="nt">&quot;eps_creditor_name&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span>
+<a id="__codelineno-0-37" name="__codelineno-0-37" href="#__codelineno-0-37"></a><span class="w">    </span><span class="nt">&quot;eps_creditor_account_scheme&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;EWLT&quot;</span><span class="p">,</span>
+<a id="__codelineno-0-38" name="__codelineno-0-38" href="#__codelineno-0-38"></a><span class="w">    </span><span class="nt">&quot;eps_instructed_agent_id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;203006&quot;</span><span class="p">,</span>
+<a id="__codelineno-0-39" name="__codelineno-0-39" href="#__codelineno-0-39"></a><span class="w">    </span><span class="nt">&quot;eps_instructed_agent_name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;DeltaPay&quot;</span><span class="p">,</span>
+<a id="__codelineno-0-40" name="__codelineno-0-40" href="#__codelineno-0-40"></a><span class="w">    </span><span class="nt">&quot;promotion_data&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span>
+<a id="__codelineno-0-41" name="__codelineno-0-41" href="#__codelineno-0-41"></a><span class="w">    </span><span class="nt">&quot;signature&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Ny2QULuN8cga2i0mnvE.............&quot;</span>
+<a id="__codelineno-0-42" name="__codelineno-0-42" href="#__codelineno-0-42"></a><span class="p">}</span>
+</code></pre></div>
 <h2 id="eps-specific-fields">EPS-Specific Fields</h2>
 <p>For EPS transactions, additional fields are populated to reflect switch-level data:</p>
 <table>
@@ -1191,29 +1270,29 @@ While DeltaPay supports both account-based and wallet-based user models internal
 <li><strong>Instructing Agent</strong> &rarr; Sender’s institution (where the payment originates)  </li>
 <li><strong>Instructed Agent</strong> &rarr; Recipient’s institution (where the payment is received)</li>
 </ul>
+<p>The <strong>payment reference</strong> provided by the sender is mapped to the <code>note</code> field in DeltaPay.</p>
 <h2 id="deltapay-specific-behaviour-incoming-payments">DeltaPay-Specific Behaviour (Incoming Payments)</h2>
-<p>For incoming EPS transactions into DeltaPay:
+<p>For EPS transactions received by DeltaPay:
 - <strong>Debtor (sender)</strong> is external
 - <strong>Creditor (recipient)</strong> is always a DeltaPay account</p>
 <ul>
 <li><code>eps_creditor_account_id</code> corresponds to the <strong>DeltaPay account ID or phone number</strong> that received the funds.</li>
 <li>The following fields are always set as:
-    <div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="err">eps_credi</span><span class="kc">t</span><span class="err">or_</span><span class="kc">na</span><span class="err">me</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span>
-<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="err">eps_credi</span><span class="kc">t</span><span class="err">or_accou</span><span class="kc">nt</span><span class="err">_scheme</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;EWLT&quot;</span>
-<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="err">eps_i</span><span class="kc">nstru</span><span class="err">c</span><span class="kc">te</span><span class="err">d_age</span><span class="kc">nt</span><span class="err">_id</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;203006&quot;</span>
-<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="err">eps_i</span><span class="kc">nstru</span><span class="err">c</span><span class="kc">te</span><span class="err">d_age</span><span class="kc">nt</span><span class="err">_</span><span class="kc">na</span><span class="err">me</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;DeltaPay&quot;</span>
+    <div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="err">eps_credi</span><span class="kc">t</span><span class="err">or_</span><span class="kc">na</span><span class="err">me</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span>
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="err">eps_credi</span><span class="kc">t</span><span class="err">or_accou</span><span class="kc">nt</span><span class="err">_scheme</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;EWLT&quot;</span>
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="err">eps_i</span><span class="kc">nstru</span><span class="err">c</span><span class="kc">te</span><span class="err">d_age</span><span class="kc">nt</span><span class="err">_id</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;203006&quot;</span>
+<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="err">eps_i</span><span class="kc">nstru</span><span class="err">c</span><span class="kc">te</span><span class="err">d_age</span><span class="kc">nt</span><span class="err">_</span><span class="kc">na</span><span class="err">me</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;DeltaPay&quot;</span>
 </code></pre></div></li>
 <li>The <code>transaction_type</code> will always be <code>eps_mint</code></li>
 </ul>
-<p>Therefore, incoming EPS transactions can be handled using the same logic as standard DeltaPay-to-DeltaPay transactions, as funds are effectively credited (“minted”) into the recipient account.</p>
+<p>Incoming EPS transactions can, therefore, be handled using the same logic as standard DeltaPay-to-DeltaPay transactions. On the DeltaPay side, the funds are credited to the recipient account and represented as <code>eps_mint</code> transactions.</p>
 <h2 id="payment-references">Payment References</h2>
-<p>The EPS currently does not support a native Request to Pay mechanism or structured metadata fields comparable to DeltaPay payment requests.</p>
-<p>As a result:</p>
+<p>The EPS currently does not support a native <em>Request to Pay</em> mechanism or structured metadata fields comparable to DeltaPay payment requests, as a result:</p>
 <ul>
 <li>There is no guaranteed way to attach structured metadata that will be returned with the transaction.</li>
 <li>Senders may optionally include a payment reference on their originating platform.</li>
 </ul>
-<p>This reference is received in DeltaPay as the note field and can be used for reconciliation by matching payments beyond sender, amount, and timestamp.</p>
+<p>This reference is received by DeltaPay in the <code>note</code> field and can assist with reconciliation in addition to sender, amount, and timestamp matching.</p>
 <p>For reconciliation and business logic, integrators should rely on:</p>
 <ul>
 <li><code>transaction_status</code></li>
@@ -1222,50 +1301,195 @@ While DeltaPay supports both account-based and wallet-based user models internal
 <li><code>timestamp</code></li>
 <li><code>note</code> (payment reference, if provided)</li>
 </ul>
-<h2 id="example-payload-incoming-todo">Example Payload (Incoming) # TODO</h2>
+<h1 id="sending-to-switch-participants">Sending to Switch participants</h1>
+<p>The general flow is very similar to the DeltaPay-to-DeltaPay disbursement flow.
+Please read the section on <a href="">B2C disbursements</a> first.</p>
+<p>In particular:</p>
+<ol>
+<li>(Optional) Check whether the transaction is possible using a <a href="#check--preview-eps-withdrawal">preview endpoint</a></li>
+<li>Send and sign the transfer in a single call (recommended)</li>
+<li>(Optional) Check the blockchain transaction status</li>
+<li>Receive a callback when the transaction status changes (IPN)</li>
+<li>Query the transaction on the DeltaPay side</li>
+</ol>
+<p>As with DeltaPay-to-DeltaPay disbursements, there are two possible flows:</p>
+<h3 id="recommended-flow">Recommended flow</h3>
+<p>Use <a href="https://api.dev.deltacrypt.net/docs#/transactions/eps_withdrawal_transaction_eps_withdrawal_post"><code>POST /transaction/eps-withdrawal</code></a>.</p>
+<!-- This endpoint: -->
+
+<!-- * creates the DeltaPay transaction
+* builds the underlying blockchain transaction
+* signs it using the private key you provide
+* submits it to the blockchain -->
+
+<p>The response contains a <code>tracking_id</code> corresponding to the <code>blockchain_transaction_id</code> of the transaction that was just created.</p>
+<h3 id="manual-raw-transaction-flow-advanced">Manual / raw-transaction flow (advanced)</h3>
+<p>If you cannot send the private key, you can use the raw-transaction flow:</p>
+<ol>
+<li>Call <a href="https://api.dev.deltacrypt.net/docs#/transactions/initiate_eps_withdrawal_transaction_initiate_eps_withdrawal_post"><code>POST /transaction/initiate-eps-withdrawal</code></a> to obtain a <code>raw_transaction</code></li>
+<li>Sign it on your side</li>
+<li>Submit the signed bytes using <a href="https://api.dev.deltacrypt.net/docs#/blockchain/send_signed_transaction_blockchain_signed_transaction_post"><code>POST /blockchain/signed-transaction</code></a></li>
+</ol>
+<p>This is only needed when your key-management requirements prevent you from using the recommended flow.
+Details of signing and submitting raw transactions are described in the <a href="../blockchain/">blockchain section</a>.</p>
+<h2 id="check-preview-eps-withdrawal">Check / Preview EPS Withdrawal</h2>
+<p><a href="https://api.dev.deltacrypt.net/docs#/transactions/get_preview_eps_withdrawal_transaction_eps_withdrawal_preview_get"><code>GET /transaction/eps-withdrawal-preview</code></a> </p>
+<p>This endpoint is similar to <a href="https://api.dev.deltacrypt.net/docs#/transactions/get_preview_transaction_transaction_transfer_preview_get"><code>GET /transaction/transfer-preview</code></a>, which is used to determine whether a DeltaPay-to-DeltaPay transfer will be possible.</p>
+<p>It returns the information needed to decide whether an EPS withdrawal should be initiated, without creating a transaction.</p>
+<p>In addition to the checks performed on the DeltaPay side, this endpoint also uses the EPS to check whether the recipient account on the switch is active.</p>
+<p>This does <strong>not</strong> guarantee that the transaction will succeed. The preview only checks whether the target account is active on the EPS; it does not validate other constraints such as transaction or account limits. The same race conditions that apply to standard transfer previews also apply here.</p>
+<!-- Note that this is **not a guarantee** that the transaction will be successful. It only checks whether an account on the EPS is active, but no other constraints such as limits that may be acceeded by the transaction. The same race conditions apply as with standard transfer previews. -->
+
+<p><strong>Request Parameters</strong></p>
+<ul>
+<li><code>sender_wallet_address</code>: <em>string</em></li>
+<li><code>amount</code>: <em>number</em></li>
+<li><code>instructed_agent_id</code>: <em>string</em></li>
+<li><code>creditor_account_id</code>: <em>string</em></li>
+<li><code>creditor_account_scheme</code>: <em>string (<code>EWLT</code> or <code>ACCT</code>)</em></li>
+</ul>
+<p>The <code>sender_wallet_address</code> must be <a href="../../getting_started/setup/#link-api-key">linked</a> to an account.</p>
+<p>The <code>instructed_agent_id</code> identifies the switch participant to which the funds are sent. The <code>creditor_account_id</code> is typically an account number or phone number, depending on the receiving institution. Refer to the <a href="#current-eps-participants">participant table</a> for institution-specific account formats.</p>
+<!-- TODO: maybe just make this bold -->
+<h3 id="response-structure">Response structure</h3>
+<!-- **Response structure** -->
+
+<p>The endpoint always returns the same top-level fields:</p>
+<ul>
+<li><code>transaction_possible</code></li>
+<li><code>fee_info</code></li>
+</ul>
+<p>What changes is which of these contain data:</p>
+<ul>
+<li>
+<p><code>transaction_possible.possible</code> is always present.</p>
+</li>
+<li>
+<p>If <em>true</em>, it includes <code>sender_account_id</code>.</p>
+</li>
+<li>If <em>false</em>, it includes <code>error_name</code> and <code>error_arguments</code> describing why the transfer cannot proceed.</li>
+<li><code>fee_info</code> is populated when the fee can be calculated. It is <code>null</code> if the transaction is not possible.</li>
+</ul>
+<p>This allows you to determine whether to proceed and present meaningful feedback to the user before actually creating a transaction.</p>
+<p><strong>Example response structure (transaction possible):</strong></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="p">{</span>
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="w">  </span><span class="nt">&quot;transaction_possible&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="w">    </span><span class="nt">&quot;possible&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span>
+<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="w">    </span><span class="nt">&quot;sender_account_id&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">26</span><span class="p">,</span>
+<a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a><span class="w">    </span><span class="nt">&quot;fee&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">0.0</span>
+<a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a><span class="w">  </span><span class="p">},</span>
+<a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a><span class="w">  </span><span class="nt">&quot;fee_info&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a><span class="w">    </span><span class="nt">&quot;fee&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">0.0</span><span class="p">,</span>
+<a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a><span class="w">    </span><span class="nt">&quot;cashback_received&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span>
+<a id="__codelineno-2-10" name="__codelineno-2-10" href="#__codelineno-2-10"></a><span class="w">  </span><span class="p">}</span>
+<a id="__codelineno-2-11" name="__codelineno-2-11" href="#__codelineno-2-11"></a><span class="p">}</span>
+</code></pre></div>
+<p><strong>Example response structure (transaction not possible):</strong></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="p">{</span>
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="w">  </span><span class="nt">&quot;transaction_possible&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="w">    </span><span class="nt">&quot;possible&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span>
+<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="w">    </span><span class="nt">&quot;error_name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;EPS_CREDITOR_ACCOUNT_VALIDATION_FAILED&quot;</span><span class="p">,</span>
+<a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a><span class="w">    </span><span class="nt">&quot;error_arguments&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a><span class="w">      </span><span class="s2">&quot;AC03&quot;</span><span class="p">,</span>
+<a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a><span class="w">      </span><span class="s2">&quot;AC03:WALLET_ACCOUNT_NUMBER_NOT_FOUND&quot;</span><span class="p">,</span>
+<a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a><span class="w">      </span><span class="s2">&quot;203005&quot;</span><span class="p">,</span>
+<a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a><span class="w">      </span><span class="s2">&quot;26812345678&quot;</span><span class="p">,</span>
+<a id="__codelineno-3-10" name="__codelineno-3-10" href="#__codelineno-3-10"></a><span class="w">      </span><span class="s2">&quot;EWLT&quot;</span>
+<a id="__codelineno-3-11" name="__codelineno-3-11" href="#__codelineno-3-11"></a><span class="w">    </span><span class="p">]</span>
+<a id="__codelineno-3-12" name="__codelineno-3-12" href="#__codelineno-3-12"></a><span class="w">  </span><span class="p">},</span>
+<a id="__codelineno-3-13" name="__codelineno-3-13" href="#__codelineno-3-13"></a><span class="w">  </span><span class="nt">&quot;fee_info&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span>
+<a id="__codelineno-3-14" name="__codelineno-3-14" href="#__codelineno-3-14"></a><span class="p">}</span>
+</code></pre></div>
+<h2 id="send-and-sign-transaction-recommended-flow">Send and Sign Transaction (Recommended Flow)</h2>
+<p>For most server-side integrations, you should use:</p>
+<p><a href="https://api.dev.deltacrypt.net/docs#/transactions/eps_withdrawal_transaction_eps_withdrawal_post"><code>POST /transaction/eps-withdrawal</code></a></p>
+<p>This endpoint:</p>
+<ol>
+<li>Validates the request and applies basic checks</li>
+<li>Creates the DeltaPay transaction</li>
+<li>Constructs the underlying raw blockchain transaction</li>
+<li>Signs it using the provided private key</li>
+<li>Submits it to the blockchain</li>
+<li>Submits the corresponding request to the EPS</li>
+<li>Returns a <strong>tracking ID</strong>  that can be used to correlate callbacks and queries</li>
+</ol>
+<!-- TODO: be consistant with formatting -->
+<!-- ### Request Parameters -->
+<p><strong>Request Parameters</strong></p>
+<!-- TODO: Update once we fixed phone_number, username, account_id thing -->
+<!-- TODO: most likely to be added:
+* `recipient_till_id`: *Optional[int]*
+* `recipient_account_id`: *Optional[int]* (or business)
+* `recipient_username`: *Optional[string]* -->
+<p>The body closely mirrors <a href="https://api.dev.deltacrypt.net/docs#/transactions/initiate_eps_withdrawal_transaction_initiate_eps_withdrawal_post"><code>POST /transaction/initiate-eps-withdrawal</code></a>, except it replaces the <code>sender_wallet_address</code> with the <code>private_key</code> field.</p>
+<ul>
+<li><code>private_key</code>: <em>string</em></li>
+<li><code>amount</code>: <em>number</em></li>
+<li><code>note</code>: <em>Optional[string]</em></li>
+<li><code>metadata</code>: <em>Optional[string]</em></li>
+<li><code>instructed_agent_id</code>: <em>string</em>,</li>
+<li><code>creditor_account_id</code>: <em>string</em>,</li>
+<li><code>creditor_account_scheme</code>: <em>string (<code>EWLT</code> or <code>ACCT</code>)</em></li>
+</ul>
+<p>As for similar endpoints:</p>
+<ul>
+<li>The <code>private_key</code> must be <a href="../../getting_started/setup/#link-api-key">linked</a> to an account.</li>
+<li>The <code>metadata</code> is an optional free-form string (e.g., JSON-encoded string with order info).</li>
+</ul>
+<!-- ### Example Response -->
+<p><strong>Example Response</strong></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="p">{</span>
+<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="w">  </span><span class="nt">&quot;success&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span>
+<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="w">  </span><span class="nt">&quot;tracking_id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;420&quot;</span>
+<a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a><span class="p">}</span>
+</code></pre></div>
+<p>The <code>tracking_id</code> corresponding to the <code>blockchain_transaction_id</code> of the transaction that was just created and can be used to poll its status, see <a href="../blockchain/#get-blockchain-transaction-status">Get Blockchain Transaction Status</a>.</p>
+<blockquote>
+<p><strong>Note</strong>: The manual flow follows the same principles as other raw transaction flows described in the blockchain section.</p>
+</blockquote>
 <h2 id="example-payload-outgoing">Example Payload (Outgoing)</h2>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="p">{</span>
-<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="w">    </span><span class="nt">&quot;transaction_id&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">10000</span><span class="p">,</span>
-<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="w">    </span><span class="nt">&quot;transaction_type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;eps_withdrawal&quot;</span><span class="p">,</span>
-<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="w">    </span><span class="nt">&quot;transaction_status&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;approved&quot;</span><span class="p">,</span>
-<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="w">    </span><span class="nt">&quot;initialisation_time&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;2026-04-22T18:00:50.148951&quot;</span><span class="p">,</span>
-<a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a><span class="w">    </span><span class="nt">&quot;settled_time&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span>
-<a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a><span class="w">    </span><span class="nt">&quot;note&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Initiated EPS Withdrawal&quot;</span><span class="p">,</span>
-<a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a><span class="w">    </span><span class="nt">&quot;metadata&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span>
-<a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a><span class="w">    </span><span class="nt">&quot;source_of_funds&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span>
-<a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a><span class="w">    </span><span class="nt">&quot;bank_account&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span>
-<a id="__codelineno-1-11" name="__codelineno-1-11" href="#__codelineno-1-11"></a><span class="w">    </span><span class="nt">&quot;sender_account_id&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">14</span><span class="p">,</span>
-<a id="__codelineno-1-12" name="__codelineno-1-12" href="#__codelineno-1-12"></a><span class="w">    </span><span class="nt">&quot;sender_account_name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Main&quot;</span><span class="p">,</span>
-<a id="__codelineno-1-13" name="__codelineno-1-13" href="#__codelineno-1-13"></a><span class="w">    </span><span class="nt">&quot;sender_name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;MinenhleGrocery&quot;</span><span class="p">,</span>
-<a id="__codelineno-1-14" name="__codelineno-1-14" href="#__codelineno-1-14"></a><span class="w">    </span><span class="nt">&quot;sender_till_name&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span>
-<a id="__codelineno-1-15" name="__codelineno-1-15" href="#__codelineno-1-15"></a><span class="w">    </span><span class="nt">&quot;sender_phone_country_dialcode&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span>
-<a id="__codelineno-1-16" name="__codelineno-1-16" href="#__codelineno-1-16"></a><span class="w">    </span><span class="nt">&quot;sender_phone_number&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span>
-<a id="__codelineno-1-17" name="__codelineno-1-17" href="#__codelineno-1-17"></a><span class="w">    </span><span class="nt">&quot;recipient_account_id&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span>
-<a id="__codelineno-1-18" name="__codelineno-1-18" href="#__codelineno-1-18"></a><span class="w">    </span><span class="nt">&quot;recipient_account_name&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span>
-<a id="__codelineno-1-19" name="__codelineno-1-19" href="#__codelineno-1-19"></a><span class="w">    </span><span class="nt">&quot;recipient_name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;n/a&quot;</span><span class="p">,</span>
-<a id="__codelineno-1-20" name="__codelineno-1-20" href="#__codelineno-1-20"></a><span class="w">    </span><span class="nt">&quot;recipient_till_name&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span>
-<a id="__codelineno-1-21" name="__codelineno-1-21" href="#__codelineno-1-21"></a><span class="w">    </span><span class="nt">&quot;recipient_phone_country_dialcode&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span>
-<a id="__codelineno-1-22" name="__codelineno-1-22" href="#__codelineno-1-22"></a><span class="w">    </span><span class="nt">&quot;recipient_phone_number&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span>
-<a id="__codelineno-1-23" name="__codelineno-1-23" href="#__codelineno-1-23"></a><span class="w">    </span><span class="nt">&quot;amount&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">42</span><span class="p">,</span>
-<a id="__codelineno-1-24" name="__codelineno-1-24" href="#__codelineno-1-24"></a><span class="w">    </span><span class="nt">&quot;cashback_received&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span>
-<a id="__codelineno-1-25" name="__codelineno-1-25" href="#__codelineno-1-25"></a><span class="w">    </span><span class="nt">&quot;cashback_spent&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span>
-<a id="__codelineno-1-26" name="__codelineno-1-26" href="#__codelineno-1-26"></a><span class="w">    </span><span class="nt">&quot;fee&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span>
-<a id="__codelineno-1-27" name="__codelineno-1-27" href="#__codelineno-1-27"></a><span class="w">    </span><span class="nt">&quot;commission_amount&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span>
-<a id="__codelineno-1-28" name="__codelineno-1-28" href="#__codelineno-1-28"></a><span class="w">    </span><span class="nt">&quot;direction&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;out&quot;</span><span class="p">,</span>
-<a id="__codelineno-1-29" name="__codelineno-1-29" href="#__codelineno-1-29"></a><span class="w">    </span><span class="nt">&quot;payment_request_id&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span>
-<a id="__codelineno-1-30" name="__codelineno-1-30" href="#__codelineno-1-30"></a><span class="w">    </span><span class="nt">&quot;eps_debtor_account_id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;14&quot;</span><span class="p">,</span>
-<a id="__codelineno-1-31" name="__codelineno-1-31" href="#__codelineno-1-31"></a><span class="w">    </span><span class="nt">&quot;eps_debtor_name&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span>
-<a id="__codelineno-1-32" name="__codelineno-1-32" href="#__codelineno-1-32"></a><span class="w">    </span><span class="nt">&quot;eps_debtor_account_scheme&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;EWLT&quot;</span><span class="p">,</span>
-<a id="__codelineno-1-33" name="__codelineno-1-33" href="#__codelineno-1-33"></a><span class="w">    </span><span class="nt">&quot;eps_instructing_agent_id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;203006&quot;</span><span class="p">,</span>
-<a id="__codelineno-1-34" name="__codelineno-1-34" href="#__codelineno-1-34"></a><span class="w">    </span><span class="nt">&quot;eps_instructing_agent_name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;DeltaPay&quot;</span><span class="p">,</span>
-<a id="__codelineno-1-35" name="__codelineno-1-35" href="#__codelineno-1-35"></a><span class="w">    </span><span class="nt">&quot;eps_creditor_account_id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;12345678&quot;</span><span class="p">,</span>
-<a id="__codelineno-1-36" name="__codelineno-1-36" href="#__codelineno-1-36"></a><span class="w">    </span><span class="nt">&quot;eps_creditor_name&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span>
-<a id="__codelineno-1-37" name="__codelineno-1-37" href="#__codelineno-1-37"></a><span class="w">    </span><span class="nt">&quot;eps_creditor_account_scheme&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;ACCT&quot;</span><span class="p">,</span>
-<a id="__codelineno-1-38" name="__codelineno-1-38" href="#__codelineno-1-38"></a><span class="w">    </span><span class="nt">&quot;eps_instructed_agent_id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;203002&quot;</span><span class="p">,</span>
-<a id="__codelineno-1-39" name="__codelineno-1-39" href="#__codelineno-1-39"></a><span class="w">    </span><span class="nt">&quot;eps_instructed_agent_name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Instacash&quot;</span><span class="p">,</span>
-<a id="__codelineno-1-40" name="__codelineno-1-40" href="#__codelineno-1-40"></a><span class="w">    </span><span class="nt">&quot;promotion_data&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span>
-<a id="__codelineno-1-41" name="__codelineno-1-41" href="#__codelineno-1-41"></a><span class="w">    </span><span class="nt">&quot;signature&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;E4hLq13GRblPnJ.............&quot;</span>
-<a id="__codelineno-1-42" name="__codelineno-1-42" href="#__codelineno-1-42"></a><span class="p">}</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="p">{</span>
+<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="w">    </span><span class="nt">&quot;transaction_id&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">10000</span><span class="p">,</span>
+<a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a><span class="w">    </span><span class="nt">&quot;transaction_type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;eps_withdrawal&quot;</span><span class="p">,</span>
+<a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a><span class="w">    </span><span class="nt">&quot;transaction_status&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;approved&quot;</span><span class="p">,</span>
+<a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a><span class="w">    </span><span class="nt">&quot;initialisation_time&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;2026-04-22T18:00:50.148951&quot;</span><span class="p">,</span>
+<a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a><span class="w">    </span><span class="nt">&quot;settled_time&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span>
+<a id="__codelineno-5-7" name="__codelineno-5-7" href="#__codelineno-5-7"></a><span class="w">    </span><span class="nt">&quot;note&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Rent for uncle Tom&quot;</span><span class="p">,</span>
+<a id="__codelineno-5-8" name="__codelineno-5-8" href="#__codelineno-5-8"></a><span class="w">    </span><span class="nt">&quot;metadata&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span>
+<a id="__codelineno-5-9" name="__codelineno-5-9" href="#__codelineno-5-9"></a><span class="w">    </span><span class="nt">&quot;source_of_funds&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span>
+<a id="__codelineno-5-10" name="__codelineno-5-10" href="#__codelineno-5-10"></a><span class="w">    </span><span class="nt">&quot;bank_account&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span>
+<a id="__codelineno-5-11" name="__codelineno-5-11" href="#__codelineno-5-11"></a><span class="w">    </span><span class="nt">&quot;sender_account_id&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">58</span><span class="p">,</span>
+<a id="__codelineno-5-12" name="__codelineno-5-12" href="#__codelineno-5-12"></a><span class="w">    </span><span class="nt">&quot;sender_account_name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Test&quot;</span><span class="p">,</span>
+<a id="__codelineno-5-13" name="__codelineno-5-13" href="#__codelineno-5-13"></a><span class="w">    </span><span class="nt">&quot;sender_name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;DeltaPay&quot;</span><span class="p">,</span>
+<a id="__codelineno-5-14" name="__codelineno-5-14" href="#__codelineno-5-14"></a><span class="w">    </span><span class="nt">&quot;sender_till_name&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span>
+<a id="__codelineno-5-15" name="__codelineno-5-15" href="#__codelineno-5-15"></a><span class="w">    </span><span class="nt">&quot;sender_phone_country_dialcode&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span>
+<a id="__codelineno-5-16" name="__codelineno-5-16" href="#__codelineno-5-16"></a><span class="w">    </span><span class="nt">&quot;sender_phone_number&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span>
+<a id="__codelineno-5-17" name="__codelineno-5-17" href="#__codelineno-5-17"></a><span class="w">    </span><span class="nt">&quot;recipient_account_id&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span>
+<a id="__codelineno-5-18" name="__codelineno-5-18" href="#__codelineno-5-18"></a><span class="w">    </span><span class="nt">&quot;recipient_account_name&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span>
+<a id="__codelineno-5-19" name="__codelineno-5-19" href="#__codelineno-5-19"></a><span class="w">    </span><span class="nt">&quot;recipient_name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;n/a&quot;</span><span class="p">,</span>
+<a id="__codelineno-5-20" name="__codelineno-5-20" href="#__codelineno-5-20"></a><span class="w">    </span><span class="nt">&quot;recipient_till_name&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span>
+<a id="__codelineno-5-21" name="__codelineno-5-21" href="#__codelineno-5-21"></a><span class="w">    </span><span class="nt">&quot;recipient_phone_country_dialcode&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span>
+<a id="__codelineno-5-22" name="__codelineno-5-22" href="#__codelineno-5-22"></a><span class="w">    </span><span class="nt">&quot;recipient_phone_number&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span>
+<a id="__codelineno-5-23" name="__codelineno-5-23" href="#__codelineno-5-23"></a><span class="w">    </span><span class="nt">&quot;amount&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">42</span><span class="p">,</span>
+<a id="__codelineno-5-24" name="__codelineno-5-24" href="#__codelineno-5-24"></a><span class="w">    </span><span class="nt">&quot;cashback_received&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span>
+<a id="__codelineno-5-25" name="__codelineno-5-25" href="#__codelineno-5-25"></a><span class="w">    </span><span class="nt">&quot;cashback_spent&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span>
+<a id="__codelineno-5-26" name="__codelineno-5-26" href="#__codelineno-5-26"></a><span class="w">    </span><span class="nt">&quot;fee&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span>
+<a id="__codelineno-5-27" name="__codelineno-5-27" href="#__codelineno-5-27"></a><span class="w">    </span><span class="nt">&quot;commission_amount&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span>
+<a id="__codelineno-5-28" name="__codelineno-5-28" href="#__codelineno-5-28"></a><span class="w">    </span><span class="nt">&quot;direction&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;out&quot;</span><span class="p">,</span>
+<a id="__codelineno-5-29" name="__codelineno-5-29" href="#__codelineno-5-29"></a><span class="w">    </span><span class="nt">&quot;payment_request_id&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span>
+<a id="__codelineno-5-30" name="__codelineno-5-30" href="#__codelineno-5-30"></a><span class="w">    </span><span class="nt">&quot;eps_debtor_account_id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;58&quot;</span><span class="p">,</span>
+<a id="__codelineno-5-31" name="__codelineno-5-31" href="#__codelineno-5-31"></a><span class="w">    </span><span class="nt">&quot;eps_debtor_name&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span>
+<a id="__codelineno-5-32" name="__codelineno-5-32" href="#__codelineno-5-32"></a><span class="w">    </span><span class="nt">&quot;eps_debtor_account_scheme&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;EWLT&quot;</span><span class="p">,</span>
+<a id="__codelineno-5-33" name="__codelineno-5-33" href="#__codelineno-5-33"></a><span class="w">    </span><span class="nt">&quot;eps_instructing_agent_id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;203006&quot;</span><span class="p">,</span>
+<a id="__codelineno-5-34" name="__codelineno-5-34" href="#__codelineno-5-34"></a><span class="w">    </span><span class="nt">&quot;eps_instructing_agent_name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;DeltaPay&quot;</span><span class="p">,</span>
+<a id="__codelineno-5-35" name="__codelineno-5-35" href="#__codelineno-5-35"></a><span class="w">    </span><span class="nt">&quot;eps_creditor_account_id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;51234567890&quot;</span><span class="p">,</span>
+<a id="__codelineno-5-36" name="__codelineno-5-36" href="#__codelineno-5-36"></a><span class="w">    </span><span class="nt">&quot;eps_creditor_name&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span>
+<a id="__codelineno-5-37" name="__codelineno-5-37" href="#__codelineno-5-37"></a><span class="w">    </span><span class="nt">&quot;eps_creditor_account_scheme&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;ACCT&quot;</span><span class="p">,</span>
+<a id="__codelineno-5-38" name="__codelineno-5-38" href="#__codelineno-5-38"></a><span class="w">    </span><span class="nt">&quot;eps_instructed_agent_id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;1003002&quot;</span><span class="p">,</span>
+<a id="__codelineno-5-39" name="__codelineno-5-39" href="#__codelineno-5-39"></a><span class="w">    </span><span class="nt">&quot;eps_instructed_agent_name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;First National Bank&quot;</span><span class="p">,</span>
+<a id="__codelineno-5-40" name="__codelineno-5-40" href="#__codelineno-5-40"></a><span class="w">    </span><span class="nt">&quot;promotion_data&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span>
+<a id="__codelineno-5-41" name="__codelineno-5-41" href="#__codelineno-5-41"></a><span class="w">    </span><span class="nt">&quot;signature&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;E4hLq13GRblPnJ.............&quot;</span>
+<a id="__codelineno-5-42" name="__codelineno-5-42" href="#__codelineno-5-42"></a><span class="p">}</span>
 </code></pre></div>
 
 
