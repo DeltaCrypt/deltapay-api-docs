@@ -24,11 +24,11 @@ DeltaPay abstracts the complexity of the switch, handling connectivity, settleme
 
 <!-- # EPS Overview -->
 
-## EWLT vs ACCT:
+### EWLT vs ACCT
 
 The EPS distinguishes between two account schemes. **EWLT** (eWallet) refers to mobile money accounts, typically identified by phone-number-based formats. **ACCT** (Account) refers to traditional bank accounts, which follow institution-specific account numbering structures.  
 
-#### Exception – DeltaPay:
+**Exception – DeltaPay**
 
 While DeltaPay supports both account-based and wallet-based user models internally, all DeltaPay accounts are represented as **EWLT** on the switch.
 
@@ -56,15 +56,15 @@ Within the context of the switch, participating institutions are referred to as 
 
 >**Note**: Some institutions (*e.g.* SBS) support both ACCT and EWLT schemes under the same agent ID.
 
-# Receiving from Switch Participants
+## Receiving from Switch Participants
 
-## User Flow
+### User Flow
 
 A user initiates an EPS transfer (often referred to as a *fast transfer*) from their bank or mobile money platform to a DeltaPay account.
 
 As with DeltaPay-to-DeltaPay transactions, incoming transactions and their status changes are delivered via the standard [IPNs](../common_usecases/c2b.md#instant-payment-notification-ipn), provided a callback is registered for the recipient account ID.
 
-## Example IPN Payload (Incoming)
+### Example IPN Payload (Incoming)
 
 ```json
 {
@@ -111,7 +111,7 @@ As with DeltaPay-to-DeltaPay transactions, incoming transactions and their statu
 }
 ```
 
-## EPS-Specific Fields
+### EPS-Specific Fields
 
 For EPS transactions, additional fields are populated to reflect switch-level data:
 
@@ -128,7 +128,7 @@ For EPS transactions, additional fields are populated to reflect switch-level da
 | `eps_instructed_agent_id` | The institution that **receives and processes the funds** on behalf of the recipient. |
 | `eps_instructed_agent_name` | Name of the institution that **receives and processes the funds** on behalf of the recipient. |
 
-### Mapping to DeltaPay Terminology
+#### Mapping to DeltaPay Terminology
 
 - **Debtor** &rarr; Sender  
 - **Creditor** &rarr; Recipient  
@@ -137,7 +137,7 @@ For EPS transactions, additional fields are populated to reflect switch-level da
 
 The **payment reference** provided by the sender is mapped to the `note` field in DeltaPay.
 
-## DeltaPay-Specific Behaviour (Incoming Payments)
+### DeltaPay-Specific Behaviour (Incoming Payments)
 
 For EPS transactions received by DeltaPay:
 - **Debtor (sender)** is external
@@ -156,7 +156,7 @@ For EPS transactions received by DeltaPay:
 Incoming EPS transactions can, therefore, be handled using the same logic as standard DeltaPay-to-DeltaPay transactions. On the DeltaPay side, the funds are credited to the recipient account and represented as `eps_mint` transactions.
 
 
-## Payment References
+### Payment References
 
 The EPS currently does not support a native *Request to Pay* mechanism or structured metadata fields comparable to DeltaPay payment requests, as a result:
 
@@ -174,10 +174,10 @@ For reconciliation and business logic, integrators should rely on:
 - `note` (payment reference, if provided)
 
 
-# Sending to Switch participants
+## Sending to Switch participants
 
 The general flow is very similar to the DeltaPay-to-DeltaPay disbursement flow.
-Please read the section on [B2C disbursements]() first.
+Please read the section on [B2C disbursements](b2c.md) first.
 
 In particular:
 
@@ -213,7 +213,7 @@ If you cannot send the private key, you can use the raw-transaction flow:
 This is only needed when your key-management requirements prevent you from using the recommended flow.
 Details of signing and submitting raw transactions are described in the [blockchain section](blockchain.md).
 
-## Check / Preview EPS Withdrawal
+### Check / Preview EPS Withdrawal
 
 [`GET /transaction/eps-withdrawal-preview`](https://api.dev.deltacrypt.net/docs#/transactions/get_preview_eps_withdrawal_transaction_eps_withdrawal_preview_get) 
 
@@ -229,7 +229,7 @@ This does **not** guarantee that the transaction will succeed. The preview only 
 <!-- Note that this is **not a guarantee** that the transaction will be successful. It only checks whether an account on the EPS is active, but no other constraints such as limits that may be acceeded by the transaction. The same race conditions apply as with standard transfer previews. -->
 
 
-**Request Parameters**
+#### Request Parameters
 
 * `sender_wallet_address`: *string*
 * `amount`: *number*
@@ -244,7 +244,7 @@ The `instructed_agent_id` identifies the switch participant to which the funds a
 
 
 <!-- TODO: maybe just make this bold -->
-### Response structure
+#### Response structure
 <!-- **Response structure** -->
 
 The endpoint always returns the same top-level fields:
@@ -297,7 +297,7 @@ This allows you to determine whether to proceed and present meaningful feedback 
 }
 ```
 
-## Send and Sign Transaction (Recommended Flow)
+### Send and Sign Transaction (Recommended Flow)
 
 For most server-side integrations, you should use:
 
@@ -352,7 +352,7 @@ The `tracking_id` corresponding to the `blockchain_transaction_id` of the transa
 
 >**Note**: The manual flow follows the same principles as other raw transaction flows described in the blockchain section.
 
-## Example Payload (Outgoing)
+### Example Payload (Outgoing)
 
 ```json
 {
