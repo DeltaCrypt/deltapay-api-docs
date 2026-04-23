@@ -953,6 +953,17 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
+  <a href="#request-parameters" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Request Parameters
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#response-structure" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -1301,6 +1312,17 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
+  <a href="#request-parameters" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Request Parameters
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#response-structure" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -1635,7 +1657,7 @@ Please read the section on <a href="../b2c/">B2C disbursements</a> first.</p>
 <li>Query the transaction on the DeltaPay side</li>
 </ol>
 <p>As with DeltaPay-to-DeltaPay disbursements, there are two possible flows:</p>
-<h4 id="recommended-flow">Recommended flow</h4>
+<h3 id="recommended-flow">Recommended flow</h3>
 <p>Use <a href="https://api.dev.deltacrypt.net/docs#/transactions/eps_withdrawal_transaction_eps_withdrawal_post"><code>POST /transaction/eps-withdrawal</code></a>.</p>
 <!-- This endpoint: -->
 
@@ -1645,7 +1667,7 @@ Please read the section on <a href="../b2c/">B2C disbursements</a> first.</p>
 * submits it to the blockchain -->
 
 <p>The response contains a <code>tracking_id</code> corresponding to the <code>blockchain_transaction_id</code> of the transaction that was just created.</p>
-<h4 id="manual-raw-transaction-flow-advanced">Manual / raw-transaction flow (advanced)</h4>
+<h3 id="manual-raw-transaction-flow-advanced">Manual / raw-transaction flow (advanced)</h3>
 <p>If you cannot send the private key, you can use the raw-transaction flow:</p>
 <ol>
 <li>Call <a href="https://api.dev.deltacrypt.net/docs#/transactions/initiate_eps_withdrawal_transaction_initiate_eps_withdrawal_post"><code>POST /transaction/initiate-eps-withdrawal</code></a> to obtain a <code>raw_transaction</code></li>
@@ -1662,7 +1684,7 @@ Details of signing and submitting raw transactions are described in the <a href=
 <p>This does <strong>not</strong> guarantee that the transaction will succeed. The preview only checks whether the target account is active on the EPS; it does not validate other constraints such as transaction or account limits. The same race conditions that apply to standard transfer previews also apply here.</p>
 <!-- Note that this is **not a guarantee** that the transaction will be successful. It only checks whether an account on the EPS is active, but no other constraints such as limits that may be acceeded by the transaction. The same race conditions apply as with standard transfer previews. -->
 
-<p><strong>Request Parameters</strong></p>
+<h4 id="request-parameters">Request Parameters</h4>
 <ul>
 <li><code>sender_wallet_address</code>: <em>string</em></li>
 <li><code>amount</code>: <em>number</em></li>
