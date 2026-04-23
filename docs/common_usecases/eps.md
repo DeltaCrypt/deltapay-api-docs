@@ -146,10 +146,10 @@ For EPS transactions received by DeltaPay:
 - `eps_creditor_account_id` corresponds to the **DeltaPay account ID or phone number** that received the funds.
 - The following fields are always set as:
     ```json
-    eps_creditor_name: null
-    eps_creditor_account_scheme: "EWLT"
-    eps_instructed_agent_id: "203006"
-    eps_instructed_agent_name: "DeltaPay"
+    "eps_creditor_name": null,
+    "eps_creditor_account_scheme": "EWLT",
+    "eps_instructed_agent_id": "203006",
+    "eps_instructed_agent_name": "DeltaPay"
     ```
 - The `transaction_type` will always be `eps_mint`
 
@@ -328,8 +328,8 @@ The body closely mirrors [`POST /transaction/initiate-eps-withdrawal`](https://a
 * `amount`: *number*
 * `note`: *Optional[string]*
 * `metadata`: *Optional[string]*
-* `instructed_agent_id`: *string*,
-* `creditor_account_id`: *string*,
+* `instructed_agent_id`: *string*
+* `creditor_account_id`: *string*
 * `creditor_account_scheme`: *string (`EWLT` or `ACCT`)*
 
 As for similar endpoints:
