@@ -78,7 +78,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#interacting-with-the-blockchain" class="md-skip">
+        <a href="#difference-between-transaction-and-blockchain-transaction" class="md-skip">
           Skip to content
         </a>
       
@@ -607,7 +607,7 @@
   <span class="md-ellipsis">
     
   
-    C2B (Collection)
+    Collection (C2B)
   
 
     
@@ -635,7 +635,7 @@
   <span class="md-ellipsis">
     
   
-    B2C (Disbursement)
+    Disbursements (B2C)
   
 
     
@@ -802,8 +802,6 @@
       <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
       
       
-        
-      
       
         <label class="md-nav__link md-nav__link--active" for="__toc">
           
@@ -845,8 +843,6 @@
 <nav class="md-nav md-nav--secondary" aria-label="Table of contents">
   
   
-  
-    
   
   
     <label class="md-nav__title" for="__toc">
@@ -1010,8 +1006,6 @@
   
   
   
-    
-  
   
     <label class="md-nav__title" for="__toc">
       <span class="md-nav__icon md-icon"></span>
@@ -1158,7 +1152,7 @@
 
 
 
-<h1 id="interacting-with-the-blockchain">Interacting with the Blockchain</h1>
+<h1 id="interacting-with-the-blockchain">Interacting with the Blockchain<a class="headerlink" href="#interacting-with-the-blockchain" title="Permanent link">&para;</a></h1>
 <p>The process for interacting with the blockchain is consistent across all transaction types:</p>
 <ol>
 <li><strong>Get</strong> the raw Ethereum transaction object.</li>
@@ -1172,13 +1166,13 @@ These endpoints handle signing internally if the private key is supplied, reduci
 <blockquote>
 <p><strong>Note:</strong> When using endpoints that accept a private key directly, security relies on standard <strong>TLS encryption</strong>. The private keys sent in this way are <strong>never stored</strong> on DeltaPay servers.</p>
 </blockquote>
-<h3 id="difference-between-transaction-and-blockchain-transaction">Difference Between Transaction and Blockchain Transaction</h3>
+<h3 id="difference-between-transaction-and-blockchain-transaction">Difference Between Transaction and Blockchain Transaction<a class="headerlink" href="#difference-between-transaction-and-blockchain-transaction" title="Permanent link">&para;</a></h3>
 <p>A <strong>transaction</strong> in DeltaPay refers to the high-level payment record tracked in the DeltaPay database (for example, a deposit or transfer).
 A <strong>blockchain transaction</strong> is the corresponding on-chain event that executes the transfer of tokens or smart-contract function.</p>
 <p>One DeltaPay transaction may involve multiple blockchain transactions — for example,
 a deposit could include both an <em>initialisation</em> and a <em>finalisation</em> transaction.
 Blockchain-level errors are reflected separately via the blockchain transaction status and error-message endpoints.</p>
-<h2 id="1-getting-the-raw-transaction">1. Getting the Raw Transaction</h2>
+<h2 id="1-getting-the-raw-transaction">1. Getting the Raw Transaction<a class="headerlink" href="#1-getting-the-raw-transaction" title="Permanent link">&para;</a></h2>
 <p>The raw transaction describes what will be executed on the blockchain.
 It includes fields such as <code>to</code>, <code>data</code>, <code>chainId</code>, <code>gasLimit</code>, and <code>nonce</code>.</p>
 <p><strong>Example response structure:</strong></p>
@@ -1197,10 +1191,10 @@ It includes fields such as <code>to</code>, <code>data</code>, <code>chainId</co
 <a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a><span class="p">}</span>
 </code></pre></div>
 <p>You can now sign the <code>raw_transaction</code> using any Ethereum-compatible library. Once signed, it should be submitted to the blockchain using the returned <code>topic</code>.</p>
-<h2 id="2-signing-the-raw-transaction">2. Signing the Raw Transaction</h2>
+<h2 id="2-signing-the-raw-transaction">2. Signing the Raw Transaction<a class="headerlink" href="#2-signing-the-raw-transaction" title="Permanent link">&para;</a></h2>
 <p>Signing transforms the unsigned JSON transaction into a signed, broadcastable payload.
 The <code>raw_transaction</code> must be signed using the private key corresponding to the <code>sender_wallet_address</code>. Any Ethereum-compatible signing library can be used.</p>
-<h3 id="recommended-libraries">Recommended Libraries</h3>
+<h3 id="recommended-libraries">Recommended Libraries<a class="headerlink" href="#recommended-libraries" title="Permanent link">&para;</a></h3>
 <p><strong>JavaScript / TypeScript</strong></p>
 <ul>
 <li><a href="https://github.com/ethers-io/ethers.js">ethers.js</a></li>
@@ -1221,7 +1215,7 @@ The <code>raw_transaction</code> must be signed using the private key correspond
 </ul>
 <p>Below are short code examples for the most common environments.
 The full runnable examples (including API setup, error handling, and polling) are available in the <a href="../../examples/snippets.py">Python Example</a> and <a href="../../examples/snippets.ts">TypeScript Example</a> sections.</p>
-<h3 id="python-example-using-web3py">Python Example (using <code>web3.py</code>)</h3>
+<h3 id="python-example-using-web3py">Python Example (using <code>web3.py</code>)<a class="headerlink" href="#python-example-using-web3py" title="Permanent link">&para;</a></h3>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">web3</span><span class="w"> </span><span class="kn">import</span> <span class="n">Web3</span>
 <a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>
 <a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="c1"># raw_transaction is what you received from the initiate endpoint</span>
@@ -1243,7 +1237,7 @@ The full runnable examples (including API setup, error handling, and polling) ar
 <a id="__codelineno-1-19" name="__codelineno-1-19" href="#__codelineno-1-19"></a><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Signed Transaction:&quot;</span><span class="p">,</span> <span class="n">signed_transaction</span><span class="p">)</span>
 </code></pre></div>
 <p>This produces a hex-encoded signed transaction string that you can now submit to the blockchain.</p>
-<h3 id="javascript-typescript-example-using-ethersjs">JavaScript / TypeScript Example (using <code>ethers.js</code>)</h3>
+<h3 id="javascript-typescript-example-using-ethersjs">JavaScript / TypeScript Example (using <code>ethers.js</code>)<a class="headerlink" href="#javascript-typescript-example-using-ethersjs" title="Permanent link">&para;</a></h3>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="k">import</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">ethers</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s2">&quot;ethers&quot;</span><span class="p">;</span>
 <a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>
 <a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="c1">// raw_transaction is what you received from the initiate endpoint</span>
@@ -1253,7 +1247,7 @@ The full runnable examples (including API setup, error handling, and polling) ar
 <a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;Signed Transaction:&quot;</span><span class="p">,</span><span class="w"> </span><span class="nx">signedTransaction</span><span class="p">);</span>
 </code></pre></div>
 <p>Both examples generate a <code>signedTransaction</code> string which should be sent to the <code>/blockchain/signed-transaction</code> endpoint, together with the <code>topic</code> value returned earlier.</p>
-<h2 id="3-submitting-the-signed-transaction">3. Submitting the Signed Transaction</h2>
+<h2 id="3-submitting-the-signed-transaction">3. Submitting the Signed Transaction<a class="headerlink" href="#3-submitting-the-signed-transaction" title="Permanent link">&para;</a></h2>
 <p><a href="https://api.dev.deltacrypt.net/docs#/blockchain/send_signed_transaction_blockchain_signed_transaction_post"><code>POST /blockchain/signed-transaction</code></a></p>
 <p><strong>Request Parameters</strong></p>
 <ul>
@@ -1273,9 +1267,9 @@ The full runnable examples (including API setup, error handling, and polling) ar
 <a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a><span class="p">}</span>
 </code></pre></div>
 <p>Use the <code>tracking_id</code> to query blockchain transaction status or correlate with internal transaction logs.</p>
-<h2 id="4-querying-blockchain-transaction-status">4. Querying Blockchain Transaction Status</h2>
+<h2 id="4-querying-blockchain-transaction-status">4. Querying Blockchain Transaction Status<a class="headerlink" href="#4-querying-blockchain-transaction-status" title="Permanent link">&para;</a></h2>
 <p>You can query the blockchain transaction status directly, or rely on the IPN callback to notify your system of updates.</p>
-<h3 id="get-blockchain-transaction-status">Get Blockchain Transaction Status</h3>
+<h3 id="get-blockchain-transaction-status">Get Blockchain Transaction Status<a class="headerlink" href="#get-blockchain-transaction-status" title="Permanent link">&para;</a></h3>
 <p><a href="https://api.dev.deltacrypt.net/docs#/blockchain/get_transaction_status_blockchain_transaction_status_get"><code>GET /blockchain/transaction-status</code></a></p>
 <p><strong>Request Parameters</strong></p>
 <ul>
@@ -1286,7 +1280,7 @@ The full runnable examples (including API setup, error handling, and polling) ar
 <a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="w">  </span><span class="nt">&quot;blockchain_transaction_status&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;succeeded&quot;</span>
 <a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a><span class="p">}</span>
 </code></pre></div>
-<h3 id="get-blockchain-transaction-error-message">Get Blockchain Transaction Error Message</h3>
+<h3 id="get-blockchain-transaction-error-message">Get Blockchain Transaction Error Message<a class="headerlink" href="#get-blockchain-transaction-error-message" title="Permanent link">&para;</a></h3>
 <p><a href="https://api.dev.deltacrypt.net/docs#/blockchain/get_transaction_error_message_blockchain_transaction_error_message_get"><code>GET /blockchain/transaction/error-message</code></a></p>
 <p>If the transaction failed, this endpoint provides the decoded smart-contract error for debugging.</p>
 <p><strong>Example Response</strong></p>

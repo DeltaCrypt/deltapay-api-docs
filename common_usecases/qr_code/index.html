@@ -80,7 +80,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#deltapay-qr-code-json-specification" class="md-skip">
+        <a href="#1-overview" class="md-skip">
           Skip to content
         </a>
       
@@ -609,7 +609,7 @@
   <span class="md-ellipsis">
     
   
-    C2B (Collection)
+    Collection (C2B)
   
 
     
@@ -637,7 +637,7 @@
   <span class="md-ellipsis">
     
   
-    B2C (Disbursement)
+    Disbursements (B2C)
   
 
     
@@ -663,8 +663,6 @@
       
       <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
       
-      
-        
       
       
         <label class="md-nav__link md-nav__link--active" for="__toc">
@@ -707,8 +705,6 @@
 <nav class="md-nav md-nav--secondary" aria-label="Table of contents">
   
   
-  
-    
   
   
     <label class="md-nav__title" for="__toc">
@@ -934,8 +930,6 @@
   
   
   
-    
-  
   
     <label class="md-nav__title" for="__toc">
       <span class="md-nav__icon md-icon"></span>
@@ -1004,15 +998,15 @@
 
 
 
-<h1 id="deltapay-qr-code-json-specification">DeltaPay QR Code JSON Specification</h1>
+<h1 id="deltapay-qr-code-json-specification">DeltaPay QR Code JSON Specification<a class="headerlink" href="#deltapay-qr-code-json-specification" title="Permanent link">&para;</a></h1>
 <p>This document describes the JSON payload encoded in DeltaPay QR codes. Any QR code library that accepts a string input can generate a DeltaPay QR code.</p>
-<h2 id="1-overview">1. Overview</h2>
+<h2 id="1-overview">1. Overview<a class="headerlink" href="#1-overview" title="Permanent link">&para;</a></h2>
 <ul>
 <li>Payload is a plain JSON object.</li>
 <li>Null values should be omitted before encoding.</li>
 <li>Supports any QR library (<em>e.g.</em>, <code>qr_flutter</code>, <code>flutter_qr_reader</code>, <code>qrcode</code> in JavaScript, etc.).</li>
 </ul>
-<h2 id="2-json-structure">2. JSON Structure</h2>
+<h2 id="2-json-structure">2. JSON Structure<a class="headerlink" href="#2-json-structure" title="Permanent link">&para;</a></h2>
 <table>
 <thead>
 <tr>
@@ -1062,7 +1056,7 @@
 <!-- | `pay_with_cashback` | Boolean | `true` to apply cashback balance; `false` or omit otherwise. | -->
 
 <p><strong>Note</strong>: Either the <code>username</code> or <code>account_id</code> is required. If both are provided, the <code>account_id</code> takes precedence but the payment will marked as being received "through" this user. <em>E.g.</em>, if the <code>account_id</code> references a business account and the user generating the QR code (and accepting the payment) is linked to the business account as an employee, he will only be able to see the incoming payment in his payment history if the transaction has been marked to be accepted by him. </p>
-<h2 id="3-example-payload">3. Example Payload</h2>
+<h2 id="3-example-payload">3. Example Payload<a class="headerlink" href="#3-example-payload" title="Permanent link">&para;</a></h2>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="p">{</span>
 <a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="w">  </span><span class="nt">&quot;username&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;sifiso&quot;</span><span class="p">,</span>
 <a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">  </span><span class="nt">&quot;account_id&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">42</span><span class="p">,</span>
@@ -1076,7 +1070,7 @@
 <!-- "source_of_funds": "cash", -->
 <!-- "pay_with_cashback": false -->
 
-<h2 id="4-qr-code-generation">4. QR Code Generation</h2>
+<h2 id="4-qr-code-generation">4. QR Code Generation<a class="headerlink" href="#4-qr-code-generation" title="Permanent link">&para;</a></h2>
 <ol>
 <li>Convert the JSON object to a compact string (e.g., using <code>json.encode</code>).</li>
 <li>Pass the resulting string to any QR code generator.</li>
@@ -1117,7 +1111,7 @@
       <nav class="md-footer__inner md-grid" aria-label="Footer" >
         
           
-          <a href="../b2c/" class="md-footer__link md-footer__link--prev" aria-label="Previous: B2C (Disbursement)">
+          <a href="../b2c/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Disbursements (B2C)">
             <div class="md-footer__button md-icon">
               
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
@@ -1127,7 +1121,7 @@
                 Previous
               </span>
               <div class="md-ellipsis">
-                B2C (Disbursement)
+                Disbursements (B2C)
               </div>
             </div>
           </a>

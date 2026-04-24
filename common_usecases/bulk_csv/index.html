@@ -80,7 +80,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#deltapay-bulk-payment-import-csv-specification" class="md-skip">
+        <a href="#1-purpose" class="md-skip">
           Skip to content
         </a>
       
@@ -609,7 +609,7 @@
   <span class="md-ellipsis">
     
   
-    C2B (Collection)
+    Collection (C2B)
   
 
     
@@ -637,7 +637,7 @@
   <span class="md-ellipsis">
     
   
-    B2C (Disbursement)
+    Disbursements (B2C)
   
 
     
@@ -748,8 +748,6 @@
       <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
       
       
-        
-      
       
         <label class="md-nav__link md-nav__link--active" for="__toc">
           
@@ -791,8 +789,6 @@
 <nav class="md-nav md-nav--secondary" aria-label="Table of contents">
   
   
-  
-    
   
   
     <label class="md-nav__title" for="__toc">
@@ -1151,8 +1147,6 @@
   
   
   
-    
-  
   
     <label class="md-nav__title" for="__toc">
       <span class="md-nav__icon md-icon"></span>
@@ -1438,8 +1432,8 @@
 
 
 
-<h1 id="deltapay-bulk-payment-import-csv-specification">DeltaPay Bulk Payment Import CSV Specification</h1>
-<h2 id="1-purpose">1. Purpose</h2>
+<h1 id="deltapay-bulk-payment-import-csv-specification">DeltaPay Bulk Payment Import CSV Specification<a class="headerlink" href="#deltapay-bulk-payment-import-csv-specification" title="Permanent link">&para;</a></h1>
+<h2 id="1-purpose">1. Purpose<a class="headerlink" href="#1-purpose" title="Permanent link">&para;</a></h2>
 <p>This CSV format is used to submit bulk payment instructions into DeltaPay.</p>
 <p>It supports the following payment routes:</p>
 <ul>
@@ -1448,7 +1442,7 @@
 <li><strong>BANK</strong>: bank transfer payments, typically for payments above <strong>E50,000</strong></li>
 </ul>
 <p>Each CSV row represents exactly one payment instruction.</p>
-<h2 id="2-file-format">2. File format</h2>
+<h2 id="2-file-format">2. File format<a class="headerlink" href="#2-file-format" title="Permanent link">&para;</a></h2>
 <ul>
 <li>File type: <strong>CSV</strong></li>
 <li>Encoding: <strong>UTF-8</strong></li>
@@ -1458,7 +1452,7 @@
 <li>Empty values should be left blank</li>
 <li>Do not include formulas or multiple values in one cell</li>
 </ul>
-<h3 id="general-rules">General rules</h3>
+<h3 id="general-rules">General rules<a class="headerlink" href="#general-rules" title="Permanent link">&para;</a></h3>
 <ul>
 <li>Column names must match the specification exactly</li>
 <li>Amounts must use a decimal point, for example <code>1500.00</code> (Maximum of two decimal points)</li>
@@ -1467,7 +1461,7 @@
 <li>No abbreviations or alternative spellings are allowed</li>
 <li>Any value outside this list will result in validation failure</li>
 </ul>
-<h3 id="phone-number-format">Phone number format</h3>
+<h3 id="phone-number-format">Phone number format<a class="headerlink" href="#phone-number-format" title="Permanent link">&para;</a></h3>
 <p>All phone numbers in the CSV must</p>
 <ul>
 <li>be in <strong>international format without the "+" symbol</strong></li>
@@ -1477,25 +1471,25 @@
 <p><strong>Example</strong></p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>26878725616
 </code></pre></div>
-<h3 id="validation-behaviour">Validation behaviour</h3>
-<h4 id="file-level-validation">File-level validation</h4>
+<h3 id="validation-behaviour">Validation behaviour<a class="headerlink" href="#validation-behaviour" title="Permanent link">&para;</a></h3>
+<h4 id="file-level-validation">File-level validation<a class="headerlink" href="#file-level-validation" title="Permanent link">&para;</a></h4>
 <ul>
 <li>Invalid CSV format → entire file rejected</li>
 <li>Missing required headers → entire file rejected</li>
 </ul>
-<h4 id="row-level-validation">Row-level validation</h4>
+<h4 id="row-level-validation">Row-level validation<a class="headerlink" href="#row-level-validation" title="Permanent link">&para;</a></h4>
 <ul>
 <li>Invalid rows are rejected individually</li>
 <li>Valid rows are still processed (partial success allowed)</li>
 <li>Only fields relevant to the selected <code>payment_method</code> may be populated</li>
 <li>Any unrelated field being non-empty must result in validation failure</li>
 </ul>
-<h3 id="whitespace">Whitespace</h3>
+<h3 id="whitespace">Whitespace<a class="headerlink" href="#whitespace" title="Permanent link">&para;</a></h3>
 <ul>
 <li>No leading or trailing whitespace allowed</li>
 <li>Empty strings and whitespace-only values are treated as empty</li>
 </ul>
-<h2 id="3-high-level-design">3. High-level design</h2>
+<h2 id="3-high-level-design">3. High-level design<a class="headerlink" href="#3-high-level-design" title="Permanent link">&para;</a></h2>
 <p>The file uses one required routing field:</p>
 <ul>
 <li><code>payment_method</code></li>
@@ -1507,8 +1501,8 @@
 <li><code>BANK</code></li>
 </ul>
 <p>This determines which recipient fields are required for that row.</p>
-<h2 id="4-column-specification">4. Column specification</h2>
-<h3 id="41-common-columns">4.1 Common columns</h3>
+<h2 id="4-column-specification">4. Column specification<a class="headerlink" href="#4-column-specification" title="Permanent link">&para;</a></h2>
+<h3 id="41-common-columns">4.1 Common columns<a class="headerlink" href="#41-common-columns" title="Permanent link">&para;</a></h3>
 <p>These columns apply to all rows.</p>
 <table>
 <thead>
@@ -1549,7 +1543,7 @@
 <blockquote>
 <p><strong>Note: ** The <code>client_reference</code> should be globally </strong>unique<em><em> accross all transactions past, current, and future (</em>e.g.</em> 64 character uuid)</p>
 </blockquote>
-<h4 id="amount-validation">Amount validation</h4>
+<h4 id="amount-validation">Amount validation<a class="headerlink" href="#amount-validation" title="Permanent link">&para;</a></h4>
 <ul>
 <li>Must be greater than <code>0</code></li>
 <li>Maximum of 2 decimal places</li>
@@ -1559,7 +1553,7 @@
 </ul>
 </li>
 </ul>
-<h3 id="42-delta-recipient-columns">4.2 DELTA recipient columns</h3>
+<h3 id="42-delta-recipient-columns">4.2 DELTA recipient columns<a class="headerlink" href="#42-delta-recipient-columns" title="Permanent link">&para;</a></h3>
 <p>These columns are used only when <code>payment_method = DELTA</code>.</p>
 <p>Exactly <strong>one</strong> of the following must be provided:</p>
 <ul>
@@ -1625,7 +1619,7 @@ The following values are allowed for bulk upload:</p>
 <li><code>other</code></li>
 </ul>
 <p>If not provided, it will deafult to <code>income</code>.</p>
-<h3 id="43-eps-recipient-columns">4.3 EPS recipient columns</h3>
+<h3 id="43-eps-recipient-columns">4.3 EPS recipient columns<a class="headerlink" href="#43-eps-recipient-columns" title="Permanent link">&para;</a></h3>
 <p>These columns are used only when <code>payment_method = EPS</code>.</p>
 <p>Exactly <strong>one</strong> of the following must be provided:</p>
 <ul>
@@ -1668,7 +1662,7 @@ The following values are allowed for bulk upload:</p>
 </blockquote>
 <p>The <code>eps_recipient_agent_id</code> must be a valid <strong>National Payment Switch participant identifier</strong> as defined by the Central Bank of Eswatini.</p>
 <p>According to the <em>National Payment Switch Participant Identification document (v1.5)</em> , the following identifiers are supported:</p>
-<h3 id="banks">Banks</h3>
+<h3 id="banks">Banks<a class="headerlink" href="#banks" title="Permanent link">&para;</a></h3>
 <ul>
 <li><code>103001</code> — Eswatini Bank</li>
 <li><code>103002</code> — First National Bank</li>
@@ -1677,7 +1671,7 @@ The following values are allowed for bulk upload:</p>
 <li><code>103005</code> — Swaziland Building Society</li>
 <li><code>103006</code> — Central Bank of Eswatini</li>
 </ul>
-<h3 id="mobile-wallet-providers">Mobile Wallet Providers</h3>
+<h3 id="mobile-wallet-providers">Mobile Wallet Providers<a class="headerlink" href="#mobile-wallet-providers" title="Permanent link">&para;</a></h3>
 <ul>
 <li><code>203001</code> — Eswatini Mobile</li>
 <li><code>203002</code> — InstaCash</li>
@@ -1686,7 +1680,7 @@ The following values are allowed for bulk upload:</p>
 <li><code>203005</code> — Swaziland Building Society</li>
 <li><code>203006</code> — DeltaPay</li>
 </ul>
-<h3 id="44-bank-recipient-columns">4.4 BANK recipient columns</h3>
+<h3 id="44-bank-recipient-columns">4.4 BANK recipient columns<a class="headerlink" href="#44-bank-recipient-columns" title="Permanent link">&para;</a></h3>
 <p>These columns are used only when <code>payment_method = BANK</code>.</p>
 <table>
 <thead>
@@ -1731,11 +1725,11 @@ The following values are allowed for bulk upload:</p>
 <li><code>NED_SZ</code> — Nedbank</li>
 <li><code>ESW_SZ</code> — Eswatini Bank</li>
 </ul>
-<h2 id="5-header-definition">5. Header definition</h2>
+<h2 id="5-header-definition">5. Header definition<a class="headerlink" href="#5-header-definition" title="Permanent link">&para;</a></h2>
 <p>The recommended full CSV header is:</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>payment_method,amount,note,client_reference,transaction_type,delta_recipient_account_id,delta_recipient_username,delta_recipient_phone_number,eps_recipient_agent_id,eps_recipient_account_number,eps_recipient_phone_number,bank_recipient_account_holder,bank_recipient_account_number,bank_recipient_bank_code,bank_recipient_branch_code
 </code></pre></div>
-<h3 id="51-delta-row">5.1 DELTA row</h3>
+<h3 id="51-delta-row">5.1 DELTA row<a class="headerlink" href="#51-delta-row" title="Permanent link">&para;</a></h3>
 <p>Must populate:</p>
 <ul>
 <li><code>payment_method = DELTA</code></li>
@@ -1747,7 +1741,7 @@ The following values are allowed for bulk upload:</p>
 <li>all EPS fields</li>
 <li>all BANK fields</li>
 </ul>
-<h3 id="52-eps-row">5.2 EPS row</h3>
+<h3 id="52-eps-row">5.2 EPS row<a class="headerlink" href="#52-eps-row" title="Permanent link">&para;</a></h3>
 <p>Must populate:</p>
 <ul>
 <li><code>payment_method = EPS</code></li>
@@ -1760,7 +1754,7 @@ The following values are allowed for bulk upload:</p>
 <li>all DELTA fields</li>
 <li>all BANK fields</li>
 </ul>
-<h3 id="53-bank-row">5.3 BANK row</h3>
+<h3 id="53-bank-row">5.3 BANK row<a class="headerlink" href="#53-bank-row" title="Permanent link">&para;</a></h3>
 <p>Must populate:</p>
 <ul>
 <li><code>payment_method = BANK</code></li>

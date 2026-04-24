@@ -29,7 +29,7 @@
     
     
       
-        <title>B2C (Disbursement) - DeltaPay API Documentation</title>
+        <title>Disbursements (B2C) - DeltaPay API Documentation</title>
       
     
     
@@ -80,7 +80,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#scenario" class="md-skip">
+        <a href="#disbursements-b2c" class="md-skip">
           Skip to content
         </a>
       
@@ -114,7 +114,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              B2C (Disbursement)
+              Disbursements (B2C)
             
           </span>
         </div>
@@ -609,7 +609,7 @@
   <span class="md-ellipsis">
     
   
-    C2B (Collection)
+    Collection (C2B)
   
 
     
@@ -636,8 +636,6 @@
       <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
       
       
-        
-      
       
         <label class="md-nav__link md-nav__link--active" for="__toc">
           
@@ -646,7 +644,7 @@
   <span class="md-ellipsis">
     
   
-    B2C (Disbursement)
+    Disbursements (B2C)
   
 
     
@@ -664,7 +662,7 @@
   <span class="md-ellipsis">
     
   
-    B2C (Disbursement)
+    Disbursements (B2C)
   
 
     
@@ -680,8 +678,6 @@
   
   
   
-    
-  
   
     <label class="md-nav__title" for="__toc">
       <span class="md-nav__icon md-icon"></span>
@@ -690,6 +686,29 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#disbursements-b2c" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Disbursements (B2C)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#scenario" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Scenario
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Scenario">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
   <a href="#recommended-flow" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -699,8 +718,8 @@
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
+        
+          <li class="md-nav__item">
   <a href="#manual-raw-transaction-flow-advanced" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -710,8 +729,8 @@
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
+        
+          <li class="md-nav__item">
   <a href="#is-it-safe-to-send-the-private-key" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -721,12 +740,173 @@
   </a>
   
 </li>
+        
+      </ul>
+    </nav>
+  
+</li>
       
         <li class="md-nav__item">
   <a href="#transactions-vs-blockchain-transactions" class="md-nav__link">
     <span class="md-ellipsis">
       
         Transactions vs Blockchain Transactions
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#check-preview-transaction" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Check / Preview Transaction
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Check / Preview Transaction">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#transfer-preview" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Transfer preview
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Transfer preview">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#request-parameters" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Request Parameters
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#response-structure" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Response structure
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#race-conditions-and-limitations" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Race Conditions and Limitations
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#send-and-sign-transaction" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Send and Sign Transaction
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Send and Sign Transaction">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#request-parameters_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Request Parameters
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#example-response" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Example Response
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#manual-raw-transaction-flow" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Manual / Raw-Transaction Flow
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Manual / Raw-Transaction Flow">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#request-parameters_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Request Parameters
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#example-response_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Example Response
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tracking-the-transaction" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Tracking the Transaction
       
     </span>
   </a>
@@ -934,8 +1114,6 @@
   
   
   
-    
-  
   
     <label class="md-nav__title" for="__toc">
       <span class="md-nav__icon md-icon"></span>
@@ -944,6 +1122,29 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#disbursements-b2c" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Disbursements (B2C)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#scenario" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Scenario
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Scenario">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
   <a href="#recommended-flow" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -953,8 +1154,8 @@
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
+        
+          <li class="md-nav__item">
   <a href="#manual-raw-transaction-flow-advanced" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -964,8 +1165,8 @@
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
+        
+          <li class="md-nav__item">
   <a href="#is-it-safe-to-send-the-private-key" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -975,12 +1176,173 @@
   </a>
   
 </li>
+        
+      </ul>
+    </nav>
+  
+</li>
       
         <li class="md-nav__item">
   <a href="#transactions-vs-blockchain-transactions" class="md-nav__link">
     <span class="md-ellipsis">
       
         Transactions vs Blockchain Transactions
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#check-preview-transaction" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Check / Preview Transaction
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Check / Preview Transaction">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#transfer-preview" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Transfer preview
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Transfer preview">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#request-parameters" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Request Parameters
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#response-structure" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Response structure
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#race-conditions-and-limitations" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Race Conditions and Limitations
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#send-and-sign-transaction" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Send and Sign Transaction
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Send and Sign Transaction">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#request-parameters_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Request Parameters
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#example-response" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Example Response
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#manual-raw-transaction-flow" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Manual / Raw-Transaction Flow
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Manual / Raw-Transaction Flow">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#request-parameters_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Request Parameters
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#example-response_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Example Response
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tracking-the-transaction" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Tracking the Transaction
       
     </span>
   </a>
@@ -1004,7 +1366,10 @@
 
 
 
-<h1 id="scenario">Scenario</h1>
+  <h1>Disbursements (B2C)</h1>
+
+<h2 id="disbursements-b2c">Disbursements (B2C)<a class="headerlink" href="#disbursements-b2c" title="Permanent link">&para;</a></h2>
+<h2 id="scenario">Scenario<a class="headerlink" href="#scenario" title="Permanent link">&para;</a></h2>
 <p>Disbursing funds to a customer’s (or another business’) DeltaPay account follows this process:</p>
 <ol>
 <li>(Optional) Check whether the transaction is possible using a <a href="#check--preview-transaction">preview endpoint</a></li>
@@ -1013,7 +1378,7 @@
 <li>Receive a callback when the transaction status changes (IPN)</li>
 <li>Query the transaction on the DeltaPay side</li>
 </ol>
-<h3 id="recommended-flow">Recommended flow</h3>
+<h3 id="recommended-flow">Recommended flow<a class="headerlink" href="#recommended-flow" title="Permanent link">&para;</a></h3>
 <p>Use <a href="https://api.dev.deltacrypt.net/docs#/transactions/send_transfer_transaction_send_transfer_post"><code>POST /transaction/send-transfer</code></a>.
 This endpoint:</p>
 <ul>
@@ -1023,7 +1388,7 @@ This endpoint:</p>
 <li>submits it to the blockchain</li>
 </ul>
 <p>The response contains a <code>tracking_id</code> corresponding to the <code>blockchain_transaction_id</code> of the transaction that was just created.</p>
-<h3 id="manual-raw-transaction-flow-advanced">Manual / raw-transaction flow (advanced)</h3>
+<h3 id="manual-raw-transaction-flow-advanced">Manual / raw-transaction flow (advanced)<a class="headerlink" href="#manual-raw-transaction-flow-advanced" title="Permanent link">&para;</a></h3>
 <p>If you cannot send the private key, you can use the raw-transaction flow:</p>
 <ol>
 <li>Call <a href="https://api.dev.deltacrypt.net/docs#/transactions/initiate_transfer_transaction_initiate_transfer_post"><code>POST /transaction/initiate-transfer</code></a> to obtain a <code>raw_transaction</code></li>
@@ -1032,7 +1397,7 @@ This endpoint:</p>
 </ol>
 <p>This is only needed when your key-management requirements prevent you from using the recommended flow.
 Details of signing and submitting raw transactions are described in the <a href="../blockchain/">blockchain section</a>.</p>
-<h3 id="is-it-safe-to-send-the-private-key">Is it Safe to Send the Private Key?</h3>
+<h3 id="is-it-safe-to-send-the-private-key">Is it Safe to Send the Private Key?<a class="headerlink" href="#is-it-safe-to-send-the-private-key" title="Permanent link">&para;</a></h3>
 <p>In the recommended flow, the private key is included in the HTTPS request body. The following points describe how the key is handled on DeltaPay’s side:</p>
 <ul>
 <li>Transport uses TLS, so the private key is protected by the same communication channel that is normally used to send API keys, passwords, and other sensitive credentials.</li>
@@ -1042,7 +1407,7 @@ Details of signing and submitting raw transactions are described in the <a href=
 </ul>
 <p>Using this flow effectively shifts the security boundary from the public–private key pair itself to the security of the channel and environment through which the private key is transmitted. This is the same model used when sending API keys, authentication tokens, or passwords to a backend service.</p>
 <p>If your policies do not allow the private key to leave your infrastructure, use the manual flow.</p>
-<h2 id="transactions-vs-blockchain-transactions">Transactions vs Blockchain Transactions</h2>
+<h2 id="transactions-vs-blockchain-transactions">Transactions vs Blockchain Transactions<a class="headerlink" href="#transactions-vs-blockchain-transactions" title="Permanent link">&para;</a></h2>
 <p>DeltaPay distinguishes between:</p>
 <p><strong>DeltaPay transactions (platform-level)</strong></p>
 <ul>
@@ -1062,7 +1427,7 @@ Details of signing and submitting raw transactions are described in the <a href=
 </ul>
 <p>This information is primarily useful for debugging or for communicating more detailed error context to the end user. In normal operation, the <a href="#check--preview-transaction"><strong>preview endpoints</strong></a> should prevent the vast majority of attempts that would result in an on-chain failure.
 The blockchain error endpoints are therefore mostly relevant for edge cases, such as race conditions (e.g. limits or balances changing after the preview call). For more information on how to interact with the blockchain, please refer to <a href="../blockchain/">this section</a>.</p>
-<h1 id="check-preview-transaction">Check / Preview Transaction</h1>
+<h2 id="check-preview-transaction">Check / Preview Transaction<a class="headerlink" href="#check-preview-transaction" title="Permanent link">&para;</a></h2>
 <p>Before sending money, it is advisable to preview whether the transaction is likely to succeed. This avoids unnecessary polling and simplifies error handling.</p>
 <p>A transaction may fail for several reasons:</p>
 <ul>
@@ -1075,10 +1440,10 @@ The blockchain error endpoints are therefore mostly relevant for edge cases, suc
 <blockquote>
 <p><strong>Note</strong>: Insufficient spending allowances (daily spending limits) <strong>do not</strong> prevent the transaction from being created. In such cases the transaction will be created but <strong>require approval</strong>, which is reflected in its status when you query it or receive callbacks.</p>
 </blockquote>
-<h2 id="transfer-preview">Transfer preview</h2>
+<h3 id="transfer-preview">Transfer preview<a class="headerlink" href="#transfer-preview" title="Permanent link">&para;</a></h3>
 <p><a href="https://api.dev.deltacrypt.net/docs#/transactions/get_preview_transaction_transaction_transfer_preview_get"><code>GET /transaction/transfer-preview</code></a></p>
 <p>This endpoint returns all information needed to decide whether a transfer should be initiated, without actually creating a transaction.</p>
-<p><strong>Request Parameters</strong></p>
+<h4 id="request-parameters">Request Parameters<a class="headerlink" href="#request-parameters" title="Permanent link">&para;</a></h4>
 <ul>
 <li><code>sender_wallet_address</code>: <em>string</em></li>
 <li><code>transaction_type</code>: <em>string</em></li>
@@ -1090,10 +1455,7 @@ The blockchain error endpoints are therefore mostly relevant for edge cases, suc
 </ul>
 <p>The <code>sender_wallet_address</code> must be <a href="../../getting_started/setup/#link-api-key">linked</a> to an account.</p>
 <p>The recipient can be identified using (<code>recipient_phone_country_dialcode</code> + <code>recipient_phone_number</code>), <code>recipient_username</code>, <strong>or</strong> a <code>recipient_business_account_id</code>. For personal accounts, use either the phone number or the username; for business accounts, use the business account ID.</p>
-<!-- TODO: maybe just make this bold -->
-<h3 id="response-structure">Response structure</h3>
-<!-- **Response structure** -->
-
+<h4 id="response-structure">Response structure<a class="headerlink" href="#response-structure" title="Permanent link">&para;</a></h4>
 <p>The endpoint always returns the same top-level fields:</p>
 <ul>
 <li><code>transaction_possible</code></li>
@@ -1171,7 +1533,7 @@ The blockchain error endpoints are therefore mostly relevant for edge cases, suc
 <a id="__codelineno-1-15" name="__codelineno-1-15" href="#__codelineno-1-15"></a><span class="w">  </span><span class="nt">&quot;recipient_tills&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[]</span>
 <a id="__codelineno-1-16" name="__codelineno-1-16" href="#__codelineno-1-16"></a><span class="p">}</span>
 </code></pre></div>
-<h3 id="race-conditions-and-limitations">Race Conditions and Limitations</h3>
+<h3 id="race-conditions-and-limitations">Race Conditions and Limitations<a class="headerlink" href="#race-conditions-and-limitations" title="Permanent link">&para;</a></h3>
 <p>A “possible = true” preview is <strong>advisory</strong>, but not a strict guarantee that the transaction will in fact settle successfully, since, among other reasons:</p>
 <ul>
 <li>The user may send/receive other funds after your preview.</li>
@@ -1187,7 +1549,7 @@ The blockchain error endpoints are therefore mostly relevant for edge cases, suc
 <blockquote>
 <p><strong>Note:</strong> Similar <strong>preview / possible</strong> endpoints exist for other flows (deposits, withdrawals). Refer to the corresponding sections and the Swagger docs for details.</p>
 </blockquote>
-<h1 id="send-and-sign-transaction">Send and Sign Transaction</h1>
+<h2 id="send-and-sign-transaction">Send and Sign Transaction<a class="headerlink" href="#send-and-sign-transaction" title="Permanent link">&para;</a></h2>
 <p>For most server-side integrations, you should use:</p>
 <p><a href="https://api.dev.deltacrypt.net/docs#/transactions/send_transfer_transaction_send_transfer_post"><code>POST /transaction/send-transfer</code></a></p>
 <p>This endpoint:</p>
@@ -1199,9 +1561,7 @@ The blockchain error endpoints are therefore mostly relevant for edge cases, suc
 <li>Submits it to the blockchain</li>
 <li>Returns a <strong>tracking ID</strong> you can later use to correlate callbacks and queries</li>
 </ol>
-<!-- TODO: be consistant with formatting -->
-<!-- ### Request Parameters -->
-<p><strong>Request Parameters</strong></p>
+<h4 id="request-parameters_1">Request Parameters<a class="headerlink" href="#request-parameters_1" title="Permanent link">&para;</a></h4>
 <!-- TODO: Update once we fixed phone_number, username, account_id thing -->
 <!-- TODO: most likely to be added:
 * `recipient_till_id`: *Optional[int]*
@@ -1225,18 +1585,17 @@ The blockchain error endpoints are therefore mostly relevant for edge cases, suc
 <p><code>source_of_funds</code> must only be provided for transaction with <code>transaction_type == "cash_deposit"</code>.</p>
 <!-- The recipient can be identified using (`recipient_phone_country_dialcode` + `recipient_phone_number`), `recipient_username`, **or** a `recipient_business_account_id`. For personal accounts, use either the phone number or the username; for business accounts, use the business account ID. -->
 
-<!-- ### Example Response -->
-<p><strong>Example Response</strong></p>
+<h4 id="example-response">Example Response<a class="headerlink" href="#example-response" title="Permanent link">&para;</a></h4>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="p">{</span>
 <a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="w">  </span><span class="nt">&quot;success&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span>
 <a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="w">  </span><span class="nt">&quot;tracking_id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;420&quot;</span>
 <a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="p">}</span>
 </code></pre></div>
 <p>The <code>tracking_id</code> corresponding to the <code>blockchain_transaction_id</code> of the transaction that was just created and can be used to poll its status, see <a href="../blockchain/#get-blockchain-transaction-status">Get Blockchain Transaction Status</a>.</p>
-<h2 id="manual-raw-transaction-flow">Manual / Raw-Transaction Flow</h2>
+<h2 id="manual-raw-transaction-flow">Manual / Raw-Transaction Flow<a class="headerlink" href="#manual-raw-transaction-flow" title="Permanent link">&para;</a></h2>
 <p>If you cannot send the private key to DeltaPay, or you maintain your own signing infrastructure, you can use the more general <strong>raw-transaction</strong> flow documented here and in the dedicated <a href="../blockchain/">Blockchain Interactions</a> section.</p>
 <p><a href="https://api.dev.deltacrypt.net/docs#/transactions/initiate_transfer_transaction_initiate_transfer_post"><code>POST /transaction/initiate-transfer</code></a></p>
-<p><strong>Request Parameters</strong></p>
+<h4 id="request-parameters_2">Request Parameters<a class="headerlink" href="#request-parameters_2" title="Permanent link">&para;</a></h4>
 <p>The body closely mirrors <a href="https://api.dev.deltacrypt.net/docs#/transactions/send_transfer_transaction_send_transfer_post"><code>POST /transaction/send-transfer</code></a>, replacing the <code>private_key</code> with the <code>sender_wallet_address</code> field. For a detailled explanation of the fields, refer to the <a href="#send-and-sign-transaction">above section</a>.</p>
 <ul>
 <li><code>sender_wallet_address</code>: <em>string</em></li>
@@ -1249,7 +1608,7 @@ The blockchain error endpoints are therefore mostly relevant for edge cases, suc
 <li><code>transaction_type</code>: <em>string</em></li>
 <li><code>source_of_funds</code>: <em>Optional[string]</em></li>
 </ul>
-<p><strong>Example Response</strong></p>
+<h4 id="example-response_1">Example Response<a class="headerlink" href="#example-response_1" title="Permanent link">&para;</a></h4>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="p">{</span>
 <a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="w">  </span><span class="nt">&quot;raw_transaction&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
 <a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="w">    </span><span class="nt">&quot;from&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;0x7E5F4552091A69125d5DfCb7b8C2659029395Bdf&quot;</span><span class="p">,</span>
@@ -1273,7 +1632,7 @@ The blockchain error endpoints are therefore mostly relevant for edge cases, suc
 <p>Please refer to the <a href="../blockchain/">Blockchain Interaction</a> section for language-specific signing examples as well as more details regarding the submission and tracking of blockchain transactions.</p>
 <p>Here is a clean, consistent section you can append at the end.
 No fluff, no ChatGPT tone — same documentation voice as the rest.</p>
-<h2 id="tracking-the-transaction">Tracking the Transaction</h2>
+<h2 id="tracking-the-transaction">Tracking the Transaction<a class="headerlink" href="#tracking-the-transaction" title="Permanent link">&para;</a></h2>
 <p>Once the transfer request has been submitted (either via the recommended flow or the raw-transaction flow), the transaction must be tracked asynchronously. A successful response from <a href="https://api.dev.deltacrypt.net/docs#/transactions/send_transfer_transaction_send_transfer_post"><code>POST /transaction/send-transfer</code></a> or <a href="https://api.dev.deltacrypt.net/docs#/blockchain/send_signed_transaction_blockchain_signed_transaction_post"><code>POST /blockchain/signed-transaction</code></a> only confirms that the blockchain transaction has been accepted into the transaction pool. It does <strong>not</strong> guarantee that the transaction will succeed. It may still fail on-chain, or the resulting DeltaPay transaction may require approval.</p>
 <p>Tracking can be done using either:</p>
 <ul>
@@ -1326,7 +1685,7 @@ No fluff, no ChatGPT tone — same documentation voice as the rest.</p>
       <nav class="md-footer__inner md-grid" aria-label="Footer" >
         
           
-          <a href="../c2b/" class="md-footer__link md-footer__link--prev" aria-label="Previous: C2B (Collection)">
+          <a href="../c2b/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Collection (C2B)">
             <div class="md-footer__button md-icon">
               
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
@@ -1336,7 +1695,7 @@ No fluff, no ChatGPT tone — same documentation voice as the rest.</p>
                 Previous
               </span>
               <div class="md-ellipsis">
-                C2B (Collection)
+                Collection (C2B)
               </div>
             </div>
           </a>

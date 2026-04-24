@@ -80,7 +80,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#eswatini-payment-switch-eps" class="md-skip">
+        <a href="#why-it-matters" class="md-skip">
           Skip to content
         </a>
       
@@ -609,7 +609,7 @@
   <span class="md-ellipsis">
     
   
-    C2B (Collection)
+    Collection (C2B)
   
 
     
@@ -637,7 +637,7 @@
   <span class="md-ellipsis">
     
   
-    B2C (Disbursement)
+    Disbursements (B2C)
   
 
     
@@ -720,8 +720,6 @@
       <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
       
       
-        
-      
       
         <label class="md-nav__link md-nav__link--active" for="__toc">
           
@@ -763,8 +761,6 @@
 <nav class="md-nav md-nav--secondary" aria-label="Table of contents">
   
   
-  
-    
   
   
     <label class="md-nav__title" for="__toc">
@@ -1123,8 +1119,6 @@
   
   
   
-    
-  
   
     <label class="md-nav__title" for="__toc">
       <span class="md-nav__icon md-icon"></span>
@@ -1382,11 +1376,11 @@
 
 
 
-<h1 id="eswatini-payment-switch-eps">Eswatini Payment Switch (EPS)</h1>
+<h1 id="eswatini-payment-switch-eps">Eswatini Payment Switch (EPS)<a class="headerlink" href="#eswatini-payment-switch-eps" title="Permanent link">&para;</a></h1>
 <!-- TODO: Add section on switch specific limits, once we know them -->
 
 <p>The <strong>EPS (Eswatini Payment Switch)</strong> is the national payment infrastructure operated under the oversight of the Central Bank of Eswatini. It connects banks, mobile money providers, and other financial institutions into a single interoperable network.</p>
-<h3 id="why-it-matters">Why it matters</h3>
+<h3 id="why-it-matters">Why it matters<a class="headerlink" href="#why-it-matters" title="Permanent link">&para;</a></h3>
 <ul>
 <li><strong>Interoperability:</strong> Enables transfers across different institutions (banks, mobile wallets, and fintechs) instead of siloed systems.  </li>
 <li><strong>Real-time payments:</strong> Supports near-instant transactions between participants.  </li>
@@ -1394,17 +1388,17 @@
 <li><strong>Financial inclusion:</strong> Expands reach by allowing users on different platforms to transact seamlessly.  </li>
 <li><strong>Regulatory backbone:</strong> Acts as the core infrastructure for national payment flows under central bank governance.</li>
 </ul>
-<h3 id="access-via-deltapay-apis">Access via DeltaPay APIs</h3>
+<h3 id="access-via-deltapay-apis">Access via DeltaPay APIs<a class="headerlink" href="#access-via-deltapay-apis" title="Permanent link">&para;</a></h3>
 <p>The EPS is accessible directly through the existing DeltaPay APIs, meaning no separate integration, licensing, or onboarding onto the switch is required.</p>
 <p>By integrating once with DeltaPay, you gain <strong>all-in-one access</strong> to the national payment network, allowing you to use your DeltaPay account to <strong>collect from and disburse to any domestic institution</strong> (banks, mobile money providers, and other licensed participants on the switch).</p>
 <p>DeltaPay abstracts the complexity of the switch, handling connectivity, settlement, and collateral requirements, so you can focus purely on your product and user experience.</p>
 <!-- # EPS Overview -->
 
-<h3 id="ewlt-vs-acct">EWLT vs ACCT</h3>
+<h3 id="ewlt-vs-acct">EWLT vs ACCT<a class="headerlink" href="#ewlt-vs-acct" title="Permanent link">&para;</a></h3>
 <p>The EPS distinguishes between two account schemes. <strong>EWLT</strong> (eWallet) refers to mobile money accounts, typically identified by phone-number-based formats. <strong>ACCT</strong> (Account) refers to traditional bank accounts, which follow institution-specific account numbering structures.  </p>
 <p><strong>Exception – DeltaPay</strong></p>
 <p>While DeltaPay supports both account-based and wallet-based user models internally, all DeltaPay accounts are represented as <strong>EWLT</strong> on the switch.</p>
-<h2 id="current-eps-participants">Current EPS Participants</h2>
+<h2 id="current-eps-participants">Current EPS Participants<a class="headerlink" href="#current-eps-participants" title="Permanent link">&para;</a></h2>
 <p>The following table is based on the <em>Wallet and Account Guidelines</em> published by the Central Bank of Eswatini.</p>
 <p>Within the context of the switch, participating institutions are referred to as <strong>agents</strong>. These agents include banks, mobile money providers, and other licensed financial institutions connected to the EPS.</p>
 <table>
@@ -1507,11 +1501,11 @@
 <blockquote>
 <p><strong>Note</strong>: Some institutions (<em>e.g.</em> SBS) support both ACCT and EWLT schemes under the same agent ID.</p>
 </blockquote>
-<h2 id="receiving-from-switch-participants">Receiving from Switch Participants</h2>
-<h3 id="user-flow">User Flow</h3>
+<h2 id="receiving-from-switch-participants">Receiving from Switch Participants<a class="headerlink" href="#receiving-from-switch-participants" title="Permanent link">&para;</a></h2>
+<h3 id="user-flow">User Flow<a class="headerlink" href="#user-flow" title="Permanent link">&para;</a></h3>
 <p>A user initiates an EPS transfer (often referred to as a <em>fast transfer</em>) from their bank or mobile money platform to a DeltaPay account.</p>
 <p>As with DeltaPay-to-DeltaPay transactions, incoming transactions and their status changes are delivered via the standard <a href="../c2b/#instant-payment-notification-ipn">IPNs</a>, provided a callback is registered for the recipient account ID.</p>
-<h3 id="example-ipn-payload-incoming">Example IPN Payload (Incoming)</h3>
+<h3 id="example-ipn-payload-incoming">Example IPN Payload (Incoming)<a class="headerlink" href="#example-ipn-payload-incoming" title="Permanent link">&para;</a></h3>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="p">{</span>
 <a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="w">    </span><span class="nt">&quot;transaction_id&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">4200</span><span class="p">,</span>
 <a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">    </span><span class="nt">&quot;transaction_type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;eps_mint&quot;</span><span class="p">,</span>
@@ -1555,7 +1549,7 @@
 <a id="__codelineno-0-41" name="__codelineno-0-41" href="#__codelineno-0-41"></a><span class="w">    </span><span class="nt">&quot;signature&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Ny2QULuN8cga2i0mnvE.............&quot;</span>
 <a id="__codelineno-0-42" name="__codelineno-0-42" href="#__codelineno-0-42"></a><span class="p">}</span>
 </code></pre></div>
-<h3 id="eps-specific-fields">EPS-Specific Fields</h3>
+<h3 id="eps-specific-fields">EPS-Specific Fields<a class="headerlink" href="#eps-specific-fields" title="Permanent link">&para;</a></h3>
 <p>For EPS transactions, additional fields are populated to reflect switch-level data:</p>
 <table>
 <thead>
@@ -1607,7 +1601,7 @@
 </tr>
 </tbody>
 </table>
-<h4 id="mapping-to-deltapay-terminology">Mapping to DeltaPay Terminology</h4>
+<h4 id="mapping-to-deltapay-terminology">Mapping to DeltaPay Terminology<a class="headerlink" href="#mapping-to-deltapay-terminology" title="Permanent link">&para;</a></h4>
 <ul>
 <li><strong>Debtor</strong> &rarr; Sender  </li>
 <li><strong>Creditor</strong> &rarr; Recipient  </li>
@@ -1615,7 +1609,7 @@
 <li><strong>Instructed Agent</strong> &rarr; Recipient’s institution (where the payment is received)</li>
 </ul>
 <p>The <strong>payment reference</strong> provided by the sender is mapped to the <code>note</code> field in DeltaPay.</p>
-<h3 id="deltapay-specific-behaviour-incoming-payments">DeltaPay-Specific Behaviour (Incoming Payments)</h3>
+<h3 id="deltapay-specific-behaviour-incoming-payments">DeltaPay-Specific Behaviour (Incoming Payments)<a class="headerlink" href="#deltapay-specific-behaviour-incoming-payments" title="Permanent link">&para;</a></h3>
 <p>For EPS transactions received by DeltaPay:
 - <strong>Debtor (sender)</strong> is external
 - <strong>Creditor (recipient)</strong> is always a DeltaPay account</p>
@@ -1630,7 +1624,7 @@
 <li>The <code>transaction_type</code> will always be <code>eps_mint</code></li>
 </ul>
 <p>Incoming EPS transactions can, therefore, be handled using the same logic as standard DeltaPay-to-DeltaPay transactions. On the DeltaPay side, the funds are credited to the recipient account and represented as <code>eps_mint</code> transactions.</p>
-<h3 id="payment-references">Payment References</h3>
+<h3 id="payment-references">Payment References<a class="headerlink" href="#payment-references" title="Permanent link">&para;</a></h3>
 <p>The EPS currently does not support a native <em>Request to Pay</em> mechanism or structured metadata fields comparable to DeltaPay payment requests, as a result:</p>
 <ul>
 <li>There is no guaranteed way to attach structured metadata that will be returned with the transaction.</li>
@@ -1645,7 +1639,7 @@
 <li><code>timestamp</code></li>
 <li><code>note</code> (payment reference, if provided)</li>
 </ul>
-<h2 id="sending-to-switch-participants">Sending to Switch participants</h2>
+<h2 id="sending-to-switch-participants">Sending to Switch participants<a class="headerlink" href="#sending-to-switch-participants" title="Permanent link">&para;</a></h2>
 <p>The general flow is very similar to the DeltaPay-to-DeltaPay disbursement flow.
 Please read the section on <a href="../b2c/">B2C disbursements</a> first.</p>
 <p>In particular:</p>
@@ -1657,7 +1651,7 @@ Please read the section on <a href="../b2c/">B2C disbursements</a> first.</p>
 <li>Query the transaction on the DeltaPay side</li>
 </ol>
 <p>As with DeltaPay-to-DeltaPay disbursements, there are two possible flows:</p>
-<h3 id="recommended-flow">Recommended flow</h3>
+<h3 id="recommended-flow">Recommended flow<a class="headerlink" href="#recommended-flow" title="Permanent link">&para;</a></h3>
 <p>Use <a href="https://api.dev.deltacrypt.net/docs#/transactions/eps_withdrawal_transaction_eps_withdrawal_post"><code>POST /transaction/eps-withdrawal</code></a>.</p>
 <!-- This endpoint: -->
 
@@ -1667,7 +1661,7 @@ Please read the section on <a href="../b2c/">B2C disbursements</a> first.</p>
 * submits it to the blockchain -->
 
 <p>The response contains a <code>tracking_id</code> corresponding to the <code>blockchain_transaction_id</code> of the transaction that was just created.</p>
-<h3 id="manual-raw-transaction-flow-advanced">Manual / raw-transaction flow (advanced)</h3>
+<h3 id="manual-raw-transaction-flow-advanced">Manual / raw-transaction flow (advanced)<a class="headerlink" href="#manual-raw-transaction-flow-advanced" title="Permanent link">&para;</a></h3>
 <p>If you cannot send the private key, you can use the raw-transaction flow:</p>
 <ol>
 <li>Call <a href="https://api.dev.deltacrypt.net/docs#/transactions/initiate_eps_withdrawal_transaction_initiate_eps_withdrawal_post"><code>POST /transaction/initiate-eps-withdrawal</code></a> to obtain a <code>raw_transaction</code></li>
@@ -1676,7 +1670,7 @@ Please read the section on <a href="../b2c/">B2C disbursements</a> first.</p>
 </ol>
 <p>This is only needed when your key-management requirements prevent you from using the recommended flow.
 Details of signing and submitting raw transactions are described in the <a href="../blockchain/">blockchain section</a>.</p>
-<h3 id="check-preview-eps-withdrawal">Check / Preview EPS Withdrawal</h3>
+<h3 id="check-preview-eps-withdrawal">Check / Preview EPS Withdrawal<a class="headerlink" href="#check-preview-eps-withdrawal" title="Permanent link">&para;</a></h3>
 <p><a href="https://api.dev.deltacrypt.net/docs#/transactions/get_preview_eps_withdrawal_transaction_eps_withdrawal_preview_get"><code>GET /transaction/eps-withdrawal-preview</code></a> </p>
 <p>This endpoint is similar to <a href="https://api.dev.deltacrypt.net/docs#/transactions/get_preview_transaction_transaction_transfer_preview_get"><code>GET /transaction/transfer-preview</code></a>, which is used to determine whether a DeltaPay-to-DeltaPay transfer will be possible.</p>
 <p>It returns the information needed to decide whether an EPS withdrawal should be initiated, without creating a transaction.</p>
@@ -1684,7 +1678,7 @@ Details of signing and submitting raw transactions are described in the <a href=
 <p>This does <strong>not</strong> guarantee that the transaction will succeed. The preview only checks whether the target account is active on the EPS; it does not validate other constraints such as transaction or account limits. The same race conditions that apply to standard transfer previews also apply here.</p>
 <!-- Note that this is **not a guarantee** that the transaction will be successful. It only checks whether an account on the EPS is active, but no other constraints such as limits that may be acceeded by the transaction. The same race conditions apply as with standard transfer previews. -->
 
-<h4 id="request-parameters">Request Parameters</h4>
+<h4 id="request-parameters">Request Parameters<a class="headerlink" href="#request-parameters" title="Permanent link">&para;</a></h4>
 <ul>
 <li><code>sender_wallet_address</code>: <em>string</em></li>
 <li><code>amount</code>: <em>number</em></li>
@@ -1695,7 +1689,7 @@ Details of signing and submitting raw transactions are described in the <a href=
 <p>The <code>sender_wallet_address</code> must be <a href="../../getting_started/setup/#link-api-key">linked</a> to an account.</p>
 <p>The <code>instructed_agent_id</code> identifies the switch participant to which the funds are sent. The <code>creditor_account_id</code> is typically an account number or phone number, depending on the receiving institution. Refer to the <a href="#current-eps-participants">participant table</a> for institution-specific account formats.</p>
 <!-- TODO: maybe just make this bold -->
-<h4 id="response-structure">Response structure</h4>
+<h4 id="response-structure">Response structure<a class="headerlink" href="#response-structure" title="Permanent link">&para;</a></h4>
 <!-- **Response structure** -->
 
 <p>The endpoint always returns the same top-level fields:</p>
@@ -1744,7 +1738,7 @@ Details of signing and submitting raw transactions are described in the <a href=
 <a id="__codelineno-3-13" name="__codelineno-3-13" href="#__codelineno-3-13"></a><span class="w">  </span><span class="nt">&quot;fee_info&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span>
 <a id="__codelineno-3-14" name="__codelineno-3-14" href="#__codelineno-3-14"></a><span class="p">}</span>
 </code></pre></div>
-<h3 id="send-and-sign-transaction-recommended-flow">Send and Sign Transaction (Recommended Flow)</h3>
+<h3 id="send-and-sign-transaction-recommended-flow">Send and Sign Transaction (Recommended Flow)<a class="headerlink" href="#send-and-sign-transaction-recommended-flow" title="Permanent link">&para;</a></h3>
 <p>For most server-side integrations, you should use:</p>
 <p><a href="https://api.dev.deltacrypt.net/docs#/transactions/eps_withdrawal_transaction_eps_withdrawal_post"><code>POST /transaction/eps-withdrawal</code></a></p>
 <p>This endpoint:</p>
@@ -1791,7 +1785,7 @@ Details of signing and submitting raw transactions are described in the <a href=
 <blockquote>
 <p><strong>Note</strong>: The manual flow follows the same principles as other raw transaction flows described in the blockchain section.</p>
 </blockquote>
-<h3 id="example-payload-outgoing">Example Payload (Outgoing)</h3>
+<h3 id="example-payload-outgoing">Example Payload (Outgoing)<a class="headerlink" href="#example-payload-outgoing" title="Permanent link">&para;</a></h3>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="p">{</span>
 <a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="w">    </span><span class="nt">&quot;transaction_id&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">10000</span><span class="p">,</span>
 <a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a><span class="w">    </span><span class="nt">&quot;transaction_type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;eps_withdrawal&quot;</span><span class="p">,</span>
