@@ -1,4 +1,6 @@
-# Scenario
+# Collections (C2B)
+
+## Scenario
 
 The customer pays for a service using DeltaPay. The service provider is notified of updates regarding the transaction, such as the success or failure of the payment.
 
@@ -85,7 +87,7 @@ Content-Type: application/json
 > If additional processing is required, handle it asynchronously (e.g. by queuing or background jobs) to avoid blocking the callback. -->
 
 
-# Instant Payment Notification (IPN)
+## Instant Payment Notification (IPN)
 
 The IPN callback is triggered for **all updates to transaction statuses** involving either the **sender** or **recipient account**. For more detailed information about callbacks, refer to 
 [this section](../getting_started/callbacks.md).
@@ -149,7 +151,7 @@ base URL + /transaction/ipn
 }
 ```
 
-# Payment Request Status Updates
+## Payment Request Status Updates
 
 This callback is triggered whenever a **payment request status changes** for any request where the **recipient account** is the one associated with the registered callback. For more detailed information about callbacks, refer to 
 [this section](../getting_started/callbacks.md).
@@ -186,7 +188,7 @@ base URL + /payment-request/update
 }
 ```
 
-# Fallback mechanisms
+## Fallback mechanisms
 
 Callbacks are the most efficient way to receive real-time updates, but they rely on your endpoint being continuously available.
 If a callback cannot be delivered, it will currently **not be retried**.

@@ -18,7 +18,7 @@ payment request has not yet been accepted -- This can maybe be moved to the paym
 **Description:**
 Requesting a payment from a user. The user is specified either by their username or the phone number they used to sign up with DeltaPay.
 
-**Request Parameters**
+#### Request Parameters
 
 - `account_id`: *int*
 - `amount`: *number*
@@ -60,7 +60,7 @@ The sender of the PR is returned as a
  - user, if the account is a personal account
  - legal entity, if the account is a business account
 
-**Request Parameters**
+#### Request Parameters
 
 either
 
@@ -88,7 +88,7 @@ The sender of the PR is returned as a
  - user, if the account is a personal account
  - legal entity, if the account is a business account
 
-**Request Parameters**
+#### Request Parameters
 
 - `user_id`: *int*
 - `status`: *string*
@@ -107,7 +107,7 @@ There are two endpoints for getting RPs outgoing from a user and a legal entity,
 
 This endpoint returns all PRs that request funds to be sent to an account the user is linked to.
 
-**Request Parameters**
+#### Request Parameters
 
 - `user_id`: *int*
 - `status`: *string*
@@ -121,7 +121,7 @@ The caller must have the `view_payment_requests` permission, either generally or
 
 This endpoint returns all PRs that request funds to be sent to an account the legal entity is linked to.
 
-**Request Parameters**
+#### Request Parameters
 
 - `legal_entity_id`: *int*
 - `status`: *string*

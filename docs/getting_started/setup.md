@@ -1,4 +1,6 @@
-# Client Onboarding
+# Initial Setup
+
+## Client Onboarding
 
 The client must be fully onboarded before any API integration can take place. This involves the collection and review of the client's documents as well as the account creation process. Please refer to the DeltaPay terms and conditions for more information. In particular, this process involves the following:
 
@@ -7,7 +9,7 @@ The client must be fully onboarded before any API integration can take place. Th
 - DeltaPay creates and sets up the account(s) as specified in the resolution
 
 
-# API Key Creation
+## API Key Creation
 
 Once the client onboarding and account setup are complete, the API keys can be generated. This process can either be completed by the client himself or by DeltaPay on his behalf. The following points are worth considering:
 
@@ -24,7 +26,7 @@ Once the client onboarding and account setup are complete, the API keys can be g
 If the client decides to generate the key(s) himself, he must call the following endpoint:
 
 
-## Create API Key
+### Create API Key
 
 [`POST /legal-entity/api-key/create`](https://api.dev.deltacrypt.net/docs#/legal_entities/create_api_key_legal_entity_api_key_create_post)
 
@@ -32,7 +34,7 @@ API keys are valid for five years and can be named to differentiate between them
 
 The generated key is only visible once upon creation; it is the client's responsibility to store and manage it securely.
 
-**Request Parameters**
+#### Request Parameters
 
 - `legal_entity_id`: *int*
 - `name`: *string*
@@ -57,13 +59,13 @@ The caller must have the `create_api_key` permission, either generally or specif
 After the API key has been created, DeltaPay will grant it permissions based on the client's requirements. Please refer to the **Permissions** chapter for more information.
 
 
-## Get API Keys
+### Get API Keys
 
 [`GET /legal-entity/api-keys`](https://api.dev.deltacrypt.net/docs#/legal_entities/get_api_keys_from_legal_entity_id_legal_entity_api_keys_get)
 
 Returns the API keys attached to a legal entity.
 
-**Request Parameters**
+#### Request Parameters
 
 - `legal_entity_id`: *int*
 
@@ -100,7 +102,7 @@ The caller must have the `view_api_keys` permission, either generally or specifi
 Note how the API key with `id` 4 we previously created only returns the prefix and name but not the full key.
 
 
-## Revoke API Key
+### Revoke API Key
 [`DELETE legal-entity/api-key/revoke`](https://api.dev.deltacrypt.net/docs#/legal_entities/deactivate_api_key_legal_entity_api_key_revoke_delete)
 
 API keys can be revoked prior to their expiry date. It is crucial to revoke keys immediately that are suspected to have been leaked. Revoked keys cannot be reactivated.
@@ -114,7 +116,7 @@ API keys can be revoked prior to their expiry date. It is crucial to revoke keys
 The caller must have the `revoke_api_key` permission, either generally or specifically for the legal entity that the key is linked to.
 
 
-## Linking API Key
+### Linking API Key
 
 As mentioned in **Blockchain Transaction Signatures**, the user must link the wallet address and account and either user or API key in order to use for it to be whitelisted on the blockchain.
 
@@ -123,13 +125,13 @@ Please refer to the code example for more details on this process.
 In the case of API keys, this is achieved by calling the following endpoint:
 
 
-## Link API Key
+### Link API Key
 
 [`POST /account/link-api-key`](https://api.dev.deltacrypt.net/docs#/accounts/register_wallet_address_to_api_key_account_link_api_key_post)
 
 If the API key is already linked to the account, calling this endpoint will update the wallet address. This has the same effect as unlinking and relinking with while providing a different wallet address.
 
-**Request Parameters**
+#### Request Parameters
 
 - `api_key_id`: *int*
 - `account_id`: *int*
@@ -138,14 +140,16 @@ If the API key is already linked to the account, calling this endpoint will upda
 **Required Permissions**
 The caller must have the `link_api_key_to_account` permission, either generally or specifically for the account that the key is being linked to.
 
+### Unlink API Key
 
-### `POST /account/unlink-api-key`
+[`POST /account/unlink-api-key`](https://api.dev.deltacrypt.net/docs#/accounts/unlink_wallet_address_from_api_key_account_unlink_api_key_post)
+
 
 API keys can be unlinked again. The wallet address that was provided when linking the key will be removed from the whitelist and added to the list of deactivated wallet addresses for the account-API-key pair.
 
 **Important**: Immediately unlink (or update) the API key if there is suspicion that the private key matching the wallet address linked to the account has been leaked. After unlinking the key, the same key can be linked again while providing a different wallet address (of a newly generated wallet). Alternatively, `POST /account/link-api-key` can be called directly with the new wallet address. This has the same effect as unlinking and relinking.
 
-**Request Parameters**
+#### Request Parameters
 - `api_key_id`: *int*
 - `account_id`: *int*
 

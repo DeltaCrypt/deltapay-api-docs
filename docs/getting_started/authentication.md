@@ -18,12 +18,13 @@ This form of authentication is designed for individual users. The generated toke
 ### Login Endpoint
 The `POST /login` endpoint expects `x-www-form-url-encoded` data. This is an exception, as all other POST endpoints expect JSON-encoded data.
 
-**Request Parameters**
+#### Request Parameters
 
 - `username`: `string`
 - `password`: `string`
 
-**Example Response**
+#### Example Response
+
 ```json
 {
   "token_type": "bearer",
@@ -85,6 +86,8 @@ The error response will provide details on the type of exception, _e.g._
 
 The following exceptions can occur:
 
+#### General
+
 - Not authorized
 - Username or password incorrect
 - User not confirmed
@@ -97,7 +100,7 @@ The following exceptions can occur:
 - Provide either a token or an API key, not both
 - Either a token or an API key must be provided
 
-**SignUp**:
+#### SignUp
 
 - Failed
 - User not found
@@ -109,7 +112,7 @@ The following exceptions can occur:
 - Confirmation code has expired
 - Attempt limit exceeded
 
-**Login**:
+#### Login:
 
 - Failed
 - Another challenge is required
@@ -117,7 +120,7 @@ The following exceptions can occur:
 
 **Refresh Access Token**: Failed
 
-**Forgot Password**:
+#### Forgot Password
 
 - Failed
 - Username not found
@@ -127,13 +130,13 @@ The following exceptions can occur:
 - Too many failed attempts
 - Password does not meet the requirements
 
-**Change Password**:
+#### Change Password
 
 - Failed
 - Password does not meet the requirements
 - Attempt limit exceeded
 
-**Change Phone Number**:
+#### Change Phone Number
 
 - Failed
 - Code is incorrect

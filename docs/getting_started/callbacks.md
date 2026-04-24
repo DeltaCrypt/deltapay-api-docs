@@ -56,7 +56,7 @@ When retrieving callbacks registered for a specific account, the `view_callback_
 1. Registers the callback for the specified account.
 2. Generates a new signing key pair. The public key is returned and must be used to verify callback signatures.
 
-**Request Parameters**
+#### Request Parameters
 
 * `callback_url`: *string* — The base URL to which DeltaPay will send callbacks
 * `account_id`: *int* — The account for which the callback applies
@@ -66,7 +66,7 @@ When retrieving callbacks registered for a specific account, the `view_callback_
 
 The caller must have the `set_callback_url` permission, either generally or specifically for the account **and** manager legal entity that the callback URL is set for.
 
-**Example Response**
+#### Example Response
 
 ```json
 {

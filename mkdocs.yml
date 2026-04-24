@@ -83,6 +83,9 @@ markdown_extensions:
   - admonition
   - pymdownx.arithmatex:
       generic: true
+  - toc:
+      permalink: true
+      toc_depth: 2-3
   - footnotes
   - pymdownx.details
   - pymdownx.superfences
@@ -101,8 +104,8 @@ nav:
       - Setup: getting_started/setup.md
       - Callbacks: getting_started/callbacks.md
   - Common Use Cases:
-      - C2B (Collection): common_usecases/c2b.md
-      - B2C (Disbursement): common_usecases/b2c.md
+      - Collection (C2B): common_usecases/c2b.md
+      - Disbursements (B2C): common_usecases/b2c.md
       - QR Code Spec: common_usecases/qr_code.md
       - Payment Requests: common_usecases/payment_requests.md
       - EPS (Eswatini Payment Switch): common_usecases/eps.md

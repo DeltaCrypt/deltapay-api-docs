@@ -1,4 +1,6 @@
-# Scenario
+# Disbursements (B2C)
+
+## Scenario
 
 Disbursing funds to a customer’s (or another business’) DeltaPay account follows this process:
 
@@ -71,7 +73,7 @@ This information is primarily useful for debugging or for communicating more det
 The blockchain error endpoints are therefore mostly relevant for edge cases, such as race conditions (e.g. limits or balances changing after the preview call). For more information on how to interact with the blockchain, please refer to [this section](blockchain.md).
 
 
-# Check / Preview Transaction
+## Check / Preview Transaction
 
 Before sending money, it is advisable to preview whether the transaction is likely to succeed. This avoids unnecessary polling and simplifies error handling.
 
@@ -85,13 +87,13 @@ A transaction may fail for several reasons:
 
 > **Note**: Insufficient spending allowances (daily spending limits) **do not** prevent the transaction from being created. In such cases the transaction will be created but **require approval**, which is reflected in its status when you query it or receive callbacks.
 
-## Transfer preview
+### Transfer preview
 
 [`GET /transaction/transfer-preview`](https://api.dev.deltacrypt.net/docs#/transactions/get_preview_transaction_transaction_transfer_preview_get)
 
 This endpoint returns all information needed to decide whether a transfer should be initiated, without actually creating a transaction.
 
-**Request Parameters**
+#### Request Parameters
 
 * `sender_wallet_address`: *string*
 * `transaction_type`: *string*
@@ -106,9 +108,7 @@ The `sender_wallet_address` must be [linked](../getting_started/setup.md#link-ap
 
 The recipient can be identified using (`recipient_phone_country_dialcode` + `recipient_phone_number`), `recipient_username`, **or** a `recipient_business_account_id`. For personal accounts, use either the phone number or the username; for business accounts, use the business account ID.
 
-<!-- TODO: maybe just make this bold -->
-### Response structure
-<!-- **Response structure** -->
+#### Response structure
 
 The endpoint always returns the same top-level fields:
 
@@ -209,7 +209,7 @@ Example race:
 > **Note:** Similar **preview / possible** endpoints exist for other flows (deposits, withdrawals). Refer to the corresponding sections and the Swagger docs for details.
 
 
-# Send and Sign Transaction
+## Send and Sign Transaction
 
 For most server-side integrations, you should use:
 
@@ -224,9 +224,8 @@ This endpoint:
 5. Submits it to the blockchain
 6. Returns a **tracking ID** you can later use to correlate callbacks and queries
 
-<!-- TODO: be consistant with formatting -->
-<!-- ### Request Parameters -->
-**Request Parameters**
+
+#### Request Parameters
 
 <!-- TODO: Update once we fixed phone_number, username, account_id thing -->
 <!-- TODO: most likely to be added:
@@ -256,9 +255,7 @@ The `metadata` is an optional free-form string (e.g., JSON-encoded string with o
 
 <!-- The recipient can be identified using (`recipient_phone_country_dialcode` + `recipient_phone_number`), `recipient_username`, **or** a `recipient_business_account_id`. For personal accounts, use either the phone number or the username; for business accounts, use the business account ID. -->
 
-
-<!-- ### Example Response -->
-**Example Response**
+#### Example Response
 
 ```json
 {
@@ -276,7 +273,7 @@ If you cannot send the private key to DeltaPay, or you maintain your own signing
 
 [`POST /transaction/initiate-transfer`](https://api.dev.deltacrypt.net/docs#/transactions/initiate_transfer_transaction_initiate_transfer_post)
 
-**Request Parameters**
+#### Request Parameters
 
 The body closely mirrors [`POST /transaction/send-transfer`](https://api.dev.deltacrypt.net/docs#/transactions/send_transfer_transaction_send_transfer_post), replacing the `private_key` with the `sender_wallet_address` field. For a detailled explanation of the fields, refer to the [above section](#send-and-sign-transaction).
 
@@ -290,8 +287,7 @@ The body closely mirrors [`POST /transaction/send-transfer`](https://api.dev.del
 * `transaction_type`: *string*
 * `source_of_funds`: *Optional[string]*
 
-
-**Example Response**
+#### Example Response
 
 ```json
 {
