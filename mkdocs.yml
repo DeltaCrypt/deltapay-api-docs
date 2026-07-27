@@ -112,6 +112,7 @@ nav:
       - Bulk CSV Upload: common_usecases/bulk_csv.md
       - Signature Verification: common_usecases/signature_verification.md
       - Blockchain Interactions: common_usecases/blockchain.md
+      - Hosted Checkout: common_usecases/hosted_checkout.md
 
 copyright: |
   &copy; 2024 DeltaCrypt GmbH. All rights reserved.
