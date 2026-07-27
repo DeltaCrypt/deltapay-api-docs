@@ -12,13 +12,11 @@
         <meta name="author" content="Adrian Albert Koch">
       
       
-        <link rel="canonical" href="https://deltapay.co.sz/common_usecases/bulk_csv/">
+        <link rel="canonical" href="https://deltapay.co.sz/common_usecases/hosted_checkout/">
       
       
-        <link rel="prev" href="../eps/">
+        <link rel="prev" href="../blockchain/">
       
-      
-        <link rel="next" href="../signature_verification/">
       
       
         
@@ -29,7 +27,7 @@
     
     
       
-        <title>Bulk CSV Upload - DeltaPay API Documentation</title>
+        <title>Hosted Checkout - DeltaPay API Documentation</title>
       
     
     
@@ -80,7 +78,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#1-purpose" class="md-skip">
+        <a href="#scenario" class="md-skip">
           Skip to content
         </a>
       
@@ -114,7 +112,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Bulk CSV Upload
+              Hosted Checkout
             
           </span>
         </div>
@@ -741,35 +739,10 @@
                 
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Bulk CSV Upload
-  
-
-    
-  </span>
-  
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../bulk_csv/" class="md-nav__link">
         
   
   
@@ -785,240 +758,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#1-purpose" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        1. Purpose
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#2-file-format" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        2. File format
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="2. File format">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#general-rules" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        General rules
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#phone-number-format" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Phone number format
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#validation-behaviour" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Validation behaviour
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#whitespace" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Whitespace
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#3-high-level-design" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        3. High-level design
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#4-column-specification" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        4. Column specification
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="4. Column specification">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#41-common-columns" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        4.1 Common columns
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#42-delta-recipient-columns" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        4.2 DELTA recipient columns
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#43-eps-recipient-columns" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        4.3 EPS recipient columns
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#banks" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Banks
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#mobile-wallet-providers" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Mobile Wallet Providers
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#44-bank-recipient-columns" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        4.4 BANK recipient columns
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#5-header-definition" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        5. Header definition
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="5. Header definition">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#51-delta-row" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        5.1 DELTA row
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#52-eps-row" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        5.2 EPS row
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#53-bank-row" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        5.3 BANK row
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -1084,10 +823,35 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../hosted_checkout/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Hosted Checkout
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   
@@ -1103,6 +867,173 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#scenario" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Scenario
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#setup" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Setup
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#core-flow" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Core flow
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Core flow">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-create-a-session" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Create a session
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-verify-the-result" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Verify the result
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#session-status" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Session status
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#redirects" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Redirects
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#branding-and-logo" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Branding and logo
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#session-callbacks" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Session callbacks
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#retries" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Retries
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#upfront-payer-identifier" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Upfront payer identifier
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#qr-code-payments" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        QR code payments
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#automatic-duplicate-payment-reversal" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Automatic duplicate payment reversal
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -1140,10 +1071,10 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#1-purpose" class="md-nav__link">
+  <a href="#scenario" class="md-nav__link">
     <span class="md-ellipsis">
       
-        1. Purpose
+        Scenario
       
     </span>
   </a>
@@ -1151,22 +1082,33 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#2-file-format" class="md-nav__link">
+  <a href="#setup" class="md-nav__link">
     <span class="md-ellipsis">
       
-        2. File format
+        Setup
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="2. File format">
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#core-flow" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Core flow
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Core flow">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#general-rules" class="md-nav__link">
+  <a href="#1-create-a-session" class="md-nav__link">
     <span class="md-ellipsis">
       
-        General rules
+        1. Create a session
       
     </span>
   </a>
@@ -1174,32 +1116,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#phone-number-format" class="md-nav__link">
+  <a href="#2-verify-the-result" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Phone number format
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#validation-behaviour" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Validation behaviour
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#whitespace" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Whitespace
+        2. Verify the result
       
     </span>
   </a>
@@ -1212,10 +1132,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#3-high-level-design" class="md-nav__link">
+  <a href="#session-status" class="md-nav__link">
     <span class="md-ellipsis">
       
-        3. High-level design
+        Session status
       
     </span>
   </a>
@@ -1223,135 +1143,79 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#4-column-specification" class="md-nav__link">
+  <a href="#redirects" class="md-nav__link">
     <span class="md-ellipsis">
       
-        4. Column specification
+        Redirects
       
     </span>
   </a>
-  
-    <nav class="md-nav" aria-label="4. Column specification">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#41-common-columns" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        4.1 Common columns
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#42-delta-recipient-columns" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        4.2 DELTA recipient columns
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#43-eps-recipient-columns" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        4.3 EPS recipient columns
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#banks" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Banks
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#mobile-wallet-providers" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Mobile Wallet Providers
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#44-bank-recipient-columns" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        4.4 BANK recipient columns
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#5-header-definition" class="md-nav__link">
+  <a href="#branding-and-logo" class="md-nav__link">
     <span class="md-ellipsis">
       
-        5. Header definition
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="5. Header definition">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#51-delta-row" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        5.1 DELTA row
+        Branding and logo
       
     </span>
   </a>
   
 </li>
-        
-          <li class="md-nav__item">
-  <a href="#52-eps-row" class="md-nav__link">
+      
+        <li class="md-nav__item">
+  <a href="#session-callbacks" class="md-nav__link">
     <span class="md-ellipsis">
       
-        5.2 EPS row
+        Session callbacks
       
     </span>
   </a>
   
 </li>
-        
-          <li class="md-nav__item">
-  <a href="#53-bank-row" class="md-nav__link">
+      
+        <li class="md-nav__item">
+  <a href="#retries" class="md-nav__link">
     <span class="md-ellipsis">
       
-        5.3 BANK row
+        Retries
       
     </span>
   </a>
   
 </li>
-        
-      </ul>
-    </nav>
+      
+        <li class="md-nav__item">
+  <a href="#upfront-payer-identifier" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Upfront payer identifier
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#qr-code-payments" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        QR code payments
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#automatic-duplicate-payment-reversal" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Automatic duplicate payment reversal
+      
+    </span>
+  </a>
   
 </li>
       
@@ -1372,340 +1236,167 @@
 
 
 
-<h1 id="deltapay-bulk-payment-import-csv-specification">DeltaPay Bulk Payment Import CSV Specification<a class="headerlink" href="#deltapay-bulk-payment-import-csv-specification" title="Permanent link">&para;</a></h1>
-<h2 id="1-purpose">1. Purpose<a class="headerlink" href="#1-purpose" title="Permanent link">&para;</a></h2>
-<p>This CSV format is used to submit bulk payment instructions into DeltaPay.</p>
-<p>It supports the following payment routes:</p>
+<h1 id="hosted-checkout">Hosted Checkout<a class="headerlink" href="#hosted-checkout" title="Permanent link">&para;</a></h1>
+<p>Hosted Checkout lets your platform (a WooCommerce plugin, a custom website, or any other e-commerce integration) accept DeltaPay payments without building the payment flow yourself. DeltaPay hosts the payment page — you create a session, redirect the customer to it, and read back the result.</p>
+<p>At a high level: your server creates a checkout session and redirects the customer to a DeltaPay-hosted page. There the customer pays either by entering their DeltaPay phone number or username (and approving the payment request in the DeltaPay app) or by scanning the QR code shown on the page. The customer is then redirected back to your site, where you confirm the outcome with a single server-side call.</p>
+<hr />
+<h2 id="scenario">Scenario<a class="headerlink" href="#scenario" title="Permanent link">&para;</a></h2>
+<p>A customer on your online store clicks "Pay with DeltaPay" at checkout. The typical flow looks like this:</p>
+<ol>
+<li>Your server creates a checkout session for the order, specifying the amount and your order reference, and receives back a <code>checkout_url</code>.</li>
+<li>You redirect the customer's browser to the <code>checkout_url</code>.</li>
+<li>On the DeltaPay-hosted page, the customer pays — either by entering their DeltaPay phone number or username and approving the payment request in the app, or by scanning the QR code shown on the page.</li>
+<li>The customer is redirected back to your <code>return_url</code>.</li>
+<li>Your server calls <code>verify-return</code> to confirm the outcome before marking the order as paid.</li>
+</ol>
+<p>The only two calls you make are <strong>create session</strong> and <strong>verify-return</strong> — everything in between happens on the DeltaPay-hosted page. The rest of this document covers those two calls first, then the optional features.</p>
+<hr />
+<h2 id="setup">Setup<a class="headerlink" href="#setup" title="Permanent link">&para;</a></h2>
+<p>Before you can use Hosted Checkout, DeltaPay provisions an integration for your platform. You provide the following details and DeltaPay sets up the integration (and uploads your logo) for you:</p>
 <ul>
-<li><strong>DELTA</strong>: DeltaPay to DeltaPay payments</li>
-<li><strong>EPS</strong>: EPS fast payments (below <strong>E50,000</strong>)</li>
-<li><strong>BANK</strong>: bank transfer payments, typically for payments above <strong>E50,000</strong></li>
+<li><strong>Platform type</strong> — <code>woocommerce</code> or <code>custom_website</code></li>
+<li><strong>Allowed return domains</strong> — the domains your <code>return_url</code> values may use (e.g. <code>myshop.co.sz</code>). This prevents open-redirect abuse.</li>
+<li><strong>Default return URL</strong> — used if a session is created without one.</li>
+<li><strong>Accepted payer identifiers</strong> <em>(optional)</em> — which identifiers customers may use to pay: phone number, username, or both. Defaults to both.</li>
+<li><strong>Display name</strong> <em>(optional)</em> — what the checkout page shows as the merchant name. Defaults to your legal entity trading name.</li>
+<li><strong>Brand colour</strong> <em>(optional)</em> — hex colour used on the checkout page.</li>
+<li><strong>Logo</strong> <em>(optional)</em> — you supply the image; DeltaPay uploads it.</li>
+<li><strong>Retry limit</strong> <em>(optional)</em> — the maximum number of payment attempts per session. Defaults to 3.</li>
 </ul>
-<p>Each CSV row represents exactly one payment instruction.</p>
-<h2 id="2-file-format">2. File format<a class="headerlink" href="#2-file-format" title="Permanent link">&para;</a></h2>
+<p>DeltaPay returns an <strong>API key</strong>. Keep it secret — it authenticates all your Hosted Checkout requests.</p>
+<hr />
+<h2 id="core-flow">Core flow<a class="headerlink" href="#core-flow" title="Permanent link">&para;</a></h2>
+<h3 id="1-create-a-session">1. Create a session<a class="headerlink" href="#1-create-a-session" title="Permanent link">&para;</a></h3>
+<p><a href="https://api.dev.deltacrypt.net/docs#/hosted_checkout/create_session_v1_hosted_checkout_sessions_post"><code>POST /v1/hosted-checkout/sessions</code></a></p>
+<p>Call this from your server when the customer is ready to pay. Do not call it from the browser.</p>
+<h4 id="request-parameters">Request Parameters<a class="headerlink" href="#request-parameters" title="Permanent link">&para;</a></h4>
 <ul>
-<li>File type: <strong>CSV</strong></li>
-<li>Encoding: <strong>UTF-8</strong></li>
-<li>Delimiter: <strong>comma (, )</strong></li>
-<li>First row: <strong>header row required</strong></li>
-<li>One payment instruction per row</li>
-<li>Empty values should be left blank</li>
-<li>Do not include formulas or multiple values in one cell</li>
+<li><code>amount</code>: <em>number</em> — Amount in SZL (e.g. <code>149.99</code>). Must be greater than 0.</li>
+<li><code>merchant_reference</code>: <em>string</em> — Your internal order reference.</li>
+<li><code>return_url</code>: <em>Optional[string]</em> — Where to redirect the customer after checkout. Must be on an allowed domain. Falls back to the integration's default if omitted.</li>
+<li><code>platform_order_id</code>: <em>Optional[string]</em> — Your platform's order ID (e.g. WooCommerce order number).</li>
+<li><code>display_description</code>: <em>Optional[string]</em> — Shown to the customer on the checkout page (e.g. <code>"Order #1042 at ACME Shop"</code>).</li>
+<li><code>metadata</code>: <em>Optional[string]</em> — Free-form string stored on the session for your own use.</li>
+<li><code>session_callback_url</code>: <em>Optional[string]</em> — A URL on your server that DeltaPay notifies when the session concludes. Must be on an allowed domain. See <a href="#session-callbacks">Session callbacks</a>.</li>
 </ul>
-<h3 id="general-rules">General rules<a class="headerlink" href="#general-rules" title="Permanent link">&para;</a></h3>
-<ul>
-<li>Column names must match the specification exactly</li>
-<li>Amounts must use a decimal point, for example <code>1500.00</code> (Maximum of two decimal points)</li>
-<li>No currency column is included; all amounts are assumed to be <strong>SZL / E</strong></li>
-<li>Values are <strong>case-sensitive</strong> and must match exactly</li>
-<li>No abbreviations or alternative spellings are allowed</li>
-<li>Any value outside this list will result in validation failure</li>
-</ul>
-<h3 id="phone-number-format">Phone number format<a class="headerlink" href="#phone-number-format" title="Permanent link">&para;</a></h3>
-<p>All phone numbers in the CSV must</p>
-<ul>
-<li>be in <strong>international format without the "+" symbol</strong></li>
-<li>contain <strong>country code + number</strong></li>
-<li>contain <strong>digits only (no spaces, dashes, or brackets)</strong></li>
-</ul>
-<p><strong>Example</strong></p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>26878725616
+<p><strong>Authentication</strong>: API key, passed as <code>x-api-key</code> in the request header. See <a href="../../getting_started/authentication/">Authentication</a>.</p>
+<h4 id="example-request">Example Request<a class="headerlink" href="#example-request" title="Permanent link">&para;</a></h4>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="p">{</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="w">  </span><span class="nt">&quot;amount&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">149.99</span><span class="p">,</span>
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">  </span><span class="nt">&quot;merchant_reference&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;ORDER-1042&quot;</span><span class="p">,</span>
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="w">  </span><span class="nt">&quot;return_url&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;https://myshop.co.sz/order/1042/thank-you&quot;</span><span class="p">,</span>
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="w">  </span><span class="nt">&quot;display_description&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Order #1042 at ACME Shop&quot;</span>
+<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="p">}</span>
 </code></pre></div>
-<h3 id="validation-behaviour">Validation behaviour<a class="headerlink" href="#validation-behaviour" title="Permanent link">&para;</a></h3>
-<h4 id="file-level-validation">File-level validation<a class="headerlink" href="#file-level-validation" title="Permanent link">&para;</a></h4>
-<ul>
-<li>Invalid CSV format → entire file rejected</li>
-<li>Missing required headers → entire file rejected</li>
-</ul>
-<h4 id="row-level-validation">Row-level validation<a class="headerlink" href="#row-level-validation" title="Permanent link">&para;</a></h4>
-<ul>
-<li>Invalid rows are rejected individually</li>
-<li>Valid rows are still processed (partial success allowed)</li>
-<li>Only fields relevant to the selected <code>payment_method</code> may be populated</li>
-<li>Any unrelated field being non-empty must result in validation failure</li>
-</ul>
-<h3 id="whitespace">Whitespace<a class="headerlink" href="#whitespace" title="Permanent link">&para;</a></h3>
-<ul>
-<li>No leading or trailing whitespace allowed</li>
-<li>Empty strings and whitespace-only values are treated as empty</li>
-</ul>
-<h2 id="3-high-level-design">3. High-level design<a class="headerlink" href="#3-high-level-design" title="Permanent link">&para;</a></h2>
-<p>The file uses one required routing field:</p>
-<ul>
-<li><code>payment_method</code></li>
-</ul>
-<p>Allowed values:</p>
-<ul>
-<li><code>DELTA</code></li>
-<li><code>EPS</code></li>
-<li><code>BANK</code></li>
-</ul>
-<p>This determines which recipient fields are required for that row.</p>
-<h2 id="4-column-specification">4. Column specification<a class="headerlink" href="#4-column-specification" title="Permanent link">&para;</a></h2>
-<h3 id="41-common-columns">4.1 Common columns<a class="headerlink" href="#41-common-columns" title="Permanent link">&para;</a></h3>
-<p>These columns apply to all rows.</p>
-<table>
-<thead>
-<tr>
-<th>Column</th>
-<th style="text-align: right;">Required</th>
-<th>Type</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>payment_method</code></td>
-<td style="text-align: right;">Yes</td>
-<td>enum</td>
-<td>One of <code>DELTA</code>, <code>EPS</code>, <code>BANK</code></td>
-</tr>
-<tr>
-<td><code>amount</code></td>
-<td style="text-align: right;">Yes</td>
-<td>decimal</td>
-<td>Payment amount in SZL</td>
-</tr>
-<tr>
-<td><code>note</code></td>
-<td style="text-align: right;">No</td>
-<td>string</td>
-<td>Human-readable payment note</td>
-</tr>
-<tr>
-<td><code>client_reference</code></td>
-<td style="text-align: right;">No but strongly recommended</td>
-<td>string</td>
-<td>Free-form external reference or JSON system for reconciliation and idempotency</td>
-</tr>
-</tbody>
-</table>
-<blockquote>
-<p><strong>Note: ** The <code>client_reference</code> should be globally </strong>unique<em><em> accross all transactions past, current, and future (</em>e.g.</em> 64 character uuid)</p>
-</blockquote>
-<h4 id="amount-validation">Amount validation<a class="headerlink" href="#amount-validation" title="Permanent link">&para;</a></h4>
-<ul>
-<li>Must be greater than <code>0</code></li>
-<li>Maximum of 2 decimal places</li>
-<li>Must not exceed system or regulatory limits<ul>
-<li>For <code>EPS</code>, must be <code>&lt;= 50,000</code></li>
-<li>For <code>BANK</code>, must be <code>&gt; 50,000</code> (if you want strict routing separation)</li>
-</ul>
-</li>
-</ul>
-<h3 id="42-delta-recipient-columns">4.2 DELTA recipient columns<a class="headerlink" href="#42-delta-recipient-columns" title="Permanent link">&para;</a></h3>
-<p>These columns are used only when <code>payment_method = DELTA</code>.</p>
-<p>Exactly <strong>one</strong> of the following must be provided:</p>
-<ul>
-<li><code>delta_recipient_account_id</code></li>
-<li><code>delta_recipient_username</code></li>
-<li><code>delta_recipient_phone_number</code></li>
-</ul>
-<table>
-<thead>
-<tr>
-<th>Column</th>
-<th style="text-align: right;">Required for DELTA</th>
-<th>Type</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>delta_recipient_account_id</code></td>
-<td style="text-align: right;">Conditionally</td>
-<td>string</td>
-<td>DeltaPay account ID</td>
-</tr>
-<tr>
-<td><code>delta_recipient_username</code></td>
-<td style="text-align: right;">Conditionally</td>
-<td>string</td>
-<td>DeltaPay username</td>
-</tr>
-<tr>
-<td><code>delta_recipient_phone_number</code></td>
-<td style="text-align: right;">Conditionally</td>
-<td>string</td>
-<td>DeltaPay phone number</td>
-</tr>
-<tr>
-<td><code>transaction_type</code></td>
-<td style="text-align: right;">No but recommended</td>
-<td>string</td>
-<td>Source-defined transaction type, preferably populated for DeltaPay processing</td>
-</tr>
-</tbody>
-</table>
-<p>The <code>transaction_type</code> field is optional but <strong>strongly recommended</strong> for DELTA payments.
-The following values are allowed for bulk upload:</p>
-<ul>
-<li><code>income</code></li>
-<li><code>groceries</code></li>
-<li><code>transportation</code></li>
-<li><code>rent</code></li>
-<li><code>utilities</code></li>
-<li><code>healthcare</code></li>
-<li><code>education</code></li>
-<li><code>airtime</code></li>
-<li><code>clothing</code></li>
-<li><code>household</code></li>
-<li><code>entertainment</code></li>
-<li><code>business</code></li>
-<li><code>taxes</code></li>
-<li><code>savings</code></li>
-<li><code>eating_out</code></li>
-<li><code>deceased</code></li>
-<li><code>other</code></li>
-</ul>
-<p>If not provided, it will deafult to <code>income</code>.</p>
-<h3 id="43-eps-recipient-columns">4.3 EPS recipient columns<a class="headerlink" href="#43-eps-recipient-columns" title="Permanent link">&para;</a></h3>
-<p>These columns are used only when <code>payment_method = EPS</code>.</p>
-<p>Exactly <strong>one</strong> of the following must be provided:</p>
-<ul>
-<li><code>eps_recipient_account_number</code></li>
-<li><code>eps_recipient_phone_number</code></li>
-</ul>
-<table>
-<thead>
-<tr>
-<th>Column</th>
-<th style="text-align: right;">Required for EPS</th>
-<th>Type</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>eps_recipient_agent_id</code></td>
-<td style="text-align: right;">Yes</td>
-<td>string</td>
-<td>EPS agent / institution identifier</td>
-</tr>
-<tr>
-<td><code>eps_recipient_account_number</code></td>
-<td style="text-align: right;">Conditionally</td>
-<td>string</td>
-<td>Recipient bank account or wallet account number</td>
-</tr>
-<tr>
-<td><code>eps_recipient_phone_number</code></td>
-<td style="text-align: right;">Conditionally</td>
-<td>string</td>
-<td>Recipient mobile number</td>
-</tr>
-</tbody>
-</table>
-<p><strong>For EPS rows:</strong></p>
-<blockquote>
-<p><strong>Note:</strong> The amount must be <strong>less than or equal to E50,000</strong>, subject to DeltaPay and EPS validation rules</p>
-</blockquote>
-<p>The <code>eps_recipient_agent_id</code> must be a valid <strong>National Payment Switch participant identifier</strong> as defined by the Central Bank of Eswatini.</p>
-<p>According to the <em>National Payment Switch Participant Identification document (v1.5)</em> , the following identifiers are supported:</p>
-<h3 id="banks">Banks<a class="headerlink" href="#banks" title="Permanent link">&para;</a></h3>
-<ul>
-<li><code>103001</code> — Eswatini Bank</li>
-<li><code>103002</code> — First National Bank</li>
-<li><code>103003</code> — Nedbank</li>
-<li><code>103004</code> — Standard Bank</li>
-<li><code>103005</code> — Swaziland Building Society</li>
-<li><code>103006</code> — Central Bank of Eswatini</li>
-</ul>
-<h3 id="mobile-wallet-providers">Mobile Wallet Providers<a class="headerlink" href="#mobile-wallet-providers" title="Permanent link">&para;</a></h3>
-<ul>
-<li><code>203001</code> — Eswatini Mobile</li>
-<li><code>203002</code> — InstaCash</li>
-<li><code>203003</code> — MTN</li>
-<li><code>203004</code> — Standard Bank (Unayo)</li>
-<li><code>203005</code> — Swaziland Building Society</li>
-<li><code>203006</code> — DeltaPay</li>
-</ul>
-<h3 id="44-bank-recipient-columns">4.4 BANK recipient columns<a class="headerlink" href="#44-bank-recipient-columns" title="Permanent link">&para;</a></h3>
-<p>These columns are used only when <code>payment_method = BANK</code>.</p>
-<table>
-<thead>
-<tr>
-<th>Column</th>
-<th style="text-align: right;">Required for BANK</th>
-<th>Type</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>bank_recipient_account_holder</code></td>
-<td style="text-align: right;">Yes</td>
-<td>string</td>
-<td>Name of the bank account holder</td>
-</tr>
-<tr>
-<td><code>bank_recipient_account_number</code></td>
-<td style="text-align: right;">Yes</td>
-<td>string</td>
-<td>Bank account number</td>
-</tr>
-<tr>
-<td><code>bank_recipient_bank_code</code></td>
-<td style="text-align: right;">Yes</td>
-<td>string</td>
-<td>Bank identifier from a DeltaPay-supported enum / reference list</td>
-</tr>
-<tr>
-<td><code>bank_recipient_branch_code</code></td>
-<td style="text-align: right;">Yes</td>
-<td>string</td>
-<td>Branch code</td>
-</tr>
-</tbody>
-</table>
-<p>The <code>bank_recipient_bank_code</code> field must use one of the following exact values:</p>
-<ul>
-<li><code>FNB_SZ</code> — First National Bank</li>
-<li><code>STB_SZ</code> — Standard Bank</li>
-<li><code>NED_SZ</code> — Nedbank</li>
-<li><code>ESW_SZ</code> — Eswatini Bank</li>
-</ul>
-<h2 id="5-header-definition">5. Header definition<a class="headerlink" href="#5-header-definition" title="Permanent link">&para;</a></h2>
-<p>The recommended full CSV header is:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>payment_method,amount,note,client_reference,transaction_type,delta_recipient_account_id,delta_recipient_username,delta_recipient_phone_number,eps_recipient_agent_id,eps_recipient_account_number,eps_recipient_phone_number,bank_recipient_account_holder,bank_recipient_account_number,bank_recipient_bank_code,bank_recipient_branch_code
+<h4 id="example-response">Example Response<a class="headerlink" href="#example-response" title="Permanent link">&para;</a></h4>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="p">{</span>
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="w">  </span><span class="nt">&quot;checkout_session_id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;a3f2c891-4e10-4b2d-bc3a-1234567890ab&quot;</span><span class="p">,</span>
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="w">  </span><span class="nt">&quot;checkout_url&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;https://checkout.deltacrypt.net/hosted-checkout/?checkout_session_id=a3f2c891-4e10-4b2d-bc3a-1234567890ab&quot;</span><span class="p">,</span>
+<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="w">  </span><span class="nt">&quot;expires_at&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;2025-01-01T12:10:00Z&quot;</span>
+<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="p">}</span>
 </code></pre></div>
-<h3 id="51-delta-row">5.1 DELTA row<a class="headerlink" href="#51-delta-row" title="Permanent link">&para;</a></h3>
-<p>Must populate:</p>
+<p>Redirect the customer's browser to the returned <code>checkout_url</code>. Sessions expire <strong>10 minutes</strong> after creation; the checkout page shows a countdown.</p>
+<h3 id="2-verify-the-result">2. Verify the result<a class="headerlink" href="#2-verify-the-result" title="Permanent link">&para;</a></h3>
+<p><a href="https://api.dev.deltacrypt.net/docs#/hosted_checkout/verify_return_v1_hosted_checkout_sessions__checkout_session_id__verify_return_get"><code>GET /v1/hosted-checkout/sessions/{checkout_session_id}/verify-return</code></a></p>
+<p>When the customer returns to your <code>return_url</code>, call this from your server to get the authoritative outcome.</p>
+<blockquote>
+<p><strong>The redirect back to your site is not proof of payment.</strong> A customer can close the tab, lose connectivity, or navigate to the <code>return_url</code> manually. <code>verify-return</code> is the single source of truth — always call it before fulfilling an order, and treat a <code>status</code> of <code>succeeded</code> as the only confirmation of payment. It is a read-only call and is safe to call more than once.</p>
+</blockquote>
+<p><strong>Authentication</strong>: API key (<code>x-api-key</code> header)</p>
+<h4 id="example-response_1">Example Response<a class="headerlink" href="#example-response_1" title="Permanent link">&para;</a></h4>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="p">{</span>
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="w">  </span><span class="nt">&quot;checkout_session_id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;a3f2c891-4e10-4b2d-bc3a-1234567890ab&quot;</span><span class="p">,</span>
+<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="w">  </span><span class="nt">&quot;status&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;succeeded&quot;</span><span class="p">,</span>
+<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="w">  </span><span class="nt">&quot;merchant_reference&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;ORDER-1042&quot;</span><span class="p">,</span>
+<a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a><span class="w">  </span><span class="nt">&quot;platform_order_id&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span>
+<a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a><span class="w">  </span><span class="nt">&quot;amount&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">149.99</span><span class="p">,</span>
+<a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a><span class="w">  </span><span class="nt">&quot;finalised_at&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;2025-01-01T12:04:33Z&quot;</span>
+<a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a><span class="p">}</span>
+</code></pre></div>
+<hr />
+<h2 id="session-status">Session status<a class="headerlink" href="#session-status" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Status</th>
+<th>Meaning</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>pending</code></td>
+<td>Awaiting the customer's phone number or username.</td>
+</tr>
+<tr>
+<td><code>processing</code></td>
+<td>A payment request has been sent; waiting for the customer to approve it in the app.</td>
+</tr>
+<tr>
+<td><code>succeeded</code></td>
+<td>Payment received.</td>
+</tr>
+<tr>
+<td><code>failed</code></td>
+<td>All allowed attempts were exhausted without a successful payment.</td>
+</tr>
+<tr>
+<td><code>expired</code></td>
+<td>The session timed out before payment was completed.</td>
+</tr>
+<tr>
+<td><code>cancelled</code></td>
+<td>The session was cancelled.</td>
+</tr>
+</tbody>
+</table>
+<p>Only <code>succeeded</code> means the order has been paid.</p>
+<hr />
+<h2 id="redirects">Redirects<a class="headerlink" href="#redirects" title="Permanent link">&para;</a></h2>
+<p>There are two redirects in the flow:</p>
+<ol>
+<li><strong>Into checkout</strong> — after creating a session, you redirect the customer's browser to the <code>checkout_url</code>.</li>
+<li><strong>Back to your site</strong> — once the session concludes, the checkout page redirects the customer back to your <code>return_url</code>.</li>
+</ol>
+<p>The <code>return_url</code> is either supplied per session or falls back to your integration's default. Either way it must be on one of your allowed return domains — this is validated when the session is created. The same applies to <code>session_callback_url</code>.</p>
+<p>Because the return redirect is not proof of payment, confirm every order with <a href="#2-verify-the-result"><code>verify-return</code></a>.</p>
+<hr />
+<h2 id="branding-and-logo">Branding and logo<a class="headerlink" href="#branding-and-logo" title="Permanent link">&para;</a></h2>
+<p>The checkout page is branded per integration with your display name, brand colour, and logo. You supply these during <a href="#setup">setup</a> and DeltaPay configures them — there is no merchant-facing endpoint for branding; it is part of provisioning.</p>
+<hr />
+<h2 id="session-callbacks">Session callbacks<a class="headerlink" href="#session-callbacks" title="Permanent link">&para;</a></h2>
+<p>If you provide a <code>session_callback_url</code> when creating a session, DeltaPay sends a <code>POST</code> to that URL when the session concludes (<code>succeeded</code>, <code>failed</code>, <code>expired</code>, or <code>cancelled</code>). The body contains only the session id:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="p">{</span>
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="w">  </span><span class="nt">&quot;checkout_session_id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;a3f2c891-4e10-4b2d-bc3a-1234567890ab&quot;</span>
+<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="p">}</span>
+</code></pre></div>
+<p>The callback tells you <em>when</em> to check, not <em>what</em> the outcome was — respond with HTTP 200 and call <a href="#2-verify-the-result"><code>verify-return</code></a> for the authoritative result. Callbacks are best-effort, so treat them as an optimisation: even if one is missed, the customer's redirect to your <code>return_url</code> is a reliable trigger to verify.</p>
+<hr />
+<h2 id="retries">Retries<a class="headerlink" href="#retries" title="Permanent link">&para;</a></h2>
+<p>If a payment attempt fails (the customer rejected it, it timed out, or the identifier was wrong), the checkout page prompts the customer to try again. Your integration's retry limit sets the <strong>maximum total number of attempts</strong> per session (default: 3) — so a limit of 3 allows the first attempt plus two retries. Once the limit is reached, the session is marked <code>failed</code> and the customer is returned to your site.</p>
+<hr />
+<h2 id="upfront-payer-identifier">Upfront payer identifier<a class="headerlink" href="#upfront-payer-identifier" title="Permanent link">&para;</a></h2>
+<p>If you already know the customer's DeltaPay phone number or username at session creation (e.g. from a saved account), you can pass it upfront to skip the identifier-entry step on the checkout page.</p>
+<h4 id="additional-request-parameters">Additional Request Parameters<a class="headerlink" href="#additional-request-parameters" title="Permanent link">&para;</a></h4>
 <ul>
-<li><code>payment_method = DELTA</code></li>
-<li><code>amount</code></li>
-<li>exactly one DELTA recipient field</li>
+<li><code>payer_identifier_type</code>: <em>string</em> — <code>phone_number</code> or <code>username</code></li>
+<li><code>payer_identifier</code>: <em>string</em> — The phone number (E.164 format, e.g. <code>+26876123456</code>) or username.</li>
 </ul>
-<p>Must leave blank:</p>
-<ul>
-<li>all EPS fields</li>
-<li>all BANK fields</li>
-</ul>
-<h3 id="52-eps-row">5.2 EPS row<a class="headerlink" href="#52-eps-row" title="Permanent link">&para;</a></h3>
-<p>Must populate:</p>
-<ul>
-<li><code>payment_method = EPS</code></li>
-<li><code>amount</code></li>
-<li><code>eps_recipient_agent_id</code></li>
-<li>exactly one of <code>eps_recipient_account_number</code> or <code>eps_recipient_phone_number</code></li>
-</ul>
-<p>Must leave blank:</p>
-<ul>
-<li>all DELTA fields</li>
-<li>all BANK fields</li>
-</ul>
-<h3 id="53-bank-row">5.3 BANK row<a class="headerlink" href="#53-bank-row" title="Permanent link">&para;</a></h3>
-<p>Must populate:</p>
-<ul>
-<li><code>payment_method = BANK</code></li>
-<li><code>amount</code></li>
-<li>all BANK recipient fields</li>
-</ul>
-<p>Must leave blank:</p>
-<ul>
-<li>all DELTA fields</li>
-<li>all EPS fields</li>
-</ul>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="p">{</span>
+<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="w">  </span><span class="nt">&quot;amount&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">149.99</span><span class="p">,</span>
+<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="w">  </span><span class="nt">&quot;merchant_reference&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;ORDER-1042&quot;</span><span class="p">,</span>
+<a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a><span class="w">  </span><span class="nt">&quot;return_url&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;https://myshop.co.sz/order/1042/thank-you&quot;</span><span class="p">,</span>
+<a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a><span class="w">  </span><span class="nt">&quot;payer_identifier_type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;phone_number&quot;</span><span class="p">,</span>
+<a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a><span class="w">  </span><span class="nt">&quot;payer_identifier&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;+26876123456&quot;</span>
+<a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a><span class="p">}</span>
+</code></pre></div>
+<p>If the identifier is not found or is invalid, the session falls back to prompting the customer on the checkout page — the session-creation call itself does not fail.</p>
+<hr />
+<h2 id="qr-code-payments">QR code payments<a class="headerlink" href="#qr-code-payments" title="Permanent link">&para;</a></h2>
+<p>As an alternative to entering a phone number or username, the checkout page displays a QR code the customer can scan with the DeltaPay app to pay directly. Both paths settle the same session and produce the same outcome.</p>
+<p>The QR code encodes the exact session amount and recipient. A QR payment must match the session amount exactly to settle it; a payment for a different amount is automatically reversed to the customer.</p>
+<hr />
+<h2 id="automatic-duplicate-payment-reversal">Automatic duplicate payment reversal<a class="headerlink" href="#automatic-duplicate-payment-reversal" title="Permanent link">&para;</a></h2>
+<p>If a customer pays twice for the same session (for example by scanning the QR code after already completing a payment request), DeltaPay automatically reverses the duplicate back to the customer. No action is required on your side, and only one payment is ever retained.</p>
 
 
 
@@ -1741,7 +1432,7 @@ The following values are allowed for bulk upload:</p>
       <nav class="md-footer__inner md-grid" aria-label="Footer" >
         
           
-          <a href="../eps/" class="md-footer__link md-footer__link--prev" aria-label="Previous: EPS (Eswatini Payment Switch)">
+          <a href="../blockchain/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Blockchain Interactions">
             <div class="md-footer__button md-icon">
               
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
@@ -1751,27 +1442,11 @@ The following values are allowed for bulk upload:</p>
                 Previous
               </span>
               <div class="md-ellipsis">
-                EPS (Eswatini Payment Switch)
+                Blockchain Interactions
               </div>
             </div>
           </a>
         
-        
-          
-          <a href="../signature_verification/" class="md-footer__link md-footer__link--next" aria-label="Next: Signature Verification">
-            <div class="md-footer__title">
-              <span class="md-footer__direction">
-                Next
-              </span>
-              <div class="md-ellipsis">
-                Signature Verification
-              </div>
-            </div>
-            <div class="md-footer__button md-icon">
-              
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg>
-            </div>
-          </a>
         
       </nav>
     
